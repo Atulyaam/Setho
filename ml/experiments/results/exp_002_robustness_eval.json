@@ -1,0 +1,122 @@
+{
+  "experiment_id": "exp_002_robustness_eval",
+  "name": "Experiment robustness_eval",
+  "description": "Automated execution of robustness_eval across ['id_00', 'id_02', 'id_04', 'id_06']",
+  "model_type": "stetho_msae",
+  "status": "COMPLETED",
+  "seed": 42,
+  "config": {
+    "experiment_type": "robustness_eval",
+    "machine_ids": [
+      "id_00",
+      "id_02",
+      "id_04",
+      "id_06"
+    ],
+    "seed": 42
+  },
+  "pid": 6748,
+  "start_time": "2026-10-31T18:16:46.082748+00:00",
+  "completion_time": "2026-10-31T18:17:22.469886+00:00",
+  "duration_sec": 36.39,
+  "current_epoch": 0,
+  "max_epochs": 60,
+  "train_loss": null,
+  "val_loss": null,
+  "telemetry": {
+    "timestamp": "2026-10-31T18:17:22.468889+00:00",
+    "ram_used_mb": 14853.07,
+    "ram_total_mb": 16004.66,
+    "ram_percent": 92.8,
+    "cpu_percent": 55.1,
+    "gpu_available": false,
+    "gpu_vram_used_mb": 0.0,
+    "gpu_vram_total_mb": 0.0
+  },
+  "metrics": {
+    "id_00": {
+      "-6.0dB": {
+        "roc_auc": 1.0,
+        "pauc": 1.0,
+        "f1": 0.2353,
+        "mean_score": 0.262256
+      },
+      "+0.0dB": {
+        "roc_auc": 1.0,
+        "pauc": 1.0,
+        "f1": 0.2353,
+        "mean_score": 0.262263
+      },
+      "+6.0dB": {
+        "roc_auc": 1.0,
+        "pauc": 1.0,
+        "f1": 0.2353,
+        "mean_score": 0.262264
+      }
+    },
+    "id_02": {
+      "-6.0dB": {
+        "roc_auc": 1.0,
+        "pauc": 1.0,
+        "f1": 1.0,
+        "mean_score": 0.382833
+      },
+      "+0.0dB": {
+        "roc_auc": 1.0,
+        "pauc": 1.0,
+        "f1": 1.0,
+        "mean_score": 0.382675
+      },
+      "+6.0dB": {
+        "roc_auc": 1.0,
+        "pauc": 1.0,
+        "f1": 1.0,
+        "mean_score": 0.382694
+      }
+    },
+    "id_04": {
+      "-6.0dB": {
+        "roc_auc": 0.8222,
+        "pauc": 0.8246,
+        "f1": 0.9091,
+        "mean_score": 0.285029
+      },
+      "+0.0dB": {
+        "roc_auc": 0.8,
+        "pauc": 0.7895,
+        "f1": 0.9091,
+        "mean_score": 0.285045
+      },
+      "+6.0dB": {
+        "roc_auc": 0.8222,
+        "pauc": 0.8246,
+        "f1": 0.9091,
+        "mean_score": 0.285043
+      }
+    },
+    "id_06": {
+      "-6.0dB": {
+        "roc_auc": 0.9778,
+        "pauc": 0.9649,
+        "f1": 0.9375,
+        "mean_score": 0.338723
+      },
+      "+0.0dB": {
+        "roc_auc": 0.9778,
+        "pauc": 0.9649,
+        "f1": 0.9375,
+        "mean_score": 0.338718
+      },
+      "+6.0dB": {
+        "roc_auc": 0.9778,
+        "pauc": 0.9649,
+        "f1": 0.9375,
+        "mean_score": 0.338716
+      }
+    }
+  },
+  "log_path": "ml\\experiments\\logs\\exp_002_robustness_eval.log",
+  "result_path": "ml\\experiments\\results\\exp_002_robustness_eval.json",
+  "artifact_dir": "ml\\experiments\\artifacts\\exp_002_robustness_eval",
+  "error": null
+}

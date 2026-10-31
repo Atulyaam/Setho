@@ -1,0 +1,86 @@
+{
+  "experiment_id": "exp_003_evt_calibration",
+  "name": "Experiment evt_calibration",
+  "description": "Automated execution of evt_calibration across ['id_00', 'id_02', 'id_04', 'id_06']",
+  "model_type": "stetho_msae",
+  "status": "COMPLETED",
+  "seed": 42,
+  "config": {
+    "experiment_type": "evt_calibration",
+    "machine_ids": [
+      "id_00",
+      "id_02",
+      "id_04",
+      "id_06"
+    ],
+    "seed": 42
+  },
+  "pid": 25676,
+  "start_time": "2026-10-31T18:17:38.239577+00:00",
+  "completion_time": "2026-10-31T18:17:48.118614+00:00",
+  "duration_sec": 9.88,
+  "current_epoch": 0,
+  "max_epochs": 60,
+  "train_loss": null,
+  "val_loss": null,
+  "telemetry": {
+    "timestamp": "2026-10-31T18:17:48.118614+00:00",
+    "ram_used_mb": 14007.12,
+    "ram_total_mb": 16004.66,
+    "ram_percent": 87.5,
+    "cpu_percent": 54.1,
+    "gpu_available": false,
+    "gpu_vram_used_mb": 0.0,
+    "gpu_vram_total_mb": 0.0
+  },
+  "metrics": {
+    "id_00": {
+      "theta_empirical_95": 0.322461,
+      "theta_evt_95": 0.338584,
+      "empirical_fpr": 0.0,
+      "empirical_recall": 0.1333,
+      "empirical_f1": 0.2353,
+      "evt_fpr": 0.0,
+      "evt_recall": 0.0,
+      "evt_f1": 0.0,
+      "fpr_reduction": 0.0
+    },
+    "id_02": {
+      "theta_empirical_95": 0.261488,
+      "theta_evt_95": 0.274562,
+      "empirical_fpr": 0.0,
+      "empirical_recall": 1.0,
+      "empirical_f1": 1.0,
+      "evt_fpr": 0.0,
+      "evt_recall": 1.0,
+      "evt_f1": 1.0,
+      "fpr_reduction": 0.0
+    },
+    "id_04": {
+      "theta_empirical_95": 0.211811,
+      "theta_evt_95": 0.222402,
+      "empirical_fpr": 1.0,
+      "empirical_recall": 1.0,
+      "empirical_f1": 0.9091,
+      "evt_fpr": 0.6667,
+      "evt_recall": 0.9333,
+      "evt_f1": 0.9032,
+      "fpr_reduction": 0.3333
+    },
+    "id_06": {
+      "theta_empirical_95": 0.269791,
+      "theta_evt_95": 0.28328,
+      "empirical_fpr": 0.6667,
+      "empirical_recall": 1.0,
+      "empirical_f1": 0.9375,
+      "evt_fpr": 0.0,
+      "evt_recall": 0.9333,
+      "evt_f1": 0.9655,
+      "fpr_reduction": 0.6667
+    }
+  },
+  "log_path": "ml\\experiments\\logs\\exp_003_evt_calibration.log",
+  "result_path": "ml\\experiments\\results\\exp_003_evt_calibration.json",
+  "artifact_dir": "ml\\experiments\\artifacts\\exp_003_evt_calibration",
+  "error": null
+}

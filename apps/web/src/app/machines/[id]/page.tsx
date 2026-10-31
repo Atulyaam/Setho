@@ -24,7 +24,11 @@ import {
   ShieldCheck,
   Loader2,
   ChevronRight,
+  QrCode,
 } from "lucide-react";
+import { AcousticFingerprintCard } from "@/components/machine/AcousticFingerprintCard";
+import { AcousticDriftTimeline } from "@/components/machine/AcousticDriftTimeline";
+import { QRCodeModal } from "@/components/machine/QRCodeModal";
 
 export default function MachineDetailPage() {
   const params = useParams();
@@ -36,6 +40,7 @@ export default function MachineDetailPage() {
   const [analyses, setAnalyses] = useState<AnalysisRecord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showQrModal, setShowQrModal] = useState(false);
 
   useEffect(() => {
     async function loadData() {
@@ -131,6 +136,14 @@ export default function MachineDetailPage() {
           </div>
 
           <div className="flex items-center gap-3">
+            <button
+              onClick={() => setShowQrModal(true)}
+              className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-semibold transition flex items-center gap-1.5 border border-slate-700"
+            >
+              <QrCode className="w-4 h-4 text-cyan-400" />
+              <span>QR Asset Tag</span>
+            </button>
+
             <Link
               href={`/machines/${machine.machine_id}/enroll`}
               className="px-4 py-2 bg-teal-50 hover:bg-teal-100 text-brand-700 rounded-xl text-xs font-semibold transition flex items-center gap-1.5 border border-teal-200/50"
@@ -253,6 +266,12 @@ export default function MachineDetailPage() {
               </div>
             )}
           </div>
+        </div>
+
+        {/* Sprint 6A Features: Acoustic Fingerprint & Drift Timeline */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <AcousticFingerprintCard machineId={machine.machine_id} />
+          <AcousticDriftTimeline machineId={machine.machine_id} />
         </div>
 
         {/* Enrollment History Table */}
@@ -401,6 +420,14 @@ export default function MachineDetailPage() {
             </div>
           )}
         </div>
+
+        {/* QR Machine Identity Modal (Feature 6) */}
+        <QRCodeModal
+          machineId={machine.machine_id}
+          machineName={machine.name}
+          isOpen={showQrModal}
+          onClose={() => setShowQrModal(false)}
+        />
       </div>
     </ProtectedRoute>
   );

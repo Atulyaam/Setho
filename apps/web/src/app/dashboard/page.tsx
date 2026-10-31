@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { ProtectedRoute } from "@/components/ProtectedRoute";
 import { useAuth } from "@/context/AuthContext";
+import { useUI } from "@/context/UIContext";
+import { FleetPriorityTable } from "@/components/fleet/FleetPriorityTable";
 import { apiClient, MachineProfile, AnalysisRecord } from "@/lib/api-client";
 import {
   Cpu,
@@ -132,6 +134,9 @@ export default function DashboardPage() {
             </div>
           </div>
         </div>
+
+        {/* Fleet Inspection Priority Section (Feature 5) */}
+        <FleetPriorityTable />
 
         {/* Machine Fleet Section */}
         <div className="space-y-4">

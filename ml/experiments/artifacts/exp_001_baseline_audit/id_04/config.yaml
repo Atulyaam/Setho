@@ -1,0 +1,58 @@
+experiment_id: exp_001_baseline_audit_id_04
+machine_id: id_04
+model:
+  model_type: stetho_msae
+  n_estimators: 200
+  contamination: auto
+  max_features: 1.0
+  latent_dim: 64
+  hidden_dims:
+  - 512
+  - 128
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  batch_size: 8
+  max_epochs: 60
+  early_stopping_patience: 10
+  loss: l1
+  optimizer: AdamW
+  base_channels: 32
+  dilations:
+  - 1
+  - 2
+  - 4
+  use_depthwise: true
+  scoring_aggregation: mean
+  top_k: 3
+features:
+  feature_type: log_mel
+  sample_rate: 16000
+  channel_policy: channel_0
+  channel_index: 0
+  n_fft: 1024
+  hop_length: 256
+  n_mels: 64
+  f_min: 50.0
+  f_max: 8000.0
+  spec_window_frames: 64
+  spec_hop_frames: 32
+  n_mfcc: 13
+  include_centroid: true
+  include_bandwidth: true
+  include_rolloff: true
+  include_zcr: true
+  include_rms: true
+seed: 42
+train_split: ml/data/splits/machine_specific/id_04/train_normal.csv
+dev_split: ml/data/splits/machine_specific/id_04/dev_normal.csv
+test_split: ml/data/splits/machine_specific/id_04/test.csv
+dataset_manifest_hash: e44f2cc5dc2c62ea
+artifact_dir: ml/experiments/artifacts/exp_001_baseline_audit/id_04
+device: cpu
+system_metadata:
+  python_version: 3.11.9
+  torch_version: 2.15.0+cpu
+  platform: Windows-10-10.0.26300-SP0
+  processor: Intel64 Family 6 Model 154 Stepping 3, GenuineIntel
+  cuda_available: false
+  device_name: CPU

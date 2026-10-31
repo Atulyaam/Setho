@@ -1,0 +1,22 @@
+{
+  "machine_id": "id_00",
+  "model_type": "stetho_msae",
+  "target_quantile": 0.95,
+  "operating_threshold": 0.322461,
+  "dev_sample_count": 2,
+  "dev_scores": [
+    0.32393,
+    0.294559
+  ],
+  "dev_mean": 0.309244,
+  "dev_std": 0.014685,
+  "dev_min": 0.294559,
+  "dev_max": 0.32393,
+  "dev_p90": 0.320993,
+  "dev_p95": 0.322461,
+  "dev_p99": 0.323636,
+  "is_provisional": true,
+  "limitation_notice": "Provisional empirical quantile (95th percentile). Calibration sample size N=2 is small. Does not guarantee an exact real-world False Positive Rate.",
+  "theta_lower": 0.309244,
+  "theta_upper": 0.322461
+}

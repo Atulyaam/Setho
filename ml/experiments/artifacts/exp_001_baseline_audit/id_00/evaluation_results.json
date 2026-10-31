@@ -1,0 +1,212 @@
+{
+  "experiment_id": "exp_001_baseline_audit_id_00",
+  "machine_id": "id_00",
+  "model_type": "stetho_msae",
+  "metrics": {
+    "n_normal": 3,
+    "n_abnormal": 15,
+    "total_samples": 18,
+    "threshold": 0.322461,
+    "roc_auc": 1.0,
+    "pauc": 1.0,
+    "precision": 1.0,
+    "recall": 0.1333,
+    "f1": 0.2353,
+    "fpr": 0.0,
+    "confusion_matrix": {
+      "tp": 2,
+      "fp": 0,
+      "tn": 3,
+      "fn": 13
+    }
+  },
+  "test_scores": [
+    0.205379,
+    0.211456,
+    0.210337,
+    0.331192,
+    0.300722,
+    0.323367,
+    0.303834,
+    0.221062,
+    0.257903,
+    0.263607,
+    0.254727,
+    0.244293,
+    0.215853,
+    0.249649,
+    0.23275,
+    0.304265,
+    0.290817,
+    0.299522
+  ],
+  "test_labels": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "calibration": {
+    "machine_id": "id_00",
+    "model_type": "stetho_msae",
+    "target_quantile": 0.95,
+    "operating_threshold": 0.322461,
+    "dev_sample_count": 2,
+    "dev_scores": [
+      0.32393,
+      0.294559
+    ],
+    "dev_mean": 0.309244,
+    "dev_std": 0.014685,
+    "dev_min": 0.294559,
+    "dev_max": 0.32393,
+    "dev_p90": 0.320993,
+    "dev_p95": 0.322461,
+    "dev_p99": 0.323636,
+    "is_provisional": true,
+    "limitation_notice": "Provisional empirical quantile (95th percentile). Calibration sample size N=2 is small. Does not guarantee an exact real-world False Positive Rate.",
+    "theta_lower": 0.309244,
+    "theta_upper": 0.322461
+  },
+  "training_metadata": {
+    "machine_id": "id_00",
+    "model_type": "stetho_msae",
+    "train_sample_count": 10,
+    "train_patch_count": 190,
+    "dev_sample_count": 2,
+    "total_epochs": 16,
+    "best_val_loss": 0.30915,
+    "final_train_loss": 0.20686,
+    "training_duration_sec": 83.2348,
+    "device": "cpu",
+    "train_mean": -5.978639125823975,
+    "train_std": 9.127212570739745,
+    "parameter_counts": {
+      "total_params": 559873,
+      "trainable_params": 559873,
+      "encoder_params": 284480,
+      "decoder_params": 275393
+    },
+    "dilations": [
+      1,
+      2,
+      4
+    ],
+    "use_depthwise": true,
+    "latent_dim": 64,
+    "loss_type": "l1",
+    "loss_history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.46285,
+        "val_loss": 0.51297,
+        "lr": 0.0009993
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.36948,
+        "val_loss": 0.49787,
+        "lr": 0.0009973
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.33379,
+        "val_loss": 0.37949,
+        "lr": 0.0009939
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.28929,
+        "val_loss": 0.33044,
+        "lr": 0.0009891
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.262,
+        "val_loss": 0.32772,
+        "lr": 0.000983
+      },
+      {
+        "epoch": 6,
+        "train_loss": 0.24627,
+        "val_loss": 0.30915,
+        "lr": 0.0009756
+      },
+      {
+        "epoch": 7,
+        "train_loss": 0.24405,
+        "val_loss": 0.32943,
+        "lr": 0.0009668
+      },
+      {
+        "epoch": 8,
+        "train_loss": 0.23296,
+        "val_loss": 0.32038,
+        "lr": 0.0009568
+      },
+      {
+        "epoch": 9,
+        "train_loss": 0.22915,
+        "val_loss": 0.31528,
+        "lr": 0.0009456
+      },
+      {
+        "epoch": 10,
+        "train_loss": 0.2243,
+        "val_loss": 0.32107,
+        "lr": 0.0009331
+      },
+      {
+        "epoch": 11,
+        "train_loss": 0.22078,
+        "val_loss": 0.32014,
+        "lr": 0.0009194
+      },
+      {
+        "epoch": 12,
+        "train_loss": 0.21758,
+        "val_loss": 0.32369,
+        "lr": 0.0009046
+      },
+      {
+        "epoch": 13,
+        "train_loss": 0.21288,
+        "val_loss": 0.32577,
+        "lr": 0.0008887
+      },
+      {
+        "epoch": 14,
+        "train_loss": 0.21018,
+        "val_loss": 0.32163,
+        "lr": 0.0008717
+      },
+      {
+        "epoch": 15,
+        "train_loss": 0.20865,
+        "val_loss": 0.32371,
+        "lr": 0.0008537
+      },
+      {
+        "epoch": 16,
+        "train_loss": 0.20686,
+        "val_loss": 0.32589,
+        "lr": 0.0008347
+      }
+    ]
+  },
+  "total_experiment_duration_sec": 86.2563
+}

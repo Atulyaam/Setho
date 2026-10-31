@@ -1,0 +1,82 @@
+{
+  "experiment_id": "exp_004_memory_bank_knn",
+  "name": "Experiment memory_bank_knn",
+  "description": "Automated execution of memory_bank_knn across ['id_00', 'id_02', 'id_04', 'id_06']",
+  "model_type": "stetho_msae",
+  "status": "COMPLETED",
+  "seed": 42,
+  "config": {
+    "experiment_type": "memory_bank_knn",
+    "machine_ids": [
+      "id_00",
+      "id_02",
+      "id_04",
+      "id_06"
+    ],
+    "seed": 42
+  },
+  "pid": 15372,
+  "start_time": "2026-10-31T18:21:05.785826+00:00",
+  "completion_time": "2026-10-31T18:21:13.212102+00:00",
+  "duration_sec": 7.43,
+  "current_epoch": 0,
+  "max_epochs": 60,
+  "train_loss": null,
+  "val_loss": null,
+  "telemetry": {
+    "timestamp": "2026-10-31T18:21:13.211483+00:00",
+    "ram_used_mb": 14008.83,
+    "ram_total_mb": 16004.66,
+    "ram_percent": 87.5,
+    "cpu_percent": 49.8,
+    "gpu_available": false,
+    "gpu_vram_used_mb": 0.0,
+    "gpu_vram_total_mb": 0.0
+  },
+  "metrics": {
+    "macro_roc_auc": 0.4611,
+    "macro_pauc": 0.6403,
+    "per_machine": {
+      "id_00": {
+        "roc_auc": 0.0222,
+        "pauc": 0.4737,
+        "f1": 0.2,
+        "recall": 0.1333,
+        "fpr": 1.0,
+        "memory_bank_size": 2,
+        "k_neighbors": 2
+      },
+      "id_02": {
+        "roc_auc": 0.6667,
+        "pauc": 0.7193,
+        "f1": 0.9091,
+        "recall": 1.0,
+        "fpr": 1.0,
+        "memory_bank_size": 2,
+        "k_neighbors": 2
+      },
+      "id_04": {
+        "roc_auc": 0.4,
+        "pauc": 0.5088,
+        "f1": 0.9091,
+        "recall": 1.0,
+        "fpr": 1.0,
+        "memory_bank_size": 2,
+        "k_neighbors": 2
+      },
+      "id_06": {
+        "roc_auc": 0.7556,
+        "pauc": 0.8596,
+        "f1": 0.7857,
+        "recall": 0.7333,
+        "fpr": 0.6667,
+        "memory_bank_size": 2,
+        "k_neighbors": 2
+      }
+    }
+  },
+  "log_path": "ml\\experiments\\logs\\exp_004_memory_bank_knn.log",
+  "result_path": "ml\\experiments\\results\\exp_004_memory_bank_knn.json",
+  "artifact_dir": "ml\\experiments\\artifacts\\exp_004_memory_bank_knn",
+  "error": null
+}

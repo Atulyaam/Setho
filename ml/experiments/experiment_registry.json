@@ -1,0 +1,486 @@
+{
+  "experiments": {
+    "exp_001_baseline_audit": {
+      "experiment_id": "exp_001_baseline_audit",
+      "name": "Experiment baseline_audit",
+      "description": "Automated execution of baseline_audit across ['id_00', 'id_02', 'id_04', 'id_06']",
+      "model_type": "stetho_msae",
+      "status": "COMPLETED",
+      "seed": 42,
+      "config": {
+        "experiment_type": "baseline_audit",
+        "machine_ids": [
+          "id_00",
+          "id_02",
+          "id_04",
+          "id_06"
+        ],
+        "seed": 42
+      },
+      "pid": 33860,
+      "start_time": "2026-10-31T17:59:43.839363+00:00",
+      "completion_time": "2026-10-31T18:12:08.043030+00:00",
+      "duration_sec": 744.2,
+      "current_epoch": 4,
+      "max_epochs": 60,
+      "train_loss": null,
+      "val_loss": null,
+      "telemetry": {
+        "timestamp": "2026-10-31T18:12:08.042020+00:00",
+        "ram_used_mb": 15613.56,
+        "ram_total_mb": 16004.66,
+        "ram_percent": 97.6,
+        "cpu_percent": 82.6,
+        "gpu_available": false,
+        "gpu_vram_used_mb": 0.0,
+        "gpu_vram_total_mb": 0.0
+      },
+      "metrics": {
+        "macro_roc_auc": 0.9445,
+        "macro_pauc": 0.9386,
+        "macro_f1": 0.7705,
+        "macro_recall": 0.7833,
+        "macro_fpr": 0.4167,
+        "per_machine": {
+          "id_00": {
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "f1": 0.2353,
+            "recall": 0.1333,
+            "fpr": 0.0,
+            "duration_sec": 86.2563
+          },
+          "id_02": {
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "f1": 1.0,
+            "recall": 1.0,
+            "fpr": 0.0,
+            "duration_sec": 248.7268
+          },
+          "id_04": {
+            "roc_auc": 0.8,
+            "pauc": 0.7895,
+            "f1": 0.9091,
+            "recall": 1.0,
+            "fpr": 1.0,
+            "duration_sec": 225.2787
+          },
+          "id_06": {
+            "roc_auc": 0.9778,
+            "pauc": 0.9649,
+            "f1": 0.9375,
+            "recall": 1.0,
+            "fpr": 0.6667,
+            "duration_sec": 183.5969
+          }
+        }
+      },
+      "log_path": "ml\\experiments\\logs\\exp_001_baseline_audit.log",
+      "result_path": "ml\\experiments\\results\\exp_001_baseline_audit.json",
+      "artifact_dir": "ml\\experiments\\artifacts\\exp_001_baseline_audit",
+      "error": null
+    },
+    "exp_002_robustness_eval": {
+      "experiment_id": "exp_002_robustness_eval",
+      "name": "Experiment robustness_eval",
+      "description": "Automated execution of robustness_eval across ['id_00', 'id_02', 'id_04', 'id_06']",
+      "model_type": "stetho_msae",
+      "status": "COMPLETED",
+      "seed": 42,
+      "config": {
+        "experiment_type": "robustness_eval",
+        "machine_ids": [
+          "id_00",
+          "id_02",
+          "id_04",
+          "id_06"
+        ],
+        "seed": 42
+      },
+      "pid": 6748,
+      "start_time": "2026-10-31T18:16:46.082748+00:00",
+      "completion_time": "2026-10-31T18:17:22.469886+00:00",
+      "duration_sec": 36.39,
+      "current_epoch": 0,
+      "max_epochs": 60,
+      "train_loss": null,
+      "val_loss": null,
+      "telemetry": {
+        "timestamp": "2026-10-31T18:17:22.468889+00:00",
+        "ram_used_mb": 14853.07,
+        "ram_total_mb": 16004.66,
+        "ram_percent": 92.8,
+        "cpu_percent": 55.1,
+        "gpu_available": false,
+        "gpu_vram_used_mb": 0.0,
+        "gpu_vram_total_mb": 0.0
+      },
+      "metrics": {
+        "id_00": {
+          "-6.0dB": {
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "f1": 0.2353,
+            "mean_score": 0.262256
+          },
+          "+0.0dB": {
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "f1": 0.2353,
+            "mean_score": 0.262263
+          },
+          "+6.0dB": {
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "f1": 0.2353,
+            "mean_score": 0.262264
+          }
+        },
+        "id_02": {
+          "-6.0dB": {
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "f1": 1.0,
+            "mean_score": 0.382833
+          },
+          "+0.0dB": {
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "f1": 1.0,
+            "mean_score": 0.382675
+          },
+          "+6.0dB": {
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "f1": 1.0,
+            "mean_score": 0.382694
+          }
+        },
+        "id_04": {
+          "-6.0dB": {
+            "roc_auc": 0.8222,
+            "pauc": 0.8246,
+            "f1": 0.9091,
+            "mean_score": 0.285029
+          },
+          "+0.0dB": {
+            "roc_auc": 0.8,
+            "pauc": 0.7895,
+            "f1": 0.9091,
+            "mean_score": 0.285045
+          },
+          "+6.0dB": {
+            "roc_auc": 0.8222,
+            "pauc": 0.8246,
+            "f1": 0.9091,
+            "mean_score": 0.285043
+          }
+        },
+        "id_06": {
+          "-6.0dB": {
+            "roc_auc": 0.9778,
+            "pauc": 0.9649,
+            "f1": 0.9375,
+            "mean_score": 0.338723
+          },
+          "+0.0dB": {
+            "roc_auc": 0.9778,
+            "pauc": 0.9649,
+            "f1": 0.9375,
+            "mean_score": 0.338718
+          },
+          "+6.0dB": {
+            "roc_auc": 0.9778,
+            "pauc": 0.9649,
+            "f1": 0.9375,
+            "mean_score": 0.338716
+          }
+        }
+      },
+      "log_path": "ml\\experiments\\logs\\exp_002_robustness_eval.log",
+      "result_path": "ml\\experiments\\results\\exp_002_robustness_eval.json",
+      "artifact_dir": "ml\\experiments\\artifacts\\exp_002_robustness_eval",
+      "error": null
+    },
+    "exp_003_evt_calibration": {
+      "experiment_id": "exp_003_evt_calibration",
+      "name": "Experiment evt_calibration",
+      "description": "Automated execution of evt_calibration across ['id_00', 'id_02', 'id_04', 'id_06']",
+      "model_type": "stetho_msae",
+      "status": "COMPLETED",
+      "seed": 42,
+      "config": {
+        "experiment_type": "evt_calibration",
+        "machine_ids": [
+          "id_00",
+          "id_02",
+          "id_04",
+          "id_06"
+        ],
+        "seed": 42
+      },
+      "pid": 25676,
+      "start_time": "2026-10-31T18:17:38.239577+00:00",
+      "completion_time": "2026-10-31T18:17:48.118614+00:00",
+      "duration_sec": 9.88,
+      "current_epoch": 0,
+      "max_epochs": 60,
+      "train_loss": null,
+      "val_loss": null,
+      "telemetry": {
+        "timestamp": "2026-10-31T18:17:48.118614+00:00",
+        "ram_used_mb": 14007.12,
+        "ram_total_mb": 16004.66,
+        "ram_percent": 87.5,
+        "cpu_percent": 54.1,
+        "gpu_available": false,
+        "gpu_vram_used_mb": 0.0,
+        "gpu_vram_total_mb": 0.0
+      },
+      "metrics": {
+        "id_00": {
+          "theta_empirical_95": 0.322461,
+          "theta_evt_95": 0.338584,
+          "empirical_fpr": 0.0,
+          "empirical_recall": 0.1333,
+          "empirical_f1": 0.2353,
+          "evt_fpr": 0.0,
+          "evt_recall": 0.0,
+          "evt_f1": 0.0,
+          "fpr_reduction": 0.0
+        },
+        "id_02": {
+          "theta_empirical_95": 0.261488,
+          "theta_evt_95": 0.274562,
+          "empirical_fpr": 0.0,
+          "empirical_recall": 1.0,
+          "empirical_f1": 1.0,
+          "evt_fpr": 0.0,
+          "evt_recall": 1.0,
+          "evt_f1": 1.0,
+          "fpr_reduction": 0.0
+        },
+        "id_04": {
+          "theta_empirical_95": 0.211811,
+          "theta_evt_95": 0.222402,
+          "empirical_fpr": 1.0,
+          "empirical_recall": 1.0,
+          "empirical_f1": 0.9091,
+          "evt_fpr": 0.6667,
+          "evt_recall": 0.9333,
+          "evt_f1": 0.9032,
+          "fpr_reduction": 0.3333
+        },
+        "id_06": {
+          "theta_empirical_95": 0.269791,
+          "theta_evt_95": 0.28328,
+          "empirical_fpr": 0.6667,
+          "empirical_recall": 1.0,
+          "empirical_f1": 0.9375,
+          "evt_fpr": 0.0,
+          "evt_recall": 0.9333,
+          "evt_f1": 0.9655,
+          "fpr_reduction": 0.6667
+        }
+      },
+      "log_path": "ml\\experiments\\logs\\exp_003_evt_calibration.log",
+      "result_path": "ml\\experiments\\results\\exp_003_evt_calibration.json",
+      "artifact_dir": "ml\\experiments\\artifacts\\exp_003_evt_calibration",
+      "error": null
+    },
+    "exp_004_memory_bank_knn": {
+      "experiment_id": "exp_004_memory_bank_knn",
+      "name": "Experiment memory_bank_knn",
+      "description": "Automated execution of memory_bank_knn across ['id_00', 'id_02', 'id_04', 'id_06']",
+      "model_type": "stetho_msae",
+      "status": "COMPLETED",
+      "seed": 42,
+      "config": {
+        "experiment_type": "memory_bank_knn",
+        "machine_ids": [
+          "id_00",
+          "id_02",
+          "id_04",
+          "id_06"
+        ],
+        "seed": 42
+      },
+      "pid": 15372,
+      "start_time": "2026-10-31T18:21:05.785826+00:00",
+      "completion_time": "2026-10-31T18:21:13.212102+00:00",
+      "duration_sec": 7.43,
+      "current_epoch": 0,
+      "max_epochs": 60,
+      "train_loss": null,
+      "val_loss": null,
+      "telemetry": {
+        "timestamp": "2026-10-31T18:21:13.211483+00:00",
+        "ram_used_mb": 14008.83,
+        "ram_total_mb": 16004.66,
+        "ram_percent": 87.5,
+        "cpu_percent": 49.8,
+        "gpu_available": false,
+        "gpu_vram_used_mb": 0.0,
+        "gpu_vram_total_mb": 0.0
+      },
+      "metrics": {
+        "macro_roc_auc": 0.4611,
+        "macro_pauc": 0.6403,
+        "per_machine": {
+          "id_00": {
+            "roc_auc": 0.0222,
+            "pauc": 0.4737,
+            "f1": 0.2,
+            "recall": 0.1333,
+            "fpr": 1.0,
+            "memory_bank_size": 2,
+            "k_neighbors": 2
+          },
+          "id_02": {
+            "roc_auc": 0.6667,
+            "pauc": 0.7193,
+            "f1": 0.9091,
+            "recall": 1.0,
+            "fpr": 1.0,
+            "memory_bank_size": 2,
+            "k_neighbors": 2
+          },
+          "id_04": {
+            "roc_auc": 0.4,
+            "pauc": 0.5088,
+            "f1": 0.9091,
+            "recall": 1.0,
+            "fpr": 1.0,
+            "memory_bank_size": 2,
+            "k_neighbors": 2
+          },
+          "id_06": {
+            "roc_auc": 0.7556,
+            "pauc": 0.8596,
+            "f1": 0.7857,
+            "recall": 0.7333,
+            "fpr": 0.6667,
+            "memory_bank_size": 2,
+            "k_neighbors": 2
+          }
+        }
+      },
+      "log_path": "ml\\experiments\\logs\\exp_004_memory_bank_knn.log",
+      "result_path": "ml\\experiments\\results\\exp_004_memory_bank_knn.json",
+      "artifact_dir": "ml\\experiments\\artifacts\\exp_004_memory_bank_knn",
+      "error": null
+    },
+    "exp_005_multires_logmel": {
+      "experiment_id": "exp_005_multires_logmel",
+      "name": "Experiment multires_logmel",
+      "description": "Automated execution of multires_logmel across ['id_00', 'id_02', 'id_04', 'id_06']",
+      "model_type": "stetho_msae",
+      "status": "COMPLETED",
+      "seed": 42,
+      "config": {
+        "experiment_type": "multires_logmel",
+        "machine_ids": [
+          "id_00",
+          "id_02",
+          "id_04",
+          "id_06"
+        ],
+        "seed": 42
+      },
+      "pid": 26780,
+      "start_time": "2026-10-31T18:22:22.666720+00:00",
+      "completion_time": "2026-10-31T18:22:46.382473+00:00",
+      "duration_sec": 23.72,
+      "current_epoch": 0,
+      "max_epochs": 60,
+      "train_loss": null,
+      "val_loss": null,
+      "telemetry": {
+        "timestamp": "2026-10-31T18:22:46.382473+00:00",
+        "ram_used_mb": 14633.71,
+        "ram_total_mb": 16004.66,
+        "ram_percent": 91.4,
+        "cpu_percent": 50.3,
+        "gpu_available": false,
+        "gpu_vram_used_mb": 0.0,
+        "gpu_vram_total_mb": 0.0
+      },
+      "metrics": {
+        "id_00": {
+          "n_fft_512": {
+            "roc_auc": 0.9778,
+            "pauc": 0.9649,
+            "f1": 0.9677
+          },
+          "n_fft_1024": {
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "f1": 0.2353
+          },
+          "n_fft_2048": {
+            "roc_auc": 0.0222,
+            "pauc": 0.4737,
+            "f1": 0.7143
+          }
+        },
+        "id_02": {
+          "n_fft_512": {
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "f1": 0.9091
+          },
+          "n_fft_1024": {
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "f1": 1.0
+          },
+          "n_fft_2048": {
+            "roc_auc": 0.0667,
+            "pauc": 0.5088,
+            "f1": 0.9091
+          }
+        },
+        "id_04": {
+          "n_fft_512": {
+            "roc_auc": 0.8,
+            "pauc": 0.7895,
+            "f1": 0.9091
+          },
+          "n_fft_1024": {
+            "roc_auc": 0.8,
+            "pauc": 0.7895,
+            "f1": 0.9091
+          },
+          "n_fft_2048": {
+            "roc_auc": 0.2222,
+            "pauc": 0.5439,
+            "f1": 0.9091
+          }
+        },
+        "id_06": {
+          "n_fft_512": {
+            "roc_auc": 0.8,
+            "pauc": 0.8596,
+            "f1": 0.9091
+          },
+          "n_fft_1024": {
+            "roc_auc": 0.9778,
+            "pauc": 0.9649,
+            "f1": 0.9375
+          },
+          "n_fft_2048": {
+            "roc_auc": 0.8889,
+            "pauc": 0.8596,
+            "f1": 0.9091
+          }
+        }
+      },
+      "log_path": "ml\\experiments\\logs\\exp_005_multires_logmel.log",
+      "result_path": "ml\\experiments\\results\\exp_005_multires_logmel.json",
+      "artifact_dir": "ml\\experiments\\artifacts\\exp_005_multires_logmel",
+      "error": null
+    }
+  },
+  "updated_at": "2026-10-31T18:22:46.382473+00:00"
+}

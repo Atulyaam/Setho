@@ -6,6 +6,7 @@ from typing import Optional
 import uuid
 from fastapi import APIRouter, BackgroundTasks, Depends, File, Form, UploadFile, status
 
+from stetho_api.analysis.maintenance_assistant import MaintenanceAssistant
 from stetho_api.audio import AudioIngestionService
 from stetho_api.auth.dependencies import get_current_user
 from stetho_api.config import Settings, get_settings
@@ -17,6 +18,7 @@ from stetho_api.db import (
     get_db,
     get_utc_now_iso,
 )
+from stetho_api.db.fingerprint_repo import FingerprintRepository
 from stetho_api.db.user_repo import User
 from stetho_api.exceptions import StethoAPIException
 from stetho_api.inference import (
@@ -44,6 +46,7 @@ def get_dependencies(settings: Settings = Depends(get_settings)):
         "machine_repo": MachineRepository(db),
         "analysis_repo": AnalysisRepository(db),
         "job_repo": JobRepository(db),
+        "fingerprint_repo": FingerprintRepository(db),
         "ingestion": AudioIngestionService(settings.STORAGE_LOCAL_DIR),
         "inference": get_inference_service(),
     }
@@ -385,3 +388,32 @@ async def list_machine_analyses(
         analyses=[AnalysisResponse(**r.to_dict()) for r in records],
         total_count=len(records),
     )
+
+
+@router.get(
+    "/analyses/{analysis_id}/maintenance-advice",
+    summary="Get evidence-based maintenance guidance (Feature 4)",
+    description="Generates transparent inspection guidance and checklists linking acoustic deviations to verifiable physical actions.",
+)
+async def get_maintenance_advice(
+    analysis_id: str,
+    current_user: User = Depends(get_current_user),
+    deps=Depends(get_dependencies),
+):
+    analysis_repo: AnalysisRepository = deps["analysis_repo"]
+    machine_repo: MachineRepository = deps["machine_repo"]
+    fp_repo: FingerprintRepository = deps["fingerprint_repo"]
+
+    is_admin = current_user.role == "admin"
+    analysis = analysis_repo.get_by_id(analysis_id)
+    if not analysis:
+        raise StethoAPIException("Analysis record not found", code="ANALYSIS_NOT_FOUND", status_code=404)
+
+    machine_repo.get_authorized(analysis.machine_id, user_id=current_user.user_id, is_admin=is_admin)
+    fp = fp_repo.get_fingerprint(analysis.machine_id)
+
+    advice = MaintenanceAssistant.generate_advice(
+        analysis_record=analysis.to_dict(),
+        machine_fingerprint=fp,
+    )
+    return advice

@@ -176,12 +176,64 @@ class DatabaseManager:
             );
             """)
 
+            # 6. Machine Acoustic Fingerprints Table (Sprint 6A Feature 1)
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS machine_fingerprints (
+                fingerprint_id TEXT PRIMARY KEY,
+                machine_id TEXT UNIQUE NOT NULL,
+                fingerprint_version TEXT NOT NULL DEFAULT '1.0.0',
+                spectral_centroid_hz REAL,
+                sub_bass_energy_db REAL,
+                low_energy_db REAL,
+                mid_energy_db REAL,
+                high_energy_db REAL,
+                baseline_reconstruction_error REAL,
+                baseline_quality_score REAL,
+                sample_count INTEGER NOT NULL DEFAULT 1,
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL,
+                FOREIGN KEY (machine_id) REFERENCES machines(machine_id) ON DELETE CASCADE
+            );
+            """)
+
+            # 7. Machine QR Identity Tokens Table (Sprint 6A Feature 6)
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS machine_qr_tokens (
+                token_id TEXT PRIMARY KEY,
+                machine_id TEXT NOT NULL,
+                qr_token TEXT UNIQUE NOT NULL,
+                is_active INTEGER NOT NULL DEFAULT 1,
+                created_at TEXT NOT NULL,
+                expires_at TEXT,
+                FOREIGN KEY (machine_id) REFERENCES machines(machine_id) ON DELETE CASCADE
+            );
+            """)
+
+            # Automated Migrations for Sprint 6A
+            mach_cols = [r[1] for r in cursor.execute("PRAGMA table_info(machines);").fetchall()]
+            if "last_inspection_at" not in mach_cols:
+                cursor.execute("ALTER TABLE machines ADD COLUMN last_inspection_at TEXT DEFAULT NULL;")
+            if "priority_score" not in mach_cols:
+                cursor.execute("ALTER TABLE machines ADD COLUMN priority_score REAL DEFAULT 0.0;")
+            if "priority_tier" not in mach_cols:
+                cursor.execute("ALTER TABLE machines ADD COLUMN priority_tier TEXT DEFAULT 'NORMAL';")
+
+            ana_cols = [r[1] for r in cursor.execute("PRAGMA table_info(analyses);").fetchall()]
+            if "spectral_drift_pct" not in ana_cols:
+                cursor.execute("ALTER TABLE analyses ADD COLUMN spectral_drift_pct REAL DEFAULT 0.0;")
+            if "dominant_band_deviation" not in ana_cols:
+                cursor.execute("ALTER TABLE analyses ADD COLUMN dominant_band_deviation TEXT DEFAULT NULL;")
+            if "maintenance_urgency" not in ana_cols:
+                cursor.execute("ALTER TABLE analyses ADD COLUMN maintenance_urgency TEXT DEFAULT 'NORMAL';")
+
             # Indices
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_users_username ON users(username);")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_machines_owner ON machines(owner_id);")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_enrollments_machine ON enrollments(machine_id);")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_analyses_machine ON analyses(machine_id);")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_jobs_status ON analysis_jobs(status);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_fingerprints_machine ON machine_fingerprints(machine_id);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_qr_tokens ON machine_qr_tokens(qr_token);")
 
             # Seed default admin and inspector accounts if users table is empty
             cursor.execute("SELECT COUNT(*) FROM users;")
