@@ -1,5 +1,5 @@
 # ==============================================================================
-# Stetho Automated Verification Runner (Sprint 0)
+# Stetho Automated Verification Runner (Sprint 0 + Sprint 1)
 # ==============================================================================
 
 $ErrorActionPreference = "Stop"
@@ -9,11 +9,11 @@ Write-Host "==========================================================" -Foregro
 
 # 1. Backend Pytest Suite
 Write-Host "`n[1/5] Running Backend Unit & Integration Tests..." -ForegroundColor Yellow
-& .\.venv\Scripts\pytest -v tests
+& .\.venv\Scripts\python.exe -m pytest -v tests
 if ($LASTEXITCODE -ne 0) {
     Write-Error "Backend test suite failed."
 }
-Write-Host "✓ Backend tests passed." -ForegroundColor Green
+Write-Host "[OK] Backend tests passed." -ForegroundColor Green
 
 # 2. Frontend TypeScript Check
 Write-Host "`n[2/5] Running Frontend TypeScript Typechecks..." -ForegroundColor Yellow
@@ -23,7 +23,7 @@ try {
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Frontend TypeScript checks failed."
     }
-    Write-Host "✓ Frontend TypeScript checks passed." -ForegroundColor Green
+    Write-Host "[OK] Frontend TypeScript checks passed." -ForegroundColor Green
 
     # 3. Frontend Lint
     Write-Host "`n[3/5] Running Frontend Linting..." -ForegroundColor Yellow
@@ -31,7 +31,7 @@ try {
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Frontend lint checks failed."
     }
-    Write-Host "✓ Frontend linting passed." -ForegroundColor Green
+    Write-Host "[OK] Frontend linting passed." -ForegroundColor Green
 
     # 4. Frontend Build
     Write-Host "`n[4/5] Running Frontend Production Build..." -ForegroundColor Yellow
@@ -39,19 +39,23 @@ try {
     if ($LASTEXITCODE -ne 0) {
         Write-Error "Frontend production build failed."
     }
-    Write-Host "✓ Frontend production build passed." -ForegroundColor Green
+    Write-Host "[OK] Frontend production build passed." -ForegroundColor Green
 } finally {
     Pop-Location
 }
 
 # 5. Secret Leak & Git Check
-Write-Host "`n[5/5] Checking Git Status and Secret Exclusions..." -ForegroundColor Yellow
-$ignored = & git check-ignore .env
-if ($ignored -notmatch "\.env") {
+Write-Host "`n[5/5] Checking Git Status and Exclusions..." -ForegroundColor Yellow
+$env_ignored = & git check-ignore .env
+if (-not $env_ignored) {
     Write-Error ".env file is not ignored by git!"
 }
-Write-Host "✓ Git ignore and secret protection verified." -ForegroundColor Green
+$wav_ignored = & git check-ignore data/mimii/raw/fan/id_00/normal/00000000.wav
+if (-not $wav_ignored) {
+    Write-Error "Raw WAV files are not ignored by git!"
+}
+Write-Host "[OK] Git ignore and dataset safety verified." -ForegroundColor Green
 
 Write-Host "`n==========================================================" -ForegroundColor Cyan
-Write-Host "ALL VERIFICATION CHECKS PASSED SUCCESSFULLY!" -ForegroundColor Green
+Write-Host "ALL VERIFICATION CHECKS (SPRINT 0 + SPRINT 1) PASSED!" -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Cyan

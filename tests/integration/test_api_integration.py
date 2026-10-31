@@ -60,3 +60,4 @@ def test_error_handling_unsupported_method():
     assert "error" in data
     assert data["error"]["code"] == "HTTP_405"
     assert response.headers.get("X-Request-ID") == custom_id
+

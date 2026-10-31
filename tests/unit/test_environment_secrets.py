@@ -46,3 +46,4 @@ def test_storage_and_database_settings_placeholders():
     assert "postgresql://" in settings.DATABASE_URL
     assert settings.STORAGE_TYPE in ["local", "s3", "minio"]
     assert settings.MODEL_ARTIFACTS_DIR.as_posix() == "ml/artifacts"
+

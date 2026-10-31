@@ -43,7 +43,10 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # ML, Audio & Large Datasets
-ml/data/
+data/raw/
+data/processed/
+data/mimii/raw/
+data/mimii/processed/
 ml/artifacts/
 *.wav
 *.mp3

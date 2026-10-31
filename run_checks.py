@@ -62,9 +62,9 @@ def main():
         desc="Frontend Production Build",
     )
 
-    # 5. Git check
+    # 5. Git ignore and secret check
     git_check = subprocess.run(
-        ["git", "check-ignore", ".env"],
+        ["git", "check-ignore", ".env", "data/mimii/raw/fan/id_00/normal/00000000.wav"],
         cwd=ROOT_DIR,
         capture_output=True,
         text=True,
@@ -72,12 +72,16 @@ def main():
     if ".env" not in git_check.stdout:
         print("[FAILED] .env is not ignored by git!")
         sys.exit(1)
-    print("[PASSED] Secret Leak & .gitignore Verification")
+    if "00000000.wav" not in git_check.stdout:
+        print("[FAILED] Raw WAV audio files are not ignored by git!")
+        sys.exit(1)
+    print("[PASSED] Secret Leak & Dataset .gitignore Verification")
 
     print("\n" + "=" * 60)
-    print("ALL SPRINT 0 AUTOMATED CHECKS COMPLETED SUCCESSFULLY")
+    print("ALL STETHO AUTOMATED CHECKS (SPRINT 0 + SPRINT 1) PASSED")
     print("=" * 60)
 
 
 if __name__ == "__main__":
     main()
+

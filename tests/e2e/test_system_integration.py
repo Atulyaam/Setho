@@ -45,3 +45,4 @@ def test_full_system_health_and_cors_flow():
     assert get_res.status_code == 200
     assert get_res.headers.get("access-control-allow-origin") == "http://localhost:3000"
     assert "X-Request-ID" in get_res.headers
+

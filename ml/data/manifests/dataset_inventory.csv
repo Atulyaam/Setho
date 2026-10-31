@@ -1,0 +1,9 @@
+machine_category,machine_id,label,local_file_count,archive_total_count,sample_rate,channels,duration_sec,format,bit_depth
+fan,id_00,abnormal,15,407,16000,8,10.0,WAV,16
+fan,id_00,normal,15,1011,16000,8,10.0,WAV,16
+fan,id_02,abnormal,15,359,16000,8,10.0,WAV,16
+fan,id_02,normal,15,1016,16000,8,10.0,WAV,16
+fan,id_04,abnormal,15,348,16000,8,10.0,WAV,16
+fan,id_04,normal,15,1033,16000,8,10.0,WAV,16
+fan,id_06,abnormal,15,361,16000,8,10.0,WAV,16
+fan,id_06,normal,15,1015,16000,8,10.0,WAV,16

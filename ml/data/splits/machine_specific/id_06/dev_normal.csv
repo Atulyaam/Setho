@@ -1,0 +1,3 @@
+file_path,machine_id,label,split,channels,duration_sec
+data/mimii/raw/fan/id_06/normal/00000004.wav,id_06,normal,dev,8,10.0
+data/mimii/raw/fan/id_06/normal/00000011.wav,id_06,normal,dev,8,10.0

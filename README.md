@@ -230,3 +230,4 @@ Detailed architectural designs, evaluation plans, and roadmaps are organized und
 - **Sprint 0 Boundary:** Sprint 0 establishes repository structure, FastAPI backend, Next.js frontend, Docker assets, configuration, and testing. Model training, dataset ingestion, and audio processing pipelines are deferred to Sprint 1 and Sprint 2.
 - **Honest Product Scope:** Stetho detects acoustic deviations from a machine-specific normal baseline. It is **not** an unverified classifier for specific mechanical faults (e.g. bearing failure, rotor imbalance) without direct physical evidence.
 - **Hardware Fallback:** Inference runs on NVIDIA RTX 3050 Laptop GPU (4 GB) with automatic fallback to CPU for portable deployment.
+
