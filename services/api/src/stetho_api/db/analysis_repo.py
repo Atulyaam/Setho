@@ -7,7 +7,7 @@ from typing import Any, Dict, List, Optional
 import uuid
 
 from stetho_api.db.database import DatabaseManager, get_utc_now_iso
-from stetho_api.exceptions import ResourceNotFoundException
+from stetho_api.exceptions import ResourceNotFoundException, StethoAPIException
 
 logger = logging.getLogger("stetho.analysis_repo")
 
@@ -24,6 +24,7 @@ class EnrollmentRecord:
     quality_status: str
     is_confirmed_normal: bool
     created_at: str
+    content_hash: Optional[str] = None
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -36,6 +37,7 @@ class EnrollmentRecord:
             "quality_status": self.quality_status,
             "is_confirmed_normal": self.is_confirmed_normal,
             "created_at": self.created_at,
+            "content_hash": self.content_hash,
         }
 
 
@@ -121,15 +123,30 @@ class EnrollmentRepository:
         channels: int,
         quality_status: str,
         is_confirmed_normal: bool = True,
+        content_hash: Optional[str] = None,
     ) -> EnrollmentRecord:
         enrollment_id = str(uuid.uuid4())
         now = get_utc_now_iso()
         with self.db.transaction() as cursor:
+            # Check for duplicate recording on the same machine
+            if content_hash:
+                cursor.execute(
+                    "SELECT enrollment_id FROM enrollments WHERE machine_id = ? AND content_hash = ?;",
+                    (machine_id, content_hash),
+                )
+                if cursor.fetchone():
+                    raise StethoAPIException(
+                        f"Duplicate recording detected. This audio sample has already been enrolled for machine '{machine_id}'. "
+                        "Duplicate recordings cannot artificially inflate calibration counts.",
+                        code="DUPLICATE_ENROLLMENT",
+                        status_code=409,
+                    )
+
             cursor.execute("""
             INSERT INTO enrollments (
                 enrollment_id, machine_id, upload_id, stored_path, duration_sec,
-                sample_rate, channels, quality_status, is_confirmed_normal, created_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+                sample_rate, channels, quality_status, is_confirmed_normal, content_hash, created_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
             """, (
                 enrollment_id,
                 machine_id,
@@ -140,6 +157,7 @@ class EnrollmentRepository:
                 channels,
                 quality_status,
                 1 if is_confirmed_normal else 0,
+                content_hash,
                 now,
             ))
 
@@ -153,6 +171,7 @@ class EnrollmentRepository:
             channels=channels,
             quality_status=quality_status,
             is_confirmed_normal=is_confirmed_normal,
+            content_hash=content_hash,
             created_at=now,
         )
 
@@ -176,6 +195,7 @@ class EnrollmentRepository:
                 quality_status=r["quality_status"],
                 is_confirmed_normal=bool(r["is_confirmed_normal"]),
                 created_at=r["created_at"],
+                content_hash=r["content_hash"] if "content_hash" in r.keys() else None,
             )
             for r in rows
         ]

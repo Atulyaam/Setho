@@ -99,3 +99,25 @@ class UserRepository:
             return None
         return user
 
+    def update_role(self, user_id: str, new_role: str) -> User:
+        user = self.get_by_id(user_id)
+        if not user:
+            raise StethoAPIException(f"User '{user_id}' not found", code="USER_NOT_FOUND", status_code=404)
+
+        if new_role not in ["inspector", "admin"]:
+            raise StethoAPIException("Invalid role. Role must be 'inspector' or 'admin'", code="INVALID_ROLE", status_code=400)
+
+        with self.db.transaction() as cursor:
+            cursor.execute("UPDATE users SET role = ? WHERE user_id = ?;", (new_role, user_id))
+
+        return self.get_by_id(user_id)
+
+    def update_password(self, user_id: str, new_password_plain: str) -> None:
+        user = self.get_by_id(user_id)
+        if not user:
+            raise StethoAPIException(f"User '{user_id}' not found", code="USER_NOT_FOUND", status_code=404)
+
+        hashed_pw = hash_password(new_password_plain)
+        with self.db.transaction() as cursor:
+            cursor.execute("UPDATE users SET hashed_password = ? WHERE user_id = ?;", (hashed_pw, user_id))
+

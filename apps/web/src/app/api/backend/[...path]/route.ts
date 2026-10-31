@@ -8,6 +8,28 @@ async function proxyRequest(req: NextRequest, params: { path: string[] }) {
   const queryString = searchParams ? `?${searchParams}` : "";
   const targetUrl = `${API_BASE_URL}/api/v1/${path}${queryString}`;
 
+  // CSRF Defense: Verify Origin on state-changing operations
+  if (req.method !== "GET" && req.method !== "HEAD") {
+    const origin = req.headers.get("origin");
+    const host = req.headers.get("host");
+    if (origin && host) {
+      try {
+        const originHost = new URL(origin).host;
+        if (originHost !== host) {
+          return NextResponse.json(
+            { detail: "CSRF verification failed: Cross-origin state mutation is forbidden." },
+            { status: 403 }
+          );
+        }
+      } catch {
+        return NextResponse.json(
+          { detail: "CSRF verification failed: Invalid Origin header." },
+          { status: 403 }
+        );
+      }
+    }
+  }
+
   const headers: Record<string, string> = {};
   if (token) {
     headers["Authorization"] = `Bearer ${token}`;

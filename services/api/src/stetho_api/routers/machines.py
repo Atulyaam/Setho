@@ -156,7 +156,7 @@ async def enroll_normal_audio(
             details=q_report.to_dict(),
         )
 
-    # 4. Record enrollment in DB
+    # 4. Record enrollment in DB (with deduplication hash check)
     rec = enrollment_repo.record_enrollment(
         machine_id=machine_id,
         upload_id=meta.upload_id,
@@ -166,6 +166,7 @@ async def enroll_normal_audio(
         channels=meta.channels,
         quality_status=q_report.status.value,
         is_confirmed_normal=True,
+        content_hash=meta.content_hash,
     )
 
     # 5. DYNAMIC CALIBRATION RECALCULATION (Task 4.5.2)

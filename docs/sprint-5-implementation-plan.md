@@ -151,3 +151,4 @@ apps/web/src/app/
 9. **Step 9 (Task 5.10):** Polish UI/UX, responsive layout, loading skeletons, error states, and navigation.
 10. **Step 10 (Task 5.11 & 5.12):** Automated integration tests and manual end-to-end verification.
 11. **Step 11 (Task 5.13):** Full regression test suite, final documentation (`docs/sprint-5-report.md`, `docs/evaluation/sprint-5-test-results.md`, `docs/demo/sprint-5-manual-testing-guide.md`), and final sign-off.
+

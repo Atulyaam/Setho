@@ -166,3 +166,4 @@ This guide provides the exact step-by-step verification procedure for an operato
 2. **Verified Result:** The `stetho_token` cookie is cleared with `maxAge: 0`.
 3. Attempt to access `/dashboard` or `/machines` directly in the URL bar.
 4. **Verified Result:** Immediately intercepted by `ProtectedRoute` and redirected to `/login`.
+

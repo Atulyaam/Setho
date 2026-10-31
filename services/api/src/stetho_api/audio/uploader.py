@@ -1,6 +1,7 @@
 """Audio ingestion, validation, and storage service for Stetho API."""
 
 from dataclasses import dataclass, field
+import hashlib
 import io
 import logging
 from pathlib import Path
@@ -51,18 +52,21 @@ class UploadedAudioMetadata:
     channels: int
     format: str
     subtype: str
+    content_hash: str = ""
 
     def to_dict(self) -> Dict[str, Any]:
         return {
             "upload_id": self.upload_id,
             "original_filename": self.original_filename,
             "sanitized_filename": self.sanitized_filename,
+            "stored_path": self.stored_path,
             "file_size_bytes": self.file_size_bytes,
             "duration_sec": round(self.duration_sec, 4),
             "sample_rate": self.sample_rate,
             "channels": self.channels,
             "format": self.format,
             "subtype": self.subtype,
+            "content_hash": self.content_hash,
         }
 
 
@@ -169,6 +173,8 @@ class AudioIngestionService:
         with open(target_path, "wb") as f:
             f.write(file_bytes)
 
+        content_hash = hashlib.sha256(file_bytes).hexdigest()
+
         metadata = UploadedAudioMetadata(
             upload_id=upload_id,
             original_filename=Path(raw_name).name,  # Sanitized basename
@@ -180,6 +186,7 @@ class AudioIngestionService:
             channels=data.shape[1],
             format=info.format,
             subtype=info.subtype,
+            content_hash=content_hash,
         )
 
         logger.info(

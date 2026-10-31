@@ -127,10 +127,15 @@ class DatabaseManager:
                 channels INTEGER NOT NULL,
                 quality_status TEXT NOT NULL,
                 is_confirmed_normal INTEGER NOT NULL DEFAULT 1,
+                content_hash TEXT DEFAULT NULL,
                 created_at TEXT NOT NULL,
                 FOREIGN KEY (machine_id) REFERENCES machines(machine_id) ON DELETE CASCADE
             );
             """)
+
+            existing_enr_cols = [r[1] for r in cursor.execute("PRAGMA table_info(enrollments);").fetchall()]
+            if "content_hash" not in existing_enr_cols:
+                cursor.execute("ALTER TABLE enrollments ADD COLUMN content_hash TEXT DEFAULT NULL;")
 
             # 4. Analyses Table
             cursor.execute("""
