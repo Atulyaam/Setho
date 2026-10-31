@@ -91,3 +91,4 @@ The decision engine guarantees strictly three categorical outputs:
 
 - Models trained with Preprocessing Version $X$ CANNOT be evaluated with Preprocessing Version $Y$ without explicit adapter transformation.
 - Incompatible calibration profiles MUST be flagged with `is_provisional = true` and a calibration mismatch warning.
+

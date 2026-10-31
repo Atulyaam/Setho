@@ -173,3 +173,4 @@ class ExperimentManager:
     def list_experiments(self) -> List[Dict[str, Any]]:
         reg = self._load_registry()
         return list(reg["experiments"].values())
+

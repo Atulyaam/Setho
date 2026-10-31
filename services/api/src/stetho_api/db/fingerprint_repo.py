@@ -351,3 +351,4 @@ class FingerprintRepository:
         # Sort descending by priority score
         priority_list.sort(key=lambda x: x["priority_score"], reverse=True)
         return priority_list
+

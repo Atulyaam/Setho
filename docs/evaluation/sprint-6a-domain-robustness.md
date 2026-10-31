@@ -67,3 +67,4 @@ In this audit, we subjected the production **Stetho-MSAE** detector to rigorous 
 3. **Production Recommendations:**
    - Maintain the existing `AudioPreprocessor` peak/RMS standardization pipeline.
    - Continue rejecting heavily clipped audio ($> 99\%$ dynamic range saturation) via the pre-inference Quality Gate.
+

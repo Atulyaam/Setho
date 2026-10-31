@@ -227,3 +227,4 @@ class TestSprint6AProductFeatures:
         assert "anomaly_score" in pt
         assert "operating_threshold" in pt
         assert "decision" in pt
+

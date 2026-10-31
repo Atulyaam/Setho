@@ -146,3 +146,4 @@ export function AcousticDriftTimeline({ machineId }: AcousticDriftTimelineProps)
     </div>
   );
 }
+

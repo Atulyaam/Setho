@@ -155,3 +155,4 @@ export function AcousticFingerprintCard({ machineId }: AcousticFingerprintCardPr
     </div>
   );
 }
+

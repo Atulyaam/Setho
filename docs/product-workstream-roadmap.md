@@ -48,3 +48,4 @@ flowchart LR
 - [ ] **ERP / CMMS Integration:** Direct bi-directional integration with SAP PM, IBM Maximo, and MaintainX for automated work order generation.
 - [ ] **Continuous Acoustic Edge Gateways:** Low-power Raspberry Pi / ESP32 industrial microphones streaming continuous background telemetry.
 - [ ] **Multi-Modal Sensor Fusion:** Correlating acoustic drift with vibration accelerometers and thermal imaging.
+

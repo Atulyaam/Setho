@@ -59,3 +59,4 @@ Across all four physical machines, we compared the empirical 95th percentile thr
 Extreme Value Theory (EVT) provides a sound, principled solution to the fundamental small-$N$ calibration bottleneck in industrial anomaly detection. 
 
 We recommend promoting EVT tail estimation to the default thresholding strategy in `StatisticalCalibrator` for all machines with $N < 30$ enrolled recordings, and reserving empirical percentiles only when $N \ge 100$.
+

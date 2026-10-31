@@ -63,3 +63,4 @@
   - `/studio` (Acoustic Comparative Studio)
   - `/settings` (Hardware, Storage, Model Versioning & Theme Settings)
   - `/login`, `/register` (Authentication routes)
+

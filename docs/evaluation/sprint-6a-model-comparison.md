@@ -70,3 +70,4 @@ We investigated the sensitivity of Stetho-MSAE to the STFT window size $N_{\text
 ## 5. Final Model Champion Recommendation
 
 **Stetho-MSAE** remains the unequivocal model champion for the Stetho Industrial Acoustic Intelligence Platform. Combining Stetho-MSAE with **Extreme Value Theory (EVT) Statistical Calibration** delivers the highest accuracy, lowest false-alarm rate, and full acoustic gain invariance across industrial environments.
+

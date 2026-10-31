@@ -72,3 +72,4 @@ In Sprint 6A, all seven core capabilities were designed, implemented, and integr
 - **Industrial Theme System:** Fully responsive Dark and Light themes with high-contrast accessibility tokens (`zinc`, `amber`, `emerald`, `rose`).
 - **Bilingual Support (English & Hindi):** `apps/web/src/lib/i18n.ts` provides complete translations across all navigation elements, metrics, buttons, and status labels (`en` and `hi`).
 - **UI Context Provider:** `UIContext.tsx` manages language preference, theme toggling, and network status across the Next.js application tree.
+
