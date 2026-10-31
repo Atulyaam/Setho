@@ -261,3 +261,4 @@ It fulfills all Sprint 3 architectural, efficiency, and robustness criteria, ach
 
 if __name__ == "__main__":
     generate_reports()
+

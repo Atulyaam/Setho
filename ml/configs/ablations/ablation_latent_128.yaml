@@ -40,3 +40,4 @@ train_split: "ml/data/splits/machine_specific/{machine_id}/train_normal.csv"
 dev_split: "ml/data/splits/machine_specific/{machine_id}/dev_normal.csv"
 test_split: "ml/data/splits/machine_specific/{machine_id}/test.csv"
 artifact_dir: "ml/artifacts/ablations/latent_128/{machine_id}"
+

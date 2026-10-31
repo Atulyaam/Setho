@@ -217,3 +217,4 @@ def test_msae_detector_fit_and_scoring_synthetic():
         assert loaded.is_fitted is True
         loaded_score = loaded.score_file(train_files[0])
         assert abs(norm_score - loaded_score) < 1e-4
+

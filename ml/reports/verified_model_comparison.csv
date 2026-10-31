@@ -1,0 +1,16 @@
+model_name,architecture_type,machine_id,roc_auc,pauc,precision,recall,f1,fpr,tn,fp,fn,tp,operating_threshold,median_cpu_e2e_ms,cold_load_ms,pure_model_forward_ms,total_params,model_weights_mb,total_artifact_mb,calibration_dev_n
+Dense Autoencoder,MLP (Bottleneck 32),id_00,0.9778,0.9649,1.0,0.1333,0.2353,0.0,3,0,13,2,0.324145,43.7,75.89,4.82,2154624,16.58,16.59,2
+Dense Autoencoder,MLP (Bottleneck 32),id_02,1.0,1.0,1.0,1.0,1.0,0.0,3,0,0,15,0.264321,43.7,75.89,4.82,2154624,16.58,16.59,2
+Dense Autoencoder,MLP (Bottleneck 32),id_04,0.9111,0.8596,0.8824,1.0,0.9375,0.6667,1,2,0,15,0.233944,43.7,75.89,4.82,2154624,16.58,16.59,2
+Dense Autoencoder,MLP (Bottleneck 32),id_06,1.0,1.0,0.8333,1.0,0.9091,1.0,0,3,0,15,0.264119,43.7,75.89,4.82,2154624,16.58,16.59,2
+Dense Autoencoder,MLP (Bottleneck 32),macro_average,0.9722,0.9561,0.9289,0.7833,0.7705,0.4167,7,5,13,47,N/A,43.7,75.89,4.82,2154624,16.58,16.59,2
+Stetho-MSAE,Dilated Depthwise CNN (Bottleneck 64),id_00,1.0,1.0,1.0,0.1333,0.2353,0.0,3,0,13,2,0.322461,116.05,46.87,80.78,559873,4.31,4.32,2
+Stetho-MSAE,Dilated Depthwise CNN (Bottleneck 64),id_02,1.0,1.0,1.0,1.0,1.0,0.0,3,0,0,15,0.261488,116.05,46.87,80.78,559873,4.31,4.32,2
+Stetho-MSAE,Dilated Depthwise CNN (Bottleneck 64),id_04,0.8,0.7895,0.8333,1.0,0.9091,1.0,0,3,0,15,0.211811,116.05,46.87,80.78,559873,4.31,4.32,2
+Stetho-MSAE,Dilated Depthwise CNN (Bottleneck 64),id_06,0.9778,0.9649,0.8824,1.0,0.9375,0.6667,1,2,0,15,0.269791,116.05,46.87,80.78,559873,4.31,4.32,2
+Stetho-MSAE,Dilated Depthwise CNN (Bottleneck 64),macro_average,0.9445,0.9386,0.9289,0.7833,0.7705,0.4167,7,5,13,47,N/A,116.05,46.87,80.78,559873,4.31,4.32,2
+Isolation Forest,Tree Ensemble (200 trees),id_00,1.0,1.0,1.0,0.1333,0.2353,0.0,3,0,13,2,0.53986,155.68,74.4,28.34,N/A (Forest),0.41,0.41,2
+Isolation Forest,Tree Ensemble (200 trees),id_02,1.0,1.0,1.0,1.0,1.0,0.0,3,0,0,15,0.515362,155.68,74.4,28.34,N/A (Forest),0.41,0.41,2
+Isolation Forest,Tree Ensemble (200 trees),id_04,0.7333,0.7895,0.8333,1.0,0.9091,1.0,0,3,0,15,0.454139,155.68,74.4,28.34,N/A (Forest),0.41,0.41,2
+Isolation Forest,Tree Ensemble (200 trees),id_06,0.5333,0.6842,0.7857,0.7333,0.7586,1.0,0,3,4,11,0.502948,155.68,74.4,28.34,N/A (Forest),0.41,0.41,2
+Isolation Forest,Tree Ensemble (200 trees),macro_average,0.8166,0.8684,0.9047,0.7167,0.7258,0.5,6,6,17,43,N/A,155.68,74.4,28.34,N/A (Forest),0.41,0.41,2

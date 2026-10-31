@@ -365,3 +365,4 @@ class StethoMSAE(nn.Module):
             "encoder_params": encoder_params,
             "decoder_params": decoder_params,
         }
+

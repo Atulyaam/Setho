@@ -1,22 +1,37 @@
 {
-  "champion_model_type": "stetho_msae",
-  "champion_architecture": "Stetho-MSAE (Shared Multi-Scale Depthwise-Separable CNN Autoencoder)",
-  "decision_rationale": "Stetho-MSAE is selected as the production champion over Dense Autoencoder and Isolation Forest based on empirical evidence across multiple operational axes: (1) Superior/Competitive Discrimination: Perfect ROC-AUC (1.0000) on id_00 and id_02, 0.9778 on id_06, and 0.8000 on id_04, outperforming Dense Autoencoder on id_00 and id_04. (2) Extreme Parameter Efficiency: ~560k parameters (74% reduction vs. Dense Autoencoder's 2.15M parameters). (3) Compact Storage Footprint: ~4.4 MB total directory artifact (vs. 17.0 MB for Dense Autoencoder: ~74% reduction). (4) Ultra-Fast Cold Loading: 19.59 ms cold model load time (4x faster than Dense Autoencoder's 73.86 ms and IF's 74.4 ms). (5) Real-Time Inference: 58.60 ms median CPU latency, well within the sub-100ms real-time inspection budget. (6) Empirical Robustness: Mathematically verified stability under Gaussian noise, volume scaling, clipping, and packet drops with monotonic degradation and zero numerical divergence (no NaN/Inf).",
-  "macro_metrics": {
+  "validation_sprint": "Sprint 3.5 (Independent Model Validation & Champion Selection)",
+  "final_decision_status": "PASS \u2014 CHAMPION VERIFIED, READY FOR SPRINT 4",
+  "selected_policy": "Option 2: Tiered Deployment Architecture",
+  "primary_edge_champion": {
+    "model_type": "stetho_msae",
+    "architecture": "Stetho-MSAE (Shared Multi-Scale Depthwise-Separable CNN Autoencoder)",
+    "target_environment": "Edge / Resource-Constrained (RTX 3050 Laptop, Embedded Linux, Low-Storage Containers)",
+    "justification": "Stetho-MSAE slashes parameter count by 74% (559,873 params vs. 2,154,624 params) and serialized disk footprint to 4.31 MB (vs. 16.58 MB), with 38% faster cold loading (46.87 ms vs. 75.89 ms). It achieves perfect 1.0000 ROC-AUC on id_00 and id_02, and 0.9778 on id_06, with macro ROC-AUC of 0.9445.",
     "macro_roc_auc": 0.9445,
     "macro_pauc": 0.9386,
-    "macro_recall": 0.7833,
-    "macro_fpr": 0.4167,
-    "macro_f1": 0.7705
+    "total_parameters": 559873,
+    "model_size_mb": 4.31,
+    "cpu_e2e_ms": 116.05
   },
-  "hardware_efficiency": {
-    "median_cpu_latency_ms": 58.6,
-    "p95_cpu_latency_ms": 64.99,
-    "cold_load_time_ms": 19.59,
-    "peak_ram_mb": 11.0,
-    "model_size_kb": 4419.27,
-    "total_parameters": 559873
+  "secondary_accuracy_baseline": {
+    "model_type": "dense_autoencoder",
+    "architecture": "Dense MLP Autoencoder (Bottleneck 32)",
+    "target_environment": "High-Throughput Server / Full-Fidelity Inspection",
+    "justification": "Dense Autoencoder achieves higher macro ROC-AUC (0.9722 vs. 0.9445) and higher pAUC (0.9561 vs. 0.9386), with superior performance on id_04 (0.9111 vs. 0.8000) and 2.6x faster CPU inference (43.70 ms vs. 116.05 ms). It is retained as an active high-fidelity option where 16.6 MB model size is acceptable.",
+    "macro_roc_auc": 0.9722,
+    "macro_pauc": 0.9561,
+    "total_parameters": 2154624,
+    "model_size_mb": 16.58,
+    "cpu_e2e_ms": 43.7
   },
-  "selected_at_epoch": "Sprint 3 Final Audit",
-  "status": "APPROVED"
+  "critical_audit_findings": {
+    "corrected_claims": [
+      "CORRECTED: Stetho-MSAE does NOT outperform Dense Autoencoder on id_04 (DAE 0.9111 ROC-AUC vs. MSAE 0.8000 ROC-AUC).",
+      "CORRECTED: Dense Autoencoder macro ROC-AUC (0.9722) is higher than Stetho-MSAE macro ROC-AUC (0.9445).",
+      "CORRECTED: Dense Autoencoder has faster CPU inference latency (43.70 ms vs. 116.05 ms) due to BLAS-optimized dense matrix multiplies vs. un-fused 2D depthwise convolution loops on CPU.",
+      "VERIFIED: Stetho-MSAE holds massive efficiency superiority (74% parameter reduction, 74% storage reduction, faster cold loading) and superior ranking on id_00 (1.0000 vs. 0.9778)."
+    ],
+    "calibration_limitations": "Both models suffer from severe operating threshold variance when calibrated on only N=2 normal dev clips. Low recall on id_00 (0.1333) and high FPR on id_04/id_06 (0.67 - 1.00) are calibration quantile estimation artifacts, not ranking discrimination failures. A three-zone classification engine ([theta_lower, theta_upper]) with provisional uncertainty flags is mandatory for all user-facing inspection outputs.",
+    "robustness_distinctions": "Robustness testing confirmed that simple audio gain changes (+6 dB / -6 dB) alter log-Mel energy and trigger false anomalies unless audio preprocessing enforces peak/RMS normalization. An acoustic quality gating module (RMS, clipping, silence check) must precede anomaly inference to differentiate sensor/recording faults from mechanical degradation."
+  }
 }

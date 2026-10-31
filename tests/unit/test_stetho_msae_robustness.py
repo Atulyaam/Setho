@@ -91,3 +91,4 @@ def test_detector_robustness_execution(dummy_audio_file):
     # Silence check
     silence_score = results["perturbations"]["pure_silence"]["anomaly_score"]
     assert silence_score >= 0.0
+
