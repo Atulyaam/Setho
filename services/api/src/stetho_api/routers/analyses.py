@@ -279,6 +279,25 @@ async def get_analysis_job(
 
 
 @router.get(
+    "/analyses/recent",
+    summary="List recent inspection analyses",
+    description="Retrieves recent acoustic analyses visible to the authenticated user.",
+)
+async def list_recent_analyses(
+    limit: int = 20,
+    current_user: User = Depends(get_current_user),
+    deps=Depends(get_dependencies),
+):
+    analysis_repo: AnalysisRepository = deps["analysis_repo"]
+    is_admin = current_user.role == "admin"
+    records = analysis_repo.list_recent(user_id=current_user.user_id, is_admin=is_admin, limit=limit)
+    return {
+        "analyses": [r.to_dict() for r in records],
+        "total_count": len(records),
+    }
+
+
+@router.get(
     "/analyses/{analysis_id}",
     response_model=AnalysisResponse,
     summary="Get analysis result",

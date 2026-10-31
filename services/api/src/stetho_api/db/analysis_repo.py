@@ -318,6 +318,47 @@ class AnalysisRepository:
             for r in rows
         ]
 
+    def list_recent(self, user_id: str, is_admin: bool = False, limit: int = 20) -> List[AnalysisRecord]:
+        conn = self.db.get_connection()
+        cursor = conn.cursor()
+        if is_admin:
+            cursor.execute(
+                "SELECT * FROM analyses ORDER BY created_at DESC LIMIT ?;",
+                (limit,),
+            )
+        else:
+            cursor.execute(
+                """
+                SELECT a.* FROM analyses a
+                JOIN machines m ON a.machine_id = m.machine_id
+                WHERE m.owner_id = ?
+                ORDER BY a.created_at DESC LIMIT ?;
+                """,
+                (user_id, limit),
+            )
+        rows = cursor.fetchall()
+        return [
+            AnalysisRecord(
+                analysis_id=r["analysis_id"],
+                machine_id=r["machine_id"],
+                model_name=r["model_name"],
+                model_version=r["model_version"],
+                analysis_status=r["analysis_status"],
+                quality_status=r["quality_status"],
+                decision=r["decision"],
+                anomaly_score=r["anomaly_score"],
+                operating_threshold=r["operating_threshold"],
+                theta_lower=r["theta_lower"],
+                theta_upper=r["theta_upper"],
+                is_provisional=bool(r["is_provisional"]),
+                processing_duration_ms=r["processing_duration_ms"],
+                reasons=json.loads(r["reasons"] or "[]"),
+                metrics=json.loads(r["metrics"] or "{}"),
+                created_at=r["created_at"],
+            )
+            for r in rows
+        ]
+
 
 class JobRepository:
     """Data access repository for asynchronous analysis jobs."""

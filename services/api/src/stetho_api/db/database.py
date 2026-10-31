@@ -9,6 +9,7 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 import json
 import logging
+import os
 from pathlib import Path
 import sqlite3
 import threading
@@ -182,18 +183,30 @@ class DatabaseManager:
             user_count = cursor.fetchone()[0]
             now = get_utc_now_iso()
             if user_count == 0:
-                admin_hash = hash_password("StethoAdmin2026!")
-                inspector_hash = hash_password("StethoInspector2026!")
-                default_users = [
-                    ("usr_admin", "admin", admin_hash, "admin", now),
-                    ("usr_inspector", "inspector", inspector_hash, "inspector", now),
-                ]
-                cursor.executemany("""
-                INSERT INTO users (user_id, username, hashed_password, role, created_at)
-                VALUES (?, ?, ?, ?, ?);
-                """, default_users)
-                conn.commit()
-                logger.info("Seeded default 'admin' and 'inspector' accounts in database")
+                is_prod = os.environ.get("ENVIRONMENT", "development").lower() == "production"
+                admin_pw = os.environ.get("STETHO_ADMIN_PASSWORD")
+                inspector_pw = os.environ.get("STETHO_INSPECTOR_PASSWORD")
+
+                if is_prod and (not admin_pw or not inspector_pw):
+                    logger.warning(
+                        "Production environment detected: Default seed accounts omitted. "
+                        "Configure STETHO_ADMIN_PASSWORD and STETHO_INSPECTOR_PASSWORD or use /api/v1/auth/register."
+                    )
+                else:
+                    admin_pw = admin_pw or "StethoAdmin2026!"
+                    inspector_pw = inspector_pw or "StethoInspector2026!"
+                    admin_hash = hash_password(admin_pw)
+                    inspector_hash = hash_password(inspector_pw)
+                    default_users = [
+                        ("usr_admin", "admin", admin_hash, "admin", now),
+                        ("usr_inspector", "inspector", inspector_hash, "inspector", now),
+                    ]
+                    cursor.executemany("""
+                    INSERT INTO users (user_id, username, hashed_password, role, created_at)
+                    VALUES (?, ?, ?, ?, ?);
+                    """, default_users)
+                    conn.commit()
+                    logger.info("Configured default 'admin' and 'inspector' accounts in database")
 
             # Seed pre-calibrated MIMII benchmark machines if table is empty
             cursor.execute("SELECT COUNT(*) FROM machines;")
