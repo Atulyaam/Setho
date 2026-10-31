@@ -1,0 +1,79 @@
+# ==============================================================================
+# Stetho Docker Compose Configuration (Sprint 0)
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: stetho_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-stetho_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-stetho_password}
+      POSTGRES_DB: ${POSTGRES_DB:-stetho_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - stetho_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-stetho_user} -d ${POSTGRES_DB:-stetho_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+  api:
+    build:
+      context: .
+      dockerfile: infra/Dockerfiles/Dockerfile.api
+    container_name: stetho_api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    environment:
+      ENVIRONMENT: development
+      DEBUG: "true"
+      HOST: "0.0.0.0"
+      PORT: "8000"
+      DATABASE_URL: postgresql://${POSTGRES_USER:-stetho_user}:${POSTGRES_PASSWORD:-stetho_password}@db:5432/${POSTGRES_DB:-stetho_db}
+      STORAGE_TYPE: local
+      STORAGE_LOCAL_DIR: /app/data/storage
+      MODEL_ARTIFACTS_DIR: /app/ml/artifacts
+      DEVICE_FALLBACK_TO_CPU: "true"
+      SECRET_KEY: ${SECRET_KEY:-stetho-dev-secret-key-32-chars-minimum-length-key!}
+    volumes:
+      - stetho_storage:/app/data/storage
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  web:
+    build:
+      context: .
+      dockerfile: infra/Dockerfiles/Dockerfile.web
+    container_name: stetho_web
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+      PORT: 3000
+      HOSTNAME: "0.0.0.0"
+
+volumes:
+  stetho_pgdata:
+    name: stetho_pgdata
+  stetho_storage:
+    name: stetho_storage
+

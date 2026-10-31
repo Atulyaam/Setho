@@ -1,0 +1,3 @@
+# Stetho robots.txt
+User-agent: *
+Allow: /
