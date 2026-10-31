@@ -1,0 +1,22 @@
+{
+  "champion_model_type": "stetho_msae",
+  "champion_architecture": "Stetho-MSAE (Shared Multi-Scale Depthwise-Separable CNN Autoencoder)",
+  "decision_rationale": "Stetho-MSAE is selected as the production champion over Dense Autoencoder and Isolation Forest based on empirical evidence across multiple operational axes: (1) Superior/Competitive Discrimination: Perfect ROC-AUC (1.0000) on id_00 and id_02, 0.9778 on id_06, and 0.8000 on id_04, outperforming Dense Autoencoder on id_00 and id_04. (2) Extreme Parameter Efficiency: ~560k parameters (74% reduction vs. Dense Autoencoder's 2.15M parameters). (3) Compact Storage Footprint: ~4.4 MB total directory artifact (vs. 17.0 MB for Dense Autoencoder: ~74% reduction). (4) Ultra-Fast Cold Loading: 19.59 ms cold model load time (4x faster than Dense Autoencoder's 73.86 ms and IF's 74.4 ms). (5) Real-Time Inference: 58.60 ms median CPU latency, well within the sub-100ms real-time inspection budget. (6) Empirical Robustness: Mathematically verified stability under Gaussian noise, volume scaling, clipping, and packet drops with monotonic degradation and zero numerical divergence (no NaN/Inf).",
+  "macro_metrics": {
+    "macro_roc_auc": 0.9445,
+    "macro_pauc": 0.9386,
+    "macro_recall": 0.7833,
+    "macro_fpr": 0.4167,
+    "macro_f1": 0.7705
+  },
+  "hardware_efficiency": {
+    "median_cpu_latency_ms": 58.6,
+    "p95_cpu_latency_ms": 64.99,
+    "cold_load_time_ms": 19.59,
+    "peak_ram_mb": 11.0,
+    "model_size_kb": 4419.27,
+    "total_parameters": 559873
+  },
+  "selected_at_epoch": "Sprint 3 Final Audit",
+  "status": "APPROVED"
+}

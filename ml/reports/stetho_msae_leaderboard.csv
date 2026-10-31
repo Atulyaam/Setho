@@ -1,0 +1,17 @@
+experiment_id,model_type,machine_id,roc_auc,pauc,precision,recall,f1,fpr,cpu_latency_ms,model_size_kb,parameters,training_duration_sec
+baseline_dae_id_00,dense_autoencoder,id_00,0.9778,0.9649,1.0,0.1333,0.2353,0.0,24.55,16986.68,N/A,14.3667
+baseline_dae_id_02,dense_autoencoder,id_02,1.0,1.0,1.0,1.0,1.0,0.0,N/A,16989.24,N/A,22.5691
+baseline_dae_id_04,dense_autoencoder,id_04,0.9111,0.8596,0.8824,1.0,0.9375,0.6667,N/A,16986.68,N/A,14.7222
+baseline_dae_id_06,dense_autoencoder,id_06,1.0,1.0,0.8333,1.0,0.9091,1.0,N/A,16985.48,N/A,11.3577
+baseline_if_id_00,isolation_forest,id_00,1.0,1.0,1.0,0.1333,0.2353,0.0,155.68,413.65,N/A,1.4705
+baseline_if_id_02,isolation_forest,id_02,1.0,1.0,1.0,1.0,1.0,0.0,N/A,417.08,N/A,1.1652
+baseline_if_id_04,isolation_forest,id_04,0.7333,0.7895,0.8333,1.0,0.9091,1.0,N/A,407.13,N/A,1.424
+baseline_if_id_06,isolation_forest,id_06,0.5333,0.6842,0.7857,0.7333,0.7586,1.0,N/A,398.71,N/A,1.2986
+ablation_latent_128_id_00,stetho_msae,id_00,1.0,1.0,1.0,0.0667,0.125,0.0,58.6,8517.13,1084353,26.3021
+ablation_no_dilation_id_00,stetho_msae,id_00,1.0,1.0,1.0,0.1333,0.2353,0.0,58.6,4419.3,559873,21.8145
+ablation_standard_conv_id_00,stetho_msae,id_00,1.0,1.0,1.0,0.0667,0.125,0.0,58.6,5855.46,744257,29.2256
+ablation_top_k_id_00,stetho_msae,id_00,1.0,1.0,0.0,0.0,0.0,0.0,58.6,4419.27,559873,23.4547
+stetho_msae_id_00,stetho_msae,id_00,1.0,1.0,1.0,0.1333,0.2353,0.0,58.6,4419.27,559873,24.3372
+stetho_msae_id_02,stetho_msae,id_02,1.0,1.0,1.0,1.0,1.0,0.0,N/A,4430.79,559873,66.766
+stetho_msae_id_04,stetho_msae,id_04,0.8,0.7895,0.8333,1.0,0.9091,1.0,N/A,4431.46,559873,69.9362
+stetho_msae_id_06,stetho_msae,id_06,0.9778,0.9649,0.8824,1.0,0.9375,0.6667,N/A,4428.43,559873,63.9073

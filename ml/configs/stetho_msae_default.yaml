@@ -1,0 +1,42 @@
+# Default Stetho-MSAE Configuration
+experiment_id: "stetho_msae_{machine_id}"
+machine_id: "id_00"
+seed: 42
+device: "auto"
+
+model:
+  model_type: "stetho_msae"
+  base_channels: 32
+  dilations:
+    - 1
+    - 2
+    - 4
+  latent_dim: 64
+  use_depthwise: true
+  scoring_aggregation: "mean"
+  top_k: 3
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  batch_size: 8
+  max_epochs: 60
+  early_stopping_patience: 10
+  loss: "l1"
+  optimizer: "AdamW"
+
+features:
+  feature_type: "log_mel"
+  sample_rate: 16000
+  channel_policy: "channel_0"
+  channel_index: 0
+  n_fft: 1024
+  hop_length: 256
+  n_mels: 64
+  f_min: 50.0
+  f_max: 8000.0
+  spec_window_frames: 64
+  spec_hop_frames: 32
+
+train_split: "ml/data/splits/machine_specific/{machine_id}/train_normal.csv"
+dev_split: "ml/data/splits/machine_specific/{machine_id}/dev_normal.csv"
+test_split: "ml/data/splits/machine_specific/{machine_id}/test.csv"
+artifact_dir: "ml/artifacts/stetho_msae/{machine_id}"

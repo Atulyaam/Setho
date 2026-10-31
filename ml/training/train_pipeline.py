@@ -19,6 +19,7 @@ from ml.evaluation.metrics import compute_anomaly_metrics
 from ml.models.base import BaseAnomalyDetector
 from ml.models.baseline_autoencoder.autoencoder_detector import DenseAutoencoderDetector
 from ml.models.classical.isolation_forest import IsolationForestDetector
+from ml.models.stetho_msae.msae_detector import StethoMSAEDetector
 
 logger = logging.getLogger("stetho_pipeline")
 
@@ -80,6 +81,23 @@ def run_experiment(config: ExperimentConfig) -> Dict[str, Any]:
             machine_id=config.machine_id,
             latent_dim=config.model.latent_dim,
             hidden_dims=config.model.hidden_dims,
+            learning_rate=config.model.learning_rate,
+            weight_decay=config.model.weight_decay,
+            batch_size=config.model.batch_size,
+            max_epochs=config.model.max_epochs,
+            early_stopping_patience=config.model.early_stopping_patience,
+            device=config.device,
+            seed=config.seed,
+        )
+    elif config.model.model_type == "stetho_msae":
+        detector = StethoMSAEDetector(
+            machine_id=config.machine_id,
+            base_channels=config.model.base_channels,
+            dilations=tuple(config.model.dilations),
+            latent_dim=config.model.latent_dim,
+            use_depthwise=config.model.use_depthwise,
+            scoring_aggregation=config.model.scoring_aggregation,
+            top_k=config.model.top_k,
             learning_rate=config.model.learning_rate,
             weight_decay=config.model.weight_decay,
             batch_size=config.model.batch_size,

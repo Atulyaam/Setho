@@ -1,0 +1,103 @@
+{
+  "machine_id": "id_00",
+  "clean_baseline_score": 0.268304,
+  "threshold": 0.322461,
+  "perturbations": {
+    "clean_reference": {
+      "description": "Reference untouched audio",
+      "parameter_value": 0.0,
+      "anomaly_score": 0.268304,
+      "score_diff_from_clean": 0.0,
+      "flagged_abnormal": false,
+      "is_finite": true
+    },
+    "gaussian_noise_20db": {
+      "description": "Light background noise (SNR 20 dB)",
+      "parameter_value": 20.0,
+      "anomaly_score": 0.266256,
+      "score_diff_from_clean": -0.002048,
+      "flagged_abnormal": false,
+      "is_finite": true
+    },
+    "gaussian_noise_10db": {
+      "description": "Moderate background noise (SNR 10 dB)",
+      "parameter_value": 10.0,
+      "anomaly_score": 0.285671,
+      "score_diff_from_clean": 0.017367,
+      "flagged_abnormal": false,
+      "is_finite": true
+    },
+    "gaussian_noise_0db": {
+      "description": "Severe background noise (SNR 0 dB)",
+      "parameter_value": 0.0,
+      "anomaly_score": 0.517108,
+      "score_diff_from_clean": 0.248804,
+      "flagged_abnormal": true,
+      "is_finite": true
+    },
+    "gain_plus_6db": {
+      "description": "Amplitude gain +6 dB",
+      "parameter_value": 6.0,
+      "anomaly_score": 0.382006,
+      "score_diff_from_clean": 0.113702,
+      "flagged_abnormal": true,
+      "is_finite": true
+    },
+    "gain_minus_6db": {
+      "description": "Amplitude attenuation -6 dB",
+      "parameter_value": -6.0,
+      "anomaly_score": 0.349684,
+      "score_diff_from_clean": 0.08138,
+      "flagged_abnormal": true,
+      "is_finite": true
+    },
+    "gain_minus_20db": {
+      "description": "Severe attenuation -20 dB",
+      "parameter_value": -20.0,
+      "anomaly_score": 1.307331,
+      "score_diff_from_clean": 1.039027,
+      "flagged_abnormal": true,
+      "is_finite": true
+    },
+    "packet_drop_10pct": {
+      "description": "10% packet / temporal drop",
+      "parameter_value": 0.1,
+      "anomaly_score": 0.798474,
+      "score_diff_from_clean": 0.53017,
+      "flagged_abnormal": true,
+      "is_finite": true
+    },
+    "packet_drop_25pct": {
+      "description": "25% packet / temporal drop",
+      "parameter_value": 0.25,
+      "anomaly_score": 1.536335,
+      "score_diff_from_clean": 1.268031,
+      "flagged_abnormal": true,
+      "is_finite": true
+    },
+    "clipping_saturation": {
+      "description": "Non-linear microphone clipping",
+      "parameter_value": 0.05,
+      "anomaly_score": 0.426893,
+      "score_diff_from_clean": 0.158589,
+      "flagged_abnormal": true,
+      "is_finite": true
+    },
+    "impulse_clicks": {
+      "description": "20 acoustic impulse click transients",
+      "parameter_value": 20,
+      "anomaly_score": 0.273754,
+      "score_diff_from_clean": 0.00545,
+      "flagged_abnormal": false,
+      "is_finite": true
+    },
+    "pure_silence": {
+      "description": "Complete acoustic silence (all zeros)",
+      "parameter_value": 0.0,
+      "anomaly_score": 9.293943,
+      "score_diff_from_clean": 9.02564,
+      "flagged_abnormal": true,
+      "is_finite": true
+    }
+  }
+}

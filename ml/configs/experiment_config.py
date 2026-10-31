@@ -69,13 +69,13 @@ class FeatureConfig:
 
 @dataclass
 class ModelHyperparameters:
-    """Hyperparameters for baseline models."""
-    model_type: str = "isolation_forest"  # "isolation_forest" or "dense_autoencoder"
+    """Hyperparameters for baseline and Stetho-MSAE models."""
+    model_type: str = "isolation_forest"  # "isolation_forest", "dense_autoencoder", or "stetho_msae"
     # Isolation Forest
     n_estimators: int = 200
     contamination: Union[str, float] = "auto"
     max_features: float = 1.0
-    # Dense Autoencoder
+    # Dense Autoencoder & Stetho-MSAE shared
     latent_dim: int = 32
     hidden_dims: List[int] = field(default_factory=lambda: [512, 128])
     learning_rate: float = 0.001
@@ -85,6 +85,12 @@ class ModelHyperparameters:
     early_stopping_patience: int = 8
     loss: str = "l1"
     optimizer: str = "AdamW"
+    # Stetho-MSAE specific
+    base_channels: int = 32
+    dilations: List[int] = field(default_factory=lambda: [1, 2, 4])
+    use_depthwise: bool = True
+    scoring_aggregation: str = "mean"  # "mean" or "top_k"
+    top_k: int = 3
 
 
 @dataclass
@@ -122,7 +128,13 @@ class ExperimentConfig:
     def set_machine_id(self, machine_id: str) -> None:
         """Update machine_id and recalculate path templates."""
         self.machine_id = machine_id
-        self.experiment_id = f"baseline_{'if' if self.model.model_type == 'isolation_forest' else 'dae'}_{machine_id}"
+        if self.model.model_type == "isolation_forest":
+            prefix = "baseline_if"
+        elif self.model.model_type == "dense_autoencoder":
+            prefix = "baseline_dae"
+        else:
+            prefix = self.model.model_type
+        self.experiment_id = f"{prefix}_{machine_id}"
         self.train_split = f"ml/data/splits/machine_specific/{machine_id}/train_normal.csv"
         self.dev_split = f"ml/data/splits/machine_specific/{machine_id}/dev_normal.csv"
         self.test_split = f"ml/data/splits/machine_specific/{machine_id}/test.csv"

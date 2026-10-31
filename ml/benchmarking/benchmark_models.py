@@ -23,6 +23,7 @@ import torch
 
 from ml.models.baseline_autoencoder.autoencoder_detector import DenseAutoencoderDetector
 from ml.models.classical.isolation_forest import IsolationForestDetector
+from ml.models.stetho_msae.msae_detector import StethoMSAEDetector
 
 logger = logging.getLogger("stetho_benchmarking")
 
@@ -56,7 +57,7 @@ def benchmark_detector(
 
     # 2. Cold load time
     start_load = time.perf_counter()
-    if detector_class == DenseAutoencoderDetector:
+    if detector_class in (DenseAutoencoderDetector, StethoMSAEDetector):
         detector = detector_class.load(artifact_dir, device=device)
     else:
         detector = detector_class.load(artifact_dir)
@@ -135,6 +136,17 @@ def run_all_benchmarks(
         if torch.cuda.is_available():
             all_benchmarks["dense_autoencoder_id_00_cuda"] = benchmark_detector(
                 DenseAutoencoderDetector, dae_dir, sample_wav, device="cuda"
+            )
+
+    # Benchmark Stetho-MSAE for id_00 (CPU and optional CUDA)
+    msae_dir = artifacts_base_dir / "stetho_msae" / "id_00"
+    if msae_dir.exists():
+        all_benchmarks["stetho_msae_id_00_cpu"] = benchmark_detector(
+            StethoMSAEDetector, msae_dir, sample_wav, device="cpu"
+        )
+        if torch.cuda.is_available():
+            all_benchmarks["stetho_msae_id_00_cuda"] = benchmark_detector(
+                StethoMSAEDetector, msae_dir, sample_wav, device="cuda"
             )
 
     with open(output_report_path, "w", encoding="utf-8") as f:

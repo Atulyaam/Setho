@@ -1,0 +1,122 @@
+{
+  "ablation_latent_128_id_00": {
+    "experiment_id": "ablation_latent_128_id_00",
+    "metrics": {
+      "n_normal": 3,
+      "n_abnormal": 15,
+      "total_samples": 18,
+      "threshold": 0.332267,
+      "roc_auc": 1.0,
+      "pauc": 1.0,
+      "precision": 1.0,
+      "recall": 0.0667,
+      "f1": 0.125,
+      "fpr": 0.0,
+      "confusion_matrix": {
+        "tp": 1,
+        "fp": 0,
+        "tn": 3,
+        "fn": 14
+      }
+    },
+    "parameters": 1084353,
+    "best_val_loss": 0.3166,
+    "model_size_kb": 8517.13
+  },
+  "ablation_no_dilation_id_00": {
+    "experiment_id": "ablation_no_dilation_id_00",
+    "metrics": {
+      "n_normal": 3,
+      "n_abnormal": 15,
+      "total_samples": 18,
+      "threshold": 0.322531,
+      "roc_auc": 1.0,
+      "pauc": 1.0,
+      "precision": 1.0,
+      "recall": 0.1333,
+      "f1": 0.2353,
+      "fpr": 0.0,
+      "confusion_matrix": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 3,
+        "fn": 13
+      }
+    },
+    "parameters": 559873,
+    "best_val_loss": 0.30983,
+    "model_size_kb": 4419.3
+  },
+  "ablation_standard_conv_id_00": {
+    "experiment_id": "ablation_standard_conv_id_00",
+    "metrics": {
+      "n_normal": 3,
+      "n_abnormal": 15,
+      "total_samples": 18,
+      "threshold": 0.323214,
+      "roc_auc": 1.0,
+      "pauc": 1.0,
+      "precision": 1.0,
+      "recall": 0.0667,
+      "f1": 0.125,
+      "fpr": 0.0,
+      "confusion_matrix": {
+        "tp": 1,
+        "fp": 0,
+        "tn": 3,
+        "fn": 14
+      }
+    },
+    "parameters": 744257,
+    "best_val_loss": 0.30875,
+    "model_size_kb": 5855.46
+  },
+  "ablation_top_k_id_00": {
+    "experiment_id": "ablation_top_k_id_00",
+    "metrics": {
+      "n_normal": 3,
+      "n_abnormal": 15,
+      "total_samples": 18,
+      "threshold": 0.486676,
+      "roc_auc": 1.0,
+      "pauc": 1.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.0,
+      "confusion_matrix": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 3,
+        "fn": 15
+      }
+    },
+    "parameters": 559873,
+    "best_val_loss": 0.30915,
+    "model_size_kb": 4419.27
+  },
+  "stetho_msae_id_00": {
+    "experiment_id": "stetho_msae_id_00",
+    "metrics": {
+      "n_normal": 3,
+      "n_abnormal": 15,
+      "total_samples": 18,
+      "threshold": 0.322461,
+      "roc_auc": 1.0,
+      "pauc": 1.0,
+      "precision": 1.0,
+      "recall": 0.1333,
+      "f1": 0.2353,
+      "fpr": 0.0,
+      "confusion_matrix": {
+        "tp": 2,
+        "fp": 0,
+        "tn": 3,
+        "fn": 13
+      }
+    },
+    "parameters": 559873,
+    "best_val_loss": 0.30915,
+    "model_size_kb": 4419.27
+  }
+}

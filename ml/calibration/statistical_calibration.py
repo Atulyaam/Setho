@@ -36,6 +36,36 @@ class CalibrationProfile:
     dev_p99: float
     is_provisional: bool
     limitation_notice: str
+    theta_lower: float = 0.0
+    theta_upper: float = 0.0
+
+    def classify(self, score: float) -> Dict[str, Any]:
+        """Three-zone uncertainty-aware classification.
+
+        Zones:
+        - Normal: score < theta_lower
+        - Inconclusive: theta_lower <= score <= theta_upper
+        - Anomaly / Alert: score > theta_upper
+        """
+        if score > self.theta_upper:
+            decision = "abnormal"
+            zone = "anomaly"
+        elif score < self.theta_lower:
+            decision = "normal"
+            zone = "normal"
+        else:
+            decision = "inconclusive"
+            zone = "inconclusive"
+
+        return {
+            "score": round(float(score), 6),
+            "decision": decision,
+            "zone": zone,
+            "is_provisional": self.is_provisional,
+            "theta_lower": self.theta_lower,
+            "theta_upper": self.theta_upper,
+            "operating_threshold": self.operating_threshold,
+        }
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -91,6 +121,9 @@ class StatisticalCalibrator:
             else f"Calibrated {self.target_quantile * 100:.0f}th percentile operating threshold."
         )
 
+        theta_upper = round(threshold_val, 6)
+        theta_lower = round(float(np.percentile(scores_arr, 50)), 6) if len(scores_arr) > 1 else round(float(scores_arr[0]), 6)
+
         profile = CalibrationProfile(
             machine_id=detector.machine_id,
             model_type=detector.model_type,
@@ -107,6 +140,8 @@ class StatisticalCalibrator:
             dev_p99=round(float(np.percentile(scores_arr, 99)), 6),
             is_provisional=is_provisional,
             limitation_notice=limitation_notice,
+            theta_lower=theta_lower,
+            theta_upper=theta_upper,
         )
 
         # Update detector threshold
