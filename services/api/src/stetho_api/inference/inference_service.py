@@ -158,9 +158,13 @@ class AcousticInferenceService:
             mono_raw, sample_rate=sample_rate
         )
 
-        # 4. Load requested or champion model from registry
+        # 4. Load requested or champion model from registry (specific or baseline id_00)
+        m_type_val = model_override.value if isinstance(model_override, ModelType) else str(model_override or "stetho_msae")
+        spec_dir = self.registry.artifacts_root / m_type_val / machine_id
+        effective_id = machine_id if spec_dir.exists() else "id_00"
+
         loaded_model = self.registry.get_model(
-            machine_id=machine_id,
+            machine_id=effective_id,
             model_type=model_override,
         )
 

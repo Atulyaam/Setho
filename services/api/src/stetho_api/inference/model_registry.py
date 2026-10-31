@@ -67,6 +67,7 @@ class LoadedModel:
     def __init__(self, detector: Any, metadata: ModelMetadata):
         self.detector = detector
         self.metadata = metadata
+        self._calibration_profile = dict(metadata.calibration_profile)
         self._lock = threading.Lock()
 
     @property
@@ -79,7 +80,19 @@ class LoadedModel:
 
     @property
     def calibration(self) -> Dict[str, Any]:
-        return self.metadata.calibration_profile
+        with self._lock:
+            return dict(self._calibration_profile)
+
+    def update_calibration(self, new_profile: Dict[str, Any]) -> None:
+        """Atomically update in-memory calibration thresholds and profile."""
+        with self._lock:
+            self._calibration_profile.update(new_profile)
+            if hasattr(self.detector, "threshold"):
+                self.detector.threshold = new_profile.get("operating_threshold", self.detector.threshold)
+            logger.info(
+                f"Updated live calibration for {self.model_type.value}/{self.machine_id}: "
+                f"threshold={new_profile.get('operating_threshold')}, provisional={new_profile.get('is_provisional')}"
+            )
 
     def score_waveform(self, waveform: np.ndarray) -> Tuple[float, Dict[str, Any]]:
         """Score 1D audio waveform and return continuous anomaly score plus patch diagnostics."""
@@ -90,10 +103,10 @@ class LoadedModel:
             # Extract patch diagnostics if supported
             diagnostics: Dict[str, Any] = {
                 "score": float(score),
-                "threshold": float(self.metadata.calibration_profile.get("operating_threshold", 0.0)),
-                "theta_lower": float(self.metadata.calibration_profile.get("theta_lower", 0.0)),
-                "theta_upper": float(self.metadata.calibration_profile.get("theta_upper", 0.0)),
-                "is_provisional": bool(self.metadata.calibration_profile.get("is_provisional", True)),
+                "threshold": float(self._calibration_profile.get("operating_threshold", 0.0)),
+                "theta_lower": float(self._calibration_profile.get("theta_lower", 0.0)),
+                "theta_upper": float(self._calibration_profile.get("theta_upper", 0.0)),
+                "is_provisional": bool(self._calibration_profile.get("is_provisional", True)),
             }
             return float(score), diagnostics
 
@@ -343,6 +356,19 @@ class ModelRegistry:
             f"Preload complete: {len(results['loaded'])} models loaded, {len(results['failed'])} failed"
         )
         return results
+
+    def update_model_calibration(
+        self,
+        machine_id: str,
+        model_type: Union[ModelType, str],
+        new_profile: Dict[str, Any],
+    ) -> None:
+        """Atomically update the live in-memory model calibration profile."""
+        m_type = model_type if isinstance(model_type, ModelType) else ModelType(model_type.lower())
+        key = (m_type.value, machine_id)
+        with self._registry_lock:
+            if key in self._models:
+                self._models[key].update_calibration(new_profile)
 
     def get_status(self) -> Dict[str, Any]:
         """Return readiness and diagnostic status of model registry."""

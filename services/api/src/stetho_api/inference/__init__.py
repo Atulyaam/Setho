@@ -1,5 +1,9 @@
 """Inference subsystem for Stetho API."""
 
+from stetho_api.inference.calibration_engine import (
+    CalibrationResult,
+    MachineCalibrationEngine,
+)
 from stetho_api.inference.inference_service import (
     AcousticInferenceService,
     DecisionZone,
@@ -16,9 +20,11 @@ from stetho_api.inference.model_registry import (
 
 __all__ = [
     "AcousticInferenceService",
+    "CalibrationResult",
     "DecisionZone",
     "InferenceResult",
     "LoadedModel",
+    "MachineCalibrationEngine",
     "ModelMetadata",
     "ModelRegistry",
     "ModelType",

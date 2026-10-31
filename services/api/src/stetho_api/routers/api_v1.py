@@ -1,13 +1,15 @@
-"""API v1 master router aggregating machines and analyses."""
+"""API v1 master router aggregating auth, machines, and analyses."""
 
 from fastapi import APIRouter
 
 from stetho_api.routers.analyses import router as analyses_router
+from stetho_api.routers.auth import router as auth_router
 from stetho_api.routers.machines import router as machines_router
 
 router = APIRouter(prefix="/v1")
 
 # Include domain routers
+router.include_router(auth_router)
 router.include_router(machines_router)
 router.include_router(analyses_router)
 
@@ -19,6 +21,9 @@ async def get_api_info():
         "api_version": "v1",
         "description": "Stetho Machine-Specific Acoustic Inspection API",
         "endpoints": [
+            "/api/v1/auth/register",
+            "/api/v1/auth/login",
+            "/api/v1/auth/me",
             "/api/v1/machines",
             "/api/v1/machines/{machine_id}",
             "/api/v1/machines/{machine_id}/enrollments",

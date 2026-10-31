@@ -27,6 +27,8 @@ class MachineResponse(BaseModel):
     enrollment_status: str
     enrolled_recording_count: int
     calibration_status: str
+    calibration_version: Optional[str] = "1.0.0"
+    owner_id: Optional[str] = "usr_admin"
     created_at: str
     updated_at: str
 
@@ -48,5 +50,8 @@ class EnrollmentResponse(BaseModel):
     created_at: str
     enrolled_count: int
     enrollment_status: str
+    operating_threshold: Optional[float] = None
+    theta_lower: Optional[float] = None
+    theta_upper: Optional[float] = None
+    calibration_version: Optional[str] = None
     notice: str
-

@@ -7,6 +7,7 @@ import uuid
 from fastapi import APIRouter, BackgroundTasks, Depends, File, Form, UploadFile, status
 
 from stetho_api.audio import AudioIngestionService
+from stetho_api.auth.dependencies import get_current_user
 from stetho_api.config import Settings, get_settings
 from stetho_api.db import (
     AnalysisRecord,
@@ -16,6 +17,7 @@ from stetho_api.db import (
     get_db,
     get_utc_now_iso,
 )
+from stetho_api.db.user_repo import User
 from stetho_api.exceptions import StethoAPIException
 from stetho_api.inference import (
     AcousticInferenceService,
@@ -103,6 +105,7 @@ async def analyze_machine_audio(
         None,
         description="Optional model override: 'stetho_msae' (edge champion) or 'dense_autoencoder' (server baseline)",
     ),
+    current_user: User = Depends(get_current_user),
     deps=Depends(get_dependencies),
 ) -> AnalysisResponse:
     machine_repo: MachineRepository = deps["machine_repo"]
@@ -110,8 +113,9 @@ async def analyze_machine_audio(
     ingestion: AudioIngestionService = deps["ingestion"]
     inference: AcousticInferenceService = deps["inference"]
 
-    # 1. Verify machine profile exists
-    machine = machine_repo.get_or_raise(machine_id)
+    # 1. Verify machine profile exists and user is authorized
+    is_admin = current_user.role == "admin"
+    machine = machine_repo.get_authorized(machine_id, user_id=current_user.user_id, is_admin=is_admin)
     selected_model = model_policy or machine.selected_model_policy
 
     # 2. Ingest audio
@@ -219,13 +223,15 @@ async def create_analysis_job(
     background_tasks: BackgroundTasks,
     file: UploadFile = File(..., description="Audio recording for analysis"),
     model_policy: Optional[str] = Form(None),
+    current_user: User = Depends(get_current_user),
     deps=Depends(get_dependencies),
 ) -> JobResponse:
     machine_repo: MachineRepository = deps["machine_repo"]
     job_repo: JobRepository = deps["job_repo"]
     ingestion: AudioIngestionService = deps["ingestion"]
 
-    machine = machine_repo.get_or_raise(machine_id)
+    is_admin = current_user.role == "admin"
+    machine = machine_repo.get_authorized(machine_id, user_id=current_user.user_id, is_admin=is_admin)
     selected_model = model_policy or machine.selected_model_policy
 
     meta, raw_audio = ingestion.ingest_audio(
@@ -257,9 +263,18 @@ async def create_analysis_job(
     summary="Get analysis job status",
     description="Polls the execution state and progress of an asynchronous analysis job.",
 )
-async def get_analysis_job(job_id: str, deps=Depends(get_dependencies)) -> JobResponse:
+async def get_analysis_job(
+    job_id: str,
+    current_user: User = Depends(get_current_user),
+    deps=Depends(get_dependencies),
+) -> JobResponse:
     job_repo: JobRepository = deps["job_repo"]
+    machine_repo: MachineRepository = deps["machine_repo"]
+
     job = job_repo.get_or_raise(job_id)
+    is_admin = current_user.role == "admin"
+    machine_repo.get_authorized(job.machine_id, user_id=current_user.user_id, is_admin=is_admin)
+
     return JobResponse(**job.to_dict())
 
 
@@ -269,9 +284,18 @@ async def get_analysis_job(job_id: str, deps=Depends(get_dependencies)) -> JobRe
     summary="Get analysis result",
     description="Retrieves a completed acoustic inspection record by ID.",
 )
-async def get_analysis(analysis_id: str, deps=Depends(get_dependencies)) -> AnalysisResponse:
+async def get_analysis(
+    analysis_id: str,
+    current_user: User = Depends(get_current_user),
+    deps=Depends(get_dependencies),
+) -> AnalysisResponse:
     analysis_repo: AnalysisRepository = deps["analysis_repo"]
+    machine_repo: MachineRepository = deps["machine_repo"]
+
     rec = analysis_repo.get_or_raise(analysis_id)
+    is_admin = current_user.role == "admin"
+    machine_repo.get_authorized(rec.machine_id, user_id=current_user.user_id, is_admin=is_admin)
+
     return AnalysisResponse(**rec.to_dict())
 
 
@@ -283,13 +307,15 @@ async def get_analysis(analysis_id: str, deps=Depends(get_dependencies)) -> Anal
 )
 async def get_inspection_report(
     analysis_id: str,
+    current_user: User = Depends(get_current_user),
     deps=Depends(get_dependencies),
 ) -> InspectionReportResponse:
     analysis_repo: AnalysisRepository = deps["analysis_repo"]
     machine_repo: MachineRepository = deps["machine_repo"]
 
     analysis = analysis_repo.get_or_raise(analysis_id)
-    machine = machine_repo.get_or_raise(analysis.machine_id)
+    is_admin = current_user.role == "admin"
+    machine = machine_repo.get_authorized(analysis.machine_id, user_id=current_user.user_id, is_admin=is_admin)
 
     summary, recommendation = generate_recommendation_and_summary(
         machine_name=machine.name,
@@ -325,12 +351,14 @@ async def get_inspection_report(
 )
 async def list_machine_analyses(
     machine_id: str,
+    current_user: User = Depends(get_current_user),
     deps=Depends(get_dependencies),
 ) -> AnalysisListResponse:
     machine_repo: MachineRepository = deps["machine_repo"]
     analysis_repo: AnalysisRepository = deps["analysis_repo"]
 
-    machine_repo.get_or_raise(machine_id)
+    is_admin = current_user.role == "admin"
+    machine_repo.get_authorized(machine_id, user_id=current_user.user_id, is_admin=is_admin)
     records = analysis_repo.list_by_machine(machine_id)
 
     return AnalysisListResponse(
@@ -338,4 +366,3 @@ async def list_machine_analyses(
         analyses=[AnalysisResponse(**r.to_dict()) for r in records],
         total_count=len(records),
     )
-

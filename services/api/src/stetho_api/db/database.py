@@ -1,6 +1,6 @@
 """Database persistence layer and schema management for Stetho API.
 
-Provides ACID persistence for machine profiles, enrollments, analysis records,
+Provides ACID persistence for users, machine profiles, enrollments, analysis records,
 and asynchronous job tracking using a thread-safe SQLite backend with automated
 migrations and schema initialization.
 """
@@ -65,13 +65,26 @@ class DatabaseManager:
                 raise e
 
     def initialize_schema(self) -> None:
-        """Create tables and indices if they do not exist."""
+        """Create tables and indices if they do not exist, and apply migrations."""
+        from stetho_api.auth.password import hash_password
+
         with self._lock:
             conn = sqlite3.connect(str(self.db_path), timeout=30.0)
             conn.execute("PRAGMA foreign_keys = ON;")
             cursor = conn.cursor()
 
-            # 1. Machines Table
+            # 1. Users Table (Authentication & Access Control)
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS users (
+                user_id TEXT PRIMARY KEY,
+                username TEXT UNIQUE NOT NULL,
+                hashed_password TEXT NOT NULL,
+                role TEXT NOT NULL DEFAULT 'inspector',
+                created_at TEXT NOT NULL
+            );
+            """)
+
+            # 2. Machines Table
             cursor.execute("""
             CREATE TABLE IF NOT EXISTS machines (
                 machine_id TEXT PRIMARY KEY,
@@ -83,12 +96,25 @@ class DatabaseManager:
                 enrollment_status TEXT NOT NULL DEFAULT 'uncalibrated',
                 enrolled_recording_count INTEGER NOT NULL DEFAULT 0,
                 calibration_status TEXT NOT NULL DEFAULT 'uncalibrated',
+                calibration_profile TEXT DEFAULT NULL,
+                calibration_version TEXT NOT NULL DEFAULT '1.0.0',
+                owner_id TEXT DEFAULT 'usr_admin',
                 created_at TEXT NOT NULL,
-                updated_at TEXT NOT NULL
+                updated_at TEXT NOT NULL,
+                FOREIGN KEY (owner_id) REFERENCES users(user_id)
             );
             """)
 
-            # 2. Enrollments Table
+            # Automated Migrations for existing machines table
+            existing_cols = [r[1] for r in cursor.execute("PRAGMA table_info(machines);").fetchall()]
+            if "owner_id" not in existing_cols:
+                cursor.execute("ALTER TABLE machines ADD COLUMN owner_id TEXT DEFAULT 'usr_admin';")
+            if "calibration_profile" not in existing_cols:
+                cursor.execute("ALTER TABLE machines ADD COLUMN calibration_profile TEXT DEFAULT NULL;")
+            if "calibration_version" not in existing_cols:
+                cursor.execute("ALTER TABLE machines ADD COLUMN calibration_version TEXT NOT NULL DEFAULT '1.0.0';")
+
+            # 3. Enrollments Table
             cursor.execute("""
             CREATE TABLE IF NOT EXISTS enrollments (
                 enrollment_id TEXT PRIMARY KEY,
@@ -105,7 +131,7 @@ class DatabaseManager:
             );
             """)
 
-            # 3. Analyses Table
+            # 4. Analyses Table
             cursor.execute("""
             CREATE TABLE IF NOT EXISTS analyses (
                 analysis_id TEXT PRIMARY KEY,
@@ -128,7 +154,7 @@ class DatabaseManager:
             );
             """)
 
-            # 4. Asynchronous Analysis Jobs Table
+            # 5. Asynchronous Analysis Jobs Table
             cursor.execute("""
             CREATE TABLE IF NOT EXISTS analysis_jobs (
                 job_id TEXT PRIMARY KEY,
@@ -145,27 +171,47 @@ class DatabaseManager:
             """)
 
             # Indices
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_users_username ON users(username);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_machines_owner ON machines(owner_id);")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_enrollments_machine ON enrollments(machine_id);")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_analyses_machine ON analyses(machine_id);")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_jobs_status ON analysis_jobs(status);")
+
+            # Seed default admin and inspector accounts if users table is empty
+            cursor.execute("SELECT COUNT(*) FROM users;")
+            user_count = cursor.fetchone()[0]
+            now = get_utc_now_iso()
+            if user_count == 0:
+                admin_hash = hash_password("StethoAdmin2026!")
+                inspector_hash = hash_password("StethoInspector2026!")
+                default_users = [
+                    ("usr_admin", "admin", admin_hash, "admin", now),
+                    ("usr_inspector", "inspector", inspector_hash, "inspector", now),
+                ]
+                cursor.executemany("""
+                INSERT INTO users (user_id, username, hashed_password, role, created_at)
+                VALUES (?, ?, ?, ?, ?);
+                """, default_users)
+                conn.commit()
+                logger.info("Seeded default 'admin' and 'inspector' accounts in database")
 
             # Seed pre-calibrated MIMII benchmark machines if table is empty
             cursor.execute("SELECT COUNT(*) FROM machines;")
             count = cursor.fetchone()[0]
             if count == 0:
-                now = get_utc_now_iso()
                 default_machines = [
-                    ("id_00", "Industrial Electric Fan ID-00", "fan", "MIMII 1.0 Benchmark Fan Unit 0", "Normal speed, 0dB ambient noise", "stetho_msae", "provisional", 10, "provisional", now, now),
-                    ("id_02", "Industrial Electric Fan ID-02", "fan", "MIMII 1.0 Benchmark Fan Unit 2", "Normal speed, 0dB ambient noise", "stetho_msae", "provisional", 10, "provisional", now, now),
-                    ("id_04", "Industrial Electric Fan ID-04", "fan", "MIMII 1.0 Benchmark Fan Unit 4", "Normal speed, 0dB ambient noise", "stetho_msae", "provisional", 10, "provisional", now, now),
-                    ("id_06", "Industrial Electric Fan ID-06", "fan", "MIMII 1.0 Benchmark Fan Unit 6", "Normal speed, 0dB ambient noise", "stetho_msae", "provisional", 10, "provisional", now, now),
+                    ("id_00", "Industrial Electric Fan ID-00", "fan", "MIMII 1.0 Benchmark Fan Unit 0", "Normal speed, 0dB ambient noise", "stetho_msae", "provisional", 10, "provisional", None, "1.0.0", "usr_admin", now, now),
+                    ("id_02", "Industrial Electric Fan ID-02", "fan", "MIMII 1.0 Benchmark Fan Unit 2", "Normal speed, 0dB ambient noise", "stetho_msae", "provisional", 10, "provisional", None, "1.0.0", "usr_admin", now, now),
+                    ("id_04", "Industrial Electric Fan ID-04", "fan", "MIMII 1.0 Benchmark Fan Unit 4", "Normal speed, 0dB ambient noise", "stetho_msae", "provisional", 10, "provisional", None, "1.0.0", "usr_admin", now, now),
+                    ("id_06", "Industrial Electric Fan ID-06", "fan", "MIMII 1.0 Benchmark Fan Unit 6", "Normal speed, 0dB ambient noise", "stetho_msae", "provisional", 10, "provisional", None, "1.0.0", "usr_admin", now, now),
                 ]
                 cursor.executemany("""
                 INSERT INTO machines (
                     machine_id, name, category, description, operating_condition,
                     selected_model_policy, enrollment_status, enrolled_recording_count,
-                    calibration_status, created_at, updated_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+                    calibration_status, calibration_profile, calibration_version, owner_id,
+                    created_at, updated_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
                 """, default_machines)
                 conn.commit()
                 logger.info(f"Seeded {len(default_machines)} benchmark machine profiles in database")
@@ -191,4 +237,3 @@ def get_db(db_path: Optional[Union[str, Path]] = None) -> DatabaseManager:
                 db_file = Path(db_path)
             _db_instance = DatabaseManager(db_file)
         return _db_instance
-

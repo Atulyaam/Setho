@@ -41,7 +41,63 @@ The Stetho backend provides machine-specific acoustic anomaly monitoring and ins
 
 ## 3. Endpoints Reference
 
-### 3.1 Health & Subsystem Readiness
+### 3.1 Authentication & User Session Management
+
+All machine management, audio enrollment, and inspection endpoints require an `Authorization: Bearer <token>` header, obtained via the authentication endpoints.
+
+#### `POST /api/v1/auth/register`
+Registers a new user account.
+- **Status Code:** `201 Created` (or `409 Conflict` if username exists)
+- **Request Body (JSON):**
+```json
+{
+  "username": "sound_engineer",
+  "password": "SecurePassword2026!",
+  "role": "inspector"
+}
+```
+- **Response Body (JSON):**
+```json
+{
+  "user_id": "usr_94e3a891-b66a-4933-875f-22f37c3558fe",
+  "username": "sound_engineer",
+  "role": "inspector",
+  "created_at": "2026-10-31T21:40:00Z"
+}
+```
+
+#### `POST /api/v1/auth/login`
+Authenticates user credentials and issues a signed, expiring bearer token.
+- **Status Code:** `200 OK` (or `401 Unauthorized` for invalid credentials)
+- **Request Body (JSON):**
+```json
+{
+  "username": "sound_engineer",
+  "password": "SecurePassword2026!"
+}
+```
+- **Response Body (JSON):**
+```json
+{
+  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "token_type": "bearer",
+  "expires_in_seconds": 86400,
+  "user": {
+    "user_id": "usr_94e3a891-b66a-4933-875f-22f37c3558fe",
+    "username": "sound_engineer",
+    "role": "inspector"
+  }
+}
+```
+
+#### `GET /api/v1/auth/me`
+Retrieves the identity and role profile of the currently authenticated user.
+- **Header:** `Authorization: Bearer <token>`
+- **Status Code:** `200 OK` (or `401 Unauthorized`)
+
+---
+
+### 3.2 Health & Subsystem Readiness
 
 #### `GET /health`
 Liveness probe indicating the process is running.
@@ -80,10 +136,13 @@ Readiness probe verifying dynamic subsystem availability: local storage writeabi
 
 ---
 
-### 3.2 Machine Profile Management
+### 3.3 Machine Profile Management
+
+All machine profile operations require authentication (`Authorization: Bearer <token>`). Standard users (`inspector`) have isolated ownership of machines they create; `admin` users can access and manage all machines. Cross-tenant access is rejected with `HTTP 403 Forbidden`.
 
 #### `POST /api/v1/machines`
-Registers a new physical machine profile.
+Registers a new physical machine profile bound to the requesting user.
+- **Header:** `Authorization: Bearer <token>`
 - **Status Code:** `201 Created` (or `409 Conflict` if machine ID exists)
 - **Request Body (JSON):**
 ```json
@@ -108,25 +167,29 @@ Registers a new physical machine profile.
   "enrollment_status": "uncalibrated",
   "enrolled_recording_count": 0,
   "calibration_status": "uncalibrated",
+  "owner_id": "usr_94e3a891-b66a-4933-875f-22f37c3558fe",
   "created_at": "2026-10-31T21:40:00Z",
   "updated_at": "2026-10-31T21:40:00Z"
 }
 ```
 
 #### `GET /api/v1/machines`
-Lists all registered machine profiles and their calibration states.
+Lists all machine profiles owned by or accessible to the requesting user.
+- **Header:** `Authorization: Bearer <token>`
 - **Status Code:** `200 OK`
 
 #### `GET /api/v1/machines/{machine_id}`
-Retrieves a specific machine profile.
-- **Status Code:** `200 OK` (or `404 Not Found`)
+Retrieves a specific machine profile and its calibration profile metadata.
+- **Header:** `Authorization: Bearer <token>`
+- **Status Code:** `200 OK` (or `403 Forbidden` / `404 Not Found`)
 
 ---
 
-### 3.3 Normal Audio Enrollment
+### 3.4 Normal Audio Enrollment & Dynamic Recalibration
 
 #### `POST /api/v1/machines/{machine_id}/enrollments`
-Enrolls an explicitly confirmed normal baseline audio recording.
+Enrolls an explicitly confirmed normal baseline audio recording. Immediately triggers `MachineCalibrationEngine.recalibrate_machine()` to recompute empirical score distribution metrics and update $[\theta_{\text{lower}}, \theta_{\text{upper}}]$.
+- **Header:** `Authorization: Bearer <token>`
 - **Content-Type:** `multipart/form-data`
 - **Form Parameters:**
   - `file`: WAV audio recording file.
@@ -153,10 +216,11 @@ Enrolls an explicitly confirmed normal baseline audio recording.
 
 ---
 
-### 3.4 Acoustic Inspection & Analysis
+### 3.5 Acoustic Inspection & Analysis
 
 #### `POST /api/v1/machines/{machine_id}/analyze`
 Synchronous inspection endpoint. Uploads an audio clip, runs the Audio Quality Gate, executes the machine's neural network autoencoder, applies calibrated three-zone thresholding, and returns the inspection decision.
+- **Header:** `Authorization: Bearer <token>`
 - **Content-Type:** `multipart/form-data`
 - **Form Parameters:**
   - `file`: WAV audio recording file.
@@ -290,3 +354,4 @@ All error responses adhere to the standard `ErrorResponse` schema:
 | **422 Unprocessable** | `QUALITY_GATE_REJECTED` | Audio failed AQG (silence, clipping $>5\%$, NaN/Inf). |
 | **422 Unprocessable** | `VALIDATION_ERROR` | Request payload fails Pydantic schema validation. |
 | **503 Unavailable** | `MODEL_NOT_READY` | Model weights missing or artifact checksum failed. |
+
