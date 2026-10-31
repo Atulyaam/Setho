@@ -53,3 +53,4 @@ def test_log_mel_numerical_stability():
     assert not np.isinf(spec_silent).any()
     # decibel value of eps = 1e-10 is 10 * log10(1e-10) = -100.0 dB
     assert np.allclose(spec_silent, -100.0, atol=1e-1)
+

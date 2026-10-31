@@ -126,3 +126,4 @@ class ChannelHandler:
             },
             "correlation_with_channel_0": correlations,
         }
+

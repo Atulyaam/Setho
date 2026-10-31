@@ -61,3 +61,4 @@ def test_waveform_windowing():
     assert windows.shape[1] == 16384
     # (160000 - 16384) // 8192 + 1 = 143616 // 8192 + 1 = 17 + 1 = 18 full + 1 padded = 19
     assert windows.shape[0] == 19
+

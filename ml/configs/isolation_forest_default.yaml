@@ -1,0 +1,29 @@
+# Default Isolation Forest Baseline Configuration
+experiment_id: "baseline_if_{machine_id}"
+machine_id: "id_00"
+seed: 42
+device: "cpu"
+
+model:
+  model_type: "isolation_forest"
+  n_estimators: 200
+  contamination: "auto"
+  max_features: 1.0
+
+features:
+  feature_type: "statistical"
+  sample_rate: 16000
+  channel_policy: "channel_0"
+  channel_index: 0
+  n_mfcc: 13
+  include_centroid: true
+  include_bandwidth: true
+  include_rolloff: true
+  include_zcr: true
+  include_rms: true
+
+train_split: "ml/data/splits/machine_specific/{machine_id}/train_normal.csv"
+dev_split: "ml/data/splits/machine_specific/{machine_id}/dev_normal.csv"
+test_split: "ml/data/splits/machine_specific/{machine_id}/test.csv"
+artifact_dir: "ml/artifacts/isolation_forest/{machine_id}"
+

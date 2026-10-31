@@ -56,3 +56,4 @@ def test_preprocessing_rms_normalization():
     actual_rms = np.sqrt(np.mean(mono**2))
     assert np.isclose(actual_rms, 0.1, atol=1e-3)
     assert meta["normalization"] == "rms"
+

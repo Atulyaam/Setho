@@ -97,3 +97,4 @@ def test_validation_sample_rate_mismatch(validator):
     res = validator.validate_array(audio, sample_rate=8000)
     assert not res.is_valid
     assert any("Sample rate mismatch" in e for e in res.errors)
+

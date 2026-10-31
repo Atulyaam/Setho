@@ -129,3 +129,4 @@ class LogMelExtractor(torch.nn.Module):
             "mean_val": float(output_np.mean()),
         }
         return output_np, meta
+

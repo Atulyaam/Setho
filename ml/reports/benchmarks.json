@@ -1,0 +1,30 @@
+{
+  "isolation_forest_id_00": {
+    "artifact_dir": "ml\\artifacts\\isolation_forest\\id_00",
+    "device": "cpu",
+    "artifact_size_bytes": 423577,
+    "artifact_size_kb": 413.65,
+    "cold_load_time_ms": 111.53,
+    "median_e2e_latency_ms": 298.44,
+    "p95_e2e_latency_ms": 309.12,
+    "min_e2e_latency_ms": 287.65,
+    "max_e2e_latency_ms": 310.94,
+    "peak_ram_mb": 11.1,
+    "peak_vram_mb": 0.0,
+    "throughput_clips_per_sec": 3.35
+  },
+  "dense_autoencoder_id_00_cpu": {
+    "artifact_dir": "ml\\artifacts\\dense_autoencoder\\id_00",
+    "device": "cpu",
+    "artifact_size_bytes": 17394362,
+    "artifact_size_kb": 16986.68,
+    "cold_load_time_ms": 104.97,
+    "median_e2e_latency_ms": 47.09,
+    "p95_e2e_latency_ms": 48.23,
+    "min_e2e_latency_ms": 46.05,
+    "max_e2e_latency_ms": 48.38,
+    "peak_ram_mb": 11.0,
+    "peak_vram_mb": 0.0,
+    "throughput_clips_per_sec": 21.24
+  }
+}

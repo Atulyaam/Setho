@@ -58,3 +58,4 @@ def test_compare_policies(multichannel_signal):
     assert len(metrics["channel_metrics"]) == 8
     assert len(metrics["correlation_with_channel_0"]) == 8
     assert metrics["correlation_with_channel_0"][0] == 1.0
+

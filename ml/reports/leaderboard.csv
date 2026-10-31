@@ -1,0 +1,9 @@
+experiment_id,model_type,machine_id,roc_auc,pauc,precision,recall,f1,fpr,cpu_latency_ms,gpu_latency_ms,peak_vram_mb,model_size_kb,training_duration_sec,dataset_manifest_hash
+baseline_dae_id_00,dense_autoencoder,id_00,0.9778,0.9649,1.0,0.1333,0.2353,0.0,47.09,N/A,0.0,16986.68,14.3667,c5d194cf8e30bca9
+baseline_dae_id_02,dense_autoencoder,id_02,1.0,1.0,1.0,1.0,1.0,0.0,N/A,N/A,0.0,16989.24,22.5691,c5d194cf8e30bca9
+baseline_dae_id_04,dense_autoencoder,id_04,0.9111,0.8596,0.8824,1.0,0.9375,0.6667,N/A,N/A,0.0,16986.68,14.7222,c5d194cf8e30bca9
+baseline_dae_id_06,dense_autoencoder,id_06,1.0,1.0,0.8333,1.0,0.9091,1.0,N/A,N/A,0.0,16985.48,11.3577,c5d194cf8e30bca9
+baseline_if_id_00,isolation_forest,id_00,1.0,1.0,1.0,0.1333,0.2353,0.0,298.44,N/A,0.0,413.65,1.4705,c5d194cf8e30bca9
+baseline_if_id_02,isolation_forest,id_02,1.0,1.0,1.0,1.0,1.0,0.0,N/A,N/A,0.0,417.08,1.1652,c5d194cf8e30bca9
+baseline_if_id_04,isolation_forest,id_04,0.7333,0.7895,0.8333,1.0,0.9091,1.0,N/A,N/A,0.0,407.13,1.424,c5d194cf8e30bca9
+baseline_if_id_06,isolation_forest,id_06,0.5333,0.6842,0.7857,0.7333,0.7586,1.0,N/A,N/A,0.0,398.71,1.2986,c5d194cf8e30bca9

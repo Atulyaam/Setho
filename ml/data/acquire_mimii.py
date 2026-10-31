@@ -256,3 +256,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     acquire_mimii_dataset(output_dir=args.output_dir, samples_per_category=args.samples)
+
