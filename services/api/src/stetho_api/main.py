@@ -28,6 +28,12 @@ async def lifespan(app: FastAPI):
         f"Starting {settings.PROJECT_NAME} v{settings.VERSION} "
         f"[env={settings.ENVIRONMENT}, debug={settings.DEBUG}]"
     )
+
+    # Initialize storage directories and database schema
+    settings.STORAGE_LOCAL_DIR.mkdir(parents=True, exist_ok=True)
+    from stetho_api.db.database import get_db
+    get_db(settings.STORAGE_LOCAL_DIR / "stetho.db")
+
     yield
     logger.info(f"Shutting down {settings.PROJECT_NAME}")
 
@@ -82,4 +88,3 @@ if __name__ == "__main__":
         port=config.PORT,
         reload=config.DEBUG,
     )
-
