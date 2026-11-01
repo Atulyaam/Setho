@@ -1,0 +1,650 @@
+{
+  "teacher": {
+    "macro_roc_auc": 0.9778,
+    "macro_pauc": 0.9737,
+    "macro_cpu_mean_ms": 100.19,
+    "parameters": 1808065
+  },
+  "student": {
+    "macro_roc_auc": 0.9,
+    "macro_pauc": 0.9035,
+    "macro_cpu_mean_ms": 46.46,
+    "parameters": 22113
+  },
+  "macro_cascades": {
+    "margin_0.01": {
+      "margin": 0.01,
+      "macro_roc_auc": 0.9,
+      "macro_pauc": 0.9035,
+      "macro_escalation_rate": 0.0834,
+      "macro_cpu_mean_ms": 56.07
+    },
+    "margin_0.03": {
+      "margin": 0.03,
+      "macro_roc_auc": 0.9,
+      "macro_pauc": 0.9035,
+      "macro_escalation_rate": 0.2917,
+      "macro_cpu_mean_ms": 76.88
+    },
+    "margin_0.05": {
+      "margin": 0.05,
+      "macro_roc_auc": 0.9445,
+      "macro_pauc": 0.9474,
+      "macro_escalation_rate": 0.3889,
+      "macro_cpu_mean_ms": 87.38
+    },
+    "margin_0.1": {
+      "margin": 0.1,
+      "macro_roc_auc": 0.9445,
+      "macro_pauc": 0.9474,
+      "macro_escalation_rate": 0.5694,
+      "macro_cpu_mean_ms": 105.56
+    }
+  },
+  "per_machine": {
+    "id_00": {
+      "machine_id": "id_00",
+      "teacher": {
+        "metrics": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.337979,
+          "roc_auc": 1.0,
+          "pauc": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 3,
+            "fn": 15
+          }
+        },
+        "latency": {
+          "cpu_mean_ms": 102.68,
+          "cpu_median_ms": 102.63,
+          "cpu_min_ms": 101.97,
+          "cpu_max_ms": 103.74
+        },
+        "parameters": 1808065
+      },
+      "student": {
+        "metrics": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.373558,
+          "roc_auc": 0.8667,
+          "pauc": 0.8947,
+          "precision": 1.0,
+          "recall": 0.1333,
+          "f1": 0.2353,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 2,
+            "fp": 0,
+            "tn": 3,
+            "fn": 13
+          }
+        },
+        "latency": {
+          "cpu_mean_ms": 47.42,
+          "cpu_median_ms": 47.52,
+          "cpu_min_ms": 46.78,
+          "cpu_max_ms": 47.87
+        },
+        "parameters": 22113
+      },
+      "cascades": {
+        "margin_0.01": {
+          "margin": 0.01,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.373558,
+            "roc_auc": 0.8667,
+            "pauc": 0.8947,
+            "precision": 1.0,
+            "recall": 0.1333,
+            "f1": 0.2353,
+            "fpr": 0.0,
+            "confusion_matrix": {
+              "tp": 2,
+              "fp": 0,
+              "tn": 3,
+              "fn": 13
+            }
+          },
+          "escalation_rate": 0.0556,
+          "cpu_mean_ms": 53.42
+        },
+        "margin_0.03": {
+          "margin": 0.03,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.373558,
+            "roc_auc": 0.8667,
+            "pauc": 0.8947,
+            "precision": 1.0,
+            "recall": 0.0667,
+            "f1": 0.125,
+            "fpr": 0.0,
+            "confusion_matrix": {
+              "tp": 1,
+              "fp": 0,
+              "tn": 3,
+              "fn": 14
+            }
+          },
+          "escalation_rate": 0.3889,
+          "cpu_mean_ms": 87.76
+        },
+        "margin_0.05": {
+          "margin": 0.05,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.373558,
+            "roc_auc": 0.8667,
+            "pauc": 0.8947,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "fpr": 0.0,
+            "confusion_matrix": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 3,
+              "fn": 15
+            }
+          },
+          "escalation_rate": 0.4444,
+          "cpu_mean_ms": 93.93
+        },
+        "margin_0.1": {
+          "margin": 0.1,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.373558,
+            "roc_auc": 0.8667,
+            "pauc": 0.8947,
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "fpr": 0.0,
+            "confusion_matrix": {
+              "tp": 0,
+              "fp": 0,
+              "tn": 3,
+              "fn": 15
+            }
+          },
+          "escalation_rate": 0.5,
+          "cpu_mean_ms": 99.49
+        }
+      }
+    },
+    "id_02": {
+      "machine_id": "id_02",
+      "teacher": {
+        "metrics": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.263645,
+          "roc_auc": 1.0,
+          "pauc": 1.0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 0,
+            "tn": 3,
+            "fn": 0
+          }
+        },
+        "latency": {
+          "cpu_mean_ms": 96.89,
+          "cpu_median_ms": 96.49,
+          "cpu_min_ms": 95.91,
+          "cpu_max_ms": 98.81
+        },
+        "parameters": 1808065
+      },
+      "student": {
+        "metrics": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.278071,
+          "roc_auc": 1.0,
+          "pauc": 1.0,
+          "precision": 0.8824,
+          "recall": 1.0,
+          "f1": 0.9375,
+          "fpr": 0.6667,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 2,
+            "tn": 1,
+            "fn": 0
+          }
+        },
+        "latency": {
+          "cpu_mean_ms": 44.08,
+          "cpu_median_ms": 44.21,
+          "cpu_min_ms": 43.61,
+          "cpu_max_ms": 44.38
+        },
+        "parameters": 22113
+      },
+      "cascades": {
+        "margin_0.01": {
+          "margin": 0.01,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.278071,
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "precision": 0.9375,
+            "recall": 1.0,
+            "f1": 0.9677,
+            "fpr": 0.3333,
+            "confusion_matrix": {
+              "tp": 15,
+              "fp": 1,
+              "tn": 2,
+              "fn": 0
+            }
+          },
+          "escalation_rate": 0.1111,
+          "cpu_mean_ms": 58.15
+        },
+        "margin_0.03": {
+          "margin": 0.03,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.278071,
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "fpr": 0.0,
+            "confusion_matrix": {
+              "tp": 15,
+              "fp": 0,
+              "tn": 3,
+              "fn": 0
+            }
+          },
+          "escalation_rate": 0.1667,
+          "cpu_mean_ms": 63.82
+        },
+        "margin_0.05": {
+          "margin": 0.05,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.278071,
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "fpr": 0.0,
+            "confusion_matrix": {
+              "tp": 15,
+              "fp": 0,
+              "tn": 3,
+              "fn": 0
+            }
+          },
+          "escalation_rate": 0.1667,
+          "cpu_mean_ms": 64.08
+        },
+        "margin_0.1": {
+          "margin": 0.1,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.278071,
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "fpr": 0.0,
+            "confusion_matrix": {
+              "tp": 15,
+              "fp": 0,
+              "tn": 3,
+              "fn": 0
+            }
+          },
+          "escalation_rate": 0.2222,
+          "cpu_mean_ms": 69.5
+        }
+      }
+    },
+    "id_04": {
+      "machine_id": "id_04",
+      "teacher": {
+        "metrics": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.22273,
+          "roc_auc": 0.9111,
+          "pauc": 0.8947,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 3,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        "latency": {
+          "cpu_mean_ms": 100.72,
+          "cpu_median_ms": 100.88,
+          "cpu_min_ms": 99.93,
+          "cpu_max_ms": 101.29
+        },
+        "parameters": 1808065
+      },
+      "student": {
+        "metrics": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.269379,
+          "roc_auc": 0.8889,
+          "pauc": 0.8947,
+          "precision": 0.875,
+          "recall": 0.9333,
+          "f1": 0.9032,
+          "fpr": 0.6667,
+          "confusion_matrix": {
+            "tp": 14,
+            "fp": 2,
+            "tn": 1,
+            "fn": 1
+          }
+        },
+        "latency": {
+          "cpu_mean_ms": 47.45,
+          "cpu_median_ms": 47.56,
+          "cpu_min_ms": 46.17,
+          "cpu_max_ms": 48.27
+        },
+        "parameters": 22113
+      },
+      "cascades": {
+        "margin_0.01": {
+          "margin": 0.01,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.269379,
+            "roc_auc": 0.8667,
+            "pauc": 0.8947,
+            "precision": 0.8667,
+            "recall": 0.8667,
+            "f1": 0.8667,
+            "fpr": 0.6667,
+            "confusion_matrix": {
+              "tp": 13,
+              "fp": 2,
+              "tn": 1,
+              "fn": 2
+            }
+          },
+          "escalation_rate": 0.1111,
+          "cpu_mean_ms": 58.82
+        },
+        "margin_0.03": {
+          "margin": 0.03,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.269379,
+            "roc_auc": 0.8444,
+            "pauc": 0.8947,
+            "precision": 0.9231,
+            "recall": 0.8,
+            "f1": 0.8571,
+            "fpr": 0.3333,
+            "confusion_matrix": {
+              "tp": 12,
+              "fp": 1,
+              "tn": 2,
+              "fn": 3
+            }
+          },
+          "escalation_rate": 0.2222,
+          "cpu_mean_ms": 69.9
+        },
+        "margin_0.05": {
+          "margin": 0.05,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.269379,
+            "roc_auc": 0.9111,
+            "pauc": 0.8947,
+            "precision": 1.0,
+            "recall": 0.7333,
+            "f1": 0.8462,
+            "fpr": 0.0,
+            "confusion_matrix": {
+              "tp": 11,
+              "fp": 0,
+              "tn": 3,
+              "fn": 4
+            }
+          },
+          "escalation_rate": 0.4444,
+          "cpu_mean_ms": 93.81
+        },
+        "margin_0.1": {
+          "margin": 0.1,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.269379,
+            "roc_auc": 0.9111,
+            "pauc": 0.8947,
+            "precision": 1.0,
+            "recall": 0.7333,
+            "f1": 0.8462,
+            "fpr": 0.0,
+            "confusion_matrix": {
+              "tp": 11,
+              "fp": 0,
+              "tn": 3,
+              "fn": 4
+            }
+          },
+          "escalation_rate": 0.8333,
+          "cpu_mean_ms": 132.79
+        }
+      }
+    },
+    "id_06": {
+      "machine_id": "id_06",
+      "teacher": {
+        "metrics": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.249203,
+          "roc_auc": 1.0,
+          "pauc": 1.0,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 3,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        "latency": {
+          "cpu_mean_ms": 100.47,
+          "cpu_median_ms": 100.4,
+          "cpu_min_ms": 99.88,
+          "cpu_max_ms": 101.25
+        },
+        "parameters": 1808065
+      },
+      "student": {
+        "metrics": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.312087,
+          "roc_auc": 0.8444,
+          "pauc": 0.8246,
+          "precision": 0.9333,
+          "recall": 0.9333,
+          "f1": 0.9333,
+          "fpr": 0.3333,
+          "confusion_matrix": {
+            "tp": 14,
+            "fp": 1,
+            "tn": 2,
+            "fn": 1
+          }
+        },
+        "latency": {
+          "cpu_mean_ms": 46.89,
+          "cpu_median_ms": 47.5,
+          "cpu_min_ms": 44.89,
+          "cpu_max_ms": 48.05
+        },
+        "parameters": 22113
+      },
+      "cascades": {
+        "margin_0.01": {
+          "margin": 0.01,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.312087,
+            "roc_auc": 0.8667,
+            "pauc": 0.8246,
+            "precision": 0.9333,
+            "recall": 0.9333,
+            "f1": 0.9333,
+            "fpr": 0.3333,
+            "confusion_matrix": {
+              "tp": 14,
+              "fp": 1,
+              "tn": 2,
+              "fn": 1
+            }
+          },
+          "escalation_rate": 0.0556,
+          "cpu_mean_ms": 53.9
+        },
+        "margin_0.03": {
+          "margin": 0.03,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.312087,
+            "roc_auc": 0.8889,
+            "pauc": 0.8246,
+            "precision": 0.9167,
+            "recall": 0.7333,
+            "f1": 0.8148,
+            "fpr": 0.3333,
+            "confusion_matrix": {
+              "tp": 11,
+              "fp": 1,
+              "tn": 2,
+              "fn": 4
+            }
+          },
+          "escalation_rate": 0.3889,
+          "cpu_mean_ms": 86.04
+        },
+        "margin_0.05": {
+          "margin": 0.05,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.312087,
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "precision": 1.0,
+            "recall": 0.7333,
+            "f1": 0.8462,
+            "fpr": 0.0,
+            "confusion_matrix": {
+              "tp": 11,
+              "fp": 0,
+              "tn": 3,
+              "fn": 4
+            }
+          },
+          "escalation_rate": 0.5,
+          "cpu_mean_ms": 97.7
+        },
+        "margin_0.1": {
+          "margin": 0.1,
+          "metrics": {
+            "n_normal": 3,
+            "n_abnormal": 15,
+            "total_samples": 18,
+            "threshold": 0.312087,
+            "roc_auc": 1.0,
+            "pauc": 1.0,
+            "precision": 1.0,
+            "recall": 0.7333,
+            "f1": 0.8462,
+            "fpr": 0.0,
+            "confusion_matrix": {
+              "tp": 11,
+              "fp": 0,
+              "tn": 3,
+              "fn": 4
+            }
+          },
+          "escalation_rate": 0.7222,
+          "cpu_mean_ms": 120.48
+        }
+      }
+    }
+  }
+}

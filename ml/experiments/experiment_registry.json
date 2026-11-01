@@ -2700,7 +2700,85 @@
       "result_path": "ml\\experiments\\results\\phase6_advanced_ensembles.json",
       "artifact_dir": "ml\\experiments\\artifacts\\phase6_advanced_ensembles",
       "error": null
+    },
+    "phase7_distillation_cascade": {
+      "experiment_id": "phase7_distillation_cascade",
+      "git_commit": "214f9374b799ae7cb985afa5aa3e85c35610e8ba",
+      "manifest_hash": "30228fe11ec868b836e6969040a27686e03785dcc8d2c36c045a0766e392b80f",
+      "name": "Phase 7 Knowledge Distillation & Cascaded Policy",
+      "description": "Knowledge distillation of ResNet-AE teacher into CompactStudentAE and margin-gated cascade evaluation",
+      "model_type": "distilled_student_cascade",
+      "architecture": "distilled_student_cascade",
+      "preprocessing": "standard_64mel",
+      "status": "COMPLETED",
+      "seed": 42,
+      "config": {
+        "student_params": 22113,
+        "margins_tested": [
+          0.01,
+          0.03,
+          0.05,
+          0.1
+        ]
+      },
+      "pid": null,
+      "start_time": null,
+      "completion_time": "2026-11-01T06:18:39.635331+00:00",
+      "duration_sec": null,
+      "current_epoch": 0,
+      "max_epochs": 60,
+      "train_loss": null,
+      "val_loss": null,
+      "telemetry": {
+        "timestamp": "2026-11-01T06:18:39.634332+00:00",
+        "ram_used_mb": 12950.93,
+        "ram_total_mb": 16004.66,
+        "ram_percent": 80.9,
+        "cpu_percent": 50.0,
+        "gpu_available": false,
+        "gpu_vram_used_mb": 0.0,
+        "gpu_vram_total_mb": 0.0
+      },
+      "metrics": {
+        "teacher_macro_roc_auc": 0.9777750000000001,
+        "student_macro_roc_auc": 0.9000000000000001,
+        "student_latency_ms": 46.459999999999994,
+        "cascades": {
+          "margin_0.01": {
+            "margin": 0.01,
+            "macro_roc_auc": 0.9,
+            "macro_pauc": 0.9035,
+            "macro_escalation_rate": 0.0834,
+            "macro_cpu_mean_ms": 56.07
+          },
+          "margin_0.03": {
+            "margin": 0.03,
+            "macro_roc_auc": 0.9,
+            "macro_pauc": 0.9035,
+            "macro_escalation_rate": 0.2917,
+            "macro_cpu_mean_ms": 76.88
+          },
+          "margin_0.05": {
+            "margin": 0.05,
+            "macro_roc_auc": 0.9445,
+            "macro_pauc": 0.9474,
+            "macro_escalation_rate": 0.3889,
+            "macro_cpu_mean_ms": 87.38
+          },
+          "margin_0.1": {
+            "margin": 0.1,
+            "macro_roc_auc": 0.9445,
+            "macro_pauc": 0.9474,
+            "macro_escalation_rate": 0.5694,
+            "macro_cpu_mean_ms": 105.56
+          }
+        }
+      },
+      "log_path": "ml\\experiments\\logs\\phase7_distillation_cascade.log",
+      "result_path": "ml\\experiments\\results\\phase7_distillation_cascade.json",
+      "artifact_dir": "ml\\experiments\\artifacts\\phase7_distillation_cascade",
+      "error": null
     }
   },
-  "updated_at": "2026-11-01T06:08:04.370662+00:00"
+  "updated_at": "2026-11-01T06:18:39.635331+00:00"
 }
