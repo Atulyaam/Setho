@@ -1,0 +1,1070 @@
+{
+  "N_2": {
+    "n_shots": 2,
+    "seed_count": 5,
+    "macro_roc_auc": {
+      "mean": 0.6989,
+      "std": 0.0704,
+      "ci_lower": 0.6372,
+      "ci_upper": 0.7606
+    },
+    "macro_pauc": {
+      "mean": 0.7596,
+      "std": 0.0405,
+      "ci_lower": 0.7241,
+      "ci_upper": 0.7951
+    },
+    "macro_f1": {
+      "mean": 0.9091,
+      "std": 0.0,
+      "ci_lower": 0.9091,
+      "ci_upper": 0.9091
+    },
+    "macro_precision": {
+      "mean": 0.8333,
+      "std": 0.0,
+      "ci_lower": 0.8333,
+      "ci_upper": 0.8333
+    },
+    "macro_recall": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci_lower": 1.0,
+      "ci_upper": 1.0
+    },
+    "macro_fpr": {
+      "mean": 1.0,
+      "std": 0.0,
+      "ci_lower": 1.0,
+      "ci_upper": 1.0
+    },
+    "cal_time_s": {
+      "mean": 0.4213,
+      "std": 0.0031,
+      "ci_lower": 0.4186,
+      "ci_upper": 0.4241
+    },
+    "per_machine_stats": {
+      "id_00": {
+        "roc_auc_stats": {
+          "mean": 0.6444,
+          "std": 0.3123,
+          "ci_lower": 0.3707,
+          "ci_upper": 0.9182
+        },
+        "f1_stats": {
+          "mean": 0.9091,
+          "std": 0.0,
+          "ci_lower": 0.9091,
+          "ci_upper": 0.9091
+        }
+      },
+      "id_02": {
+        "roc_auc_stats": {
+          "mean": 0.9378,
+          "std": 0.0507,
+          "ci_lower": 0.8934,
+          "ci_upper": 0.9822
+        },
+        "f1_stats": {
+          "mean": 0.9091,
+          "std": 0.0,
+          "ci_lower": 0.9091,
+          "ci_upper": 0.9091
+        }
+      },
+      "id_04": {
+        "roc_auc_stats": {
+          "mean": 0.6933,
+          "std": 0.2516,
+          "ci_lower": 0.4728,
+          "ci_upper": 0.9139
+        },
+        "f1_stats": {
+          "mean": 0.9091,
+          "std": 0.0,
+          "ci_lower": 0.9091,
+          "ci_upper": 0.9091
+        }
+      },
+      "id_06": {
+        "roc_auc_stats": {
+          "mean": 0.52,
+          "std": 0.0678,
+          "ci_lower": 0.4606,
+          "ci_upper": 0.5794
+        },
+        "f1_stats": {
+          "mean": 0.9091,
+          "std": 0.0,
+          "ci_lower": 0.9091,
+          "ci_upper": 0.9091
+        }
+      }
+    },
+    "individual_seed_runs": [
+      {
+        "seed": 42,
+        "macro": {
+          "macro_roc_auc": 0.6278,
+          "macro_pauc": 0.7017,
+          "macro_f1": 0.9091,
+          "macro_precision": 0.8333,
+          "macro_recall": 1.0,
+          "macro_fpr": 1.0,
+          "avg_cal_time_s": 0.4189,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 0.3111,
+              "pauc": 0.614,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4675
+            },
+            "id_02": {
+              "roc_auc": 0.8667,
+              "pauc": 0.7895,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.3875
+            },
+            "id_04": {
+              "roc_auc": 0.7778,
+              "pauc": 0.8246,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.3969
+            },
+            "id_06": {
+              "roc_auc": 0.5556,
+              "pauc": 0.5789,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4237
+            }
+          }
+        }
+      },
+      {
+        "seed": 101,
+        "macro": {
+          "macro_roc_auc": 0.7167,
+          "macro_pauc": 0.7982,
+          "macro_f1": 0.9091,
+          "macro_precision": 0.8333,
+          "macro_recall": 1.0,
+          "macro_fpr": 1.0,
+          "avg_cal_time_s": 0.4213,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 0.9556,
+              "pauc": 0.9649,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4196
+            },
+            "id_02": {
+              "roc_auc": 0.9556,
+              "pauc": 0.9298,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4215
+            },
+            "id_04": {
+              "roc_auc": 0.4222,
+              "pauc": 0.614,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4216
+            },
+            "id_06": {
+              "roc_auc": 0.5333,
+              "pauc": 0.6842,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4226
+            }
+          }
+        }
+      },
+      {
+        "seed": 202,
+        "macro": {
+          "macro_roc_auc": 0.6611,
+          "macro_pauc": 0.7544,
+          "macro_f1": 0.9091,
+          "macro_precision": 0.8333,
+          "macro_recall": 1.0,
+          "macro_fpr": 1.0,
+          "avg_cal_time_s": 0.4257,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 0.3333,
+              "pauc": 0.5439,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4314
+            },
+            "id_02": {
+              "roc_auc": 1.0,
+              "pauc": 1.0,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4218
+            },
+            "id_04": {
+              "roc_auc": 0.8222,
+              "pauc": 0.8596,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4267
+            },
+            "id_06": {
+              "roc_auc": 0.4889,
+              "pauc": 0.614,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4227
+            }
+          }
+        }
+      },
+      {
+        "seed": 303,
+        "macro": {
+          "macro_roc_auc": 0.8111,
+          "macro_pauc": 0.7982,
+          "macro_f1": 0.9091,
+          "macro_precision": 0.8333,
+          "macro_recall": 1.0,
+          "macro_fpr": 1.0,
+          "avg_cal_time_s": 0.4229,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 0.6889,
+              "pauc": 0.6491,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4226
+            },
+            "id_02": {
+              "roc_auc": 0.9556,
+              "pauc": 0.9298,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4208
+            },
+            "id_04": {
+              "roc_auc": 1.0,
+              "pauc": 1.0,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4356
+            },
+            "id_06": {
+              "roc_auc": 0.6,
+              "pauc": 0.614,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4128
+            }
+          }
+        }
+      },
+      {
+        "seed": 404,
+        "macro": {
+          "macro_roc_auc": 0.6778,
+          "macro_pauc": 0.7456,
+          "macro_f1": 0.9091,
+          "macro_precision": 0.8333,
+          "macro_recall": 1.0,
+          "macro_fpr": 1.0,
+          "avg_cal_time_s": 0.4179,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 0.9333,
+              "pauc": 0.8947,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4177
+            },
+            "id_02": {
+              "roc_auc": 0.9111,
+              "pauc": 0.8596,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4169
+            },
+            "id_04": {
+              "roc_auc": 0.4444,
+              "pauc": 0.614,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4187
+            },
+            "id_06": {
+              "roc_auc": 0.4222,
+              "pauc": 0.614,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 0.4183
+            }
+          }
+        }
+      }
+    ]
+  },
+  "N_5": {
+    "n_shots": 5,
+    "seed_count": 5,
+    "macro_roc_auc": {
+      "mean": 0.8411,
+      "std": 0.0792,
+      "ci_lower": 0.7717,
+      "ci_upper": 0.9105
+    },
+    "macro_pauc": {
+      "mean": 0.8386,
+      "std": 0.0658,
+      "ci_lower": 0.7809,
+      "ci_upper": 0.8963
+    },
+    "macro_f1": {
+      "mean": 0.9092,
+      "std": 0.0149,
+      "ci_lower": 0.8962,
+      "ci_upper": 0.9223
+    },
+    "macro_precision": {
+      "mean": 0.8728,
+      "std": 0.0261,
+      "ci_lower": 0.8499,
+      "ci_upper": 0.8957
+    },
+    "macro_recall": {
+      "mean": 0.96,
+      "std": 0.0435,
+      "ci_lower": 0.9219,
+      "ci_upper": 0.9981
+    },
+    "macro_fpr": {
+      "mean": 0.7334,
+      "std": 0.1603,
+      "ci_lower": 0.5928,
+      "ci_upper": 0.8739
+    },
+    "cal_time_s": {
+      "mean": 1.0679,
+      "std": 0.0026,
+      "ci_lower": 1.0656,
+      "ci_upper": 1.0701
+    },
+    "per_machine_stats": {
+      "id_00": {
+        "roc_auc_stats": {
+          "mean": 0.9289,
+          "std": 0.0776,
+          "ci_lower": 0.8608,
+          "ci_upper": 0.9969
+        },
+        "f1_stats": {
+          "mean": 0.8836,
+          "std": 0.0775,
+          "ci_lower": 0.8157,
+          "ci_upper": 0.9515
+        }
+      },
+      "id_02": {
+        "roc_auc_stats": {
+          "mean": 0.9689,
+          "std": 0.0199,
+          "ci_lower": 0.9515,
+          "ci_upper": 0.9863
+        },
+        "f1_stats": {
+          "mean": 0.9148,
+          "std": 0.0127,
+          "ci_lower": 0.9036,
+          "ci_upper": 0.9259
+        }
+      },
+      "id_04": {
+        "roc_auc_stats": {
+          "mean": 0.9067,
+          "std": 0.1059,
+          "ci_lower": 0.8138,
+          "ci_upper": 0.9995
+        },
+        "f1_stats": {
+          "mean": 0.9322,
+          "std": 0.0244,
+          "ci_lower": 0.9108,
+          "ci_upper": 0.9536
+        }
+      },
+      "id_06": {
+        "roc_auc_stats": {
+          "mean": 0.56,
+          "std": 0.1551,
+          "ci_lower": 0.4241,
+          "ci_upper": 0.6959
+        },
+        "f1_stats": {
+          "mean": 0.9063,
+          "std": 0.0253,
+          "ci_lower": 0.8841,
+          "ci_upper": 0.9285
+        }
+      }
+    },
+    "individual_seed_runs": [
+      {
+        "seed": 42,
+        "macro": {
+          "macro_roc_auc": 0.7056,
+          "macro_pauc": 0.728,
+          "macro_f1": 0.9162,
+          "macro_precision": 0.8456,
+          "macro_recall": 1.0,
+          "macro_fpr": 0.9167,
+          "avg_cal_time_s": 1.0646,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 0.8,
+              "pauc": 0.6842,
+              "f1": 0.9375,
+              "precision": 0.8824,
+              "recall": 1.0,
+              "fpr": 0.6667,
+              "cal_time_s": 1.0785
+            },
+            "id_02": {
+              "roc_auc": 0.9778,
+              "pauc": 0.9649,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 1.0656
+            },
+            "id_04": {
+              "roc_auc": 0.7333,
+              "pauc": 0.6842,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 1.059
+            },
+            "id_06": {
+              "roc_auc": 0.3111,
+              "pauc": 0.5789,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 1.0553
+            }
+          }
+        }
+      },
+      {
+        "seed": 101,
+        "macro": {
+          "macro_roc_auc": 0.8611,
+          "macro_pauc": 0.8596,
+          "macro_f1": 0.8954,
+          "macro_precision": 0.8655,
+          "macro_recall": 0.9333,
+          "macro_fpr": 0.75,
+          "avg_cal_time_s": 1.0713,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 0.9333,
+              "pauc": 0.9298,
+              "f1": 0.8966,
+              "precision": 0.9286,
+              "recall": 0.8667,
+              "fpr": 0.3333,
+              "cal_time_s": 1.0641
+            },
+            "id_02": {
+              "roc_auc": 0.9556,
+              "pauc": 0.9298,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 1.0646
+            },
+            "id_04": {
+              "roc_auc": 0.9778,
+              "pauc": 0.9649,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 1.0919
+            },
+            "id_06": {
+              "roc_auc": 0.5778,
+              "pauc": 0.614,
+              "f1": 0.8667,
+              "precision": 0.8667,
+              "recall": 0.8667,
+              "fpr": 0.6667,
+              "cal_time_s": 1.0646
+            }
+          }
+        }
+      },
+      {
+        "seed": 202,
+        "macro": {
+          "macro_roc_auc": 0.85,
+          "macro_pauc": 0.8333,
+          "macro_f1": 0.9202,
+          "macro_precision": 0.8817,
+          "macro_recall": 0.9667,
+          "macro_fpr": 0.6667,
+          "avg_cal_time_s": 1.0677,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 0.9333,
+              "pauc": 0.9298,
+              "f1": 0.8966,
+              "precision": 0.9286,
+              "recall": 0.8667,
+              "fpr": 0.3333,
+              "cal_time_s": 1.1012
+            },
+            "id_02": {
+              "roc_auc": 0.9556,
+              "pauc": 0.9298,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 1.053
+            },
+            "id_04": {
+              "roc_auc": 0.8889,
+              "pauc": 0.8246,
+              "f1": 0.9375,
+              "precision": 0.8824,
+              "recall": 1.0,
+              "fpr": 0.6667,
+              "cal_time_s": 1.0639
+            },
+            "id_06": {
+              "roc_auc": 0.6222,
+              "pauc": 0.6491,
+              "f1": 0.9375,
+              "precision": 0.8824,
+              "recall": 1.0,
+              "fpr": 0.6667,
+              "cal_time_s": 1.0527
+            }
+          }
+        }
+      },
+      {
+        "seed": 303,
+        "macro": {
+          "macro_roc_auc": 0.9111,
+          "macro_pauc": 0.8772,
+          "macro_f1": 0.8911,
+          "macro_precision": 0.9133,
+          "macro_recall": 0.9,
+          "macro_fpr": 0.5,
+          "avg_cal_time_s": 1.0694,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 0.9778,
+              "pauc": 0.9649,
+              "f1": 0.75,
+              "precision": 1.0,
+              "recall": 0.6,
+              "fpr": 0.0,
+              "cal_time_s": 1.0655
+            },
+            "id_02": {
+              "roc_auc": 1.0,
+              "pauc": 1.0,
+              "f1": 0.9375,
+              "precision": 0.8824,
+              "recall": 1.0,
+              "fpr": 0.6667,
+              "cal_time_s": 1.0838
+            },
+            "id_04": {
+              "roc_auc": 0.9333,
+              "pauc": 0.8947,
+              "f1": 0.9677,
+              "precision": 0.9375,
+              "recall": 1.0,
+              "fpr": 0.3333,
+              "cal_time_s": 1.066
+            },
+            "id_06": {
+              "roc_auc": 0.7333,
+              "pauc": 0.6491,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 1.0624
+            }
+          }
+        }
+      },
+      {
+        "seed": 404,
+        "macro": {
+          "macro_roc_auc": 0.8778,
+          "macro_pauc": 0.8947,
+          "macro_f1": 0.9233,
+          "macro_precision": 0.8579,
+          "macro_recall": 1.0,
+          "macro_fpr": 0.8334,
+          "avg_cal_time_s": 1.0663,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 1.0,
+              "pauc": 1.0,
+              "f1": 0.9375,
+              "precision": 0.8824,
+              "recall": 1.0,
+              "fpr": 0.6667,
+              "cal_time_s": 1.055
+            },
+            "id_02": {
+              "roc_auc": 0.9556,
+              "pauc": 0.9298,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 1.0715
+            },
+            "id_04": {
+              "roc_auc": 1.0,
+              "pauc": 1.0,
+              "f1": 0.9375,
+              "precision": 0.8824,
+              "recall": 1.0,
+              "fpr": 0.6667,
+              "cal_time_s": 1.0591
+            },
+            "id_06": {
+              "roc_auc": 0.5556,
+              "pauc": 0.6491,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 1.0796
+            }
+          }
+        }
+      }
+    ]
+  },
+  "N_10": {
+    "n_shots": 10,
+    "seed_count": 5,
+    "macro_roc_auc": {
+      "mean": 0.8678,
+      "std": 0.022,
+      "ci_lower": 0.8485,
+      "ci_upper": 0.8871
+    },
+    "macro_pauc": {
+      "mean": 0.8912,
+      "std": 0.0182,
+      "ci_lower": 0.8752,
+      "ci_upper": 0.9072
+    },
+    "macro_f1": {
+      "mean": 0.6895,
+      "std": 0.0204,
+      "ci_lower": 0.6716,
+      "ci_upper": 0.7073
+    },
+    "macro_precision": {
+      "mean": 0.9186,
+      "std": 0.0224,
+      "ci_lower": 0.899,
+      "ci_upper": 0.9382
+    },
+    "macro_recall": {
+      "mean": 0.66,
+      "std": 0.0149,
+      "ci_lower": 0.6469,
+      "ci_upper": 0.6731
+    },
+    "macro_fpr": {
+      "mean": 0.3667,
+      "std": 0.1118,
+      "ci_lower": 0.2687,
+      "ci_upper": 0.4647
+    },
+    "cal_time_s": {
+      "mean": 2.1409,
+      "std": 0.0314,
+      "ci_lower": 2.1134,
+      "ci_upper": 2.1685
+    },
+    "per_machine_stats": {
+      "id_00": {
+        "roc_auc_stats": {
+          "mean": 0.9645,
+          "std": 0.0199,
+          "ci_lower": 0.947,
+          "ci_upper": 0.9819
+        },
+        "f1_stats": {
+          "mean": 0.1912,
+          "std": 0.0604,
+          "ci_lower": 0.1382,
+          "ci_upper": 0.2441
+        }
+      },
+      "id_02": {
+        "roc_auc_stats": {
+          "mean": 1.0,
+          "std": 0.0,
+          "ci_lower": 1.0,
+          "ci_upper": 1.0
+        },
+        "f1_stats": {
+          "mean": 0.9318,
+          "std": 0.0127,
+          "ci_lower": 0.9207,
+          "ci_upper": 0.943
+        }
+      },
+      "id_04": {
+        "roc_auc_stats": {
+          "mean": 0.9778,
+          "std": 0.0385,
+          "ci_lower": 0.944,
+          "ci_upper": 1.0115
+        },
+        "f1_stats": {
+          "mean": 0.9737,
+          "std": 0.0147,
+          "ci_lower": 0.9608,
+          "ci_upper": 0.9866
+        }
+      },
+      "id_06": {
+        "roc_auc_stats": {
+          "mean": 0.5289,
+          "std": 0.0482,
+          "ci_lower": 0.4867,
+          "ci_upper": 0.5711
+        },
+        "f1_stats": {
+          "mean": 0.6611,
+          "std": 0.0219,
+          "ci_lower": 0.6419,
+          "ci_upper": 0.6804
+        }
+      }
+    },
+    "individual_seed_runs": [
+      {
+        "seed": 42,
+        "macro": {
+          "macro_roc_auc": 0.8556,
+          "macro_pauc": 0.8947,
+          "macro_f1": 0.7011,
+          "macro_precision": 0.8972,
+          "macro_recall": 0.6833,
+          "macro_fpr": 0.5,
+          "avg_cal_time_s": 2.1117,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 0.9333,
+              "pauc": 0.9298,
+              "f1": 0.2353,
+              "precision": 1.0,
+              "recall": 0.1333,
+              "fpr": 0.0,
+              "cal_time_s": 2.1776
+            },
+            "id_02": {
+              "roc_auc": 1.0,
+              "pauc": 1.0,
+              "f1": 0.9091,
+              "precision": 0.8333,
+              "recall": 1.0,
+              "fpr": 1.0,
+              "cal_time_s": 2.1085
+            },
+            "id_04": {
+              "roc_auc": 1.0,
+              "pauc": 1.0,
+              "f1": 0.9677,
+              "precision": 0.9375,
+              "recall": 1.0,
+              "fpr": 0.3333,
+              "cal_time_s": 2.0492
+            },
+            "id_06": {
+              "roc_auc": 0.4889,
+              "pauc": 0.6491,
+              "f1": 0.6923,
+              "precision": 0.8182,
+              "recall": 0.6,
+              "fpr": 0.6667,
+              "cal_time_s": 2.1117
+            }
+          }
+        }
+      },
+      {
+        "seed": 101,
+        "macro": {
+          "macro_roc_auc": 0.8667,
+          "macro_pauc": 0.8947,
+          "macro_f1": 0.7013,
+          "macro_precision": 0.9428,
+          "macro_recall": 0.65,
+          "macro_fpr": 0.25,
+          "avg_cal_time_s": 2.1077,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 0.9778,
+              "pauc": 0.9649,
+              "f1": 0.2353,
+              "precision": 1.0,
+              "recall": 0.1333,
+              "fpr": 0.0,
+              "cal_time_s": 2.0684
+            },
+            "id_02": {
+              "roc_auc": 1.0,
+              "pauc": 1.0,
+              "f1": 0.9375,
+              "precision": 0.8824,
+              "recall": 1.0,
+              "fpr": 0.6667,
+              "cal_time_s": 2.1359
+            },
+            "id_04": {
+              "roc_auc": 0.9778,
+              "pauc": 0.9649,
+              "f1": 0.9655,
+              "precision": 1.0,
+              "recall": 0.9333,
+              "fpr": 0.0,
+              "cal_time_s": 2.1326
+            },
+            "id_06": {
+              "roc_auc": 0.5111,
+              "pauc": 0.6491,
+              "f1": 0.6667,
+              "precision": 0.8889,
+              "recall": 0.5333,
+              "fpr": 0.3333,
+              "cal_time_s": 2.0939
+            }
+          }
+        }
+      },
+      {
+        "seed": 202,
+        "macro": {
+          "macro_roc_auc": 0.8389,
+          "macro_pauc": 0.8596,
+          "macro_f1": 0.6675,
+          "macro_precision": 0.905,
+          "macro_recall": 0.65,
+          "macro_fpr": 0.4167,
+          "avg_cal_time_s": 2.1405,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 0.9556,
+              "pauc": 0.9298,
+              "f1": 0.125,
+              "precision": 1.0,
+              "recall": 0.0667,
+              "fpr": 0.0,
+              "cal_time_s": 2.1401
+            },
+            "id_02": {
+              "roc_auc": 1.0,
+              "pauc": 1.0,
+              "f1": 0.9375,
+              "precision": 0.8824,
+              "recall": 1.0,
+              "fpr": 0.6667,
+              "cal_time_s": 2.1823
+            },
+            "id_04": {
+              "roc_auc": 0.9111,
+              "pauc": 0.8596,
+              "f1": 0.9677,
+              "precision": 0.9375,
+              "recall": 1.0,
+              "fpr": 0.3333,
+              "cal_time_s": 2.1362
+            },
+            "id_06": {
+              "roc_auc": 0.4889,
+              "pauc": 0.6491,
+              "f1": 0.64,
+              "precision": 0.8,
+              "recall": 0.5333,
+              "fpr": 0.6667,
+              "cal_time_s": 2.1035
+            }
+          }
+        }
+      },
+      {
+        "seed": 303,
+        "macro": {
+          "macro_roc_auc": 0.8834,
+          "macro_pauc": 0.9035,
+          "macro_f1": 0.7099,
+          "macro_precision": 0.9428,
+          "macro_recall": 0.6667,
+          "macro_fpr": 0.25,
+          "avg_cal_time_s": 2.1697,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 0.9778,
+              "pauc": 0.9649,
+              "f1": 0.2353,
+              "precision": 1.0,
+              "recall": 0.1333,
+              "fpr": 0.0,
+              "cal_time_s": 2.0852
+            },
+            "id_02": {
+              "roc_auc": 1.0,
+              "pauc": 1.0,
+              "f1": 0.9375,
+              "precision": 0.8824,
+              "recall": 1.0,
+              "fpr": 0.6667,
+              "cal_time_s": 2.1778
+            },
+            "id_04": {
+              "roc_auc": 1.0,
+              "pauc": 1.0,
+              "f1": 1.0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "fpr": 0.0,
+              "cal_time_s": 2.1823
+            },
+            "id_06": {
+              "roc_auc": 0.5556,
+              "pauc": 0.6491,
+              "f1": 0.6667,
+              "precision": 0.8889,
+              "recall": 0.5333,
+              "fpr": 0.3333,
+              "cal_time_s": 2.2336
+            }
+          }
+        }
+      },
+      {
+        "seed": 404,
+        "macro": {
+          "macro_roc_auc": 0.8945,
+          "macro_pauc": 0.9035,
+          "macro_f1": 0.6675,
+          "macro_precision": 0.905,
+          "macro_recall": 0.65,
+          "macro_fpr": 0.4167,
+          "avg_cal_time_s": 2.1751,
+          "per_machine": {
+            "id_00": {
+              "roc_auc": 0.9778,
+              "pauc": 0.9649,
+              "f1": 0.125,
+              "precision": 1.0,
+              "recall": 0.0667,
+              "fpr": 0.0,
+              "cal_time_s": 2.1741
+            },
+            "id_02": {
+              "roc_auc": 1.0,
+              "pauc": 1.0,
+              "f1": 0.9375,
+              "precision": 0.8824,
+              "recall": 1.0,
+              "fpr": 0.6667,
+              "cal_time_s": 2.2133
+            },
+            "id_04": {
+              "roc_auc": 1.0,
+              "pauc": 1.0,
+              "f1": 0.9677,
+              "precision": 0.9375,
+              "recall": 1.0,
+              "fpr": 0.3333,
+              "cal_time_s": 2.1613
+            },
+            "id_06": {
+              "roc_auc": 0.6,
+              "pauc": 0.6491,
+              "f1": 0.64,
+              "precision": 0.8,
+              "recall": 0.5333,
+              "fpr": 0.6667,
+              "cal_time_s": 2.1515
+            }
+          }
+        }
+      }
+    ]
+  }
+}

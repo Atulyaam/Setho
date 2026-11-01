@@ -1,0 +1,124 @@
+{
+  "timestamp": "2026-11-01T08:34:19.154542+00:00",
+  "system_telemetry": {
+    "cpu_count": 20,
+    "total_ram_gb": 15.63,
+    "cuda_available": false,
+    "cuda_device": "N/A (CPU Only)",
+    "vram_mb": 0.0
+  },
+  "benchmarks": {
+    "resnet_ae": {
+      "name": "Optimized ResNet-AE",
+      "precision": "FP32",
+      "parameters": 1808065,
+      "disk_size_kb": 7078.84,
+      "onnx_parity_passed": true,
+      "max_absolute_error": 1.6689300537109375e-06,
+      "performance": {
+        "cold_start_ms": 147.89,
+        "mean_ms": 104.89,
+        "p50_ms": 101.96,
+        "p95_ms": 114.1,
+        "p99_ms": 115.44,
+        "throughput_fps": 9.53,
+        "peak_ram_mb": 369.19
+      },
+      "pipeline_stages": {
+        "audio_loading_ms": 34.3,
+        "mel_extraction_ms": 3.78,
+        "patch_slicing_ms": 3.81,
+        "model_inference_ms": 61.77,
+        "decision_postprocess_ms": 0.094,
+        "total_e2e_latency_ms": 103.74
+      }
+    },
+    "few_shot_calibrated_resnet": {
+      "name": "Few-Shot Calibrated ResNet-AE (Mahalanobis N=5)",
+      "precision": "FP32 + Latent Centroid",
+      "parameters": 1808065,
+      "disk_size_kb": 7110.84,
+      "performance": {
+        "cold_start_ms": 93.8,
+        "mean_ms": 96.91,
+        "p50_ms": 96.82,
+        "p95_ms": 101.25,
+        "p99_ms": 107.46,
+        "throughput_fps": 10.32,
+        "peak_ram_mb": 401.34
+      },
+      "pipeline_stages": {
+        "audio_loading_ms": 31.47,
+        "mel_extraction_ms": 3.6,
+        "patch_slicing_ms": 3.85,
+        "model_inference_ms": 62.32,
+        "decision_postprocess_ms": 0.047,
+        "total_e2e_latency_ms": 101.28
+      }
+    },
+    "multitask_resnet_ae": {
+      "name": "Multi-Task ResNet-AE",
+      "precision": "FP32",
+      "parameters": 1808065,
+      "disk_size_kb": 7088.7,
+      "performance": {
+        "cold_start_ms": 97.67,
+        "mean_ms": 101.73,
+        "p50_ms": 101.45,
+        "p95_ms": 103.75,
+        "p99_ms": 104.89,
+        "throughput_fps": 9.83,
+        "peak_ram_mb": 412.6
+      },
+      "pipeline_stages": {
+        "audio_loading_ms": 34.43,
+        "mel_extraction_ms": 3.84,
+        "patch_slicing_ms": 3.76,
+        "model_inference_ms": 62.15,
+        "decision_postprocess_ms": 0.093,
+        "total_e2e_latency_ms": 104.27
+      }
+    },
+    "compact_student_fp32": {
+      "name": "Distilled Compact Student-AE (FP32)",
+      "precision": "FP32",
+      "parameters": 22113,
+      "disk_size_kb": 96.32,
+      "performance": {
+        "cold_start_ms": 52.55,
+        "mean_ms": 48.52,
+        "p50_ms": 47.98,
+        "p95_ms": 52.97,
+        "p99_ms": 61.39,
+        "throughput_fps": 20.61,
+        "peak_ram_mb": 414.12
+      },
+      "pipeline_stages": {
+        "audio_loading_ms": 33.43,
+        "mel_extraction_ms": 3.74,
+        "patch_slicing_ms": 3.85,
+        "model_inference_ms": 9.47,
+        "decision_postprocess_ms": 0.093,
+        "total_e2e_latency_ms": 50.58
+      }
+    },
+    "compact_student_onnx_int8": {
+      "name": "Compact Student-AE (Dynamic INT8 ONNX Runtime)",
+      "precision": "INT8",
+      "parameters": 22113,
+      "disk_size_kb": 43.74,
+      "onnx_parity_passed": true,
+      "max_absolute_error": 1.430511474609375e-06,
+      "execution_provider": "CPUExecutionProvider",
+      "performance": {
+        "cold_start_ms": 71.62,
+        "mean_ms": 60.75,
+        "p50_ms": 60.45,
+        "p95_ms": 73.88,
+        "p99_ms": 77.64,
+        "throughput_fps": 16.46,
+        "size_kb": 43.74
+      }
+    }
+  }
+}

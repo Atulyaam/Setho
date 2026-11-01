@@ -98,6 +98,14 @@ class MultiTaskResNetDetector(BaseAnomalyDetector):
         self.model.eval()
         return self
 
+    def score_patches(self, patches: np.ndarray) -> np.ndarray:
+        self.model.eval()
+        t = torch.from_numpy(patches).float().to(self.device)
+        with torch.no_grad():
+            recon, _ = self.model(t)
+            err = torch.abs(recon - t)
+            return torch.mean(err, dim=(1, 2, 3)).cpu().numpy()
+
     def score_file(self, file_path: str) -> float:
         self.model.eval()
         p = self._extract_patches_from_file(file_path)

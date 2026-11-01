@@ -1,0 +1,255 @@
+{
+  "status": "PASS",
+  "total_violations": 0,
+  "diverse_machine_splits": {
+    "fan": {
+      "id_00": {
+        "train_count": 10,
+        "dev_count": 2,
+        "test_count": 18,
+        "test_normal_count": 3,
+        "test_abnormal_count": 15,
+        "train_dev_overlap": 0,
+        "train_test_overlap": 0,
+        "dev_test_overlap": 0,
+        "dev_abnormal_count": 0,
+        "train_abnormal_count": 0,
+        "leakage_detected": false
+      },
+      "id_02": {
+        "train_count": 10,
+        "dev_count": 2,
+        "test_count": 18,
+        "test_normal_count": 3,
+        "test_abnormal_count": 15,
+        "train_dev_overlap": 0,
+        "train_test_overlap": 0,
+        "dev_test_overlap": 0,
+        "dev_abnormal_count": 0,
+        "train_abnormal_count": 0,
+        "leakage_detected": false
+      },
+      "id_04": {
+        "train_count": 10,
+        "dev_count": 2,
+        "test_count": 18,
+        "test_normal_count": 3,
+        "test_abnormal_count": 15,
+        "train_dev_overlap": 0,
+        "train_test_overlap": 0,
+        "dev_test_overlap": 0,
+        "dev_abnormal_count": 0,
+        "train_abnormal_count": 0,
+        "leakage_detected": false
+      },
+      "id_06": {
+        "train_count": 10,
+        "dev_count": 2,
+        "test_count": 18,
+        "test_normal_count": 3,
+        "test_abnormal_count": 15,
+        "train_dev_overlap": 0,
+        "train_test_overlap": 0,
+        "dev_test_overlap": 0,
+        "dev_abnormal_count": 0,
+        "train_abnormal_count": 0,
+        "leakage_detected": false
+      }
+    },
+    "pump": {
+      "id_00": {
+        "train_count": 10,
+        "dev_count": 2,
+        "test_count": 18,
+        "test_normal_count": 3,
+        "test_abnormal_count": 15,
+        "train_dev_overlap": 0,
+        "train_test_overlap": 0,
+        "dev_test_overlap": 0,
+        "dev_abnormal_count": 0,
+        "train_abnormal_count": 0,
+        "leakage_detected": false
+      },
+      "id_02": {
+        "train_count": 10,
+        "dev_count": 2,
+        "test_count": 18,
+        "test_normal_count": 3,
+        "test_abnormal_count": 15,
+        "train_dev_overlap": 0,
+        "train_test_overlap": 0,
+        "dev_test_overlap": 0,
+        "dev_abnormal_count": 0,
+        "train_abnormal_count": 0,
+        "leakage_detected": false
+      },
+      "id_04": {
+        "train_count": 10,
+        "dev_count": 2,
+        "test_count": 18,
+        "test_normal_count": 3,
+        "test_abnormal_count": 15,
+        "train_dev_overlap": 0,
+        "train_test_overlap": 0,
+        "dev_test_overlap": 0,
+        "dev_abnormal_count": 0,
+        "train_abnormal_count": 0,
+        "leakage_detected": false
+      },
+      "id_06": {
+        "train_count": 10,
+        "dev_count": 2,
+        "test_count": 18,
+        "test_normal_count": 3,
+        "test_abnormal_count": 15,
+        "train_dev_overlap": 0,
+        "train_test_overlap": 0,
+        "dev_test_overlap": 0,
+        "dev_abnormal_count": 0,
+        "train_abnormal_count": 0,
+        "leakage_detected": false
+      }
+    },
+    "valve": {
+      "id_00": {
+        "train_count": 10,
+        "dev_count": 2,
+        "test_count": 18,
+        "test_normal_count": 3,
+        "test_abnormal_count": 15,
+        "train_dev_overlap": 0,
+        "train_test_overlap": 0,
+        "dev_test_overlap": 0,
+        "dev_abnormal_count": 0,
+        "train_abnormal_count": 0,
+        "leakage_detected": false
+      },
+      "id_02": {
+        "train_count": 10,
+        "dev_count": 2,
+        "test_count": 18,
+        "test_normal_count": 3,
+        "test_abnormal_count": 15,
+        "train_dev_overlap": 0,
+        "train_test_overlap": 0,
+        "dev_test_overlap": 0,
+        "dev_abnormal_count": 0,
+        "train_abnormal_count": 0,
+        "leakage_detected": false
+      },
+      "id_04": {
+        "train_count": 10,
+        "dev_count": 2,
+        "test_count": 18,
+        "test_normal_count": 3,
+        "test_abnormal_count": 15,
+        "train_dev_overlap": 0,
+        "train_test_overlap": 0,
+        "dev_test_overlap": 0,
+        "dev_abnormal_count": 0,
+        "train_abnormal_count": 0,
+        "leakage_detected": false
+      },
+      "id_06": {
+        "train_count": 10,
+        "dev_count": 2,
+        "test_count": 18,
+        "test_normal_count": 3,
+        "test_abnormal_count": 15,
+        "train_dev_overlap": 0,
+        "train_test_overlap": 0,
+        "dev_test_overlap": 0,
+        "dev_abnormal_count": 0,
+        "train_abnormal_count": 0,
+        "leakage_detected": false
+      }
+    }
+  },
+  "unseen_machine_splits": {
+    "heldout_id_00": {
+      "train_count": 30,
+      "test_count": 18,
+      "overlap_count": 0,
+      "target_machine_leaked_in_train": false,
+      "leakage_detected": false
+    },
+    "heldout_id_02": {
+      "train_count": 30,
+      "test_count": 18,
+      "overlap_count": 0,
+      "target_machine_leaked_in_train": false,
+      "leakage_detected": false
+    },
+    "heldout_id_04": {
+      "train_count": 30,
+      "test_count": 18,
+      "overlap_count": 0,
+      "target_machine_leaked_in_train": false,
+      "leakage_detected": false
+    },
+    "heldout_id_06": {
+      "train_count": 30,
+      "test_count": 18,
+      "overlap_count": 0,
+      "target_machine_leaked_in_train": false,
+      "leakage_detected": false
+    }
+  },
+  "cross_category_splits": {
+    "fan_to_pump": {
+      "train_source_count": 40,
+      "test_target_count": 72,
+      "cal_target_count": 8,
+      "train_test_overlap": 0,
+      "cal_test_overlap": 0,
+      "leakage_detected": false
+    },
+    "fan_to_valve": {
+      "train_source_count": 40,
+      "test_target_count": 72,
+      "cal_target_count": 8,
+      "train_test_overlap": 0,
+      "cal_test_overlap": 0,
+      "leakage_detected": false
+    },
+    "pump_to_fan": {
+      "train_source_count": 40,
+      "test_target_count": 72,
+      "cal_target_count": 8,
+      "train_test_overlap": 0,
+      "cal_test_overlap": 0,
+      "leakage_detected": false
+    },
+    "pump_to_valve": {
+      "train_source_count": 40,
+      "test_target_count": 72,
+      "cal_target_count": 8,
+      "train_test_overlap": 0,
+      "cal_test_overlap": 0,
+      "leakage_detected": false
+    },
+    "valve_to_fan": {
+      "train_source_count": 40,
+      "test_target_count": 72,
+      "cal_target_count": 8,
+      "train_test_overlap": 0,
+      "cal_test_overlap": 0,
+      "leakage_detected": false
+    },
+    "valve_to_pump": {
+      "train_source_count": 40,
+      "test_target_count": 72,
+      "cal_target_count": 8,
+      "train_test_overlap": 0,
+      "cal_test_overlap": 0,
+      "leakage_detected": false
+    }
+  },
+  "multitask_pretraining_audit": {
+    "multitask_train_file_count": 120,
+    "total_test_file_count": 216,
+    "train_test_direct_overlap": 0,
+    "unseen_test_overlap": 0,
+    "contamination_detected": false
+  }
+}
