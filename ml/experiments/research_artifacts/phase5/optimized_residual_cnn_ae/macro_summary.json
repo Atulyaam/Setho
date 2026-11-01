@@ -1,0 +1,175 @@
+{
+  "macro_roc_auc": 0.9833,
+  "macro_pauc": 0.9737,
+  "macro_f1": 0.7277,
+  "macro_precision": 0.901,
+  "macro_recall": 0.7667,
+  "macro_fpr": 0.5833,
+  "macro_cpu_mean_ms": 109.21,
+  "per_machine": {
+    "id_00": {
+      "experiment_id": "optimized_resnet_id_00",
+      "machine_id": "id_00",
+      "config": {
+        "arch_type": "residual_cnn_ae",
+        "base_channels": 16,
+        "latent_dim": 64,
+        "norm_type": "group",
+        "loss_type": "l1",
+        "optimizer_type": "adamw",
+        "lr_schedule": "cosine",
+        "patch_frames": 64,
+        "augmentation": null,
+        "learning_rate": 0.001
+      },
+      "metrics": {
+        "roc_auc": 1.0,
+        "pauc": 1.0,
+        "precision": 1.0,
+        "recall": 0.0667,
+        "f1": 0.125,
+        "fpr": 0.0,
+        "threshold": 0.352081,
+        "best_val_loss": 0.32304,
+        "confusion_matrix": {
+          "tp": 1,
+          "fp": 0,
+          "tn": 3,
+          "fn": 14
+        }
+      },
+      "parameters": 1808065,
+      "training_time_s": 66.71,
+      "latency": {
+        "cpu_mean_ms": 114.0,
+        "cpu_median_ms": 111.04,
+        "cpu_p95_ms": 124.73,
+        "cpu_min_ms": 107.18,
+        "cpu_max_ms": 126.74
+      }
+    },
+    "id_02": {
+      "experiment_id": "optimized_resnet_id_02",
+      "machine_id": "id_02",
+      "config": {
+        "arch_type": "residual_cnn_ae",
+        "base_channels": 16,
+        "latent_dim": 64,
+        "norm_type": "group",
+        "loss_type": "l1",
+        "optimizer_type": "adamw",
+        "lr_schedule": "cosine",
+        "patch_frames": 64,
+        "augmentation": null,
+        "learning_rate": 0.001
+      },
+      "metrics": {
+        "roc_auc": 1.0,
+        "pauc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "threshold": 0.258223,
+        "best_val_loss": 0.24574,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        }
+      },
+      "parameters": 1808065,
+      "training_time_s": 78.54,
+      "latency": {
+        "cpu_mean_ms": 108.1,
+        "cpu_median_ms": 108.4,
+        "cpu_p95_ms": 108.95,
+        "cpu_min_ms": 106.64,
+        "cpu_max_ms": 108.97
+      }
+    },
+    "id_04": {
+      "experiment_id": "optimized_resnet_id_04",
+      "machine_id": "id_04",
+      "config": {
+        "arch_type": "residual_cnn_ae",
+        "base_channels": 16,
+        "latent_dim": 64,
+        "norm_type": "group",
+        "loss_type": "l1",
+        "optimizer_type": "adamw",
+        "lr_schedule": "cosine",
+        "patch_frames": 64,
+        "augmentation": null,
+        "learning_rate": 0.001
+      },
+      "metrics": {
+        "roc_auc": 0.9333,
+        "pauc": 0.8947,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "threshold": 0.215673,
+        "best_val_loss": 0.20971,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        }
+      },
+      "parameters": 1808065,
+      "training_time_s": 74.53,
+      "latency": {
+        "cpu_mean_ms": 111.73,
+        "cpu_median_ms": 112.1,
+        "cpu_p95_ms": 116.46,
+        "cpu_min_ms": 105.67,
+        "cpu_max_ms": 117.05
+      }
+    },
+    "id_06": {
+      "experiment_id": "optimized_resnet_id_06",
+      "machine_id": "id_06",
+      "config": {
+        "arch_type": "residual_cnn_ae",
+        "base_channels": 16,
+        "latent_dim": 64,
+        "norm_type": "group",
+        "loss_type": "l1",
+        "optimizer_type": "adamw",
+        "lr_schedule": "cosine",
+        "patch_frames": 64,
+        "augmentation": null,
+        "learning_rate": 0.001
+      },
+      "metrics": {
+        "roc_auc": 1.0,
+        "pauc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "threshold": 0.248912,
+        "best_val_loss": 0.24703,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        }
+      },
+      "parameters": 1808065,
+      "training_time_s": 79.7,
+      "latency": {
+        "cpu_mean_ms": 103.02,
+        "cpu_median_ms": 103.12,
+        "cpu_p95_ms": 103.61,
+        "cpu_min_ms": 102.19,
+        "cpu_max_ms": 103.66
+      }
+    }
+  }
+}

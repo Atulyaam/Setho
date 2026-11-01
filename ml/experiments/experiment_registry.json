@@ -2578,7 +2578,54 @@
       "result_path": "ml\\experiments\\results\\phase4_teacher_student_cnn.json",
       "artifact_dir": "ml\\experiments\\artifacts\\phase4_teacher_student_cnn",
       "error": null
+    },
+    "phase5_optimization_ablations": {
+      "experiment_id": "phase5_optimization_ablations",
+      "git_commit": "cd54d183576a60552c7fc4b9e52e95ca790a8d08",
+      "manifest_hash": "30228fe11ec868b836e6969040a27686e03785dcc8d2c36c045a0766e392b80f",
+      "name": "Phase 5 Architecture Optimization & Ablations",
+      "description": "Comprehensive Phase 5 controlled ablation study across loss, optimizers, schedulers, latent dims, norms, contexts, and augmentations",
+      "model_type": "residual_cnn_ae",
+      "architecture": "residual_cnn_ae",
+      "preprocessing": "standard_64mel",
+      "status": "COMPLETED",
+      "seed": 42,
+      "config": {
+        "arch_type": "residual_cnn_ae",
+        "optimizer": "adamw",
+        "lr_schedule": "cosine",
+        "loss": "l1"
+      },
+      "pid": null,
+      "start_time": null,
+      "completion_time": "2026-11-01T05:47:05.896049+00:00",
+      "duration_sec": null,
+      "current_epoch": 0,
+      "max_epochs": 60,
+      "train_loss": null,
+      "val_loss": null,
+      "telemetry": {
+        "timestamp": "2026-11-01T05:47:05.896049+00:00",
+        "ram_used_mb": 12860.03,
+        "ram_total_mb": 16004.66,
+        "ram_percent": 80.4,
+        "cpu_percent": 50.0,
+        "gpu_available": false,
+        "gpu_vram_used_mb": 0.0,
+        "gpu_vram_total_mb": 0.0
+      },
+      "metrics": {
+        "macro_roc_auc": 0.9833,
+        "macro_pauc": 0.9737,
+        "macro_f1": 0.7277,
+        "macro_cpu_mean_ms": 109.21,
+        "best_ablation": "ablation_sched_cosine"
+      },
+      "log_path": "ml\\experiments\\logs\\phase5_optimization_ablations.log",
+      "result_path": "ml\\experiments\\results\\phase5_optimization_ablations.json",
+      "artifact_dir": "ml\\experiments\\artifacts\\phase5_optimization_ablations",
+      "error": null
     }
   },
-  "updated_at": "2026-11-01T04:51:37.360029+00:00"
+  "updated_at": "2026-11-01T05:47:05.896049+00:00"
 }

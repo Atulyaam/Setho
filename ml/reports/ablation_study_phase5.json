@@ -1,0 +1,945 @@
+{
+  "ablation_loss_l1": {
+    "experiment_id": "ablation_loss_l1",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.9111,
+      "pauc": 0.8596,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.20984,
+      "best_val_loss": 0.20933,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 79.49,
+    "latency": {
+      "cpu_mean_ms": 100.12,
+      "cpu_median_ms": 100.13,
+      "cpu_p95_ms": 100.62,
+      "cpu_min_ms": 99.58,
+      "cpu_max_ms": 100.64
+    }
+  },
+  "ablation_loss_mse": {
+    "experiment_id": "ablation_loss_mse",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "mse",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.8667,
+      "pauc": 0.8246,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.219805,
+      "best_val_loss": 0.07596,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 76.26,
+    "latency": {
+      "cpu_mean_ms": 106.59,
+      "cpu_median_ms": 105.79,
+      "cpu_p95_ms": 112.94,
+      "cpu_min_ms": 100.98,
+      "cpu_max_ms": 113.79
+    }
+  },
+  "ablation_loss_smooth_l1": {
+    "experiment_id": "ablation_loss_smooth_l1",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "smooth_l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.9111,
+      "pauc": 0.8596,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.212452,
+      "best_val_loss": 0.03703,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 74.88,
+    "latency": {
+      "cpu_mean_ms": 101.64,
+      "cpu_median_ms": 101.46,
+      "cpu_p95_ms": 102.84,
+      "cpu_min_ms": 100.68,
+      "cpu_max_ms": 102.95
+    }
+  },
+  "ablation_loss_freq_weighted": {
+    "experiment_id": "ablation_loss_freq_weighted",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "freq_weighted_l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.8,
+      "pauc": 0.8246,
+      "precision": 0.8667,
+      "recall": 0.8667,
+      "f1": 0.8667,
+      "fpr": 0.6667,
+      "threshold": 0.259057,
+      "best_val_loss": 0.39578,
+      "confusion_matrix": {
+        "tp": 13,
+        "fp": 2,
+        "tn": 1,
+        "fn": 2
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 55.62,
+    "latency": {
+      "cpu_mean_ms": 107.94,
+      "cpu_median_ms": 107.92,
+      "cpu_p95_ms": 113.78,
+      "cpu_min_ms": 101.72,
+      "cpu_max_ms": 114.21
+    }
+  },
+  "ablation_opt_adam": {
+    "experiment_id": "ablation_opt_adam",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adam",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.9111,
+      "pauc": 0.8596,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.212713,
+      "best_val_loss": 0.20905,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 72.52,
+    "latency": {
+      "cpu_mean_ms": 92.8,
+      "cpu_median_ms": 93.49,
+      "cpu_p95_ms": 106.86,
+      "cpu_min_ms": 76.49,
+      "cpu_max_ms": 107.73
+    }
+  },
+  "ablation_opt_adamw": {
+    "experiment_id": "ablation_opt_adamw",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.9111,
+      "pauc": 0.8596,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.214521,
+      "best_val_loss": 0.20808,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 74.92,
+    "latency": {
+      "cpu_mean_ms": 101.74,
+      "cpu_median_ms": 102.02,
+      "cpu_p95_ms": 103.34,
+      "cpu_min_ms": 99.4,
+      "cpu_max_ms": 103.5
+    }
+  },
+  "ablation_sched_cosine": {
+    "experiment_id": "ablation_sched_cosine",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "cosine",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.9333,
+      "pauc": 0.8947,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.215673,
+      "best_val_loss": 0.20971,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 71.86,
+    "latency": {
+      "cpu_mean_ms": 100.73,
+      "cpu_median_ms": 100.77,
+      "cpu_p95_ms": 101.42,
+      "cpu_min_ms": 99.87,
+      "cpu_max_ms": 101.52
+    }
+  },
+  "ablation_sched_plateau": {
+    "experiment_id": "ablation_sched_plateau",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "plateau",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.9111,
+      "pauc": 0.8596,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.212415,
+      "best_val_loss": 0.2081,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 72.44,
+    "latency": {
+      "cpu_mean_ms": 101.19,
+      "cpu_median_ms": 101.21,
+      "cpu_p95_ms": 101.92,
+      "cpu_min_ms": 100.37,
+      "cpu_max_ms": 101.99
+    }
+  },
+  "ablation_latent_32": {
+    "experiment_id": "ablation_latent_32",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 32,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.9111,
+      "pauc": 0.8596,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.215184,
+      "best_val_loss": 0.21094,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 1283745,
+    "training_time_s": 74.35,
+    "latency": {
+      "cpu_mean_ms": 99.71,
+      "cpu_median_ms": 99.76,
+      "cpu_p95_ms": 101.05,
+      "cpu_min_ms": 98.19,
+      "cpu_max_ms": 101.12
+    }
+  },
+  "ablation_latent_64": {
+    "experiment_id": "ablation_latent_64",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.9111,
+      "pauc": 0.8596,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.214521,
+      "best_val_loss": 0.20808,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 76.58,
+    "latency": {
+      "cpu_mean_ms": 99.9,
+      "cpu_median_ms": 100.07,
+      "cpu_p95_ms": 101.19,
+      "cpu_min_ms": 98.11,
+      "cpu_max_ms": 101.34
+    }
+  },
+  "ablation_latent_128": {
+    "experiment_id": "ablation_latent_128",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 128,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.8667,
+      "pauc": 0.8596,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.217142,
+      "best_val_loss": 0.2098,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 2856705,
+    "training_time_s": 81.23,
+    "latency": {
+      "cpu_mean_ms": 106.22,
+      "cpu_median_ms": 105.76,
+      "cpu_p95_ms": 107.86,
+      "cpu_min_ms": 105.19,
+      "cpu_max_ms": 108.17
+    }
+  },
+  "ablation_norm_group": {
+    "experiment_id": "ablation_norm_group",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.9111,
+      "pauc": 0.8596,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.214521,
+      "best_val_loss": 0.20808,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 77.15,
+    "latency": {
+      "cpu_mean_ms": 108.29,
+      "cpu_median_ms": 107.79,
+      "cpu_p95_ms": 111.95,
+      "cpu_min_ms": 105.18,
+      "cpu_max_ms": 112.39
+    }
+  },
+  "ablation_norm_batch": {
+    "experiment_id": "ablation_norm_batch",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "batch",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.8444,
+      "pauc": 0.8246,
+      "precision": 0.8824,
+      "recall": 1.0,
+      "f1": 0.9375,
+      "fpr": 0.6667,
+      "threshold": 0.222001,
+      "best_val_loss": 0.2192,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 2,
+        "tn": 1,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 39.33,
+    "latency": {
+      "cpu_mean_ms": 102.78,
+      "cpu_median_ms": 102.97,
+      "cpu_p95_ms": 104.06,
+      "cpu_min_ms": 101.0,
+      "cpu_max_ms": 104.18
+    }
+  },
+  "ablation_norm_layer": {
+    "experiment_id": "ablation_norm_layer",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "layer",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.8,
+      "pauc": 0.8596,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.236036,
+      "best_val_loss": 0.22253,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 62.74,
+    "latency": {
+      "cpu_mean_ms": 104.72,
+      "cpu_median_ms": 103.72,
+      "cpu_p95_ms": 108.78,
+      "cpu_min_ms": 101.79,
+      "cpu_max_ms": 109.64
+    }
+  },
+  "ablation_patch_64": {
+    "experiment_id": "ablation_patch_64",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.7778,
+      "pauc": 0.7895,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.241666,
+      "best_val_loss": 0.2372,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 35.02,
+    "latency": {
+      "cpu_mean_ms": 101.28,
+      "cpu_median_ms": 101.08,
+      "cpu_p95_ms": 102.08,
+      "cpu_min_ms": 100.77,
+      "cpu_max_ms": 102.21
+    }
+  },
+  "ablation_patch_96": {
+    "experiment_id": "ablation_patch_96",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 96,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.5333,
+      "pauc": 0.614,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.269564,
+      "best_val_loss": 0.25703,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 2344513,
+    "training_time_s": 30.99,
+    "latency": {
+      "cpu_mean_ms": 109.4,
+      "cpu_median_ms": 108.8,
+      "cpu_p95_ms": 114.42,
+      "cpu_min_ms": 104.74,
+      "cpu_max_ms": 115.26
+    }
+  },
+  "ablation_patch_128": {
+    "experiment_id": "ablation_patch_128",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 128,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.9333,
+      "pauc": 0.8947,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.22017,
+      "best_val_loss": 0.21559,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 2872897,
+    "training_time_s": 59.42,
+    "latency": {
+      "cpu_mean_ms": 96.42,
+      "cpu_median_ms": 96.55,
+      "cpu_p95_ms": 97.8,
+      "cpu_min_ms": 94.66,
+      "cpu_max_ms": 97.91
+    }
+  },
+  "ablation_aug_none": {
+    "experiment_id": "ablation_aug_none",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.9111,
+      "pauc": 0.8596,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.214521,
+      "best_val_loss": 0.20808,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 77.06,
+    "latency": {
+      "cpu_mean_ms": 102.07,
+      "cpu_median_ms": 102.08,
+      "cpu_p95_ms": 102.83,
+      "cpu_min_ms": 101.28,
+      "cpu_max_ms": 102.87
+    }
+  },
+  "ablation_aug_time_shift": {
+    "experiment_id": "ablation_aug_time_shift",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": "time_shift",
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.8889,
+      "pauc": 0.8596,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.210638,
+      "best_val_loss": 0.20709,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 77.13,
+    "latency": {
+      "cpu_mean_ms": 101.39,
+      "cpu_median_ms": 101.42,
+      "cpu_p95_ms": 101.84,
+      "cpu_min_ms": 100.81,
+      "cpu_max_ms": 101.89
+    }
+  },
+  "ablation_aug_noise": {
+    "experiment_id": "ablation_aug_noise",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": "noise_injection",
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.8667,
+      "pauc": 0.8947,
+      "precision": 0.8824,
+      "recall": 1.0,
+      "f1": 0.9375,
+      "fpr": 0.6667,
+      "threshold": 0.243005,
+      "best_val_loss": 0.22744,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 2,
+        "tn": 1,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 77.64,
+    "latency": {
+      "cpu_mean_ms": 103.69,
+      "cpu_median_ms": 103.14,
+      "cpu_p95_ms": 106.57,
+      "cpu_min_ms": 101.48,
+      "cpu_max_ms": 106.99
+    }
+  },
+  "ablation_aug_spec_mask": {
+    "experiment_id": "ablation_aug_spec_mask",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "residual_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": "spec_augment",
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.8667,
+      "pauc": 0.8596,
+      "precision": 0.8824,
+      "recall": 1.0,
+      "f1": 0.9375,
+      "fpr": 0.6667,
+      "threshold": 0.226006,
+      "best_val_loss": 0.21635,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 2,
+        "tn": 1,
+        "fn": 0
+      }
+    },
+    "parameters": 1808065,
+    "training_time_s": 77.25,
+    "latency": {
+      "cpu_mean_ms": 102.41,
+      "cpu_median_ms": 102.54,
+      "cpu_p95_ms": 103.65,
+      "cpu_min_ms": 100.76,
+      "cpu_max_ms": 103.78
+    }
+  },
+  "ablation_msae_l1": {
+    "experiment_id": "ablation_msae_l1",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "multiscale_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.9111,
+      "pauc": 0.8596,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.212243,
+      "best_val_loss": 0.20847,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 567041,
+    "training_time_s": 133.21,
+    "latency": {
+      "cpu_mean_ms": 116.49,
+      "cpu_median_ms": 116.83,
+      "cpu_p95_ms": 121.12,
+      "cpu_min_ms": 110.77,
+      "cpu_max_ms": 121.52
+    }
+  },
+  "ablation_msae_freq_weighted": {
+    "experiment_id": "ablation_msae_freq_weighted",
+    "machine_id": "id_04",
+    "config": {
+      "arch_type": "multiscale_cnn_ae",
+      "base_channels": 16,
+      "latent_dim": 64,
+      "norm_type": "group",
+      "loss_type": "freq_weighted_l1",
+      "optimizer_type": "adamw",
+      "lr_schedule": "constant",
+      "patch_frames": 64,
+      "augmentation": null,
+      "learning_rate": 0.001
+    },
+    "metrics": {
+      "roc_auc": 0.9111,
+      "pauc": 0.8596,
+      "precision": 0.8333,
+      "recall": 1.0,
+      "f1": 0.9091,
+      "fpr": 1.0,
+      "threshold": 0.211569,
+      "best_val_loss": 0.33519,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 3,
+        "tn": 0,
+        "fn": 0
+      }
+    },
+    "parameters": 567041,
+    "training_time_s": 167.12,
+    "latency": {
+      "cpu_mean_ms": 117.35,
+      "cpu_median_ms": 117.93,
+      "cpu_p95_ms": 119.65,
+      "cpu_min_ms": 113.59,
+      "cpu_max_ms": 119.95
+    }
+  }
+}

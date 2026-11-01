@@ -107,13 +107,25 @@ class UnifiedFeatureSuite:
             wav, _ = self.preprocessor_ch0.process_file(file_path)
             return wav
 
-    def extract_patches(self, file_path: Union[str, Path]) -> Tuple[np.ndarray, Dict[str, Any]]:
+    def extract_patches(
+        self,
+        file_path: Union[str, Path],
+        patch_frames: Optional[int] = None,
+        hop_frames: Optional[int] = None,
+    ) -> Tuple[np.ndarray, Dict[str, Any]]:
         """Extract standardized 4D patches (N, 1, n_mels, patch_time_frames)."""
         t0 = time.perf_counter()
         wav = self.process_raw_audio(file_path)
         spec, meta = self.mel_extractor.extract_numpy(wav)
         # Squeeze channel dim: (1, n_mels, T) -> (n_mels, T)
-        patches_2d, _ = self.windowing.slice_spectrogram_numpy(spec.squeeze(0))
+        win_frames = patch_frames or self.preset.patch_time_frames
+        h_frames = hop_frames or self.preset.patch_hop_frames
+        if win_frames != self.preset.patch_time_frames or h_frames != self.preset.patch_hop_frames:
+            windowing = AudioWindowing(WindowConfig(spec_window_frames=win_frames, spec_hop_frames=h_frames))
+        else:
+            windowing = self.windowing
+
+        patches_2d, _ = windowing.slice_spectrogram_numpy(spec.squeeze(0))
         # Add channel dim: (N, 1, n_mels, T)
         patches_4d = np.expand_dims(patches_2d, axis=1).astype(np.float32)
         elapsed_ms = (time.perf_counter() - t0) * 1000.0
@@ -126,6 +138,27 @@ class UnifiedFeatureSuite:
             "extraction_latency_ms": round(elapsed_ms, 2),
         }
         return patches_4d, info
+
+    def extract_patches_from_waveform(
+        self,
+        waveform: np.ndarray,
+        patch_frames: Optional[int] = None,
+        hop_frames: Optional[int] = None,
+    ) -> Tuple[np.ndarray, Dict[str, Any]]:
+        """Extract standardized 4D patches directly from in-memory waveform."""
+        t0 = time.perf_counter()
+        spec, meta = self.mel_extractor.extract_numpy(waveform)
+        win_frames = patch_frames or self.preset.patch_time_frames
+        h_frames = hop_frames or self.preset.patch_hop_frames
+        if win_frames != self.preset.patch_time_frames or h_frames != self.preset.patch_hop_frames:
+            windowing = AudioWindowing(WindowConfig(spec_window_frames=win_frames, spec_hop_frames=h_frames))
+        else:
+            windowing = self.windowing
+
+        patches_2d, _ = windowing.slice_spectrogram_numpy(spec.squeeze(0))
+        patches_4d = np.expand_dims(patches_2d, axis=1).astype(np.float32)
+        elapsed_ms = (time.perf_counter() - t0) * 1000.0
+        return patches_4d, {"extraction_latency_ms": round(elapsed_ms, 2)}
 
     def extract_statistical_vector(self, file_path: Union[str, Path]) -> Tuple[np.ndarray, Dict[str, Any]]:
         """Extract 38-dim compact statistical descriptor vector."""
