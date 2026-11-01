@@ -1,0 +1,1582 @@
+{
+  "audit_timestamp_utc": "2026-11-01T15:48:00Z",
+  "original_dataset": "MIMII 1.0 Fan (120 physical 8-channel recordings)",
+  "clean_baseline_inventory": {
+    "id_00": {
+      "train_normal": [
+        {
+          "file_name": "00000000.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000000.wav",
+          "sha256": "30af72ca51b30f367a893da17c69692b4b4ad996f11c3fc51e2f23b3d16fa21b",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0324,
+          "amplitude_max": 0.0323,
+          "amplitude_rms": 0.006518,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000001.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000001.wav",
+          "sha256": "e0f3e67b5a8571618823a4271a60e665920337620cafb624c2f0d2fc24edec23",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0304,
+          "amplitude_max": 0.0282,
+          "amplitude_rms": 0.006509,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000002.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000002.wav",
+          "sha256": "873f1786cb4c048907eb839ef103a325f943c3c20c4f4d452f47149a4f20f9ee",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0485,
+          "amplitude_max": 0.0569,
+          "amplitude_rms": 0.006802,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000003.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000003.wav",
+          "sha256": "c187886451220d42aa782b6d945fa379275282130bc099725bcc862f884244b8",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0348,
+          "amplitude_max": 0.0322,
+          "amplitude_rms": 0.006691,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000004.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000004.wav",
+          "sha256": "fc7c05e782161be63f4d1f16c1480521e7bcde72fb2dfa4386a7abe02b32ad49",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0697,
+          "amplitude_max": 0.0652,
+          "amplitude_rms": 0.006647,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000005.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000005.wav",
+          "sha256": "a3dcecd5e485945c531ef8554a5c23e9f50df70f92c67069780e1a502cfa3b13",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0323,
+          "amplitude_max": 0.0367,
+          "amplitude_rms": 0.006274,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000006.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000006.wav",
+          "sha256": "c476bcbf71ecdcf27dcaa3af4c07a6036484c5504834f08c1597db9fdd1bc6ea",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0324,
+          "amplitude_max": 0.0312,
+          "amplitude_rms": 0.006328,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000007.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000007.wav",
+          "sha256": "b1b8d8127cd46fab0e02b792b9e3d1206941d1651e27018afe9849959cbaf61c",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0331,
+          "amplitude_max": 0.0334,
+          "amplitude_rms": 0.0065,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000008.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000008.wav",
+          "sha256": "0f1697a24835d66b352a0f4b0372c507123b9bf02f03e9d5b8e1a53722f8e197",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0333,
+          "amplitude_max": 0.0364,
+          "amplitude_rms": 0.006553,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000009.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000009.wav",
+          "sha256": "b7121a66a48a17072dbd3dc2575d32c747b67f336ca6749d9395e6b8bcf3fdff",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0328,
+          "amplitude_max": 0.0381,
+          "amplitude_rms": 0.006364,
+          "label": "normal"
+        }
+      ],
+      "dev_normal": [
+        {
+          "file_name": "00000010.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000010.wav",
+          "sha256": "dbac6d2bae4c36f66fd70944fff9bbd6159c90e2b85c53205076e0e68d51b398",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0291,
+          "amplitude_max": 0.0278,
+          "amplitude_rms": 0.006454,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000011.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000011.wav",
+          "sha256": "ea3c376ff085f416f065ee8eab4f5dfb90acd1ca9fe1aac80d1603c4a1a2bfe6",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.033,
+          "amplitude_max": 0.0287,
+          "amplitude_rms": 0.006182,
+          "label": "normal"
+        }
+      ],
+      "test": [
+        {
+          "file_name": "00000012.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000012.wav",
+          "sha256": "eba645d5d2afbf560b8591a58a400ba0ab2b2334d6dc2c064f07bfe73786c44e",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0309,
+          "amplitude_max": 0.034,
+          "amplitude_rms": 0.006404,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000013.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000013.wav",
+          "sha256": "1f1357a245b99dc93f6700aa5cffce10bbb964ea90f985153450e6f0ba8bd0dd",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0349,
+          "amplitude_max": 0.0287,
+          "amplitude_rms": 0.006571,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000014.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/normal/00000014.wav",
+          "sha256": "b050472d8726aad4fe6cecea2867034feed414f77f891c7abfbfede699b88e1f",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0294,
+          "amplitude_max": 0.0275,
+          "amplitude_rms": 0.006484,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000000.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000000.wav",
+          "sha256": "272b6938ea0779f05b1cae772b6018349ed2ef73954578d03e45d3a0b3836658",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0389,
+          "amplitude_max": 0.0353,
+          "amplitude_rms": 0.010355,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000001.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000001.wav",
+          "sha256": "86d6cdaf95995599b012936918b47977799d23c72e6ce84150a732941c111624",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0417,
+          "amplitude_max": 0.0417,
+          "amplitude_rms": 0.011388,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000002.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000002.wav",
+          "sha256": "d743e3970521dd34bf20e65ceaa46a37a3ee64447871fb1dd984a9684098ac61",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0462,
+          "amplitude_max": 0.0458,
+          "amplitude_rms": 0.010958,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000003.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000003.wav",
+          "sha256": "8995dd50f2d03dabe93ebbe3b2f84807a3af07feeb063d2161049d5ef937737e",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0403,
+          "amplitude_max": 0.0378,
+          "amplitude_rms": 0.011489,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000004.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000004.wav",
+          "sha256": "d7abc17f454bbf01a8fa15a42b89540d847e0a4a7332637ac33897fb7a7ddf27",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0374,
+          "amplitude_max": 0.0404,
+          "amplitude_rms": 0.010846,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000005.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000005.wav",
+          "sha256": "56e81b8597e9d2333e4b8cb1d5707f9c9977058029840f44daa8608b7406de26",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0379,
+          "amplitude_max": 0.0359,
+          "amplitude_rms": 0.010854,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000006.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000006.wav",
+          "sha256": "64c7b68fd8a0c1ba10e2ba111cb6c19d574c1aa0d501c2b614b4f808e9c52aec",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0397,
+          "amplitude_max": 0.0381,
+          "amplitude_rms": 0.010958,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000007.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000007.wav",
+          "sha256": "81fd64bf29f256fbca70642d277c069b50a6e826c8153eefd934dd726d7d572d",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0403,
+          "amplitude_max": 0.037,
+          "amplitude_rms": 0.010677,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000008.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000008.wav",
+          "sha256": "9c2be6bb979d3756155868479d18788dbcea464bb848b5f85102b86853dcd1e6",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0419,
+          "amplitude_max": 0.0399,
+          "amplitude_rms": 0.011124,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000009.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000009.wav",
+          "sha256": "33cf4d4e5038798646483f0085d2a66f864a7591fc9fd5ee3f83231f367cf849",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0419,
+          "amplitude_max": 0.0374,
+          "amplitude_rms": 0.010665,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000010.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000010.wav",
+          "sha256": "4c9f4b72f91c4abd432c2c84e4bc6374f39351978ed42961796fcce93170c108",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0378,
+          "amplitude_max": 0.0395,
+          "amplitude_rms": 0.010814,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000011.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000011.wav",
+          "sha256": "4b4100357586b5b9a634d16d38cc5782608718d88db3bd5719de77dca40fb5e7",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0479,
+          "amplitude_max": 0.0417,
+          "amplitude_rms": 0.010804,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000012.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000012.wav",
+          "sha256": "55558988bc3eb029ffdd9ba7152d458923bda770559ad139f841d9260438b925",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0376,
+          "amplitude_max": 0.0374,
+          "amplitude_rms": 0.010438,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000013.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000013.wav",
+          "sha256": "9e413114c27305dba87bf0ac71304fa3bf1e7054ac09e660343e2e404b53f1dc",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0493,
+          "amplitude_max": 0.0383,
+          "amplitude_rms": 0.01077,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000014.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_00/abnormal/00000014.wav",
+          "sha256": "f15be1be3d8f1eb7d4253c384178fcd222acf333afbbff5fa4e64b0430754732",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0439,
+          "amplitude_max": 0.0434,
+          "amplitude_rms": 0.010847,
+          "label": "abnormal"
+        }
+      ]
+    },
+    "id_02": {
+      "train_normal": [
+        {
+          "file_name": "00000000.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000000.wav",
+          "sha256": "e63c13dc12a0d7711f2f51e52bccd9ed1458e245f343d412646b4966d33d09f1",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0477,
+          "amplitude_max": 0.0437,
+          "amplitude_rms": 0.008067,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000001.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000001.wav",
+          "sha256": "869d441a4162f30eec1bbf253fc140afd08edf121e93f7ea093d714fdf424033",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0445,
+          "amplitude_max": 0.0391,
+          "amplitude_rms": 0.008085,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000002.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000002.wav",
+          "sha256": "3d57ae904ea4a5210bac0d25aedcee5c9624ba764339c0a2af9c0afdbe1c1ca0",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0415,
+          "amplitude_max": 0.0472,
+          "amplitude_rms": 0.008152,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000003.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000003.wav",
+          "sha256": "464dcadbd920405104ff88a00d281300a4f99327c6266f6a51177c69559600ef",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0466,
+          "amplitude_max": 0.0413,
+          "amplitude_rms": 0.008184,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000004.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000004.wav",
+          "sha256": "da6e1529114607af616631bc442b6e549086e6cf73b24d29a8472bf90740d3de",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0463,
+          "amplitude_max": 0.0381,
+          "amplitude_rms": 0.008042,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000005.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000005.wav",
+          "sha256": "4b35e91841c3473244e3c83c511946254ec84021184312066baadefa1d78e575",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0471,
+          "amplitude_max": 0.0438,
+          "amplitude_rms": 0.008247,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000006.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000006.wav",
+          "sha256": "9f3df130e736cb878931d5d13bc32e207d08bc555e126f1a0e59c179efe69a93",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0436,
+          "amplitude_max": 0.0394,
+          "amplitude_rms": 0.008163,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000007.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000007.wav",
+          "sha256": "bfa0b488ea3717edf77e3a7fe5e29d24690b780a9f54bf780a3de567d85cbd69",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0482,
+          "amplitude_max": 0.0491,
+          "amplitude_rms": 0.008616,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000008.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000008.wav",
+          "sha256": "462c26eda5640a6d410b3c59e851c5d226a29b0c15b9e38df6a314b9ba756560",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0454,
+          "amplitude_max": 0.0426,
+          "amplitude_rms": 0.008226,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000009.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000009.wav",
+          "sha256": "98978c33f465c8901a3a0365ff7f8cdf312a6d7c1cefe7ba769694e55b7772e7",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0444,
+          "amplitude_max": 0.0432,
+          "amplitude_rms": 0.008141,
+          "label": "normal"
+        }
+      ],
+      "dev_normal": [
+        {
+          "file_name": "00000010.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000010.wav",
+          "sha256": "081b51155fa8a0eaee71c7923002f8e282a78d06c571213ddf30f4fb698b2fd7",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0447,
+          "amplitude_max": 0.0431,
+          "amplitude_rms": 0.008198,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000011.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000011.wav",
+          "sha256": "0529c3841d6a7d20d34b95deca3ab00ab5b80183a8c155b8e5f85d5f640bf6e5",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0417,
+          "amplitude_max": 0.0423,
+          "amplitude_rms": 0.008283,
+          "label": "normal"
+        }
+      ],
+      "test": [
+        {
+          "file_name": "00000012.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000012.wav",
+          "sha256": "8aa2617c778e4c41b59da6a8f7575a59904962eee5d9cecb631a0d01d633e09d",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0521,
+          "amplitude_max": 0.0414,
+          "amplitude_rms": 0.008439,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000013.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000013.wav",
+          "sha256": "8bb521a90d2d8d6f1f17be06221572f8bcddeefc08638b53d65584b1be5b7120",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.048,
+          "amplitude_max": 0.0569,
+          "amplitude_rms": 0.008294,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000014.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/normal/00000014.wav",
+          "sha256": "ac7e458cbc4c1ed6dcf2ff317704138165a44c3c37f5746bc1521f70a82c515b",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0478,
+          "amplitude_max": 0.0428,
+          "amplitude_rms": 0.008301,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000000.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000000.wav",
+          "sha256": "e80ff710caa0ead0b4e8264182fb24f19151f35be2526b528d52f3555bd1420d",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0332,
+          "amplitude_max": 0.0298,
+          "amplitude_rms": 0.006502,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000001.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000001.wav",
+          "sha256": "3fa6992bc5d29ddf7b8b1d6f6e9c64cd795481950463d958d0f10868f2eeea69",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0303,
+          "amplitude_max": 0.0296,
+          "amplitude_rms": 0.006186,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000002.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000002.wav",
+          "sha256": "81c6d4d93ef67cdfa9aab6c08b96a094d32e6c7443128e3c755f86f1d97f54d9",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0309,
+          "amplitude_max": 0.0298,
+          "amplitude_rms": 0.006484,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000003.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000003.wav",
+          "sha256": "65746adda326e38e220b3be23ad648d706a0319497da0325d5adaaf7f49e6c89",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0316,
+          "amplitude_max": 0.0372,
+          "amplitude_rms": 0.006663,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000004.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000004.wav",
+          "sha256": "0a0b030b33ee0f6b4a08ff779d9ea2922069b31e64c33cb0b854360817304d65",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0296,
+          "amplitude_max": 0.0307,
+          "amplitude_rms": 0.006401,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000005.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000005.wav",
+          "sha256": "8e3aa2da3e66a52b7da78f638157e3e94c632a848663b984bddf845084e77221",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0295,
+          "amplitude_max": 0.0285,
+          "amplitude_rms": 0.006389,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000006.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000006.wav",
+          "sha256": "a2223bde00759fd949968d0d82cca01cf1fd68cbdc0150439d8f291f259888e3",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0406,
+          "amplitude_max": 0.0387,
+          "amplitude_rms": 0.006449,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000007.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000007.wav",
+          "sha256": "adbfa0f6dea657270b6eeca41411621dc250a6063f19b7f2b147c3997fd36c13",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0292,
+          "amplitude_max": 0.0332,
+          "amplitude_rms": 0.006594,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000008.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000008.wav",
+          "sha256": "e9016397544bd82c95cf99d2378e7a34f2611e1d1f1d1844336508ab11bec0ef",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0355,
+          "amplitude_max": 0.0365,
+          "amplitude_rms": 0.006484,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000009.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000009.wav",
+          "sha256": "27542741a3d9d0ef328a3369d4d70f5c7958aa0e4f0a6279351dd114317b5918",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0378,
+          "amplitude_max": 0.0347,
+          "amplitude_rms": 0.00662,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000010.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000010.wav",
+          "sha256": "8c93a7d306f011c3446db6702cf4e298aa85b476abf49b4bea77f3d1f703fa10",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0493,
+          "amplitude_max": 0.0545,
+          "amplitude_rms": 0.006916,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000011.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000011.wav",
+          "sha256": "da6e1f337ed93029f2480c78e2efc18d191964a39c17fb8c41cfc91c27493c9d",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0287,
+          "amplitude_max": 0.0314,
+          "amplitude_rms": 0.006593,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000012.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000012.wav",
+          "sha256": "1398ba858c82aecb2abd9b5460bb3e1c36139ed123b26fae07e2ea62216cf34a",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0302,
+          "amplitude_max": 0.0285,
+          "amplitude_rms": 0.006618,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000013.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000013.wav",
+          "sha256": "d36e225cfe563078ba9c43078c6d65ea5e8553eeb87b54778d12d28f351207bd",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0284,
+          "amplitude_max": 0.0321,
+          "amplitude_rms": 0.006481,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000014.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_02/abnormal/00000014.wav",
+          "sha256": "ab7b0f6f49d02d5e262c821bbf5187c21d1185f489faafcac38a1bc46eac7798",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0325,
+          "amplitude_max": 0.0335,
+          "amplitude_rms": 0.006579,
+          "label": "abnormal"
+        }
+      ]
+    },
+    "id_04": {
+      "train_normal": [
+        {
+          "file_name": "00000000.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000000.wav",
+          "sha256": "c0f556acfca702d325353c995431d9a550b13d0d38c49605147dc97aa014acc2",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0435,
+          "amplitude_max": 0.0589,
+          "amplitude_rms": 0.007299,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000001.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000001.wav",
+          "sha256": "46b2de678b414df4c9fbe5ef4023c9f2829684a6b275417bd7d8d7f40b06be7d",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.056,
+          "amplitude_max": 0.0568,
+          "amplitude_rms": 0.007601,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000002.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000002.wav",
+          "sha256": "78a6734d2d6b757914da2b70fbd3b6549b23f9f0b5c83ac0a9af189315bdf1fc",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0538,
+          "amplitude_max": 0.0531,
+          "amplitude_rms": 0.007936,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000003.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000003.wav",
+          "sha256": "b8b1293a5094a89a1820bbd8d705fea39aa8da4e1be61b25972bbabff05bea4f",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0363,
+          "amplitude_max": 0.0457,
+          "amplitude_rms": 0.007431,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000004.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000004.wav",
+          "sha256": "3caa3357f98d0a4dc5cf4f6bfa5d3193d3d3f80ce3405c5022a8cdbf4dafadf8",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0463,
+          "amplitude_max": 0.0767,
+          "amplitude_rms": 0.007648,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000005.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000005.wav",
+          "sha256": "f01d1424b2579a5fcc32dc9b3f6a87c93fb63a57695b57c0288a4c2294b24928",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0528,
+          "amplitude_max": 0.0732,
+          "amplitude_rms": 0.00769,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000006.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000006.wav",
+          "sha256": "9c02e882e8d729f6c9252818669b197679e55471fcd54cd277ab580fb896be3a",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.05,
+          "amplitude_max": 0.0492,
+          "amplitude_rms": 0.00745,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000007.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000007.wav",
+          "sha256": "f75ac5cd0d84b6fd310e2b73feb4b6a4aca8777c18111e674c49759002526654",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0511,
+          "amplitude_max": 0.0659,
+          "amplitude_rms": 0.007425,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000008.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000008.wav",
+          "sha256": "2fe81b5d49dd8a3ee02c795b476cf0cd88961963f5e1249bd9eb4ac74d35b95b",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0449,
+          "amplitude_max": 0.0606,
+          "amplitude_rms": 0.007857,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000009.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000009.wav",
+          "sha256": "350e4d8582f3197df4ff242f21f1b3ffcf82d2b8087897b39769652a8b48d1a0",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0627,
+          "amplitude_max": 0.0643,
+          "amplitude_rms": 0.007542,
+          "label": "normal"
+        }
+      ],
+      "dev_normal": [
+        {
+          "file_name": "00000010.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000010.wav",
+          "sha256": "3c1b5df878370f9847a0a860bbfd236827e0c48e02bd53d1e239117a503d0612",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0402,
+          "amplitude_max": 0.0402,
+          "amplitude_rms": 0.007527,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000011.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000011.wav",
+          "sha256": "0106a844a495c8c8031fd81d0c6d4669dae4347054c6d9fda70f425350edc9dc",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0379,
+          "amplitude_max": 0.0448,
+          "amplitude_rms": 0.007587,
+          "label": "normal"
+        }
+      ],
+      "test": [
+        {
+          "file_name": "00000012.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000012.wav",
+          "sha256": "771f87480ec28165c616c92704fa1419675e6606223f19106523e124ec0ca81e",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0557,
+          "amplitude_max": 0.0446,
+          "amplitude_rms": 0.007558,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000013.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000013.wav",
+          "sha256": "6240329d1b0ee86c57b95a9b9b2a3475d2da2000af80040742ffd03718efa005",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0414,
+          "amplitude_max": 0.0465,
+          "amplitude_rms": 0.007427,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000014.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/normal/00000014.wav",
+          "sha256": "9a0f376d5235e682132964b2b9b6493b6d6feda3302675044c2ce9d6ffc590e0",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0433,
+          "amplitude_max": 0.041,
+          "amplitude_rms": 0.00753,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000000.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000000.wav",
+          "sha256": "064f7c7dd19343e5282466c828c1bdcf7af39872f3c3b3125d39e5d55b0d5d1c",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0384,
+          "amplitude_max": 0.0438,
+          "amplitude_rms": 0.008836,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000001.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000001.wav",
+          "sha256": "851d6447015ca1a6c6302d632a26743d72917cce1dbc1acdd002b8032f09e4d8",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0377,
+          "amplitude_max": 0.0405,
+          "amplitude_rms": 0.008502,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000002.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000002.wav",
+          "sha256": "498e1a9137de6f04e876dce6990a5f7f8c73cf259e8b7d90a731e35a9225e5ea",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0405,
+          "amplitude_max": 0.0424,
+          "amplitude_rms": 0.008647,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000003.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000003.wav",
+          "sha256": "0db4a5f6e0d854b96d8ecc6caa42f7757dc9c915efbe65166a05f4685c74931c",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0372,
+          "amplitude_max": 0.0363,
+          "amplitude_rms": 0.008627,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000004.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000004.wav",
+          "sha256": "0c48b3e237c29bca28ac7e1d3f7d74ef4e671018bd7da7fb909b6f93e2f6b4a8",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0432,
+          "amplitude_max": 0.0448,
+          "amplitude_rms": 0.009017,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000005.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000005.wav",
+          "sha256": "8afda784419a1ba04b5b4f227f3b695b70815e768bc93c259bcab15cf82b3194",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0377,
+          "amplitude_max": 0.0451,
+          "amplitude_rms": 0.008556,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000006.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000006.wav",
+          "sha256": "94596990132415a668e84a9f88d8c6fa7cf48852f798d6c327831b3ba4928a0d",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0454,
+          "amplitude_max": 0.0392,
+          "amplitude_rms": 0.008779,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000007.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000007.wav",
+          "sha256": "375b3683c31e9de48a9f9cf2ed68e547618dda8bd4ac0869db2cdab16c30b01b",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0431,
+          "amplitude_max": 0.0421,
+          "amplitude_rms": 0.008718,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000008.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000008.wav",
+          "sha256": "6aaa588f527bf46dd8d6949bbd132f1614b0020530efcba3848f2be3476a8ce7",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0395,
+          "amplitude_max": 0.0443,
+          "amplitude_rms": 0.008729,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000009.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000009.wav",
+          "sha256": "b275924e9aeeb9aaf0ae66d9fb9d08a73625667cf832c688338203dedfe987aa",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0421,
+          "amplitude_max": 0.0382,
+          "amplitude_rms": 0.008544,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000010.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000010.wav",
+          "sha256": "d0d5a1f7480258c39f48032a651f15c0e95c1c3cb7f5fb7155eb4762e87dfd96",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0392,
+          "amplitude_max": 0.0427,
+          "amplitude_rms": 0.008628,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000011.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000011.wav",
+          "sha256": "3f83933a951d897694942a3f67302e5ddbba4404e2bf877f267ccdea4bf1b584",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.067,
+          "amplitude_max": 0.0578,
+          "amplitude_rms": 0.008814,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000012.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000012.wav",
+          "sha256": "40a70fa31bc7f182f9f0373e4413d60a85b2f6b30fdbc84fe8b55de212c52256",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0448,
+          "amplitude_max": 0.0526,
+          "amplitude_rms": 0.009012,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000013.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000013.wav",
+          "sha256": "65754190fa6b8b56d2361d7430ecc1d6e6b382ebaa11323fd77fd356d82111a3",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0388,
+          "amplitude_max": 0.0402,
+          "amplitude_rms": 0.008465,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000014.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_04/abnormal/00000014.wav",
+          "sha256": "e79e56a20afd8875ab988640aed5664225245b4e49b3944d6340ef84e943a1aa",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0446,
+          "amplitude_max": 0.0442,
+          "amplitude_rms": 0.008488,
+          "label": "abnormal"
+        }
+      ]
+    },
+    "id_06": {
+      "train_normal": [
+        {
+          "file_name": "00000000.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000000.wav",
+          "sha256": "16307fe06000adbd88602169b028ed28f67376de286e93cdd54fa10ee93cfd4c",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0459,
+          "amplitude_max": 0.0422,
+          "amplitude_rms": 0.009091,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000001.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000001.wav",
+          "sha256": "b366701b87ccd138bd14a06ff3163df86fd349eae93cf39fb7457091a1f9741c",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0446,
+          "amplitude_max": 0.0443,
+          "amplitude_rms": 0.009322,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000002.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000002.wav",
+          "sha256": "794306faa28fc10e4f8558729329bc1f089a7cd5c76851724a26ed9f60cefe37",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0466,
+          "amplitude_max": 0.0475,
+          "amplitude_rms": 0.009145,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000003.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000003.wav",
+          "sha256": "3b382832605d281a291f8624b80d9677d1729b669bf4db326a31ab649afe0cbd",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0459,
+          "amplitude_max": 0.0547,
+          "amplitude_rms": 0.009034,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000004.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000004.wav",
+          "sha256": "87eec42dc800f8b0d7c5cb00b5204e8334e01321b1c03e7c7802375415a40312",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0463,
+          "amplitude_max": 0.0447,
+          "amplitude_rms": 0.009368,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000005.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000005.wav",
+          "sha256": "24598ae440a8aa112cd51567fd78aecbd36f11c403e2be0d4d412c390d8e0492",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0505,
+          "amplitude_max": 0.0434,
+          "amplitude_rms": 0.009226,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000006.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000006.wav",
+          "sha256": "d0d6475ccec09423919653969beff7809c026a3d6585db1abddbe17fafac66d7",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0442,
+          "amplitude_max": 0.0401,
+          "amplitude_rms": 0.008767,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000007.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000007.wav",
+          "sha256": "a2a38d9e8f26ecd25d516eaadb379e31f06103b351c4ce5b94fc8fbd7f46f8b7",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0438,
+          "amplitude_max": 0.0407,
+          "amplitude_rms": 0.00927,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000008.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000008.wav",
+          "sha256": "a14ce65f35280335c5b51aa2a8186591aedc283150a1b9a50a0b3e3ef177a8a5",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0434,
+          "amplitude_max": 0.047,
+          "amplitude_rms": 0.008859,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000009.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000009.wav",
+          "sha256": "47417576c286c3e625250bc9406fcb05de1671adcb94db1c5dbd780b3dd47aa0",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0437,
+          "amplitude_max": 0.0424,
+          "amplitude_rms": 0.008977,
+          "label": "normal"
+        }
+      ],
+      "dev_normal": [
+        {
+          "file_name": "00000010.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000010.wav",
+          "sha256": "995ae1a69c94359196e140137687417aa52901186113b85d7ea1d7e2590836e0",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0454,
+          "amplitude_max": 0.0422,
+          "amplitude_rms": 0.009316,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000011.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000011.wav",
+          "sha256": "122af3e475f80f911cf1fc96c177c24974be30d04c50456b4d2b70aa3c39f34e",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0416,
+          "amplitude_max": 0.0403,
+          "amplitude_rms": 0.008692,
+          "label": "normal"
+        }
+      ],
+      "test": [
+        {
+          "file_name": "00000012.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000012.wav",
+          "sha256": "2ea878385b23f0ad33fdfe45156a241e41e0d1fc6c8f72096abb46e90d6f7d1d",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0442,
+          "amplitude_max": 0.0414,
+          "amplitude_rms": 0.009133,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000013.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000013.wav",
+          "sha256": "91340b6d72fcbd32d3169ead51e5573defa3575c86abfa9368ff25bc18e64658",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0429,
+          "amplitude_max": 0.0378,
+          "amplitude_rms": 0.008962,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000014.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/normal/00000014.wav",
+          "sha256": "23181e6b94fc94fe7c8e09cb4dc09cc1f22a443aa7c07a2d457335e8143a0fe3",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0506,
+          "amplitude_max": 0.0437,
+          "amplitude_rms": 0.009316,
+          "label": "normal"
+        },
+        {
+          "file_name": "00000000.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000000.wav",
+          "sha256": "1ef735775d53db5c79329140561dd3d733479b2d966b4797dd84fb31a8c0fedd",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0278,
+          "amplitude_max": 0.0262,
+          "amplitude_rms": 0.005547,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000001.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000001.wav",
+          "sha256": "6828f3298f775ab2101f8781ad456ce6d988f9d6ecc07bf676cdbd1d76604fae",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0297,
+          "amplitude_max": 0.0339,
+          "amplitude_rms": 0.00566,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000002.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000002.wav",
+          "sha256": "6471e568cea5f6a1acec95a6683811372b0bbddece30a3f16b1b14d172297ae8",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0282,
+          "amplitude_max": 0.0268,
+          "amplitude_rms": 0.005441,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000003.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000003.wav",
+          "sha256": "48e8aead8554d502748a0d8d8afa92c7991ea5facf778152bcc7651087e880b8",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.024,
+          "amplitude_max": 0.0249,
+          "amplitude_rms": 0.005625,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000004.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000004.wav",
+          "sha256": "90824b7e0f19e611f003c461537378f2ebca3f210bf08a440c53ee85889eb82a",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0252,
+          "amplitude_max": 0.0256,
+          "amplitude_rms": 0.00537,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000005.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000005.wav",
+          "sha256": "7d462a79764d11c5421452cf0d00ae3a819e4b5d504ae8e60c204a3d000a37c5",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0257,
+          "amplitude_max": 0.0253,
+          "amplitude_rms": 0.005654,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000006.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000006.wav",
+          "sha256": "b6bdc917392331a1e3ea01a2e46efe5ab95f8c717920d86a2a30bc6da3e45f4e",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0383,
+          "amplitude_max": 0.0361,
+          "amplitude_rms": 0.005793,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000007.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000007.wav",
+          "sha256": "8c834f121515ce0524fb48f4ada89e13e4e9408e98da7a24e1d7a72970179bc7",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0255,
+          "amplitude_max": 0.026,
+          "amplitude_rms": 0.005636,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000008.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000008.wav",
+          "sha256": "b855d79c3236a40445c04c9c33a89aa9e4daedb4cb90100f0341afa46029e8d7",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0283,
+          "amplitude_max": 0.0321,
+          "amplitude_rms": 0.005798,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000009.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000009.wav",
+          "sha256": "e924fadc4bf7a0ff7d9c64a53956080eae89cc72ca92be31f32c94c1d61a45c1",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0249,
+          "amplitude_max": 0.0243,
+          "amplitude_rms": 0.005518,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000010.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000010.wav",
+          "sha256": "37f3f252bf9e23212210ea2e2af069fb165280bd4bc5c9071f7f363c894cb451",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0247,
+          "amplitude_max": 0.024,
+          "amplitude_rms": 0.005329,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000011.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000011.wav",
+          "sha256": "f69ba03fbeab2c0bb5395125ad5afe4abf82fd90fc56f75d77acc34e0eaf5f24",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0298,
+          "amplitude_max": 0.0305,
+          "amplitude_rms": 0.005736,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000012.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000012.wav",
+          "sha256": "5df3e4632f415d834fc0cc05b1d8081ff2066652f9d42b1e80cd71f05d5e184e",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0243,
+          "amplitude_max": 0.0306,
+          "amplitude_rms": 0.005592,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000013.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000013.wav",
+          "sha256": "e0dc65db81c57fc1371823065cf19239ed5fb483c0110526ba43b3ea7023c439",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0289,
+          "amplitude_max": 0.032,
+          "amplitude_rms": 0.0055,
+          "label": "abnormal"
+        },
+        {
+          "file_name": "00000014.wav",
+          "path": "C:/Users/Atul2/OneDrive/Desktop/KiroHackethon/Sethoo/data/mimii/raw/fan/id_06/abnormal/00000014.wav",
+          "sha256": "f14bf9c2efd9003baf9d60d663d4974ff057b38eb94808d81743ab5d67bfdad1",
+          "sample_rate": 16000,
+          "channels": 8,
+          "duration_sec": 10.0,
+          "amplitude_min": -0.0273,
+          "amplitude_max": 0.0244,
+          "amplitude_rms": 0.005734,
+          "label": "abnormal"
+        }
+      ]
+    }
+  },
+  "perturbation_definitions": {
+    "noise_snr_30db": {
+      "type": "additive_gaussian_white_noise",
+      "target_snr_db": 30.0,
+      "noise_seed": 42
+    },
+    "noise_snr_20db": {
+      "type": "additive_gaussian_white_noise",
+      "target_snr_db": 20.0,
+      "noise_seed": 42
+    },
+    "noise_snr_10db": {
+      "type": "additive_gaussian_white_noise",
+      "target_snr_db": 10.0,
+      "noise_seed": 42
+    },
+    "noise_snr_5db": {
+      "type": "additive_gaussian_white_noise",
+      "target_snr_db": 5.0,
+      "noise_seed": 42
+    },
+    "gain_minus_12db": {
+      "type": "amplitude_scaling",
+      "gain_db": -12.0,
+      "scale_factor": 0.2512
+    },
+    "gain_minus_6db": {
+      "type": "amplitude_scaling",
+      "gain_db": -6.0,
+      "scale_factor": 0.5012
+    },
+    "gain_plus_6db": {
+      "type": "amplitude_scaling",
+      "gain_db": 6.0,
+      "scale_factor": 1.9953
+    },
+    "gain_plus_12db": {
+      "type": "amplitude_scaling",
+      "gain_db": 12.0,
+      "scale_factor": 3.9811
+    },
+    "resample_8000hz": {
+      "type": "sample_rate_cycle",
+      "intermediate_rate_hz": 8000,
+      "target_rate_hz": 16000
+    },
+    "resample_22050hz": {
+      "type": "sample_rate_cycle",
+      "intermediate_rate_hz": 22050,
+      "target_rate_hz": 16000
+    },
+    "resample_44100hz": {
+      "type": "sample_rate_cycle",
+      "intermediate_rate_hz": 44100,
+      "target_rate_hz": 16000
+    },
+    "resample_48000hz": {
+      "type": "sample_rate_cycle",
+      "intermediate_rate_hz": 48000,
+      "target_rate_hz": 16000
+    },
+    "mic_lowpass_4000hz": {
+      "type": "butterworth_lowpass_filter",
+      "cutoff_hz": 4000.0,
+      "order": 4
+    },
+    "mic_highpass_300hz": {
+      "type": "butterworth_highpass_filter",
+      "cutoff_hz": 300.0,
+      "order": 4
+    },
+    "mic_bandpass_300_4000hz": {
+      "type": "butterworth_bandpass_filter",
+      "cutoff_low_hz": 300.0,
+      "cutoff_high_hz": 4000.0,
+      "order": 4
+    },
+    "combined_factory_realistic": {
+      "type": "composite_stress",
+      "components": [
+        "noise_snr_20db",
+        "gain_minus_6db",
+        "mic_highpass_300hz"
+      ]
+    },
+    "combined_harsh_stress": {
+      "type": "composite_stress",
+      "components": [
+        "noise_snr_10db",
+        "gain_plus_6db",
+        "mic_lowpass_4000hz"
+      ]
+    },
+    "physical_mic_ch1": {
+      "type": "physical_microphone_channel",
+      "channel_index": 1,
+      "description": "Adjacent capsule on 8-mic circular array"
+    },
+    "physical_mic_ch4": {
+      "type": "physical_microphone_channel",
+      "channel_index": 4,
+      "description": "Opposite capsule (180 deg) on 8-mic circular array"
+    }
+  }
+}

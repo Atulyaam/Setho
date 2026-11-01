@@ -1,0 +1,102 @@
+{
+  "experiment_id": "sprint_7_6_e5_robustness",
+  "title": "Sprint 7.6 / E5: Recording Robustness and Environmental Stress Testing",
+  "created_at_utc": "2026-11-01T15:45:00Z",
+  "hardware": {
+    "device": "cpu",
+    "threads": 8,
+    "cuda_available": false,
+    "processor": "Intel(R) Core(TM) i7-10700 CPU @ 2.90GHz"
+  },
+  "dataset": {
+    "benchmark": "MIMII 1.0 Fan",
+    "category": "fan",
+    "machine_ids": ["id_00", "id_02", "id_04", "id_06"],
+    "evaluation_protocol": "leave-one-machine-ID-out",
+    "num_folds": 4,
+    "enrollment_shots": 10,
+    "calibration_method": "mean_var_residual"
+  },
+  "models_evaluated": {
+    "baseline_l1": {
+      "name": "E3/E4 L1 Reconstruction Loss Baseline",
+      "loss_type": "l1",
+      "loss_param": null,
+      "optimizer": "AdamW",
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001
+    },
+    "loss_smooth_l1": {
+      "name": "E2/E3/E4 Huber / Smooth L1 Loss (beta=0.1) Champion",
+      "loss_type": "smooth_l1",
+      "loss_param": { "beta": 0.1 },
+      "optimizer": "AdamW",
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001
+    }
+  },
+  "architecture": {
+    "name": "ResidualCNNAE",
+    "in_channels": 1,
+    "base_channels": 16,
+    "latent_dim": 64,
+    "norm_type": "group",
+    "num_groups": 8,
+    "total_parameters": 1808065
+  },
+  "feature_representation": {
+    "preset": "standard_64mel",
+    "sample_rate": 16000,
+    "n_fft": 1024,
+    "win_length": 1024,
+    "hop_length": 256,
+    "n_mels": 64,
+    "windowing": {
+      "spec_window_frames": 64,
+      "spec_hop_frames": 32
+    }
+  },
+  "perturbation_suites": {
+    "clean_baseline": {
+      "type": "control",
+      "description": "Original unperturbed audio recordings (Mic Channel 0)"
+    },
+    "background_noise": {
+      "type": "synthetic_additive_white_noise",
+      "snr_db_levels": [30.0, 20.0, 10.0, 5.0],
+      "noise_seed": 42
+    },
+    "gain_variation": {
+      "type": "synthetic_amplitude_scaling",
+      "gain_db_levels": [-12.0, -6.0, 6.0, 12.0],
+      "clipping_threshold": 1.0
+    },
+    "sample_rate_variation": {
+      "type": "synthetic_resampling_cycle",
+      "target_rates_hz": [8000, 22050, 44100, 48000],
+      "resample_method": "polyphase_anti_aliased"
+    },
+    "frequency_response_variation": {
+      "type": "simulated_microphone_filtering",
+      "filters": {
+        "lowpass_4000hz": { "btype": "lowpass", "cutoff_hz": 4000.0, "order": 4 },
+        "highpass_300hz": { "btype": "highpass", "cutoff_hz": 300.0, "order": 4 },
+        "bandpass_300_4000hz": { "btype": "bandpass", "cutoff_hz": [300.0, 4000.0], "order": 4 }
+      }
+    },
+    "combined_stress": {
+      "type": "combined_synthetic_conditions",
+      "combinations": {
+        "factory_realistic": { "snr_db": 20.0, "gain_db": -6.0, "filter": "highpass_300hz" },
+        "harsh_industrial": { "snr_db": 10.0, "gain_db": 6.0, "filter": "lowpass_4000hz" }
+      }
+    },
+    "physical_microphone_array": {
+      "type": "actual_physical_recordings",
+      "description": "Physical multi-channel microphone array channels from the MIMII recording campaign",
+      "channels_evaluated": [1, 4]
+    }
+  },
+  "random_seeds": [42, 123, 777]
+}
+

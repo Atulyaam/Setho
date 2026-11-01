@@ -1,0 +1,366 @@
+{
+  "baseline_l1": {
+    "clean_baseline": {
+      "delta_roc_auc": 0.0,
+      "delta_pr_auc": 0.0,
+      "delta_f1": 0.0,
+      "delta_fpr": 0.0,
+      "delta_fnr": 0.0,
+      "pct_auc_change": 0.0,
+      "status": "PASS"
+    },
+    "noise_snr_30db": {
+      "delta_roc_auc": -0.0019,
+      "delta_pr_auc": 0.0002,
+      "delta_f1": -0.0047,
+      "delta_fpr": 0.0,
+      "delta_fnr": 0.0055,
+      "pct_auc_change": -0.27,
+      "status": "PASS"
+    },
+    "noise_snr_20db": {
+      "delta_roc_auc": 0.0074,
+      "delta_pr_auc": 0.0016,
+      "delta_f1": -0.0723,
+      "delta_fpr": -0.0277,
+      "delta_fnr": 0.0555,
+      "pct_auc_change": 1.03,
+      "status": "PASS"
+    },
+    "noise_snr_10db": {
+      "delta_roc_auc": -0.0334,
+      "delta_pr_auc": -0.0172,
+      "delta_f1": -0.0083,
+      "delta_fpr": 0.0556,
+      "delta_fnr": -0.0222,
+      "pct_auc_change": -4.66,
+      "status": "PASS"
+    },
+    "noise_snr_5db": {
+      "delta_roc_auc": -0.1556,
+      "delta_pr_auc": -0.0732,
+      "delta_f1": 0.3161,
+      "delta_fpr": 0.4167,
+      "delta_fnr": -0.4333,
+      "pct_auc_change": -21.71,
+      "status": "CRITICAL_FAILURE"
+    },
+    "gain_minus_12db": {
+      "delta_roc_auc": -0.0204,
+      "delta_pr_auc": -0.0101,
+      "delta_f1": 0.4861,
+      "delta_fpr": 0.7778,
+      "delta_fnr": -0.6833,
+      "pct_auc_change": -2.85,
+      "status": "PASS"
+    },
+    "gain_minus_6db": {
+      "delta_roc_auc": -0.2112,
+      "delta_pr_auc": -0.0674,
+      "delta_f1": 0.3698,
+      "delta_fpr": 0.6111,
+      "delta_fnr": -0.5111,
+      "pct_auc_change": -29.47,
+      "status": "CRITICAL_FAILURE"
+    },
+    "gain_plus_6db": {
+      "delta_roc_auc": -0.2074,
+      "delta_pr_auc": -0.0871,
+      "delta_f1": 0.1951,
+      "delta_fpr": 0.5,
+      "delta_fnr": -0.3167,
+      "pct_auc_change": -28.94,
+      "status": "CRITICAL_FAILURE"
+    },
+    "gain_plus_12db": {
+      "delta_roc_auc": -0.3704,
+      "delta_pr_auc": -0.1292,
+      "delta_f1": 0.4832,
+      "delta_fpr": 0.7778,
+      "delta_fnr": -0.6778,
+      "pct_auc_change": -51.68,
+      "status": "CRITICAL_FAILURE"
+    },
+    "resample_8000hz": {
+      "delta_roc_auc": -0.0648,
+      "delta_pr_auc": -0.025,
+      "delta_f1": 0.4889,
+      "delta_fpr": 0.7778,
+      "delta_fnr": -0.6889,
+      "pct_auc_change": -9.04,
+      "status": "DEGRADED"
+    },
+    "resample_22050hz": {
+      "delta_roc_auc": 0.0185,
+      "delta_pr_auc": 0.0063,
+      "delta_f1": 0.0432,
+      "delta_fpr": 0.0278,
+      "delta_fnr": -0.0445,
+      "pct_auc_change": 2.58,
+      "status": "PASS"
+    },
+    "resample_44100hz": {
+      "delta_roc_auc": 0.0185,
+      "delta_pr_auc": 0.0063,
+      "delta_f1": 0.0432,
+      "delta_fpr": 0.0278,
+      "delta_fnr": -0.0445,
+      "pct_auc_change": 2.58,
+      "status": "PASS"
+    },
+    "resample_48000hz": {
+      "delta_roc_auc": 0.0185,
+      "delta_pr_auc": 0.0063,
+      "delta_f1": 0.0432,
+      "delta_fpr": 0.0278,
+      "delta_fnr": -0.0445,
+      "pct_auc_change": 2.58,
+      "status": "PASS"
+    },
+    "mic_lowpass_4000hz": {
+      "delta_roc_auc": -0.1519,
+      "delta_pr_auc": -0.0487,
+      "delta_f1": 0.4889,
+      "delta_fpr": 0.7778,
+      "delta_fnr": -0.6889,
+      "pct_auc_change": -21.19,
+      "status": "CRITICAL_FAILURE"
+    },
+    "mic_highpass_300hz": {
+      "delta_roc_auc": -0.1574,
+      "delta_pr_auc": -0.0447,
+      "delta_f1": 0.3765,
+      "delta_fpr": 0.5278,
+      "delta_fnr": -0.5167,
+      "pct_auc_change": -21.96,
+      "status": "CRITICAL_FAILURE"
+    },
+    "mic_bandpass_300_4000hz": {
+      "delta_roc_auc": -0.2389,
+      "delta_pr_auc": -0.0804,
+      "delta_f1": 0.4889,
+      "delta_fpr": 0.7778,
+      "delta_fnr": -0.6889,
+      "pct_auc_change": -33.33,
+      "status": "CRITICAL_FAILURE"
+    },
+    "combined_factory_realistic": {
+      "delta_roc_auc": -0.2574,
+      "delta_pr_auc": -0.0843,
+      "delta_f1": 0.4889,
+      "delta_fpr": 0.7778,
+      "delta_fnr": -0.6889,
+      "pct_auc_change": -35.91,
+      "status": "CRITICAL_FAILURE"
+    },
+    "combined_harsh_stress": {
+      "delta_roc_auc": -0.25,
+      "delta_pr_auc": -0.0966,
+      "delta_f1": 0.4913,
+      "delta_fpr": 0.75,
+      "delta_fnr": -0.6889,
+      "pct_auc_change": -34.88,
+      "status": "CRITICAL_FAILURE"
+    },
+    "physical_mic_ch1": {
+      "delta_roc_auc": -0.0204,
+      "delta_pr_auc": -0.007,
+      "delta_f1": 0.0096,
+      "delta_fpr": 0.0,
+      "delta_fnr": -0.0056,
+      "pct_auc_change": -2.85,
+      "status": "PASS"
+    },
+    "physical_mic_ch4": {
+      "delta_roc_auc": -0.1519,
+      "delta_pr_auc": -0.0618,
+      "delta_f1": -0.092,
+      "delta_fpr": 0.1111,
+      "delta_fnr": 0.0667,
+      "pct_auc_change": -21.19,
+      "status": "CRITICAL_FAILURE"
+    }
+  },
+  "loss_smooth_l1": {
+    "clean_baseline": {
+      "delta_roc_auc": 0.0,
+      "delta_pr_auc": 0.0,
+      "delta_f1": 0.0,
+      "delta_fpr": 0.0,
+      "delta_fnr": 0.0,
+      "pct_auc_change": 0.0,
+      "status": "PASS"
+    },
+    "noise_snr_30db": {
+      "delta_roc_auc": 0.0055,
+      "delta_pr_auc": 0.0036,
+      "delta_f1": -0.0155,
+      "delta_fpr": 0.0,
+      "delta_fnr": 0.0167,
+      "pct_auc_change": 0.77,
+      "status": "PASS"
+    },
+    "noise_snr_20db": {
+      "delta_roc_auc": 0.0148,
+      "delta_pr_auc": 0.0057,
+      "delta_f1": -0.0804,
+      "delta_fpr": -0.0277,
+      "delta_fnr": 0.0723,
+      "pct_auc_change": 2.08,
+      "status": "PASS"
+    },
+    "noise_snr_10db": {
+      "delta_roc_auc": -0.0019,
+      "delta_pr_auc": -0.0095,
+      "delta_f1": -0.0567,
+      "delta_fpr": 0.0,
+      "delta_fnr": 0.0334,
+      "pct_auc_change": -0.27,
+      "status": "PASS"
+    },
+    "noise_snr_5db": {
+      "delta_roc_auc": -0.0871,
+      "delta_pr_auc": -0.0422,
+      "delta_f1": 0.2597,
+      "delta_fpr": 0.4722,
+      "delta_fnr": -0.4055,
+      "pct_auc_change": -12.22,
+      "status": "DEGRADED"
+    },
+    "gain_minus_12db": {
+      "delta_roc_auc": -0.1093,
+      "delta_pr_auc": -0.0489,
+      "delta_f1": 0.4429,
+      "delta_fpr": 0.7778,
+      "delta_fnr": -0.6444,
+      "pct_auc_change": -15.33,
+      "status": "DEGRADED"
+    },
+    "gain_minus_6db": {
+      "delta_roc_auc": -0.2019,
+      "delta_pr_auc": -0.0664,
+      "delta_f1": 0.366,
+      "delta_fpr": 0.5834,
+      "delta_fnr": -0.5,
+      "pct_auc_change": -28.32,
+      "status": "CRITICAL_FAILURE"
+    },
+    "gain_plus_6db": {
+      "delta_roc_auc": -0.2075,
+      "delta_pr_auc": -0.0885,
+      "delta_f1": 0.1419,
+      "delta_fpr": 0.5278,
+      "delta_fnr": -0.2777,
+      "pct_auc_change": -29.1,
+      "status": "CRITICAL_FAILURE"
+    },
+    "gain_plus_12db": {
+      "delta_roc_auc": -0.4204,
+      "delta_pr_auc": -0.1479,
+      "delta_f1": 0.4344,
+      "delta_fpr": 0.7778,
+      "delta_fnr": -0.6277,
+      "pct_auc_change": -58.96,
+      "status": "CRITICAL_FAILURE"
+    },
+    "resample_8000hz": {
+      "delta_roc_auc": -0.1297,
+      "delta_pr_auc": -0.0488,
+      "delta_f1": 0.4429,
+      "delta_fpr": 0.7778,
+      "delta_fnr": -0.6444,
+      "pct_auc_change": -18.19,
+      "status": "CRITICAL_FAILURE"
+    },
+    "resample_22050hz": {
+      "delta_roc_auc": -0.0037,
+      "delta_pr_auc": -0.0005,
+      "delta_f1": 0.037,
+      "delta_fpr": 0.0,
+      "delta_fnr": -0.0444,
+      "pct_auc_change": -0.52,
+      "status": "PASS"
+    },
+    "resample_44100hz": {
+      "delta_roc_auc": -0.0037,
+      "delta_pr_auc": -0.0005,
+      "delta_f1": 0.037,
+      "delta_fpr": 0.0,
+      "delta_fnr": -0.0444,
+      "pct_auc_change": -0.52,
+      "status": "PASS"
+    },
+    "resample_48000hz": {
+      "delta_roc_auc": -0.0037,
+      "delta_pr_auc": -0.0005,
+      "delta_f1": 0.037,
+      "delta_fpr": 0.0,
+      "delta_fnr": -0.0444,
+      "pct_auc_change": -0.52,
+      "status": "PASS"
+    },
+    "mic_lowpass_4000hz": {
+      "delta_roc_auc": -0.1093,
+      "delta_pr_auc": -0.0419,
+      "delta_f1": 0.4429,
+      "delta_fpr": 0.7778,
+      "delta_fnr": -0.6444,
+      "pct_auc_change": -15.33,
+      "status": "DEGRADED"
+    },
+    "mic_highpass_300hz": {
+      "delta_roc_auc": -0.2352,
+      "delta_pr_auc": -0.0734,
+      "delta_f1": 0.2868,
+      "delta_fpr": 0.6111,
+      "delta_fnr": -0.4388,
+      "pct_auc_change": -32.99,
+      "status": "CRITICAL_FAILURE"
+    },
+    "mic_bandpass_300_4000hz": {
+      "delta_roc_auc": -0.2389,
+      "delta_pr_auc": -0.0811,
+      "delta_f1": 0.4429,
+      "delta_fpr": 0.7778,
+      "delta_fnr": -0.6444,
+      "pct_auc_change": -33.51,
+      "status": "CRITICAL_FAILURE"
+    },
+    "combined_factory_realistic": {
+      "delta_roc_auc": -0.3315,
+      "delta_pr_auc": -0.1083,
+      "delta_f1": 0.4429,
+      "delta_fpr": 0.7778,
+      "delta_fnr": -0.6444,
+      "pct_auc_change": -46.49,
+      "status": "CRITICAL_FAILURE"
+    },
+    "combined_harsh_stress": {
+      "delta_roc_auc": -0.2667,
+      "delta_pr_auc": -0.1084,
+      "delta_f1": 0.4429,
+      "delta_fpr": 0.7778,
+      "delta_fnr": -0.6444,
+      "pct_auc_change": -37.41,
+      "status": "CRITICAL_FAILURE"
+    },
+    "physical_mic_ch1": {
+      "delta_roc_auc": -0.0259,
+      "delta_pr_auc": -0.0102,
+      "delta_f1": 0.0146,
+      "delta_fpr": 0.0,
+      "delta_fnr": -0.0277,
+      "pct_auc_change": -3.63,
+      "status": "PASS"
+    },
+    "physical_mic_ch4": {
+      "delta_roc_auc": -0.15,
+      "delta_pr_auc": -0.0655,
+      "delta_f1": -0.1018,
+      "delta_fpr": 0.1111,
+      "delta_fnr": 0.0889,
+      "pct_auc_change": -21.04,
+      "status": "CRITICAL_FAILURE"
+    }
+  }
+}
