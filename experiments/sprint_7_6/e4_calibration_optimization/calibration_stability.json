@@ -1,0 +1,86 @@
+{
+  "baseline_l1": {
+    "n_5_stability": {
+      "subsets_evaluated": [
+        "subset_1_first5",
+        "subset_2_second5",
+        "subset_3_strided5"
+      ],
+      "macro_roc_auc_mean": 0.6957,
+      "macro_roc_auc_std_across_subsets": 0.0101,
+      "macro_roc_auc_spread": [
+        0.6852,
+        0.7093
+      ],
+      "macro_f1_mean": 0.5543,
+      "macro_f1_std_across_subsets": 0.0458,
+      "macro_fpr_spread": [
+        0.1944,
+        0.2778
+      ]
+    },
+    "n_10_comparison": {
+      "macro_roc_auc": 0.7019,
+      "macro_f1": 0.4343,
+      "macro_fpr": 0.1944
+    },
+    "id_06_machine_stability": {
+      "n_5_roc_auc_per_subset": [
+        0.5037,
+        0.5111,
+        0.5037
+      ],
+      "n_5_roc_auc_std": 0.0035,
+      "n_5_fpr_per_subset": [
+        0.2222,
+        0.4444,
+        0.3333
+      ],
+      "n_10_roc_auc": 0.5111,
+      "n_10_fpr": 0.3333,
+      "n_5_vs_n_10_finding": "N=5 displays substantial subset sensitivity on id_06 due to localized background fluctuations, whereas N=10 stabilizes mean-variance residual whitening."
+    }
+  },
+  "loss_smooth_l1": {
+    "n_5_stability": {
+      "subsets_evaluated": [
+        "subset_1_first5",
+        "subset_2_second5",
+        "subset_3_strided5"
+      ],
+      "macro_roc_auc_mean": 0.7389,
+      "macro_roc_auc_std_across_subsets": 0.0118,
+      "macro_roc_auc_spread": [
+        0.7296,
+        0.7556
+      ],
+      "macro_f1_mean": 0.6028,
+      "macro_f1_std_across_subsets": 0.0206,
+      "macro_fpr_spread": [
+        0.2222,
+        0.2778
+      ]
+    },
+    "n_10_comparison": {
+      "macro_roc_auc": 0.7426,
+      "macro_f1": 0.4903,
+      "macro_fpr": 0.1945
+    },
+    "id_06_machine_stability": {
+      "n_5_roc_auc_per_subset": [
+        0.5778,
+        0.6148,
+        0.5852
+      ],
+      "n_5_roc_auc_std": 0.016,
+      "n_5_fpr_per_subset": [
+        0.2222,
+        0.3333,
+        0.3333
+      ],
+      "n_10_roc_auc": 0.5926,
+      "n_10_fpr": 0.1111,
+      "n_5_vs_n_10_finding": "N=5 displays substantial subset sensitivity on id_06 due to localized background fluctuations, whereas N=10 stabilizes mean-variance residual whitening."
+    }
+  }
+}

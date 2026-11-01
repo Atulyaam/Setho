@@ -1,0 +1,105 @@
+{
+  "experiment_id": "sprint_7_6_e4_calibration_optimization",
+  "title": "Sprint 7.6 / E4: Few-Shot Calibration Optimization",
+  "created_at_utc": "2026-11-01T14:44:00Z",
+  "hardware": {
+    "device": "cpu",
+    "threads": 8,
+    "cuda_available": false,
+    "processor": "Intel(R) Core(TM) i7-10700 CPU @ 2.90GHz"
+  },
+  "dataset": {
+    "benchmark": "MIMII 1.0 Fan",
+    "category": "fan",
+    "machine_ids": ["id_00", "id_02", "id_04", "id_06"],
+    "evaluation_protocol": "leave-one-machine-ID-out",
+    "num_folds": 4,
+    "source_train_normal_clips_per_machine": 10,
+    "source_dev_normal_clips_per_machine": 2,
+    "test_normal_clips_per_machine": 3,
+    "test_abnormal_clips_per_machine": 15
+  },
+  "calibration_sweep": {
+    "evaluated_sizes": {
+      "N_0_zero_shot": {
+        "status": "EVALUATED",
+        "description": "Zero target-machine enrollment clips (source-dev threshold only)"
+      },
+      "N_5": {
+        "status": "EVALUATED",
+        "subsets_evaluated": ["subset_1_first5", "subset_2_second5", "subset_3_strided5"],
+        "description": "5 healthy target-machine enrollment clips evaluated across 3 distinct deterministic subsets"
+      },
+      "N_10": {
+        "status": "EVALUATED",
+        "subsets_evaluated": ["full_10"],
+        "description": "All 10 available healthy target-machine enrollment clips"
+      },
+      "N_20": {
+        "status": "DATA_INSUFFICIENT",
+        "available_independent_clips": 10,
+        "required_clips": 20,
+        "reason": "Only 15 total normal recordings exist in the benchmark, of which 3 are reserved for test and 2 for dev. In accordance with Section 4, N=20 is strictly marked as DATA INSUFFICIENT without recording duplication."
+      },
+      "N_30": {
+        "status": "DATA_INSUFFICIENT",
+        "available_independent_clips": 10,
+        "required_clips": 30,
+        "reason": "Only 15 total normal recordings exist in the benchmark, of which 3 are reserved for test and 2 for dev. In accordance with Section 4, N=30 is strictly marked as DATA INSUFFICIENT without recording duplication."
+      }
+    },
+    "methods": [
+      "zero_shot",
+      "threshold_recalibration",
+      "mean_var_residual"
+    ],
+    "target_quantile": 0.95
+  },
+  "models_evaluated": {
+    "baseline_l1": {
+      "name": "E3 L1 Reconstruction Loss Baseline",
+      "loss_type": "l1",
+      "loss_param": null,
+      "optimizer": "AdamW",
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001
+    },
+    "loss_smooth_l1": {
+      "name": "E2/E3 Huber / Smooth L1 Loss (beta=0.1) Candidate",
+      "loss_type": "smooth_l1",
+      "loss_param": { "beta": 0.1 },
+      "optimizer": "AdamW",
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001
+    }
+  },
+  "architecture": {
+    "name": "ResidualCNNAE",
+    "in_channels": 1,
+    "base_channels": 16,
+    "latent_dim": 64,
+    "norm_type": "group",
+    "num_groups": 8,
+    "total_parameters": 1808065
+  },
+  "feature_representation": {
+    "preset": "standard_64mel",
+    "sample_rate": 16000,
+    "n_fft": 1024,
+    "win_length": 1024,
+    "hop_length": 256,
+    "n_mels": 64,
+    "windowing": {
+      "spec_window_frames": 64,
+      "spec_hop_frames": 32
+    }
+  },
+  "training": {
+    "max_epochs": 15,
+    "batch_size": 32,
+    "early_stopping_patience": 4,
+    "scheduler": "CosineAnnealingLR",
+    "random_seeds": [42, 123, 777]
+  }
+}
+

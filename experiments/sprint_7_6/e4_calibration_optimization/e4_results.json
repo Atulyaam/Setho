@@ -1,0 +1,589 @@
+{
+  "baseline_l1": {
+    "N_0_zero_shot": {
+      "n_shots": 0,
+      "subset_type": null,
+      "threshold_recalibration": {
+        "roc_auc": {
+          "mean": 0.5463,
+          "std": 0.0402,
+          "ci95_half": 0.0999
+        },
+        "f1": {
+          "mean": 0.579,
+          "std": 0.0124,
+          "ci95_half": 0.0307
+        },
+        "fpr": 0.4722,
+        "mean_cal_time_s": 0.0
+      },
+      "mean_var_residual": {
+        "roc_auc": {
+          "mean": 0.5463,
+          "std": 0.0402,
+          "ci95_half": 0.0999,
+          "per_seed": [
+            0.499975,
+            0.5722250000000001,
+            0.566675
+          ]
+        },
+        "pr_auc": {
+          "mean": 0.8805,
+          "std": 0.0153,
+          "ci95_half": 0.038,
+          "per_seed": [
+            0.8629,
+            0.888575,
+            0.89015
+          ]
+        },
+        "f1": {
+          "mean": 0.579,
+          "std": 0.0124,
+          "ci95_half": 0.0307,
+          "per_seed": [
+            0.5686249999999999,
+            0.575725,
+            0.5926750000000001
+          ]
+        },
+        "fpr": 0.4722,
+        "fnr": 0.4556,
+        "mean_cal_time_s": 0.0
+      }
+    },
+    "N_5_subset_1": {
+      "n_shots": 5,
+      "subset_type": "first5",
+      "threshold_recalibration": {
+        "roc_auc": {
+          "mean": 0.5463,
+          "std": 0.0402,
+          "ci95_half": 0.0999
+        },
+        "f1": {
+          "mean": 0.3582,
+          "std": 0.0214,
+          "ci95_half": 0.0531
+        },
+        "fpr": 0.0555,
+        "mean_cal_time_s": 0.2081
+      },
+      "mean_var_residual": {
+        "roc_auc": {
+          "mean": 0.6852,
+          "std": 0.0516,
+          "ci95_half": 0.1283,
+          "per_seed": [
+            0.627775,
+            0.7000000000000001,
+            0.7278
+          ]
+        },
+        "pr_auc": {
+          "mean": 0.9208,
+          "std": 0.0163,
+          "ci95_half": 0.0404,
+          "per_seed": [
+            0.9029750000000001,
+            0.924375,
+            0.934925
+          ]
+        },
+        "f1": {
+          "mean": 0.4956,
+          "std": 0.0283,
+          "ci95_half": 0.0702,
+          "per_seed": [
+            0.5231,
+            0.46665,
+            0.49715
+          ]
+        },
+        "fpr": 0.1944,
+        "fnr": 0.65,
+        "mean_cal_time_s": 0.215
+      }
+    },
+    "N_5_subset_2": {
+      "n_shots": 5,
+      "subset_type": "second5",
+      "threshold_recalibration": {
+        "roc_auc": {
+          "mean": 0.5463,
+          "std": 0.0402,
+          "ci95_half": 0.0999
+        },
+        "f1": {
+          "mean": 0.3292,
+          "std": 0.0181,
+          "ci95_half": 0.0451
+        },
+        "fpr": 0.1111,
+        "mean_cal_time_s": 0.2183
+      },
+      "mean_var_residual": {
+        "roc_auc": {
+          "mean": 0.7093,
+          "std": 0.037,
+          "ci95_half": 0.0919,
+          "per_seed": [
+            0.666675,
+            0.7277750000000001,
+            0.7333500000000001
+          ]
+        },
+        "pr_auc": {
+          "mean": 0.9279,
+          "std": 0.0131,
+          "ci95_half": 0.0326,
+          "per_seed": [
+            0.912725,
+            0.934875,
+            0.935975
+          ]
+        },
+        "f1": {
+          "mean": 0.6073,
+          "std": 0.0175,
+          "ci95_half": 0.0435,
+          "per_seed": [
+            0.6033999999999999,
+            0.592025,
+            0.626425
+          ]
+        },
+        "fpr": 0.2778,
+        "fnr": 0.4667,
+        "mean_cal_time_s": 0.2148
+      }
+    },
+    "N_5_subset_3": {
+      "n_shots": 5,
+      "subset_type": "strided5",
+      "threshold_recalibration": {
+        "roc_auc": {
+          "mean": 0.5463,
+          "std": 0.0402,
+          "ci95_half": 0.0999
+        },
+        "f1": {
+          "mean": 0.3663,
+          "std": 0.0259,
+          "ci95_half": 0.0645
+        },
+        "fpr": 0.0555,
+        "mean_cal_time_s": 0.2155
+      },
+      "mean_var_residual": {
+        "roc_auc": {
+          "mean": 0.6926,
+          "std": 0.0432,
+          "ci95_half": 0.1072,
+          "per_seed": [
+            0.64445,
+            0.7055750000000001,
+            0.7278
+          ]
+        },
+        "pr_auc": {
+          "mean": 0.923,
+          "std": 0.0136,
+          "ci95_half": 0.0338,
+          "per_seed": [
+            0.908175,
+            0.925875,
+            0.934925
+          ]
+        },
+        "f1": {
+          "mean": 0.5599,
+          "std": 0.0363,
+          "ci95_half": 0.0903,
+          "per_seed": [
+            0.599675,
+            0.528475,
+            0.55145
+          ]
+        },
+        "fpr": 0.25,
+        "fnr": 0.5778,
+        "mean_cal_time_s": 0.2216
+      }
+    },
+    "N_10_full": {
+      "n_shots": 10,
+      "subset_type": "all10",
+      "threshold_recalibration": {
+        "roc_auc": {
+          "mean": 0.5463,
+          "std": 0.0402,
+          "ci95_half": 0.0999
+        },
+        "f1": {
+          "mean": 0.2772,
+          "std": 0.0199,
+          "ci95_half": 0.0495
+        },
+        "fpr": 0.0,
+        "mean_cal_time_s": 0.4307
+      },
+      "mean_var_residual": {
+        "roc_auc": {
+          "mean": 0.7019,
+          "std": 0.041,
+          "ci95_half": 0.1018,
+          "per_seed": [
+            0.6555500000000001,
+            0.7166750000000001,
+            0.7333500000000001
+          ]
+        },
+        "pr_auc": {
+          "mean": 0.9257,
+          "std": 0.0138,
+          "ci95_half": 0.0344,
+          "per_seed": [
+            0.91005,
+            0.9307,
+            0.936325
+          ]
+        },
+        "f1": {
+          "mean": 0.4343,
+          "std": 0.0701,
+          "ci95_half": 0.1742,
+          "per_seed": [
+            0.5103,
+            0.37210000000000004,
+            0.42050000000000004
+          ]
+        },
+        "fpr": 0.1944,
+        "fnr": 0.6833,
+        "mean_cal_time_s": 0.4329
+      }
+    },
+    "N_20": {
+      "status": "DATA_INSUFFICIENT",
+      "available_independent_clips": 10,
+      "required_clips": 20,
+      "reason": "Only 10 independent healthy clips exist for the held-out target machine in the MIMII 1.0 benchmark. Reusing or duplicating clips would violate scientific integrity."
+    },
+    "N_30": {
+      "status": "DATA_INSUFFICIENT",
+      "available_independent_clips": 10,
+      "required_clips": 30,
+      "reason": "Only 10 independent healthy clips exist for the held-out target machine in the MIMII 1.0 benchmark. Reusing or duplicating clips would violate scientific integrity."
+    }
+  },
+  "loss_smooth_l1": {
+    "N_0_zero_shot": {
+      "n_shots": 0,
+      "subset_type": null,
+      "threshold_recalibration": {
+        "roc_auc": {
+          "mean": 0.5833,
+          "std": 0.0192,
+          "ci95_half": 0.0478
+        },
+        "f1": {
+          "mean": 0.6177,
+          "std": 0.0296,
+          "ci95_half": 0.0735
+        },
+        "fpr": 0.5556,
+        "mean_cal_time_s": 0.0
+      },
+      "mean_var_residual": {
+        "roc_auc": {
+          "mean": 0.5833,
+          "std": 0.0192,
+          "ci95_half": 0.0478,
+          "per_seed": [
+            0.572225,
+            0.572225,
+            0.60555
+          ]
+        },
+        "pr_auc": {
+          "mean": 0.894,
+          "std": 0.0077,
+          "ci95_half": 0.019,
+          "per_seed": [
+            0.8952749999999999,
+            0.8858250000000001,
+            0.901
+          ]
+        },
+        "f1": {
+          "mean": 0.6177,
+          "std": 0.0296,
+          "ci95_half": 0.0735,
+          "per_seed": [
+            0.608225,
+            0.59395,
+            0.6508
+          ]
+        },
+        "fpr": 0.5556,
+        "fnr": 0.4111,
+        "mean_cal_time_s": 0.0
+      }
+    },
+    "N_5_subset_1": {
+      "n_shots": 5,
+      "subset_type": "first5",
+      "threshold_recalibration": {
+        "roc_auc": {
+          "mean": 0.5833,
+          "std": 0.0192,
+          "ci95_half": 0.0478
+        },
+        "f1": {
+          "mean": 0.3802,
+          "std": 0.0758,
+          "ci95_half": 0.1883
+        },
+        "fpr": 0.0,
+        "mean_cal_time_s": 0.2921
+      },
+      "mean_var_residual": {
+        "roc_auc": {
+          "mean": 0.7296,
+          "std": 0.0361,
+          "ci95_half": 0.0898,
+          "per_seed": [
+            0.76665,
+            0.6944250000000001,
+            0.7277750000000001
+          ]
+        },
+        "pr_auc": {
+          "mean": 0.9365,
+          "std": 0.0113,
+          "ci95_half": 0.0281,
+          "per_seed": [
+            0.9493499999999999,
+            0.928125,
+            0.93205
+          ]
+        },
+        "f1": {
+          "mean": 0.5741,
+          "std": 0.0324,
+          "ci95_half": 0.0806,
+          "per_seed": [
+            0.5528500000000001,
+            0.611475,
+            0.5581
+          ]
+        },
+        "fpr": 0.2222,
+        "fnr": 0.5556,
+        "mean_cal_time_s": 0.2897
+      }
+    },
+    "N_5_subset_2": {
+      "n_shots": 5,
+      "subset_type": "second5",
+      "threshold_recalibration": {
+        "roc_auc": {
+          "mean": 0.5833,
+          "std": 0.0192,
+          "ci95_half": 0.0478
+        },
+        "f1": {
+          "mean": 0.3574,
+          "std": 0.035,
+          "ci95_half": 0.0869
+        },
+        "fpr": 0.0278,
+        "mean_cal_time_s": 0.2756
+      },
+      "mean_var_residual": {
+        "roc_auc": {
+          "mean": 0.7556,
+          "std": 0.0364,
+          "ci95_half": 0.0905,
+          "per_seed": [
+            0.7889,
+            0.7166750000000001,
+            0.7611
+          ]
+        },
+        "pr_auc": {
+          "mean": 0.9444,
+          "std": 0.0112,
+          "ci95_half": 0.0279,
+          "per_seed": [
+            0.955375,
+            0.9329500000000001,
+            0.945
+          ]
+        },
+        "f1": {
+          "mean": 0.6214,
+          "std": 0.024,
+          "ci95_half": 0.0596,
+          "per_seed": [
+            0.636875,
+            0.59375,
+            0.6335500000000001
+          ]
+        },
+        "fpr": 0.2778,
+        "fnr": 0.4444,
+        "mean_cal_time_s": 0.2797
+      }
+    },
+    "N_5_subset_3": {
+      "n_shots": 5,
+      "subset_type": "strided5",
+      "threshold_recalibration": {
+        "roc_auc": {
+          "mean": 0.5833,
+          "std": 0.0192,
+          "ci95_half": 0.0478
+        },
+        "f1": {
+          "mean": 0.3971,
+          "std": 0.0403,
+          "ci95_half": 0.1002
+        },
+        "fpr": 0.0278,
+        "mean_cal_time_s": 0.2826
+      },
+      "mean_var_residual": {
+        "roc_auc": {
+          "mean": 0.7315,
+          "std": 0.0516,
+          "ci95_half": 0.1283,
+          "per_seed": [
+            0.7888999999999999,
+            0.6889,
+            0.71665
+          ]
+        },
+        "pr_auc": {
+          "mean": 0.9356,
+          "std": 0.0165,
+          "ci95_half": 0.041,
+          "per_seed": [
+            0.95465,
+            0.92625,
+            0.925925
+          ]
+        },
+        "f1": {
+          "mean": 0.6129,
+          "std": 0.0602,
+          "ci95_half": 0.1497,
+          "per_seed": [
+            0.5528500000000001,
+            0.61255,
+            0.673325
+          ]
+        },
+        "fpr": 0.25,
+        "fnr": 0.5111,
+        "mean_cal_time_s": 0.2798
+      }
+    },
+    "N_10_full": {
+      "n_shots": 10,
+      "subset_type": "all10",
+      "threshold_recalibration": {
+        "roc_auc": {
+          "mean": 0.5833,
+          "std": 0.0192,
+          "ci95_half": 0.0478
+        },
+        "f1": {
+          "mean": 0.2646,
+          "std": 0.0445,
+          "ci95_half": 0.1106
+        },
+        "fpr": 0.0,
+        "mean_cal_time_s": 0.5904
+      },
+      "mean_var_residual": {
+        "roc_auc": {
+          "mean": 0.7426,
+          "std": 0.0306,
+          "ci95_half": 0.076,
+          "per_seed": [
+            0.7722249999999999,
+            0.711125,
+            0.744425
+          ]
+        },
+        "pr_auc": {
+          "mean": 0.9397,
+          "std": 0.0097,
+          "ci95_half": 0.0241,
+          "per_seed": [
+            0.950375,
+            0.93135,
+            0.9374250000000001
+          ]
+        },
+        "f1": {
+          "mean": 0.4903,
+          "std": 0.0177,
+          "ci95_half": 0.044,
+          "per_seed": [
+            0.47695,
+            0.48362499999999997,
+            0.5104
+          ]
+        },
+        "fpr": 0.1945,
+        "fnr": 0.6167,
+        "mean_cal_time_s": 0.5959
+      }
+    },
+    "N_20": {
+      "status": "DATA_INSUFFICIENT",
+      "available_independent_clips": 10,
+      "required_clips": 20,
+      "reason": "Only 10 independent healthy clips exist for the held-out target machine in the MIMII 1.0 benchmark. Reusing or duplicating clips would violate scientific integrity."
+    },
+    "N_30": {
+      "status": "DATA_INSUFFICIENT",
+      "available_independent_clips": 10,
+      "required_clips": 30,
+      "reason": "Only 10 independent healthy clips exist for the held-out target machine in the MIMII 1.0 benchmark. Reusing or duplicating clips would violate scientific integrity."
+    }
+  },
+  "telemetry": {
+    "hardware": {
+      "device": "cpu",
+      "threads": 8,
+      "cuda_available": false
+    },
+    "latency_profile": {
+      "feature_extraction_ms": {
+        "p50": 3.2,
+        "p95": 4.14
+      },
+      "model_inference_ms": {
+        "mean": 55.5,
+        "median_p50": 54.6,
+        "p95": 63.1
+      },
+      "end_to_end_ms": {
+        "mean": 58.81,
+        "median_p50": 58.0,
+        "p95": 67.43
+      },
+      "throughput_clips_per_sec": 17.2,
+      "realtime_factor": 0.0058
+    },
+    "memory_profile_mb": {
+      "initial_rss": 321.88,
+      "peak_rss": 487.95
+    }
+  }
+}
