@@ -1,0 +1,20 @@
+{
+  "machine_id": "id_04",
+  "base_channels": 32,
+  "dilations": [
+    1,
+    2,
+    4
+  ],
+  "latent_dim": 64,
+  "use_depthwise": true,
+  "learning_rate": 0.0005,
+  "weight_decay": 0.0001,
+  "batch_size": 8,
+  "max_epochs": 40,
+  "early_stopping_patience": 8,
+  "loss_type": "l1",
+  "aggregation": "mean",
+  "top_k_patches": 3,
+  "seed": 42
+}

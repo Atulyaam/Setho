@@ -85,3 +85,4 @@ Extraction determinism was tested via `test_feature_determinism`: repeated calls
 ## 4. Phase 2 Sign-Off & Handover
 
 Phase 2 is formally complete. All 12 machine splits and protocols (A, B, C) are saved on disk, verified leakage-free, and tested. The unified feature suite is ready for Phase 3 (Experiment Framework and Baseline Reproduction).
+

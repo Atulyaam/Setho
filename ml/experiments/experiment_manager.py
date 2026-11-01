@@ -31,6 +31,24 @@ ARTIFACTS_DIR = EXPERIMENTS_DIR / "artifacts"
 REGISTRY_FILE = EXPERIMENTS_DIR / "experiment_registry.json"
 
 
+def get_git_commit() -> str:
+    try:
+        out = subprocess.check_output(["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL)
+        return out.decode("utf-8").strip()
+    except Exception:
+        return "unknown"
+
+
+def get_manifest_hash(manifest_path: Path = Path("ml/data/manifests/diverse_dataset_manifest.json")) -> str:
+    try:
+        import hashlib
+        if manifest_path.exists():
+            return hashlib.sha256(manifest_path.read_bytes()).hexdigest()
+    except Exception:
+        pass
+    return "unknown"
+
+
 def get_system_telemetry() -> Dict[str, Any]:
     """Capture instantaneous RAM, CPU, and GPU utilization metrics."""
     vm = psutil.virtual_memory()
@@ -89,9 +107,13 @@ class ExperimentManager:
         reg = self._load_registry()
         exp_record = {
             "experiment_id": experiment_id,
+            "git_commit": get_git_commit(),
+            "manifest_hash": get_manifest_hash(),
             "name": name,
             "description": description,
             "model_type": model_type,
+            "architecture": config.get("architecture", model_type),
+            "preprocessing": config.get("preprocessing", "standard_64mel"),
             "status": "QUEUED",
             "seed": seed,
             "config": config,
