@@ -1,0 +1,32 @@
+{
+  "parameter_count": 1808065,
+  "checkpoint_size_kb": 7083.32,
+  "latency_profile": {
+    "feature_extraction_ms": {
+      "p50": 4.57
+    },
+    "model_inference_ms": {
+      "mean": 36.42,
+      "median_p50": 36.52,
+      "p95": 41.22
+    },
+    "end_to_end_ms": {
+      "mean": 40.99,
+      "median_p50": 41.09,
+      "p95": 45.79
+    },
+    "throughput_clips_per_sec": 24.4,
+    "realtime_factor": 0.0041
+  },
+  "memory_profile_mb": {
+    "initial_rss": 321.37,
+    "peak_rss": 473.3
+  },
+  "per_config_training_time_s": {
+    "baseline_l1": 101.36,
+    "loss_smooth_l1": 125.4,
+    "reg_low_weight_decay": 170.42,
+    "reg_high_weight_decay": 73.03,
+    "reg_latent_penalty": 22.87
+  }
+}

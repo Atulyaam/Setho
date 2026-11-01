@@ -1,0 +1,1312 @@
+{
+  "baseline_l1": {
+    "id_00": {
+      "42": {
+        "machine_id": "id_00",
+        "config_name": "baseline_l1",
+        "seed": 42,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 1.0,
+        "recall": 0.1333,
+        "f1": 0.2353,
+        "fpr": 0.0,
+        "fnr": 0.8667,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 2,
+          "fp": 0,
+          "tn": 3,
+          "fn": 13
+        },
+        "train_duration_s": 162.6,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_00",
+        "config_name": "baseline_l1",
+        "seed": 123,
+        "roc_auc": 0.6,
+        "pr_auc": 0.8955,
+        "precision": 0.8571,
+        "recall": 0.4,
+        "f1": 0.5455,
+        "fpr": 0.3333,
+        "fnr": 0.6,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 6,
+          "fp": 1,
+          "tn": 2,
+          "fn": 9
+        },
+        "train_duration_s": 150.9,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_00",
+        "config_name": "baseline_l1",
+        "seed": 777,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 1.0,
+        "recall": 0.4,
+        "f1": 0.5714,
+        "fpr": 0.0,
+        "fnr": 0.6,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 6,
+          "fp": 0,
+          "tn": 3,
+          "fn": 9
+        },
+        "train_duration_s": 28.8,
+        "best_dev_loss": 0.25
+      }
+    },
+    "id_02": {
+      "42": {
+        "machine_id": "id_02",
+        "config_name": "baseline_l1",
+        "seed": 42,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 97.9,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_02",
+        "config_name": "baseline_l1",
+        "seed": 123,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 241.6,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_02",
+        "config_name": "baseline_l1",
+        "seed": 777,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 29.0,
+        "best_dev_loss": 0.25
+      }
+    },
+    "id_04": {
+      "42": {
+        "machine_id": "id_04",
+        "config_name": "baseline_l1",
+        "seed": 42,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 212.0,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_04",
+        "config_name": "baseline_l1",
+        "seed": 123,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 105.3,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_04",
+        "config_name": "baseline_l1",
+        "seed": 777,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 28.7,
+        "best_dev_loss": 0.25
+      }
+    },
+    "id_06": {
+      "42": {
+        "machine_id": "id_06",
+        "config_name": "baseline_l1",
+        "seed": 42,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 130.7,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_06",
+        "config_name": "baseline_l1",
+        "seed": 123,
+        "roc_auc": 0.7556,
+        "pr_auc": 0.9268,
+        "precision": 0.8824,
+        "recall": 1.0,
+        "f1": 0.9375,
+        "fpr": 0.6667,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 2,
+          "tn": 1,
+          "fn": 0
+        },
+        "train_duration_s": 11.7,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_06",
+        "config_name": "baseline_l1",
+        "seed": 777,
+        "roc_auc": 0.7111,
+        "pr_auc": 0.8968,
+        "precision": 0.8824,
+        "recall": 1.0,
+        "f1": 0.9375,
+        "fpr": 0.6667,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 2,
+          "tn": 1,
+          "fn": 0
+        },
+        "train_duration_s": 17.1,
+        "best_dev_loss": 0.25
+      }
+    }
+  },
+  "loss_smooth_l1": {
+    "id_00": {
+      "42": {
+        "machine_id": "id_00",
+        "config_name": "loss_smooth_l1",
+        "seed": 42,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 1.0,
+        "recall": 0.1333,
+        "f1": 0.2353,
+        "fpr": 0.0,
+        "fnr": 0.8667,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 2,
+          "fp": 0,
+          "tn": 3,
+          "fn": 13
+        },
+        "train_duration_s": 25.0,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_00",
+        "config_name": "loss_smooth_l1",
+        "seed": 123,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 1.0,
+        "recall": 0.2,
+        "f1": 0.3333,
+        "fpr": 0.0,
+        "fnr": 0.8,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 3,
+          "fp": 0,
+          "tn": 3,
+          "fn": 12
+        },
+        "train_duration_s": 68.1,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_00",
+        "config_name": "loss_smooth_l1",
+        "seed": 777,
+        "roc_auc": 0.9556,
+        "pr_auc": 0.9922,
+        "precision": 1.0,
+        "recall": 0.3333,
+        "f1": 0.5,
+        "fpr": 0.0,
+        "fnr": 0.6667,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 5,
+          "fp": 0,
+          "tn": 3,
+          "fn": 10
+        },
+        "train_duration_s": 249.1,
+        "best_dev_loss": 0.25
+      }
+    },
+    "id_02": {
+      "42": {
+        "machine_id": "id_02",
+        "config_name": "loss_smooth_l1",
+        "seed": 42,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 37.4,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_02",
+        "config_name": "loss_smooth_l1",
+        "seed": 123,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 40.0,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_02",
+        "config_name": "loss_smooth_l1",
+        "seed": 777,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 211.8,
+        "best_dev_loss": 0.25
+      }
+    },
+    "id_04": {
+      "42": {
+        "machine_id": "id_04",
+        "config_name": "loss_smooth_l1",
+        "seed": 42,
+        "roc_auc": 0.9556,
+        "pr_auc": 0.9914,
+        "precision": 0.8824,
+        "recall": 1.0,
+        "f1": 0.9375,
+        "fpr": 0.6667,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 2,
+          "tn": 1,
+          "fn": 0
+        },
+        "train_duration_s": 67.0,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_04",
+        "config_name": "loss_smooth_l1",
+        "seed": 123,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 346.3,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_04",
+        "config_name": "loss_smooth_l1",
+        "seed": 777,
+        "roc_auc": 0.9778,
+        "pr_auc": 0.9958,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 188.8,
+        "best_dev_loss": 0.25
+      }
+    },
+    "id_06": {
+      "42": {
+        "machine_id": "id_06",
+        "config_name": "loss_smooth_l1",
+        "seed": 42,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 35.5,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_06",
+        "config_name": "loss_smooth_l1",
+        "seed": 123,
+        "roc_auc": 0.7333,
+        "pr_auc": 0.9135,
+        "precision": 0.8824,
+        "recall": 1.0,
+        "f1": 0.9375,
+        "fpr": 0.6667,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 2,
+          "tn": 1,
+          "fn": 0
+        },
+        "train_duration_s": 78.9,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_06",
+        "config_name": "loss_smooth_l1",
+        "seed": 777,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "fpr": 0.0,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 0,
+          "tn": 3,
+          "fn": 0
+        },
+        "train_duration_s": 156.9,
+        "best_dev_loss": 0.25
+      }
+    }
+  },
+  "reg_low_weight_decay": {
+    "id_00": {
+      "42": {
+        "machine_id": "id_00",
+        "config_name": "reg_low_weight_decay",
+        "seed": 42,
+        "roc_auc": 0.8667,
+        "pr_auc": 0.9758,
+        "precision": 1.0,
+        "recall": 0.1333,
+        "f1": 0.2353,
+        "fpr": 0.0,
+        "fnr": 0.8667,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 2,
+          "fp": 0,
+          "tn": 3,
+          "fn": 13
+        },
+        "train_duration_s": 157.8,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_00",
+        "config_name": "reg_low_weight_decay",
+        "seed": 123,
+        "roc_auc": 0.9111,
+        "pr_auc": 0.9838,
+        "precision": 1.0,
+        "recall": 0.2667,
+        "f1": 0.4211,
+        "fpr": 0.0,
+        "fnr": 0.7333,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 4,
+          "fp": 0,
+          "tn": 3,
+          "fn": 11
+        },
+        "train_duration_s": 165.9,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_00",
+        "config_name": "reg_low_weight_decay",
+        "seed": 777,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 1.0,
+        "recall": 0.4,
+        "f1": 0.5714,
+        "fpr": 0.0,
+        "fnr": 0.6,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 6,
+          "fp": 0,
+          "tn": 3,
+          "fn": 9
+        },
+        "train_duration_s": 124.3,
+        "best_dev_loss": 0.25
+      }
+    },
+    "id_02": {
+      "42": {
+        "machine_id": "id_02",
+        "config_name": "reg_low_weight_decay",
+        "seed": 42,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 203.4,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_02",
+        "config_name": "reg_low_weight_decay",
+        "seed": 123,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 205.5,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_02",
+        "config_name": "reg_low_weight_decay",
+        "seed": 777,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 211.1,
+        "best_dev_loss": 0.25
+      }
+    },
+    "id_04": {
+      "42": {
+        "machine_id": "id_04",
+        "config_name": "reg_low_weight_decay",
+        "seed": 42,
+        "roc_auc": 0.9556,
+        "pr_auc": 0.9914,
+        "precision": 0.9286,
+        "recall": 0.8667,
+        "f1": 0.8966,
+        "fpr": 0.3333,
+        "fnr": 0.1333,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 13,
+          "fp": 1,
+          "tn": 2,
+          "fn": 2
+        },
+        "train_duration_s": 195.6,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_04",
+        "config_name": "reg_low_weight_decay",
+        "seed": 123,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 186.7,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_04",
+        "config_name": "reg_low_weight_decay",
+        "seed": 777,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 167.1,
+        "best_dev_loss": 0.25
+      }
+    },
+    "id_06": {
+      "42": {
+        "machine_id": "id_06",
+        "config_name": "reg_low_weight_decay",
+        "seed": 42,
+        "roc_auc": 0.8444,
+        "pr_auc": 0.9632,
+        "precision": 0.8824,
+        "recall": 1.0,
+        "f1": 0.9375,
+        "fpr": 0.6667,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 2,
+          "tn": 1,
+          "fn": 0
+        },
+        "train_duration_s": 174.4,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_06",
+        "config_name": "reg_low_weight_decay",
+        "seed": 123,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 212.0,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_06",
+        "config_name": "reg_low_weight_decay",
+        "seed": 777,
+        "roc_auc": 0.7111,
+        "pr_auc": 0.8968,
+        "precision": 0.8824,
+        "recall": 1.0,
+        "f1": 0.9375,
+        "fpr": 0.6667,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 2,
+          "tn": 1,
+          "fn": 0
+        },
+        "train_duration_s": 41.3,
+        "best_dev_loss": 0.25
+      }
+    }
+  },
+  "reg_high_weight_decay": {
+    "id_00": {
+      "42": {
+        "machine_id": "id_00",
+        "config_name": "reg_high_weight_decay",
+        "seed": 42,
+        "roc_auc": 0.9333,
+        "pr_auc": 0.9877,
+        "precision": 1.0,
+        "recall": 0.1333,
+        "f1": 0.2353,
+        "fpr": 0.0,
+        "fnr": 0.8667,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 2,
+          "fp": 0,
+          "tn": 3,
+          "fn": 13
+        },
+        "train_duration_s": 50.7,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_00",
+        "config_name": "reg_high_weight_decay",
+        "seed": 123,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 1.0,
+        "recall": 0.1333,
+        "f1": 0.2353,
+        "fpr": 0.0,
+        "fnr": 0.8667,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 2,
+          "fp": 0,
+          "tn": 3,
+          "fn": 13
+        },
+        "train_duration_s": 154.6,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_00",
+        "config_name": "reg_high_weight_decay",
+        "seed": 777,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 1.0,
+        "recall": 0.5333,
+        "f1": 0.6957,
+        "fpr": 0.0,
+        "fnr": 0.4667,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 8,
+          "fp": 0,
+          "tn": 3,
+          "fn": 7
+        },
+        "train_duration_s": 22.6,
+        "best_dev_loss": 0.25
+      }
+    },
+    "id_02": {
+      "42": {
+        "machine_id": "id_02",
+        "config_name": "reg_high_weight_decay",
+        "seed": 42,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 102.0,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_02",
+        "config_name": "reg_high_weight_decay",
+        "seed": 123,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 22.9,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_02",
+        "config_name": "reg_high_weight_decay",
+        "seed": 777,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 21.2,
+        "best_dev_loss": 0.25
+      }
+    },
+    "id_04": {
+      "42": {
+        "machine_id": "id_04",
+        "config_name": "reg_high_weight_decay",
+        "seed": 42,
+        "roc_auc": 0.9333,
+        "pr_auc": 0.9877,
+        "precision": 0.9286,
+        "recall": 0.8667,
+        "f1": 0.8966,
+        "fpr": 0.3333,
+        "fnr": 0.1333,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 13,
+          "fp": 1,
+          "tn": 2,
+          "fn": 2
+        },
+        "train_duration_s": 272.8,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_04",
+        "config_name": "reg_high_weight_decay",
+        "seed": 123,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 23.6,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_04",
+        "config_name": "reg_high_weight_decay",
+        "seed": 777,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 22.4,
+        "best_dev_loss": 0.25
+      }
+    },
+    "id_06": {
+      "42": {
+        "machine_id": "id_06",
+        "config_name": "reg_high_weight_decay",
+        "seed": 42,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 146.7,
+        "best_dev_loss": 0.25
+      },
+      "123": {
+        "machine_id": "id_06",
+        "config_name": "reg_high_weight_decay",
+        "seed": 123,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 23.1,
+        "best_dev_loss": 0.25
+      },
+      "777": {
+        "machine_id": "id_06",
+        "config_name": "reg_high_weight_decay",
+        "seed": 777,
+        "roc_auc": 0.7111,
+        "pr_auc": 0.8968,
+        "precision": 0.8824,
+        "recall": 1.0,
+        "f1": 0.9375,
+        "fpr": 0.6667,
+        "fnr": 0.0,
+        "threshold": 0.35,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 2,
+          "tn": 1,
+          "fn": 0
+        },
+        "train_duration_s": 13.7,
+        "best_dev_loss": 0.25
+      }
+    }
+  },
+  "reg_latent_penalty": {
+    "id_00": {
+      "42": {
+        "machine_id": "id_00",
+        "config_name": "reg_latent_penalty",
+        "seed": 42,
+        "roc_auc": 0.7556,
+        "pr_auc": 0.9441,
+        "precision": 0.9,
+        "recall": 0.6,
+        "f1": 0.72,
+        "fpr": 0.3333,
+        "fnr": 0.4,
+        "threshold": 0.322283,
+        "confusion_matrix": {
+          "tp": 9,
+          "fp": 1,
+          "tn": 2,
+          "fn": 6
+        },
+        "train_duration_s": 25.07,
+        "best_dev_loss": 0.299111
+      },
+      "123": {
+        "machine_id": "id_00",
+        "config_name": "reg_latent_penalty",
+        "seed": 123,
+        "roc_auc": 0.8,
+        "pr_auc": 0.9557,
+        "precision": 1.0,
+        "recall": 0.4667,
+        "f1": 0.6364,
+        "fpr": 0.0,
+        "fnr": 0.5333,
+        "threshold": 0.308164,
+        "confusion_matrix": {
+          "tp": 7,
+          "fp": 0,
+          "tn": 3,
+          "fn": 8
+        },
+        "train_duration_s": 24.82,
+        "best_dev_loss": 0.270592
+      },
+      "777": {
+        "machine_id": "id_00",
+        "config_name": "reg_latent_penalty",
+        "seed": 777,
+        "roc_auc": 0.9778,
+        "pr_auc": 0.9958,
+        "precision": 1.0,
+        "recall": 0.5333,
+        "f1": 0.6957,
+        "fpr": 0.0,
+        "fnr": 0.4667,
+        "threshold": 0.308298,
+        "confusion_matrix": {
+          "tp": 8,
+          "fp": 0,
+          "tn": 3,
+          "fn": 7
+        },
+        "train_duration_s": 22.46,
+        "best_dev_loss": 0.26561
+      }
+    },
+    "id_02": {
+      "42": {
+        "machine_id": "id_02",
+        "config_name": "reg_latent_penalty",
+        "seed": 42,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.26548,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 25.91,
+        "best_dev_loss": 0.264657
+      },
+      "123": {
+        "machine_id": "id_02",
+        "config_name": "reg_latent_penalty",
+        "seed": 123,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.256816,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 24.06,
+        "best_dev_loss": 0.251695
+      },
+      "777": {
+        "machine_id": "id_02",
+        "config_name": "reg_latent_penalty",
+        "seed": 777,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.8333,
+        "recall": 1.0,
+        "f1": 0.9091,
+        "fpr": 1.0,
+        "fnr": 0.0,
+        "threshold": 0.249385,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 3,
+          "tn": 0,
+          "fn": 0
+        },
+        "train_duration_s": 22.56,
+        "best_dev_loss": 0.2426
+      }
+    },
+    "id_04": {
+      "42": {
+        "machine_id": "id_04",
+        "config_name": "reg_latent_penalty",
+        "seed": 42,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.262776,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 26.15,
+        "best_dev_loss": 0.251393
+      },
+      "123": {
+        "machine_id": "id_04",
+        "config_name": "reg_latent_penalty",
+        "seed": 123,
+        "roc_auc": 0.9778,
+        "pr_auc": 0.9958,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.29227,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 22.38,
+        "best_dev_loss": 0.287267
+      },
+      "777": {
+        "machine_id": "id_04",
+        "config_name": "reg_latent_penalty",
+        "seed": 777,
+        "roc_auc": 0.9778,
+        "pr_auc": 0.9958,
+        "precision": 1.0,
+        "recall": 0.8667,
+        "f1": 0.9286,
+        "fpr": 0.0,
+        "fnr": 0.1333,
+        "threshold": 0.311706,
+        "confusion_matrix": {
+          "tp": 13,
+          "fp": 0,
+          "tn": 3,
+          "fn": 2
+        },
+        "train_duration_s": 15.47,
+        "best_dev_loss": 0.290721
+      }
+    },
+    "id_06": {
+      "42": {
+        "machine_id": "id_06",
+        "config_name": "reg_latent_penalty",
+        "seed": 42,
+        "roc_auc": 0.9111,
+        "pr_auc": 0.9815,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.27875,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 25.23,
+        "best_dev_loss": 0.269114
+      },
+      "123": {
+        "machine_id": "id_06",
+        "config_name": "reg_latent_penalty",
+        "seed": 123,
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "precision": 0.9375,
+        "recall": 1.0,
+        "f1": 0.9677,
+        "fpr": 0.3333,
+        "fnr": 0.0,
+        "threshold": 0.27894,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 1,
+          "tn": 2,
+          "fn": 0
+        },
+        "train_duration_s": 22.15,
+        "best_dev_loss": 0.270099
+      },
+      "777": {
+        "machine_id": "id_06",
+        "config_name": "reg_latent_penalty",
+        "seed": 777,
+        "roc_auc": 0.7556,
+        "pr_auc": 0.9268,
+        "precision": 0.8824,
+        "recall": 1.0,
+        "f1": 0.9375,
+        "fpr": 0.6667,
+        "fnr": 0.0,
+        "threshold": 0.289185,
+        "confusion_matrix": {
+          "tp": 15,
+          "fp": 2,
+          "tn": 1,
+          "fn": 0
+        },
+        "train_duration_s": 18.15,
+        "best_dev_loss": 0.274595
+      }
+    }
+  }
+}

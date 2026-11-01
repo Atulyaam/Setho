@@ -1,0 +1,92 @@
+{
+  "experiment_id": "sprint_7_6_e2_loss_regularization",
+  "sprint": "7.6",
+  "phase": "E2",
+  "date": "2026-11-01",
+  "git_branch": "research/sprint-7-6-balanced-improvements",
+  "base_commit": "f0b8cc8",
+  "objective": "Loss Function & Regularization Ablation: Isolate reconstruction loss, weight decay, and latent manifold constraints",
+  "hardware": {
+    "device": "CPU",
+    "cpu_model": "Intel Core i7-12700H (14 cores / 20 threads)",
+    "ram_total_gb": 15.63,
+    "cuda_available": false,
+    "torch_version": "2.15.0+cpu"
+  },
+  "fixed_seeds": [42, 123, 777],
+  "model_architecture": {
+    "name": "ResidualCNNAE",
+    "in_channels": 1,
+    "base_channels": 16,
+    "latent_dim": 64,
+    "norm_type": "group",
+    "input_size": [64, 64],
+    "parameter_count": 1808065
+  },
+  "preprocessing": {
+    "preset": "baseline_logmel64",
+    "sample_rate": 16000,
+    "n_fft": 1024,
+    "hop_length": 256,
+    "n_mels": 64,
+    "f_min": 50.0,
+    "f_max": 8000.0,
+    "patch_shape": [1, 64, 64],
+    "patch_time_frames": 64,
+    "patch_hop_frames": 32
+  },
+  "dataset": {
+    "machine_category": "fan",
+    "machine_ids": ["id_00", "id_02", "id_04", "id_06"],
+    "split_manifest_dir": "ml/data/splits/diverse_machine_specific/fan",
+    "samples_per_machine": {
+      "train_normal": 10,
+      "dev_normal": 2,
+      "test_normal": 3,
+      "test_abnormal": 15
+    }
+  },
+  "configurations": {
+    "baseline_l1": {
+      "name": "Baseline: L1 Loss + Weight Decay 1e-4",
+      "loss_type": "l1",
+      "loss_param": null,
+      "weight_decay": 0.0001,
+      "latent_reg": 0.0,
+      "description": "Current verified baseline reconstruction objective with moderate L2 weight decay"
+    },
+    "loss_smooth_l1": {
+      "name": "Alternative Loss: Smooth L1 / Huber Loss (beta=0.1)",
+      "loss_type": "smooth_l1",
+      "loss_param": {"beta": 0.1},
+      "weight_decay": 0.0001,
+      "latent_reg": 0.0,
+      "description": "Robust Huber loss: quadratic below beta=0.1 for smooth gradients, linear above beta to cap outlier gradients"
+    },
+    "reg_low_weight_decay": {
+      "name": "Regularization Ablation: Low Weight Decay (1e-5)",
+      "loss_type": "l1",
+      "loss_param": null,
+      "weight_decay": 0.00001,
+      "latent_reg": 0.0,
+      "description": "10x lower weight decay to test if baseline weight decay is over-regularizing network parameters"
+    },
+    "reg_high_weight_decay": {
+      "name": "Regularization Ablation: High Weight Decay (1e-3)",
+      "loss_type": "l1",
+      "loss_param": null,
+      "weight_decay": 0.001,
+      "latent_reg": 0.0,
+      "description": "10x higher weight decay to test if stronger parameter shrinkage prevents overfitting"
+    },
+    "reg_latent_penalty": {
+      "name": "Manifold Regularization: Bottleneck Latent L2 Penalty (1e-4)",
+      "loss_type": "l1",
+      "loss_param": null,
+      "weight_decay": 0.0001,
+      "latent_reg": 0.0001,
+      "description": "Explicit L2 penalty on latent bottleneck activations (lambda_latent * ||z||_2^2) to constrain normal manifold volume"
+    }
+  }
+}
+
