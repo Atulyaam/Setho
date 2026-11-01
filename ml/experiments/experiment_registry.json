@@ -2625,7 +2625,82 @@
       "result_path": "ml\\experiments\\results\\phase5_optimization_ablations.json",
       "artifact_dir": "ml\\experiments\\artifacts\\phase5_optimization_ablations",
       "error": null
+    },
+    "phase6_advanced_ensembles": {
+      "experiment_id": "phase6_advanced_ensembles",
+      "git_commit": "3ee690af80960e9cfa38d6cae36e4b0ed3ebfd74",
+      "manifest_hash": "30228fe11ec868b836e6969040a27686e03785dcc8d2c36c045a0766e392b80f",
+      "name": "Phase 6 Advanced Ensemble & Model Fusion",
+      "description": "Comprehensive evaluation of Score Fusion (Weighted, Rank, Max) and Hierarchical Cascades",
+      "model_type": "ensemble_fusion",
+      "architecture": "ensemble_fusion",
+      "preprocessing": "standard_64mel",
+      "status": "COMPLETED",
+      "seed": 42,
+      "config": {
+        "tested_ensembles": [
+          "resnet_maha_weighted",
+          "resnet_maha_rank",
+          "resnet_maha_max",
+          "msae_maha_weighted",
+          "tri_model_consensus",
+          "cascade_fast_reject"
+        ],
+        "best_accuracy_ensemble": "msae_maha_weighted",
+        "best_speed_ensemble": "cascade_fast_reject"
+      },
+      "pid": null,
+      "start_time": null,
+      "completion_time": "2026-11-01T06:08:04.370662+00:00",
+      "duration_sec": null,
+      "current_epoch": 0,
+      "max_epochs": 60,
+      "train_loss": null,
+      "val_loss": null,
+      "telemetry": {
+        "timestamp": "2026-11-01T06:08:04.369661+00:00",
+        "ram_used_mb": 13389.44,
+        "ram_total_mb": 16004.66,
+        "ram_percent": 83.7,
+        "cpu_percent": 68.2,
+        "gpu_available": false,
+        "gpu_vram_used_mb": 0.0,
+        "gpu_vram_total_mb": 0.0
+      },
+      "metrics": {
+        "best_macro_roc_auc": 0.9833,
+        "summary": {
+          "resnet_maha_weighted": {
+            "roc_auc": 0.9445,
+            "latency_ms": 209.55
+          },
+          "resnet_maha_rank": {
+            "roc_auc": 0.875,
+            "latency_ms": 209.52
+          },
+          "resnet_maha_max": {
+            "roc_auc": 0.9667,
+            "latency_ms": 207.67
+          },
+          "msae_maha_weighted": {
+            "roc_auc": 0.9833,
+            "latency_ms": 219.76
+          },
+          "tri_model_consensus": {
+            "roc_auc": 0.9833,
+            "latency_ms": 319.38
+          },
+          "cascade_fast_reject": {
+            "roc_auc": 0.8611,
+            "latency_ms": 127.81
+          }
+        }
+      },
+      "log_path": "ml\\experiments\\logs\\phase6_advanced_ensembles.log",
+      "result_path": "ml\\experiments\\results\\phase6_advanced_ensembles.json",
+      "artifact_dir": "ml\\experiments\\artifacts\\phase6_advanced_ensembles",
+      "error": null
     }
   },
-  "updated_at": "2026-11-01T05:47:05.896049+00:00"
+  "updated_at": "2026-11-01T06:08:04.370662+00:00"
 }
