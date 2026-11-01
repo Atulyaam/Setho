@@ -1,0 +1,73 @@
+{
+  "machine_id": "id_00",
+  "arch_type": "teacher_student_cnn",
+  "train_duration_sec": 65.65,
+  "parameter_count": 55360,
+  "checkpoint_size_kb": 223.6,
+  "threshold": 0.001949,
+  "latency": {
+    "cpu_mean_ms": 60.27,
+    "cpu_median_ms": 55.83,
+    "cpu_p95_ms": 76.86,
+    "cpu_min_ms": 49.26,
+    "cpu_max_ms": 80.11
+  },
+  "metrics": {
+    "n_normal": 3,
+    "n_abnormal": 15,
+    "total_samples": 18,
+    "threshold": 0.001949,
+    "roc_auc": 1.0,
+    "pauc": 1.0,
+    "precision": 1.0,
+    "recall": 0.2,
+    "f1": 0.3333,
+    "fpr": 0.0,
+    "confusion_matrix": {
+      "tp": 3,
+      "fp": 0,
+      "tn": 3,
+      "fn": 12
+    }
+  },
+  "test_scores": [
+    0.000272,
+    0.000369,
+    0.000244,
+    0.00159,
+    0.000671,
+    0.002053,
+    0.000509,
+    0.000739,
+    0.00089,
+    0.000948,
+    0.000932,
+    0.000705,
+    0.000685,
+    0.000797,
+    0.000762,
+    0.00195,
+    0.0006,
+    0.001964
+  ],
+  "test_labels": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ]
+}

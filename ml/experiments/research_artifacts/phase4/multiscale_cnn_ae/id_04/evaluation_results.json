@@ -1,0 +1,73 @@
+{
+  "machine_id": "id_04",
+  "arch_type": "multiscale_cnn_ae",
+  "train_duration_sec": 108.57,
+  "parameter_count": 567041,
+  "checkpoint_size_kb": 2239.0,
+  "threshold": 0.215107,
+  "latency": {
+    "cpu_mean_ms": 120.66,
+    "cpu_median_ms": 119.13,
+    "cpu_p95_ms": 132.0,
+    "cpu_min_ms": 109.89,
+    "cpu_max_ms": 134.76
+  },
+  "metrics": {
+    "n_normal": 3,
+    "n_abnormal": 15,
+    "total_samples": 18,
+    "threshold": 0.215107,
+    "roc_auc": 0.8889,
+    "pauc": 0.8596,
+    "precision": 0.8333,
+    "recall": 1.0,
+    "f1": 0.9091,
+    "fpr": 1.0,
+    "confusion_matrix": {
+      "tp": 15,
+      "fp": 3,
+      "tn": 0,
+      "fn": 0
+    }
+  },
+  "test_scores": [
+    0.263255,
+    0.228,
+    0.221533,
+    0.233297,
+    0.288673,
+    0.299711,
+    0.253053,
+    0.290624,
+    0.385859,
+    0.338697,
+    0.242041,
+    0.319705,
+    0.283637,
+    0.226983,
+    0.303635,
+    0.370952,
+    0.356645,
+    0.298172
+  ],
+  "test_labels": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "machine_id": "id_02",
+  "arch_type": "teacher_student_cnn",
+  "base_channels": 16,
+  "latent_dim": 64,
+  "train_mean": -2.39544415473938,
+  "train_std": 7.76528363092041,
+  "threshold": 0.000393,
+  "preset": "standard_64mel",
+  "training_metadata": {
+    "machine_id": "id_02",
+    "arch_type": "teacher_student_cnn",
+    "duration_sec": 8.64,
+    "best_val_loss": 0.00036,
+    "parameter_count": 55360
+  }
+}

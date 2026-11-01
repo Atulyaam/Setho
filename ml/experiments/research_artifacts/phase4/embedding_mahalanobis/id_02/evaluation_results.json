@@ -1,0 +1,73 @@
+{
+  "machine_id": "id_02",
+  "arch_type": "embedding_mahalanobis",
+  "train_duration_sec": 4.68,
+  "parameter_count": 1482,
+  "checkpoint_size_kb": 50.6,
+  "threshold": 144.461028,
+  "latency": {
+    "cpu_mean_ms": 373.26,
+    "cpu_median_ms": 321.35,
+    "cpu_p95_ms": 669.96,
+    "cpu_min_ms": 170.4,
+    "cpu_max_ms": 747.98
+  },
+  "metrics": {
+    "n_normal": 3,
+    "n_abnormal": 15,
+    "total_samples": 18,
+    "threshold": 144.461028,
+    "roc_auc": 1.0,
+    "pauc": 1.0,
+    "precision": 1.0,
+    "recall": 0.9333,
+    "f1": 0.9655,
+    "fpr": 0.0,
+    "confusion_matrix": {
+      "tp": 14,
+      "fp": 0,
+      "tn": 3,
+      "fn": 1
+    }
+  },
+  "test_scores": [
+    47.124109,
+    45.429109,
+    23.136189,
+    165.758079,
+    195.019418,
+    168.814835,
+    181.098183,
+    142.134436,
+    272.73449,
+    295.795769,
+    219.228462,
+    331.374159,
+    193.029928,
+    253.578998,
+    149.348397,
+    217.57079,
+    195.75719,
+    225.83738
+  ],
+  "test_labels": [
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ]
+}

@@ -98,3 +98,4 @@ Unit test verification in [`tests/unit/test_phase3_baselines.py`](file:///c:/Use
 - [x] Metrics independently recalculated and verified with scikit-learn.
 - [x] Existing production checkpoints in `ml/artifacts/` strictly unchanged.
 - [x] Experiment registry verified with telemetry and provenance.
+

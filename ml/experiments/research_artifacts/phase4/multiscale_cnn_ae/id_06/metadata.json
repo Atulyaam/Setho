@@ -1,0 +1,17 @@
+{
+  "machine_id": "id_06",
+  "arch_type": "multiscale_cnn_ae",
+  "base_channels": 16,
+  "latent_dim": 64,
+  "train_mean": -3.6824591159820557,
+  "train_std": 8.821314858032226,
+  "threshold": 0.252554,
+  "preset": "standard_64mel",
+  "training_metadata": {
+    "machine_id": "id_06",
+    "arch_type": "multiscale_cnn_ae",
+    "duration_sec": 167.37,
+    "best_val_loss": 0.23652,
+    "parameter_count": 567041
+  }
+}
