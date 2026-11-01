@@ -1,0 +1,78 @@
+{
+  "baseline_logmel64": {
+    "feature_extraction_ms": {
+      "mean": 4.43,
+      "median_p50": 4.57,
+      "p95": 5.85
+    },
+    "model_inference_ms": {
+      "mean": 77.15,
+      "median_p50": 76.38,
+      "p95": 96.68
+    },
+    "end_to_end_ms": {
+      "mean": 81.58,
+      "median_p50": 81.47,
+      "p95": 102.11
+    },
+    "throughput_clips_per_sec": 12.26,
+    "realtime_factor": 0.0082
+  },
+  "mfcc64": {
+    "feature_extraction_ms": {
+      "mean": 4.05,
+      "median_p50": 3.92,
+      "p95": 5.0
+    },
+    "model_inference_ms": {
+      "mean": 66.46,
+      "median_p50": 66.66,
+      "p95": 77.6
+    },
+    "end_to_end_ms": {
+      "mean": 70.51,
+      "median_p50": 70.32,
+      "p95": 82.38
+    },
+    "throughput_clips_per_sec": 14.18,
+    "realtime_factor": 0.0071
+  },
+  "logmel_spectral_fusion": {
+    "feature_extraction_ms": {
+      "mean": 36.67,
+      "median_p50": 36.87,
+      "p95": 42.94
+    },
+    "model_inference_ms": {
+      "mean": 78.83,
+      "median_p50": 79.86,
+      "p95": 88.21
+    },
+    "end_to_end_ms": {
+      "mean": 115.5,
+      "median_p50": 116.33,
+      "p95": 130.95
+    },
+    "throughput_clips_per_sec": 8.66,
+    "realtime_factor": 0.0116
+  },
+  "logmel_temporal_fusion": {
+    "feature_extraction_ms": {
+      "mean": 15.4,
+      "median_p50": 15.35,
+      "p95": 17.17
+    },
+    "model_inference_ms": {
+      "mean": 72.75,
+      "median_p50": 70.01,
+      "p95": 88.76
+    },
+    "end_to_end_ms": {
+      "mean": 88.15,
+      "median_p50": 85.8,
+      "p95": 103.95
+    },
+    "throughput_clips_per_sec": 11.34,
+    "realtime_factor": 0.0088
+  }
+}

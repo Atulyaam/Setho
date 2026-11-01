@@ -1,0 +1,113 @@
+{
+  "experiment_id": "sprint_7_6_e1_feature_ablation",
+  "sprint": "7.6",
+  "phase": "E1",
+  "date": "2026-11-01",
+  "git_branch": "research/sprint-7-6-balanced-improvements",
+  "base_commit": "e367a8e",
+  "objective": "Acoustic Feature Ablation: Evaluate baseline log-Mel vs MFCC vs Spectral Fusion vs Temporal Fusion",
+  "hardware": {
+    "device": "CPU",
+    "cpu_model": "Intel Core i7-12700H (14 cores / 20 threads)",
+    "ram_total_gb": 15.63,
+    "cuda_available": false,
+    "torch_version": "2.15.0+cpu"
+  },
+  "random_seed": 42,
+  "model_architecture": {
+    "name": "ResidualCNNAE",
+    "in_channels": 1,
+    "base_channels": 16,
+    "latent_dim": 64,
+    "norm_type": "group",
+    "input_size": [64, 64],
+    "parameter_count": 1808065
+  },
+  "training_hyperparameters": {
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "loss_criterion": "L1Loss",
+    "lr_scheduler": "CosineAnnealingLR",
+    "max_epochs": 15,
+    "batch_size": 8,
+    "early_stopping_patience": 4
+  },
+  "dataset": {
+    "machine_category": "fan",
+    "machine_ids": ["id_00", "id_02", "id_04", "id_06"],
+    "split_manifest_dir": "ml/data/splits/diverse_machine_specific/fan",
+    "samples_per_machine": {
+      "train_normal": 10,
+      "dev_normal": 2,
+      "test_normal": 3,
+      "test_abnormal": 15
+    },
+    "sample_rate": 16000,
+    "clip_duration_sec": 10.0
+  },
+  "feature_configurations": {
+    "baseline_logmel64": {
+      "name": "Standard 64-bin Log-Mel Baseline",
+      "type": "log_mel",
+      "n_fft": 1024,
+      "hop_length": 256,
+      "n_mels": 64,
+      "f_min": 50.0,
+      "f_max": 8000.0,
+      "patch_shape": [1, 64, 64],
+      "patch_time_frames": 64,
+      "patch_hop_frames": 32,
+      "description": "Standard 64-channel triangular log-Mel filterbank energies across 64 time frames"
+    },
+    "mfcc64": {
+      "name": "64-coefficient MFCC Representation",
+      "type": "mfcc_cepstrogram",
+      "n_fft": 1024,
+      "hop_length": 256,
+      "n_mels": 64,
+      "n_mfcc": 64,
+      "f_min": 50.0,
+      "f_max": 8000.0,
+      "patch_shape": [1, 64, 64],
+      "patch_time_frames": 64,
+      "patch_hop_frames": 32,
+      "description": "Type-II DCT over 64 log-Mel filterbanks yielding decorrelated cepstrogram patches"
+    },
+    "logmel_spectral_fusion": {
+      "name": "Log-Mel (60) + Justified Spectral Descriptors (4)",
+      "type": "spectral_fusion",
+      "n_fft": 1024,
+      "hop_length": 256,
+      "n_mels": 60,
+      "spectral_features": [
+        "spectral_centroid_norm",
+        "spectral_rolloff_85_norm",
+        "spectral_bandwidth_norm",
+        "spectral_flatness"
+      ],
+      "patch_shape": [1, 64, 64],
+      "patch_time_frames": 64,
+      "patch_hop_frames": 32,
+      "description": "60 log-Mel filterbank bins fused with 4 frame-level spectral moments (centroid, rolloff, bandwidth, flatness)"
+    },
+    "logmel_temporal_fusion": {
+      "name": "Log-Mel (60) + Temporal Acoustic Descriptors (4)",
+      "type": "temporal_fusion",
+      "n_fft": 1024,
+      "hop_length": 256,
+      "n_mels": 60,
+      "temporal_features": [
+        "short_time_rms_norm",
+        "zero_crossing_rate",
+        "crest_factor_norm",
+        "temporal_energy_flux_norm"
+      ],
+      "patch_shape": [1, 64, 64],
+      "patch_time_frames": 64,
+      "patch_hop_frames": 32,
+      "description": "60 log-Mel filterbank bins fused with 4 frame-level temporal dynamics (RMS energy, ZCR, crest factor, energy flux)"
+    }
+  }
+}
+
