@@ -1,0 +1,214 @@
+{
+  "metadata": {
+    "date": "2026-11-01",
+    "device": "CPU",
+    "cpu_model": "Intel Core i7-12700H",
+    "torch_version": "2.15.0+cpu",
+    "onnxruntime_version": "1.31.1",
+    "audio_clip_duration_sec": 10.0,
+    "sample_rate": 16000,
+    "num_iterations": 50
+  },
+  "models": {
+    "student_int8_onnx": {
+      "model_name": "Distilled Compact Student-AE (INT8 ONNX)",
+      "disk_size_kb": 43.74,
+      "loading_time_ms": 46.01,
+      "warmup_time_ms": 194.88,
+      "latency_ms": {
+        "mean": 37.34,
+        "median_p50": 36.33,
+        "p95": 38.74,
+        "min": 33.41,
+        "max": 65.19
+      },
+      "latency_breakdown_ms": {
+        "feature_extraction_mean": 5.71,
+        "model_inference_mean": 31.63,
+        "end_to_end_mean": 37.34
+      },
+      "memory_mb": {
+        "initial_rss": 314.62,
+        "peak_rss": 344.73,
+        "delta_rss": 30.11
+      },
+      "throughput_clips_per_sec": 26.78,
+      "realtime_factor": 0.0037
+    },
+    "student_fp32_onnx": {
+      "model_name": "Distilled Compact Student-AE (FP32 ONNX)",
+      "disk_size_kb": 96.32,
+      "loading_time_ms": 17.88,
+      "warmup_time_ms": 68.78,
+      "latency_ms": {
+        "mean": 12.35,
+        "median_p50": 12.23,
+        "p95": 14.19,
+        "min": 10.57,
+        "max": 17.51
+      },
+      "latency_breakdown_ms": {
+        "feature_extraction_mean": 5.55,
+        "model_inference_mean": 6.8,
+        "end_to_end_mean": 12.35
+      },
+      "memory_mb": {
+        "initial_rss": 333.82,
+        "peak_rss": 347.63,
+        "delta_rss": 13.8
+      },
+      "throughput_clips_per_sec": 80.96,
+      "realtime_factor": 0.0012
+    },
+    "student_pytorch": {
+      "model_name": "Distilled Compact Student-AE (PyTorch)",
+      "disk_size_kb": 93.6,
+      "loading_time_ms": 3.08,
+      "warmup_time_ms": 89.93,
+      "latency_ms": {
+        "mean": 15.38,
+        "median_p50": 13.94,
+        "p95": 20.88,
+        "min": 12.26,
+        "max": 45.78
+      },
+      "latency_breakdown_ms": {
+        "feature_extraction_mean": 5.24,
+        "model_inference_mean": 10.14,
+        "end_to_end_mean": 15.38
+      },
+      "memory_mb": {
+        "initial_rss": 334.15,
+        "peak_rss": 340.62,
+        "delta_rss": 6.48
+      },
+      "throughput_clips_per_sec": 65.0,
+      "realtime_factor": 0.0015
+    },
+    "resnet_ae_pytorch": {
+      "model_name": "Optimized ResNet-AE (PyTorch)",
+      "disk_size_kb": 7078.84,
+      "loading_time_ms": 48.78,
+      "warmup_time_ms": 550.68,
+      "latency_ms": {
+        "mean": 103.65,
+        "median_p50": 101.88,
+        "p95": 118.01,
+        "min": 88.8,
+        "max": 158.85
+      },
+      "latency_breakdown_ms": {
+        "feature_extraction_mean": 5.39,
+        "model_inference_mean": 98.26,
+        "end_to_end_mean": 103.65
+      },
+      "memory_mb": {
+        "initial_rss": 340.63,
+        "peak_rss": 370.3,
+        "delta_rss": 29.68
+      },
+      "throughput_clips_per_sec": 9.65,
+      "realtime_factor": 0.0104
+    },
+    "dense_autoencoder_pytorch": {
+      "model_name": "Dense Autoencoder (PyTorch)",
+      "disk_size_kb": 16977.8,
+      "loading_time_ms": 64.03,
+      "warmup_time_ms": 44.96,
+      "latency_ms": {
+        "mean": 8.54,
+        "median_p50": 8.47,
+        "p95": 9.88,
+        "min": 7.18,
+        "max": 10.93
+      },
+      "latency_breakdown_ms": {
+        "feature_extraction_mean": 18.0,
+        "model_inference_mean": 0.0,
+        "end_to_end_mean": 8.54
+      },
+      "memory_mb": {
+        "initial_rss": 370.3,
+        "peak_rss": 372.58,
+        "delta_rss": 2.27
+      },
+      "throughput_clips_per_sec": 117.08,
+      "realtime_factor": 0.0009
+    },
+    "stetho_msae_pytorch": {
+      "model_name": "Stetho-MSAE (PyTorch)",
+      "disk_size_kb": 2202.59,
+      "loading_time_ms": 37.83,
+      "warmup_time_ms": 563.56,
+      "latency_ms": {
+        "mean": 107.5,
+        "median_p50": 106.89,
+        "p95": 136.98,
+        "min": 86.41,
+        "max": 157.33
+      },
+      "latency_breakdown_ms": {
+        "feature_extraction_mean": 18.0,
+        "model_inference_mean": 89.5,
+        "end_to_end_mean": 107.5
+      },
+      "memory_mb": {
+        "initial_rss": 362.78,
+        "peak_rss": 390.14,
+        "delta_rss": 27.37
+      },
+      "throughput_clips_per_sec": 9.3,
+      "realtime_factor": 0.0107
+    },
+    "margin_gated_cascade": {
+      "model_name": "Margin-Gated Cascade (Hybrid)",
+      "disk_size_kb": 7172.4,
+      "loading_time_ms": 34.55,
+      "warmup_time_ms": 128.23,
+      "latency_ms": {
+        "mean": 27.05,
+        "median_p50": 25.34,
+        "p95": 34.37,
+        "min": 22.29,
+        "max": 72.56
+      },
+      "latency_breakdown_ms": {
+        "feature_extraction_mean": 16.0,
+        "model_inference_mean": 11.05,
+        "end_to_end_mean": 27.05
+      },
+      "memory_mb": {
+        "initial_rss": 390.14,
+        "peak_rss": 369.28,
+        "delta_rss": 0
+      },
+      "throughput_clips_per_sec": 36.98,
+      "realtime_factor": 0.0027
+    },
+    "multitask_resnet_ae": {
+      "model_name": "MultiTask ResNet-AE (PyTorch)",
+      "disk_size_kb": 7078.8,
+      "loading_time_ms": 42.71,
+      "warmup_time_ms": 488.86,
+      "latency_ms": {
+        "mean": 100.31,
+        "median_p50": 99.73,
+        "p95": 129.55,
+        "min": 40.43,
+        "max": 187.04
+      },
+      "latency_breakdown_ms": {
+        "feature_extraction_mean": 16.0,
+        "model_inference_mean": 84.31,
+        "end_to_end_mean": 100.31
+      },
+      "memory_mb": {
+        "initial_rss": 369.09,
+        "peak_rss": 374.13,
+        "delta_rss": 5.04
+      },
+      "throughput_clips_per_sec": 9.97,
+      "realtime_factor": 0.01
+    }
+  }
+}

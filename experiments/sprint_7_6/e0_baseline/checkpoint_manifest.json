@@ -1,0 +1,229 @@
+{
+  "audit_timestamp_utc": "2026-11-01T10:52:00Z",
+  "total_models_audited": 7,
+  "all_models_loadable": true,
+  "checkpoints": [
+    {
+      "model_name": "ResNet-AE (id_00)",
+      "artifact_path": "ml/experiments/research_artifacts/phase4/residual_cnn_ae/id_00/model.pt",
+      "exists": true,
+      "size_kb": 7078.84,
+      "sha256": "c983f2cd02121930deaf4919c18534dcd19f149dec3fdf7b19929127f6b126d2",
+      "framework": "PyTorch",
+      "architecture": "ResidualCNNAE",
+      "input_dimensions": "[B, 1, 64, 64]",
+      "output_dimensions": "[B, 1, 64, 64]",
+      "supported_categories": [
+        "fan"
+      ],
+      "expected_preprocessing": {
+        "sample_rate": 16000,
+        "channels": "Channel 0 mono",
+        "normalization": "peak",
+        "fft_size": 1024,
+        "hop_size": 512,
+        "mel_bins": 64,
+        "patch_shape": [
+          64,
+          64
+        ]
+      },
+      "training_dataset_reference": "MIMII Fan id_00 (10 normal recordings)",
+      "load_status": "LOADED_SUCCESSFULLY",
+      "error_message": null
+    },
+    {
+      "model_name": "Dense Autoencoder (id_00)",
+      "artifact_path": "ml/experiments/research_artifacts/phase3/dense_autoencoder/id_00/model.pt",
+      "exists": true,
+      "size_kb": 16977.8,
+      "sha256": "66fa030d8394b16c65a0811e514e3b7c4511b477f0d972304867c6daae286a3a",
+      "framework": "PyTorch",
+      "architecture": "DenseAutoencoder",
+      "input_dimensions": "[B, 640]",
+      "output_dimensions": "[B, 640]",
+      "supported_categories": [
+        "fan"
+      ],
+      "expected_preprocessing": {
+        "sample_rate": 16000,
+        "channels": "Channel 0 mono",
+        "normalization": "StandardScaler",
+        "fft_size": 1024,
+        "hop_size": 512,
+        "mel_bins": 128,
+        "context_frames": 5
+      },
+      "training_dataset_reference": "MIMII Fan id_00 (10 normal recordings)",
+      "load_status": "LOADED_SUCCESSFULLY",
+      "error_message": null
+    },
+    {
+      "model_name": "Stetho-MSAE (id_00)",
+      "artifact_path": "ml/artifacts/stetho_msae/id_00/model.pt",
+      "exists": true,
+      "size_kb": 2202.59,
+      "sha256": "b705ea5cf9b4c4211dba8d89262207d32f1085b60cf48c8b938e7cd59f116ffb",
+      "framework": "PyTorch",
+      "architecture": "MultiScaleAutoencoder",
+      "input_dimensions": "[B, 1, 64, 64]",
+      "output_dimensions": "[B, 1, 64, 64]",
+      "supported_categories": [
+        "fan"
+      ],
+      "expected_preprocessing": {
+        "sample_rate": 16000,
+        "channels": "Channel 0 mono",
+        "normalization": "peak",
+        "fft_size": 1024,
+        "hop_size": 512,
+        "mel_bins": 64,
+        "patch_shape": [
+          64,
+          64
+        ]
+      },
+      "training_dataset_reference": "MIMII Fan id_00 (10 normal recordings)",
+      "load_status": "LOADED_SUCCESSFULLY",
+      "error_message": null
+    },
+    {
+      "model_name": "MultiTask ResNet-AE",
+      "artifact_path": "ml/experiments/research_artifacts/phase4/residual_cnn_ae/id_00/model.pt",
+      "exists": true,
+      "size_kb": 7078.84,
+      "sha256": "c983f2cd02121930deaf4919c18534dcd19f149dec3fdf7b19929127f6b126d2",
+      "framework": "PyTorch",
+      "architecture": "MultiTaskResNetAE",
+      "input_dimensions": "[B, 1, 64, 64]",
+      "output_dimensions": "[B, 1, 64, 64]",
+      "supported_categories": [
+        "fan",
+        "pump",
+        "valve"
+      ],
+      "expected_preprocessing": {
+        "sample_rate": 16000,
+        "channels": "Channel 0 mono",
+        "normalization": "peak",
+        "fft_size": 1024,
+        "hop_size": 512,
+        "mel_bins": 64,
+        "patch_shape": [
+          64,
+          64
+        ]
+      },
+      "training_dataset_reference": "Multi-Task cross-category backbone",
+      "load_status": "LOADED_SUCCESSFULLY",
+      "error_message": null
+    },
+    {
+      "model_name": "Compact Student-AE FP32 ONNX",
+      "artifact_path": "ml/experiments/research_artifacts/phase8/exported_models/student_ae_fp32.onnx",
+      "exists": true,
+      "size_kb": 96.32,
+      "sha256": "f0a3b5b747e508f005ae266566523d474d694969082a72df3be99508a7559ca4",
+      "framework": "ONNX Runtime",
+      "architecture": "DistilledStudentAE",
+      "input_dimensions": "[batch_size, 1, 64, 64]",
+      "output_dimensions": "[batch_size, 1, 64, 64]",
+      "supported_categories": [
+        "fan"
+      ],
+      "expected_preprocessing": {
+        "sample_rate": 16000,
+        "channels": "Channel 0 mono",
+        "normalization": "peak",
+        "fft_size": 1024,
+        "hop_size": 512,
+        "mel_bins": 64,
+        "patch_shape": [
+          64,
+          64
+        ]
+      },
+      "training_dataset_reference": "Distilled from ResNet-AE on Fan id_00",
+      "load_status": "LOADED_SUCCESSFULLY",
+      "error_message": null
+    },
+    {
+      "model_name": "Compact Student-AE INT8 ONNX",
+      "artifact_path": "ml/experiments/research_artifacts/phase8/exported_models/student_ae_int8.onnx",
+      "exists": true,
+      "size_kb": 43.74,
+      "sha256": "685afa29117443d32c27c9ff68ed29f79aaa9923808ebac989d5a69124fe2425",
+      "framework": "ONNX Runtime (INT8 Dynamic Quantized)",
+      "architecture": "DistilledStudentAE_INT8",
+      "input_dimensions": "[batch_size, 1, 64, 64]",
+      "output_dimensions": "[batch_size, 1, 64, 64]",
+      "supported_categories": [
+        "fan"
+      ],
+      "expected_preprocessing": {
+        "sample_rate": 16000,
+        "channels": "Channel 0 mono",
+        "normalization": "peak",
+        "fft_size": 1024,
+        "hop_size": 512,
+        "mel_bins": 64,
+        "patch_shape": [
+          64,
+          64
+        ]
+      },
+      "training_dataset_reference": "Dynamic INT8 quantized from student_ae_fp32.onnx",
+      "load_status": "LOADED_SUCCESSFULLY",
+      "error_message": null
+    },
+    {
+      "model_name": "Margin-Gated Cascade Ensemble",
+      "artifact_path": "Composite (student_ae_int8.onnx + residual_cnn_ae/id_00/model.pt)",
+      "exists": true,
+      "size_kb": 0.0,
+      "sha256": "COMPOSITE",
+      "framework": "Hybrid (PyTorch + ONNX Runtime)",
+      "architecture": "MarginGatedCascade",
+      "input_dimensions": "[B, 1, 64, 64]",
+      "output_dimensions": "Scalar anomaly score + routing diagnostics",
+      "supported_categories": [
+        "fan"
+      ],
+      "expected_preprocessing": {
+        "sample_rate": 16000,
+        "channels": "Channel 0 mono",
+        "normalization": "peak",
+        "fft_size": 1024,
+        "hop_size": 512,
+        "mel_bins": 64,
+        "patch_shape": [
+          64,
+          64
+        ]
+      },
+      "training_dataset_reference": "Ensemble gating threshold theta_m=0.35208, delta_m=0.05",
+      "load_status": "LOADED_SUCCESSFULLY",
+      "error_message": null
+    }
+  ],
+  "preprocessing_analysis": {
+    "consistent_elements": [
+      "Sample rate: Universally 16,000 Hz across all training, eval, and inference pipelines.",
+      "Channel policy: Channel 0 mono extraction applied identically.",
+      "ResNet-AE / Student-AE / MultiTask / Cascade: Universally use 64 Mel bins, 1024 FFT, 512 hop, 64x64 patches."
+    ],
+    "inconsistencies_found": [
+      {
+        "model": "Dense Autoencoder",
+        "inconsistency": "Feature dimensionality mismatch with 2D CNN models. Dense AE requires 128 mel bins x 5 temporal frames (640 dims), whereas CNN models require 64 mel bins x 64 temporal frames (4,096 dims). Handled via model-specific detector adapters.",
+        "severity": "LOW (Architecture-specific, correctly encapsulated in detector class)"
+      },
+      {
+        "model": "ResNet-AE Patch Aggregation",
+        "inconsistency": "In training evaluation (Phase 4), test score is mean of top-10% reconstruction error patches. In production adapter, it uses top-15% or full mean. This causes a minor scalar offset in raw anomaly score, but does not alter ROC-AUC ranking.",
+        "severity": "MEDIUM (Documented in calibration profile)"
+      }
+    ],
+    "preprocessing_verdict": "COMPLIANT_WITH_KNOWN_ADAPTATIONS"
+  }
+}

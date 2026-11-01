@@ -1,0 +1,179 @@
+{
+  "audit_timestamp_utc": "2026-11-01T10:48:04Z",
+  "total_recordings_evaluated": 360,
+  "total_size_bytes": 921628800,
+  "total_size_mb": 878.93,
+  "categories": [
+    "fan",
+    "pump",
+    "valve"
+  ],
+  "machine_ids": [
+    "id_00",
+    "id_02",
+    "id_04",
+    "id_06"
+  ],
+  "class_distribution": {
+    "fan": {
+      "id_00": {
+        "normal": 15,
+        "abnormal": 15,
+        "total": 30
+      },
+      "id_02": {
+        "normal": 15,
+        "abnormal": 15,
+        "total": 30
+      },
+      "id_04": {
+        "normal": 15,
+        "abnormal": 15,
+        "total": 30
+      },
+      "id_06": {
+        "normal": 15,
+        "abnormal": 15,
+        "total": 30
+      }
+    },
+    "pump": {
+      "id_00": {
+        "normal": 15,
+        "abnormal": 15,
+        "total": 30
+      },
+      "id_02": {
+        "normal": 15,
+        "abnormal": 15,
+        "total": 30
+      },
+      "id_04": {
+        "normal": 15,
+        "abnormal": 15,
+        "total": 30
+      },
+      "id_06": {
+        "normal": 15,
+        "abnormal": 15,
+        "total": 30
+      }
+    },
+    "valve": {
+      "id_00": {
+        "normal": 15,
+        "abnormal": 15,
+        "total": 30
+      },
+      "id_02": {
+        "normal": 15,
+        "abnormal": 15,
+        "total": 30
+      },
+      "id_04": {
+        "normal": 15,
+        "abnormal": 15,
+        "total": 30
+      },
+      "id_06": {
+        "normal": 15,
+        "abnormal": 15,
+        "total": 30
+      }
+    }
+  },
+  "splits_summary": {
+    "fan": {
+      "id_00": {
+        "train_normal": 10,
+        "dev_normal": 2,
+        "test": 18
+      },
+      "id_02": {
+        "train_normal": 10,
+        "dev_normal": 2,
+        "test": 18
+      },
+      "id_04": {
+        "train_normal": 10,
+        "dev_normal": 2,
+        "test": 18
+      },
+      "id_06": {
+        "train_normal": 10,
+        "dev_normal": 2,
+        "test": 18
+      }
+    },
+    "pump": {
+      "id_00": {
+        "train_normal": 10,
+        "dev_normal": 2,
+        "test": 18
+      },
+      "id_02": {
+        "train_normal": 10,
+        "dev_normal": 2,
+        "test": 18
+      },
+      "id_04": {
+        "train_normal": 10,
+        "dev_normal": 2,
+        "test": 18
+      },
+      "id_06": {
+        "train_normal": 10,
+        "dev_normal": 2,
+        "test": 18
+      }
+    },
+    "valve": {
+      "id_00": {
+        "train_normal": 10,
+        "dev_normal": 2,
+        "test": 18
+      },
+      "id_02": {
+        "train_normal": 10,
+        "dev_normal": 2,
+        "test": 18
+      },
+      "id_04": {
+        "train_normal": 10,
+        "dev_normal": 2,
+        "test": 18
+      },
+      "id_06": {
+        "train_normal": 10,
+        "dev_normal": 2,
+        "test": 18
+      }
+    }
+  },
+  "sampling_rates_found": [
+    16000
+  ],
+  "channel_counts_found": [
+    8
+  ],
+  "durations_found_sec": {
+    "min": 10.0,
+    "max": 10.0,
+    "mean": 10.0
+  },
+  "exact_duplicates_count": 0,
+  "near_duplicates_count": 0,
+  "near_duplicates": [],
+  "quarantined_recordings_count": 0,
+  "quarantined_recordings": [],
+  "clipping_recordings_count": 0,
+  "silent_recordings_count": 0,
+  "decoding_errors_count": 0,
+  "dataset_size_assessment": {
+    "total_files": 360,
+    "normal_files": 180,
+    "abnormal_files": 180,
+    "is_statistically_sound": false,
+    "statistical_warning": "CRITICAL WARNING: The physical dataset contains only 360 recordings (120 per category, 30 per machine: 15 normal, 15 abnormal). In historical machine-specific splits, the test set consists of only 3 normal and 15 abnormal clips per machine. A single misclassification shifts ROC-AUC by up to 0.05-0.10. Results on this benchmark cannot claim industrial-grade reliability."
+  }
+}

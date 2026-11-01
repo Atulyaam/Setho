@@ -1,0 +1,370 @@
+{
+  "protocols_audited": {
+    "Protocol_A_diverse_machine_specific": {
+      "fan": {
+        "id_00": {
+          "train_count": 10,
+          "dev_count": 2,
+          "test_count": 18,
+          "test_normal_count": 3,
+          "test_abnormal_count": 15,
+          "has_overlap": false,
+          "abnormal_in_train": [],
+          "abnormal_in_dev": []
+        },
+        "id_02": {
+          "train_count": 10,
+          "dev_count": 2,
+          "test_count": 18,
+          "test_normal_count": 3,
+          "test_abnormal_count": 15,
+          "has_overlap": false,
+          "abnormal_in_train": [],
+          "abnormal_in_dev": []
+        },
+        "id_04": {
+          "train_count": 10,
+          "dev_count": 2,
+          "test_count": 18,
+          "test_normal_count": 3,
+          "test_abnormal_count": 15,
+          "has_overlap": false,
+          "abnormal_in_train": [],
+          "abnormal_in_dev": []
+        },
+        "id_06": {
+          "train_count": 10,
+          "dev_count": 2,
+          "test_count": 18,
+          "test_normal_count": 3,
+          "test_abnormal_count": 15,
+          "has_overlap": false,
+          "abnormal_in_train": [],
+          "abnormal_in_dev": []
+        }
+      },
+      "pump": {
+        "id_00": {
+          "train_count": 10,
+          "dev_count": 2,
+          "test_count": 18,
+          "test_normal_count": 3,
+          "test_abnormal_count": 15,
+          "has_overlap": false,
+          "abnormal_in_train": [],
+          "abnormal_in_dev": []
+        },
+        "id_02": {
+          "train_count": 10,
+          "dev_count": 2,
+          "test_count": 18,
+          "test_normal_count": 3,
+          "test_abnormal_count": 15,
+          "has_overlap": false,
+          "abnormal_in_train": [],
+          "abnormal_in_dev": []
+        },
+        "id_04": {
+          "train_count": 10,
+          "dev_count": 2,
+          "test_count": 18,
+          "test_normal_count": 3,
+          "test_abnormal_count": 15,
+          "has_overlap": false,
+          "abnormal_in_train": [],
+          "abnormal_in_dev": []
+        },
+        "id_06": {
+          "train_count": 10,
+          "dev_count": 2,
+          "test_count": 18,
+          "test_normal_count": 3,
+          "test_abnormal_count": 15,
+          "has_overlap": false,
+          "abnormal_in_train": [],
+          "abnormal_in_dev": []
+        }
+      },
+      "valve": {
+        "id_00": {
+          "train_count": 10,
+          "dev_count": 2,
+          "test_count": 18,
+          "test_normal_count": 3,
+          "test_abnormal_count": 15,
+          "has_overlap": false,
+          "abnormal_in_train": [],
+          "abnormal_in_dev": []
+        },
+        "id_02": {
+          "train_count": 10,
+          "dev_count": 2,
+          "test_count": 18,
+          "test_normal_count": 3,
+          "test_abnormal_count": 15,
+          "has_overlap": false,
+          "abnormal_in_train": [],
+          "abnormal_in_dev": []
+        },
+        "id_04": {
+          "train_count": 10,
+          "dev_count": 2,
+          "test_count": 18,
+          "test_normal_count": 3,
+          "test_abnormal_count": 15,
+          "has_overlap": false,
+          "abnormal_in_train": [],
+          "abnormal_in_dev": []
+        },
+        "id_06": {
+          "train_count": 10,
+          "dev_count": 2,
+          "test_count": 18,
+          "test_normal_count": 3,
+          "test_abnormal_count": 15,
+          "has_overlap": false,
+          "abnormal_in_train": [],
+          "abnormal_in_dev": []
+        }
+      }
+    },
+    "Protocol_B_unseen_machine": {
+      "fan": {
+        "id_00": {
+          "train_count": 30,
+          "test_count": 18,
+          "train_machines": [
+            "id_02",
+            "id_04",
+            "id_06"
+          ],
+          "heldout_machine_in_train": false,
+          "file_overlap": []
+        },
+        "id_02": {
+          "train_count": 30,
+          "test_count": 18,
+          "train_machines": [
+            "id_00",
+            "id_04",
+            "id_06"
+          ],
+          "heldout_machine_in_train": false,
+          "file_overlap": []
+        },
+        "id_04": {
+          "train_count": 30,
+          "test_count": 18,
+          "train_machines": [
+            "id_00",
+            "id_02",
+            "id_06"
+          ],
+          "heldout_machine_in_train": false,
+          "file_overlap": []
+        },
+        "id_06": {
+          "train_count": 30,
+          "test_count": 18,
+          "train_machines": [
+            "id_00",
+            "id_02",
+            "id_04"
+          ],
+          "heldout_machine_in_train": false,
+          "file_overlap": []
+        }
+      },
+      "pump": {
+        "id_00": {
+          "train_count": 30,
+          "test_count": 18,
+          "train_machines": [
+            "id_02",
+            "id_04",
+            "id_06"
+          ],
+          "heldout_machine_in_train": false,
+          "file_overlap": []
+        },
+        "id_02": {
+          "train_count": 30,
+          "test_count": 18,
+          "train_machines": [
+            "id_00",
+            "id_04",
+            "id_06"
+          ],
+          "heldout_machine_in_train": false,
+          "file_overlap": []
+        },
+        "id_04": {
+          "train_count": 30,
+          "test_count": 18,
+          "train_machines": [
+            "id_00",
+            "id_02",
+            "id_06"
+          ],
+          "heldout_machine_in_train": false,
+          "file_overlap": []
+        },
+        "id_06": {
+          "train_count": 30,
+          "test_count": 18,
+          "train_machines": [
+            "id_00",
+            "id_02",
+            "id_04"
+          ],
+          "heldout_machine_in_train": false,
+          "file_overlap": []
+        }
+      },
+      "valve": {
+        "id_00": {
+          "train_count": 30,
+          "test_count": 18,
+          "train_machines": [
+            "id_02",
+            "id_04",
+            "id_06"
+          ],
+          "heldout_machine_in_train": false,
+          "file_overlap": []
+        },
+        "id_02": {
+          "train_count": 30,
+          "test_count": 18,
+          "train_machines": [
+            "id_00",
+            "id_04",
+            "id_06"
+          ],
+          "heldout_machine_in_train": false,
+          "file_overlap": []
+        },
+        "id_04": {
+          "train_count": 30,
+          "test_count": 18,
+          "train_machines": [
+            "id_00",
+            "id_02",
+            "id_06"
+          ],
+          "heldout_machine_in_train": false,
+          "file_overlap": []
+        },
+        "id_06": {
+          "train_count": 30,
+          "test_count": 18,
+          "train_machines": [
+            "id_00",
+            "id_02",
+            "id_04"
+          ],
+          "heldout_machine_in_train": false,
+          "file_overlap": []
+        }
+      }
+    },
+    "Protocol_C_cross_category": {
+      "fan_to_pump": {
+        "train_count": 40,
+        "test_count": 72,
+        "train_categories": [
+          "fan"
+        ],
+        "test_categories": [
+          "pump"
+        ],
+        "category_leakage": false,
+        "file_overlap": []
+      },
+      "fan_to_valve": {
+        "train_count": 40,
+        "test_count": 72,
+        "train_categories": [
+          "fan"
+        ],
+        "test_categories": [
+          "valve"
+        ],
+        "category_leakage": false,
+        "file_overlap": []
+      },
+      "pump_to_fan": {
+        "train_count": 40,
+        "test_count": 72,
+        "train_categories": [
+          "pump"
+        ],
+        "test_categories": [
+          "fan"
+        ],
+        "category_leakage": false,
+        "file_overlap": []
+      },
+      "pump_to_valve": {
+        "train_count": 40,
+        "test_count": 72,
+        "train_categories": [
+          "pump"
+        ],
+        "test_categories": [
+          "valve"
+        ],
+        "category_leakage": false,
+        "file_overlap": []
+      },
+      "valve_to_fan": {
+        "train_count": 40,
+        "test_count": 72,
+        "train_categories": [
+          "valve"
+        ],
+        "test_categories": [
+          "fan"
+        ],
+        "category_leakage": false,
+        "file_overlap": []
+      },
+      "valve_to_pump": {
+        "train_count": 40,
+        "test_count": 72,
+        "train_categories": [
+          "valve"
+        ],
+        "test_categories": [
+          "pump"
+        ],
+        "category_leakage": false,
+        "file_overlap": []
+      }
+    }
+  },
+  "exact_duplicates_across_splits": [],
+  "near_duplicates_across_splits": [],
+  "session_leakage_findings": {},
+  "normalization_leakage_audit": {
+    "scaler_used": "ml.preprocessing.feature_suite.FeatureScaler",
+    "scaler_fit_location": "train_pipeline.py line ~95",
+    "code_behavior": "scaler.fit() is called strictly on train_features array prior to transforming dev/test.",
+    "test_data_in_scaler_fit": false,
+    "verdict": "LEAKAGE_FREE"
+  },
+  "threshold_selection_leakage_audit": {
+    "statistical_threshold_selection": "CalibrationEngine uses enrolled normal recordings (train/dev normal)",
+    "historical_roc_auc_calculation": "ROC-AUC is calculated using sklearn.metrics.roc_auc_score(y_test, raw_scores)",
+    "test_set_used_to_tune_weights": false,
+    "test_set_used_to_pick_threshold": false,
+    "verdict": "LEAKAGE_FREE"
+  },
+  "calibration_leakage_audit": {
+    "calibration_sample_source": "Normal recordings from train_normal.csv (first 10 samples)",
+    "abnormal_recordings_in_calibration": false,
+    "test_recordings_in_calibration": false,
+    "verdict": "LEAKAGE_FREE"
+  },
+  "overall_split_integrity_verdict": "SECURE"
+}

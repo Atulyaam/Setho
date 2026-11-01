@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "experiment_id": "e0_smoke_test",
+    "timestamp": "2026-11-01T11:08:11.974769+00:00",
+    "git_commit": "2a76efb454af9f54028dcc17b78e70cbec84864a",
+    "dataset_manifest_hash": "30228fe11ec868b836e6969040a27686e03785dcc8d2c36c045a0766e392b80f",
+    "seed": 42,
+    "model_type": "resnet_ae",
+    "environment": {
+      "python": "3.11.9",
+      "torch": "2.15.0+cpu",
+      "cuda_available": false,
+      "os": "nt",
+      "cpu_count": 20
+    }
+  },
+  "macro_roc_auc": 0.8,
+  "per_machine": {
+    "id_00": {
+      "roc_auc": 1.0,
+      "n_normal": 3,
+      "n_abnormal": 15,
+      "mean_latency_ms": 118.79,
+      "p50_latency_ms": 117.73
+    },
+    "id_02": {
+      "roc_auc": 1.0,
+      "n_normal": 3,
+      "n_abnormal": 15,
+      "mean_latency_ms": 121.49,
+      "p50_latency_ms": 119.95
+    },
+    "id_04": {
+      "roc_auc": 0.5778,
+      "n_normal": 3,
+      "n_abnormal": 15,
+      "mean_latency_ms": 123.84,
+      "p50_latency_ms": 121.84
+    },
+    "id_06": {
+      "roc_auc": 0.6222,
+      "n_normal": 3,
+      "n_abnormal": 15,
+      "mean_latency_ms": 119.15,
+      "p50_latency_ms": 121.0
+    }
+  }
+}
