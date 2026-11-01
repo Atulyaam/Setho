@@ -1,0 +1,99 @@
+{
+  "experiment_id": "sprint_7_6_e3_unseen_machine",
+  "title": "Sprint 7.6 / E3: Unseen-Machine Generalization & Few-Shot Calibration",
+  "created_at_utc": "2026-11-01T13:52:00Z",
+  "hardware": {
+    "device": "cpu",
+    "threads": 8,
+    "cuda_available": false,
+    "processor": "Intel(R) Core(TM) i7-10700 CPU @ 2.90GHz"
+  },
+  "dataset": {
+    "benchmark": "MIMII 1.0 Fan",
+    "category": "fan",
+    "machine_ids": ["id_00", "id_02", "id_04", "id_06"],
+    "evaluation_protocol": "leave-one-machine-ID-out",
+    "num_folds": 4,
+    "per_fold_counts": {
+      "training_known_machines": 30,
+      "dev_known_machines": 6,
+      "few_shot_enrollment_heldout": 10,
+      "test_heldout_total": 18,
+      "test_heldout_normal": 3,
+      "test_heldout_abnormal": 15
+    }
+  },
+  "feature_representation": {
+    "preset": "standard_64mel",
+    "sample_rate": 16000,
+    "n_fft": 1024,
+    "win_length": 1024,
+    "hop_length": 256,
+    "n_mels": 64,
+    "windowing": {
+      "spec_window_frames": 64,
+      "spec_hop_frames": 32
+    }
+  },
+  "architecture": {
+    "name": "ResidualCNNAE",
+    "in_channels": 1,
+    "base_channels": 16,
+    "latent_dim": 64,
+    "norm_type": "group",
+    "num_groups": 8,
+    "total_parameters": 1808065
+  },
+  "models_evaluated": {
+    "baseline_l1": {
+      "name": "L1 Reconstruction Loss Baseline",
+      "loss_type": "l1",
+      "loss_param": null,
+      "optimizer": "AdamW",
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001
+    },
+    "loss_smooth_l1": {
+      "name": "Huber / Smooth L1 Loss (beta=0.1) Champion",
+      "loss_type": "smooth_l1",
+      "loss_param": { "beta": 0.1 },
+      "optimizer": "AdamW",
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001
+    }
+  },
+  "training": {
+    "max_epochs": 15,
+    "batch_size": 32,
+    "early_stopping_patience": 4,
+    "scheduler": "CosineAnnealingLR",
+    "random_seeds": [42, 123, 777]
+  },
+  "folds": {
+    "heldout_id_00": {
+      "heldout_machine": "id_00",
+      "train_machines": ["id_02", "id_04", "id_06"]
+    },
+    "heldout_id_02": {
+      "heldout_machine": "id_02",
+      "train_machines": ["id_00", "id_04", "id_06"]
+    },
+    "heldout_id_04": {
+      "heldout_machine": "id_04",
+      "train_machines": ["id_00", "id_02", "id_06"]
+    },
+    "heldout_id_06": {
+      "heldout_machine": "id_06",
+      "train_machines": ["id_00", "id_02", "id_04"]
+    }
+  },
+  "few_shot_calibration": {
+    "n_shots": 10,
+    "methods": [
+      "threshold_recalibration",
+      "mean_var_residual"
+    ],
+    "target_quantile": 0.95
+  }
+}
+

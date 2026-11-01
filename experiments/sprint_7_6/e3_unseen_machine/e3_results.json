@@ -1,0 +1,195 @@
+{
+  "baseline_l1": {
+    "name": "Baseline L1 loss",
+    "zero_shot": {
+      "roc_auc": {
+        "mean": 0.5463,
+        "std": 0.0402,
+        "ci95_half": 0.0999,
+        "per_seed": [
+          0.499975,
+          0.5722250000000001,
+          0.566675
+        ]
+      },
+      "pr_auc": {
+        "mean": 0.8805,
+        "std": 0.0153,
+        "ci95_half": 0.038,
+        "per_seed": [
+          0.8629,
+          0.888575,
+          0.89015
+        ]
+      },
+      "f1": {
+        "mean": 0.579,
+        "std": 0.0124,
+        "ci95_half": 0.0307,
+        "per_seed": [
+          0.5686249999999999,
+          0.575725,
+          0.5926750000000001
+        ]
+      }
+    },
+    "few_shot_threshold_recalibration": {
+      "f1": {
+        "mean": 0.2772,
+        "std": 0.0199,
+        "ci95_half": 0.0495,
+        "per_seed": [
+          0.288675,
+          0.288675,
+          0.254175
+        ]
+      },
+      "mean_cal_time_s": 0.565
+    },
+    "few_shot_whitened": {
+      "roc_auc": {
+        "mean": 0.7019,
+        "std": 0.041,
+        "ci95_half": 0.1018,
+        "per_seed": [
+          0.6555500000000001,
+          0.7166750000000001,
+          0.7333500000000001
+        ]
+      },
+      "pr_auc": {
+        "mean": 0.9257,
+        "std": 0.0138,
+        "ci95_half": 0.0344,
+        "per_seed": [
+          0.91005,
+          0.9307,
+          0.936325
+        ]
+      },
+      "f1": {
+        "mean": 0.4343,
+        "std": 0.0701,
+        "ci95_half": 0.1742,
+        "per_seed": [
+          0.5103,
+          0.37210000000000004,
+          0.42050000000000004
+        ]
+      },
+      "mean_cal_time_s": 0.5696
+    },
+    "mean_train_duration_s": 92.31
+  },
+  "loss_smooth_l1": {
+    "name": "Huber / Smooth L1 loss (beta=0.1)",
+    "zero_shot": {
+      "roc_auc": {
+        "mean": 0.5833,
+        "std": 0.0192,
+        "ci95_half": 0.0478,
+        "per_seed": [
+          0.572225,
+          0.572225,
+          0.60555
+        ]
+      },
+      "pr_auc": {
+        "mean": 0.894,
+        "std": 0.0077,
+        "ci95_half": 0.019,
+        "per_seed": [
+          0.8952749999999999,
+          0.8858250000000001,
+          0.901
+        ]
+      },
+      "f1": {
+        "mean": 0.6177,
+        "std": 0.0296,
+        "ci95_half": 0.0735,
+        "per_seed": [
+          0.608225,
+          0.59395,
+          0.6508
+        ]
+      }
+    },
+    "few_shot_threshold_recalibration": {
+      "f1": {
+        "mean": 0.2646,
+        "std": 0.0445,
+        "ci95_half": 0.1106,
+        "per_seed": [
+          0.22915,
+          0.25,
+          0.314575
+        ]
+      },
+      "mean_cal_time_s": 0.6764
+    },
+    "few_shot_whitened": {
+      "roc_auc": {
+        "mean": 0.7426,
+        "std": 0.0306,
+        "ci95_half": 0.076,
+        "per_seed": [
+          0.7722249999999999,
+          0.711125,
+          0.744425
+        ]
+      },
+      "pr_auc": {
+        "mean": 0.9397,
+        "std": 0.0097,
+        "ci95_half": 0.0241,
+        "per_seed": [
+          0.950375,
+          0.93135,
+          0.9374250000000001
+        ]
+      },
+      "f1": {
+        "mean": 0.4903,
+        "std": 0.0177,
+        "ci95_half": 0.044,
+        "per_seed": [
+          0.47695,
+          0.48362499999999997,
+          0.5104
+        ]
+      },
+      "mean_cal_time_s": 0.641
+    },
+    "mean_train_duration_s": 108.94
+  },
+  "telemetry": {
+    "hardware": {
+      "device": "cpu",
+      "threads": 8,
+      "cuda_available": false
+    },
+    "latency_profile": {
+      "feature_extraction_ms": {
+        "p50": 3.64,
+        "p95": 4.81
+      },
+      "model_inference_ms": {
+        "mean": 65.24,
+        "median_p50": 64.19,
+        "p95": 76.17
+      },
+      "end_to_end_ms": {
+        "mean": 68.93,
+        "median_p50": 68.0,
+        "p95": 79.91
+      },
+      "throughput_clips_per_sec": 14.7,
+      "realtime_factor": 0.0068
+    },
+    "memory_profile_mb": {
+      "initial_rss": 321.89,
+      "peak_rss": 199.15
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "enrollment_shots": 10,
+  "enrollment_source": "held-out machine normal training clips (strictly disjoint from test)",
+  "models": {
+    "baseline_l1": {
+      "zero_shot_auc": 0.5463,
+      "zero_shot_f1": 0.579,
+      "few_shot_thresh_f1": 0.2772,
+      "few_shot_white_auc": 0.7019,
+      "few_shot_white_f1": 0.4343,
+      "delta_auc_few_shot_whitened": 0.1556,
+      "delta_f1_few_shot_whitened": -0.1447,
+      "calibration_time_s": 0.5696
+    },
+    "loss_smooth_l1": {
+      "zero_shot_auc": 0.5833,
+      "zero_shot_f1": 0.6177,
+      "few_shot_thresh_f1": 0.2646,
+      "few_shot_white_auc": 0.7426,
+      "few_shot_white_f1": 0.4903,
+      "delta_auc_few_shot_whitened": 0.1593,
+      "delta_f1_few_shot_whitened": -0.1274,
+      "calibration_time_s": 0.641
+    }
+  }
+}
