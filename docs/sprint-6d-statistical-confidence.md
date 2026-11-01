@@ -105,3 +105,4 @@ Evaluating machine-level ranking capability across calibration budgets (reported
 
 1. **Deploy with $N=10$ Normal Recordings:** While $N=5$ can achieve 0.9111 ROC-AUC under favorable draws, $N=10$ is the statistically recommended operational standard, delivering tight bounded performance ($0.8678 \pm 0.0220$) in only **2.14 seconds** of calibration time.
 2. **Targeted Calibration for Irregular Units:** For physical units with high-frequency harmonic profiles similar to `id_06`, the multi-task base model should be employed as the backbone rather than single-task ResNet.
+

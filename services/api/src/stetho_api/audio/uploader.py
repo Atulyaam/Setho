@@ -195,3 +195,19 @@ class AudioIngestionService:
         )
         return metadata, data
 
+    def save_recording(
+        self,
+        machine_id: str,
+        file_bytes: bytes,
+        original_filename: str = "audio.wav",
+    ) -> Path:
+        """Save raw audio bytes securely under a server-generated UUID filename."""
+        upload_id = str(uuid.uuid4())
+        safe_filename = f"{upload_id}.wav"
+        machine_store_dir = self.recordings_dir / machine_id
+        machine_store_dir.mkdir(parents=True, exist_ok=True)
+        target_path = machine_store_dir / safe_filename
+        with open(target_path, "wb") as f:
+            f.write(file_bytes)
+        return target_path
+

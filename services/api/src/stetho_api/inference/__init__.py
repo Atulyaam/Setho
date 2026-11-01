@@ -17,6 +17,7 @@ from stetho_api.inference.model_registry import (
     ModelType,
     get_model_registry,
 )
+from stetho_api.inference.model_router import ModelRouter
 
 __all__ = [
     "AcousticInferenceService",
@@ -27,6 +28,7 @@ __all__ = [
     "MachineCalibrationEngine",
     "ModelMetadata",
     "ModelRegistry",
+    "ModelRouter",
     "ModelType",
     "get_inference_service",
     "get_model_registry",

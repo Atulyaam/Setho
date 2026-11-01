@@ -395,22 +395,34 @@ class ResearchNeuralDetector(BaseAnomalyDetector):
     @classmethod
     def load(cls, path: Union[str, Path]) -> "ResearchNeuralDetector":
         checkpoint = torch.load(path, map_location="cpu", weights_only=False)
-        detector = cls(
-            machine_id=checkpoint.get("machine_id", "id_00"),
-            arch_type=checkpoint.get("arch_type", "multiscale_cnn_ae"),
-            base_channels=checkpoint.get("base_channels", 16),
-            latent_dim=checkpoint.get("latent_dim", 64),
-            norm_type=checkpoint.get("norm_type", "group"),
-            loss_type=checkpoint.get("loss_type", "l1"),
-            optimizer_type=checkpoint.get("optimizer_type", "adamw"),
-            lr_schedule=checkpoint.get("lr_schedule", "constant"),
-            patch_frames=checkpoint.get("patch_frames", 64),
-            augmentation=checkpoint.get("augmentation", None),
-            preset=checkpoint.get("preset", "standard_64mel"),
-        )
-        detector.model.load_state_dict(checkpoint["state_dict"])
-        detector.train_mean = checkpoint.get("train_mean")
-        detector.train_std = checkpoint.get("train_std")
-        detector.training_metadata = checkpoint.get("training_metadata", {})
+        if isinstance(checkpoint, dict) and "state_dict" in checkpoint:
+            detector = cls(
+                machine_id=checkpoint.get("machine_id", "id_00"),
+                arch_type=checkpoint.get("arch_type", "residual_cnn_ae"),
+                base_channels=checkpoint.get("base_channels", 16),
+                latent_dim=checkpoint.get("latent_dim", 64),
+                norm_type=checkpoint.get("norm_type", "group"),
+                loss_type=checkpoint.get("loss_type", "l1"),
+                optimizer_type=checkpoint.get("optimizer_type", "adamw"),
+                lr_schedule=checkpoint.get("lr_schedule", "constant"),
+                patch_frames=checkpoint.get("patch_frames", 64),
+                augmentation=checkpoint.get("augmentation", None),
+                preset=checkpoint.get("preset", "standard_64mel"),
+            )
+            detector.model.load_state_dict(checkpoint["state_dict"])
+            detector.train_mean = checkpoint.get("train_mean", 0.0)
+            detector.train_std = checkpoint.get("train_std", 1.0)
+            detector.training_metadata = checkpoint.get("training_metadata", {})
+        else:
+            detector = cls(
+                machine_id="id_00",
+                arch_type="residual_cnn_ae",
+                base_channels=16,
+                latent_dim=64,
+            )
+            detector.model.load_state_dict(checkpoint)
+            detector.train_mean = 0.0
+            detector.train_std = 1.0
+
         detector.model.eval()
         return detector

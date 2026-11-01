@@ -19,6 +19,12 @@ router = APIRouter(tags=["Health & Status"])
     summary="Liveness probe",
     description="Returns 200 OK if the FastAPI process is alive and responsive.",
 )
+@router.get(
+    "/health/live",
+    response_model=HealthResponse,
+    status_code=status.HTTP_200_OK,
+    include_in_schema=False,
+)
 async def get_health(settings: Settings = Depends(get_settings)) -> HealthResponse:
     """Return process liveness state."""
     return HealthResponse(
@@ -35,6 +41,12 @@ async def get_health(settings: Settings = Depends(get_settings)) -> HealthRespon
     status_code=status.HTTP_200_OK,
     summary="Readiness probe",
     description="Evaluates whether downstream components, model subsystem, and storage are ready.",
+)
+@router.get(
+    "/health/ready",
+    response_model=ReadyResponse,
+    status_code=status.HTTP_200_OK,
+    include_in_schema=False,
 )
 async def get_ready(settings: Settings = Depends(get_settings)) -> JSONResponse:
     """Return subsystem readiness indicators."""

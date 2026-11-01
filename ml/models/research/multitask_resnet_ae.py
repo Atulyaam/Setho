@@ -24,6 +24,7 @@ class MultiTaskResNetDetector(BaseAnomalyDetector):
 
     def __init__(
         self,
+        machine_id: str = "multi_category",
         base_channels: int = 16,
         latent_dim: int = 64,
         learning_rate: float = 0.001,
@@ -31,7 +32,7 @@ class MultiTaskResNetDetector(BaseAnomalyDetector):
         max_epochs: int = 15,
         seed: int = 42,
     ):
-        super().__init__(machine_id="multi_category", model_type="multitask_resnet_ae")
+        super().__init__(machine_id=machine_id, model_type="multitask_resnet_ae")
         self.base_channels = base_channels
         self.latent_dim = latent_dim
         self.learning_rate = learning_rate
@@ -130,19 +131,12 @@ class MultiTaskResNetDetector(BaseAnomalyDetector):
         }
 
     def score_waveform(self, waveform: np.ndarray, sample_rate: int = 16000) -> float:
-        feats = self.feature_suite.extract(waveform)
-        mel = feats["log_mel"]
-        if mel.shape[1] < self.patch_frames:
-            mel = np.pad(mel, ((0, 0), (0, self.patch_frames - mel.shape[1])), mode="reflect")
-        patches = [mel[:, i : i + self.patch_frames] for i in range(0, mel.shape[1] - self.patch_frames + 1, self.patch_step)]
-        if not patches:
+        patches, _ = self.feature_suite.extract_patches_from_waveform(
+            waveform, patch_frames=self.patch_frames, hop_frames=self.patch_step
+        )
+        if len(patches) == 0:
             return 0.0
-        t = torch.tensor(np.array(patches), dtype=torch.float32).unsqueeze(1).to(self.device)
-        with torch.no_grad():
-            recon, _ = self.model(t)
-            err = torch.abs(recon - t)
-            scores = torch.mean(err, dim=(1, 2, 3)).cpu().numpy()
-        return float(np.mean(scores))
+        return float(np.mean(self.score_patches(patches)))
 
     def save(self, path: Union[str, Path]) -> None:
         torch.save({"state_dict": self.model.state_dict(), "threshold": self.threshold}, path)

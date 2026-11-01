@@ -209,6 +209,122 @@ class DatabaseManager:
             );
             """)
 
+            # 8. Assets Table (Sprint 7 Asset Management)
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS assets (
+                asset_id TEXT PRIMARY KEY,
+                name TEXT NOT NULL,
+                category TEXT NOT NULL,
+                description TEXT DEFAULT '',
+                operating_condition TEXT DEFAULT '',
+                assigned_model TEXT NOT NULL DEFAULT 'cascade_ensemble',
+                assigned_model_version TEXT NOT NULL DEFAULT '1.0.0',
+                calibration_status TEXT NOT NULL DEFAULT 'uncalibrated',
+                calibration_version TEXT NOT NULL DEFAULT '1.0.0',
+                enrolled_recording_count INTEGER NOT NULL DEFAULT 0,
+                metadata_json TEXT DEFAULT '{}',
+                owner_id TEXT DEFAULT 'usr_admin',
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL,
+                FOREIGN KEY (owner_id) REFERENCES users(user_id)
+            );
+            """)
+
+            # 9. Calibration Profiles Table (Sprint 7 Few-Shot Calibration)
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS calibration_profiles (
+                profile_id TEXT PRIMARY KEY,
+                asset_id TEXT NOT NULL,
+                model_version TEXT NOT NULL,
+                calibration_version TEXT NOT NULL,
+                operating_threshold REAL NOT NULL,
+                theta_lower REAL NOT NULL,
+                theta_upper REAL NOT NULL,
+                baseline_mean REAL NOT NULL,
+                baseline_std REAL NOT NULL,
+                enrolled_count INTEGER NOT NULL,
+                latent_mean_json TEXT DEFAULT NULL,
+                latent_cov_json TEXT DEFAULT NULL,
+                scores_json TEXT DEFAULT '[]',
+                is_active INTEGER NOT NULL DEFAULT 1,
+                created_at TEXT NOT NULL,
+                FOREIGN KEY (asset_id) REFERENCES assets(asset_id) ON DELETE CASCADE
+            );
+            """)
+
+            # 10. Calibration History Table (Sprint 7 Audit & Rollback)
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS calibration_history (
+                history_id TEXT PRIMARY KEY,
+                asset_id TEXT NOT NULL,
+                event_type TEXT NOT NULL,
+                previous_version TEXT,
+                new_version TEXT NOT NULL,
+                previous_threshold REAL,
+                new_threshold REAL NOT NULL,
+                sample_count INTEGER NOT NULL,
+                operator_id TEXT NOT NULL,
+                notes TEXT DEFAULT '',
+                created_at TEXT NOT NULL,
+                FOREIGN KEY (asset_id) REFERENCES assets(asset_id) ON DELETE CASCADE
+            );
+            """)
+
+            # 11. Inference Results Table (Sprint 7 Standardized Inference)
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS inference_results (
+                result_id TEXT PRIMARY KEY,
+                asset_id TEXT NOT NULL,
+                model_name TEXT NOT NULL,
+                model_version TEXT NOT NULL,
+                anomaly_score REAL,
+                operating_threshold REAL,
+                anomaly_decision TEXT NOT NULL,
+                processing_latency_ms REAL NOT NULL,
+                calibration_status TEXT NOT NULL,
+                quality_status TEXT NOT NULL,
+                is_provisional INTEGER NOT NULL DEFAULT 1,
+                reasons_json TEXT DEFAULT '[]',
+                metrics_json TEXT DEFAULT '{}',
+                audio_storage_path TEXT,
+                audio_hash TEXT,
+                operator_id TEXT,
+                created_at TEXT NOT NULL,
+                FOREIGN KEY (asset_id) REFERENCES assets(asset_id) ON DELETE CASCADE
+            );
+            """)
+
+            # 12. Model Registry Records Table (Sprint 7 Versioned Registry)
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS model_registry_records (
+                model_id TEXT PRIMARY KEY,
+                model_name TEXT NOT NULL,
+                architecture TEXT NOT NULL,
+                version TEXT NOT NULL,
+                category TEXT NOT NULL,
+                profile TEXT NOT NULL,
+                runtime_engine TEXT NOT NULL,
+                checkpoint_path TEXT NOT NULL,
+                sha256_hash TEXT NOT NULL,
+                parameter_count INTEGER,
+                is_active INTEGER NOT NULL DEFAULT 1,
+                created_at TEXT NOT NULL
+            );
+            """)
+
+            # 13. System Events Table (Sprint 7 Audit Logging)
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS system_events (
+                event_id TEXT PRIMARY KEY,
+                event_type TEXT NOT NULL,
+                component TEXT NOT NULL,
+                severity TEXT NOT NULL DEFAULT 'INFO',
+                message TEXT NOT NULL,
+                details_json TEXT DEFAULT '{}',
+                created_at TEXT NOT NULL
+            );
+            """)
+
             # Automated Migrations for Sprint 6A
             mach_cols = [r[1] for r in cursor.execute("PRAGMA table_info(machines);").fetchall()]
             if "last_inspection_at" not in mach_cols:
@@ -234,6 +350,12 @@ class DatabaseManager:
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_jobs_status ON analysis_jobs(status);")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_fingerprints_machine ON machine_fingerprints(machine_id);")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_qr_tokens ON machine_qr_tokens(qr_token);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_assets_owner ON assets(owner_id);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_assets_category ON assets(category);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_cal_profiles_asset ON calibration_profiles(asset_id);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_cal_history_asset ON calibration_history(asset_id);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_inf_results_asset ON inference_results(asset_id);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_sys_events_comp ON system_events(component);")
 
             # Seed default admin and inspector accounts if users table is empty
             cursor.execute("SELECT COUNT(*) FROM users;")
@@ -285,6 +407,111 @@ class DatabaseManager:
                 """, default_machines)
                 conn.commit()
                 logger.info(f"Seeded {len(default_machines)} benchmark machine profiles in database")
+
+            # Seed assets from machines table if assets table is empty
+            cursor.execute("SELECT COUNT(*) FROM assets;")
+            asset_count = cursor.fetchone()[0]
+            if asset_count == 0:
+                cursor.execute("""
+                INSERT OR IGNORE INTO assets (
+                    asset_id, name, category, description, operating_condition,
+                    assigned_model, assigned_model_version, calibration_status,
+                    calibration_version, enrolled_recording_count, metadata_json,
+                    owner_id, created_at, updated_at
+                ) SELECT
+                    machine_id, name, category, description, operating_condition,
+                    selected_model_policy, '1.0.0', calibration_status,
+                    calibration_version, enrolled_recording_count, '{}',
+                    owner_id, created_at, updated_at
+                FROM machines;
+                """)
+                conn.commit()
+                logger.info("Synchronized benchmark machines to assets table")
+
+            # Seed default production models in model_registry_records if empty
+            cursor.execute("SELECT COUNT(*) FROM model_registry_records;")
+            if cursor.fetchone()[0] == 0:
+                default_models = [
+                    (
+                        "mod_compact_student_int8_v1",
+                        "Distilled Compact Student-AE (INT8)",
+                        "CompactStudentAE",
+                        "1.0.0",
+                        "universal",
+                        "edge_real_time",
+                        "onnx_int8",
+                        "./ml/experiments/research_artifacts/phase8/exported_models/student_ae_int8.onnx",
+                        "d4c0bbf2f07ab2374e2a3928198f39942a781f8f3c7e7bdfc8369ec23748be71",
+                        27000,
+                        1,
+                        now,
+                    ),
+                    (
+                        "mod_resnet_ae_v1",
+                        "Optimized ResNet-AE (FP32)",
+                        "ResidualCNNAE",
+                        "1.0.0",
+                        "fan",
+                        "cloud_high_accuracy",
+                        "pytorch",
+                        "./ml/experiments/research_artifacts/phase4/residual_cnn_ae/id_00/model.pt",
+                        "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                        742000,
+                        1,
+                        now,
+                    ),
+                    (
+                        "mod_multitask_resnet_v1",
+                        "MultiTask ResNet-AE (Zero-Shot)",
+                        "MultiTaskResNetAE",
+                        "1.0.0",
+                        "fan",
+                        "zero_shot",
+                        "pytorch",
+                        "./ml/models/research/multitask_resnet_ae.py",
+                        "a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0",
+                        810000,
+                        1,
+                        now,
+                    ),
+                    (
+                        "mod_cascade_ensemble_v1",
+                        "Margin-Gated Cascade Ensemble",
+                        "MarginGatedCascade",
+                        "1.0.0",
+                        "fan",
+                        "hybrid_cascade",
+                        "hybrid",
+                        "./ml/models/research/margin_cascade.py",
+                        "b2c3d4e5f6a10718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0",
+                        769000,
+                        1,
+                        now,
+                    ),
+                    (
+                        "mod_stetho_msae_v1",
+                        "Stetho Multi-Scale Autoencoder",
+                        "StethoMSAE",
+                        "1.0.0",
+                        "fan",
+                        "legacy_production",
+                        "pytorch",
+                        "./ml/artifacts/stetho_msae/id_00/model.pt",
+                        "c3d4e5f6a1b20718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0",
+                        559873,
+                        1,
+                        now,
+                    ),
+                ]
+                cursor.executemany("""
+                INSERT INTO model_registry_records (
+                    model_id, model_name, architecture, version, category,
+                    profile, runtime_engine, checkpoint_path, sha256_hash,
+                    parameter_count, is_active, created_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+                """, default_models)
+                conn.commit()
+                logger.info(f"Seeded {len(default_models)} production model records in model_registry_records")
 
             conn.close()
 

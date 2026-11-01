@@ -101,3 +101,4 @@ Live numerical parity was tested by feeding identical standardized Mel patches i
 - **CPU Portability:** 100% of pipeline stages execute deterministically using standard CPU instructions without requiring specialized AVX-512 flags or GPU drivers.
 - **GPU / VRAM Audit:** Current environment operates in pure CPU mode (`torch.cuda.is_available() == False`). VRAM allocation is **0.0 MB**. All reported latencies reflect actual physical CPU compute times.
 - **Memory Footprint:** Peak RSS memory usage across all models stabilizes between **369 MB and 414 MB**, well within typical edge gateway memory budgets ($\ge 1.0\text{ GB}$).
+

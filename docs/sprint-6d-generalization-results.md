@@ -110,3 +110,4 @@ Any machine learning architecture forced to reconstruct valve audio using a fan 
 1. **Mandatory Category Routing:** Stetho must require asset category registration (`asset_type`) in its asset configuration schema. Audio from a pump must be scored by pump-aware weights.
 2. **Multi-Task Pretraining as Foundation:** Base foundation models should be pretrained multi-task across all industrial categories to maximize feature robustness.
 3. **Onboarding via Few-Shot Latent Centering:** Commissioning new physical units within a category should use $N \ge 5$ normal recordings with Mahalanobis latent adaptation.
+

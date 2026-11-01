@@ -188,6 +188,24 @@ class MachineRepository:
                 now,
                 now,
             ))
+            cursor.execute("""
+            INSERT OR IGNORE INTO assets (
+                asset_id, name, category, description, operating_condition,
+                assigned_model, assigned_model_version, calibration_status,
+                calibration_version, enrolled_recording_count, metadata_json,
+                owner_id, created_at, updated_at
+            ) VALUES (?, ?, ?, ?, ?, ?, '1.0.0', 'uncalibrated', '1.0.0', 0, '{}', ?, ?, ?);
+            """, (
+                machine_id,
+                name,
+                category,
+                description,
+                operating_condition,
+                selected_model_policy,
+                owner_id,
+                now,
+                now,
+            ))
 
         return self.get_or_raise(machine_id)
 

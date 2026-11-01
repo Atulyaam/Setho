@@ -225,3 +225,4 @@ git commit -m "docs(research): complete Sprint 6D validation reports and benchma
 # 2. DO NOT merge automatically to master
 # Await explicit user authorization before opening PR or merging to master.
 ```
+

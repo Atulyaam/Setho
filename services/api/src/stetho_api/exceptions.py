@@ -51,6 +51,30 @@ class ResourceNotFoundException(StethoAPIException):
         )
 
 
+class ValidationException(StethoAPIException):
+    """Raised when domain business validation fails."""
+
+    def __init__(self, message: str, details: Optional[Any] = None):
+        super().__init__(
+            message=message,
+            code="VALIDATION_ERROR",
+            status_code=status.HTTP_400_BAD_REQUEST,
+            details=details,
+        )
+
+
+class ConflictException(StethoAPIException):
+    """Raised when attempting to create a duplicate resource."""
+
+    def __init__(self, message: str, details: Optional[Any] = None):
+        super().__init__(
+            message=message,
+            code="CONFLICT",
+            status_code=status.HTTP_409_CONFLICT,
+            details=details,
+        )
+
+
 def get_request_id(request: Request) -> Optional[str]:
     """Extract correlation request ID from request state if available."""
     return getattr(request.state, "request_id", None)

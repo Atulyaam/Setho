@@ -110,3 +110,4 @@ The multi-task model (`MultiTaskResNetDetector`) pooled 120 normal recordings ac
 
 > **AUDIT DECISION: PASS (ZERO LEAKAGE)**  
 > Every reported result in Sprint 6C was obtained under mathematically clean experimental conditions. No data leakage, label impurity, or evaluation set contamination occurred.
+
