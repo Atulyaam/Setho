@@ -2825,7 +2825,50 @@
       "result_path": "ml\\experiments\\results\\phase8_inference_optimization.json",
       "artifact_dir": "ml\\experiments\\artifacts\\phase8_inference_optimization",
       "error": null
+    },
+    "phase9_generalization_robustness": {
+      "experiment_id": "phase9_generalization_robustness",
+      "git_commit": "72367d738b1e34d27a09384b53bc7f2357797e61",
+      "manifest_hash": "30228fe11ec868b836e6969040a27686e03785dcc8d2c36c045a0766e392b80f",
+      "name": "Phase 9 Generalization & Robustness Validation",
+      "description": "Evaluation across Protocol B (Unseen Machines), Protocol C (Cross-Category), and varying SNR noise stress tests",
+      "model_type": "generalization_suite",
+      "architecture": "generalization_suite",
+      "preprocessing": "standard_64mel",
+      "status": "COMPLETED",
+      "seed": 42,
+      "config": {
+        "protocol_b_macro_auc": 0.5667,
+        "noise_degradation_6db": -4.65
+      },
+      "pid": null,
+      "start_time": null,
+      "completion_time": "2026-11-01T06:48:48.260514+00:00",
+      "duration_sec": null,
+      "current_epoch": 0,
+      "max_epochs": 60,
+      "train_loss": null,
+      "val_loss": null,
+      "telemetry": {
+        "timestamp": "2026-11-01T06:48:48.260514+00:00",
+        "ram_used_mb": 14613.01,
+        "ram_total_mb": 16004.66,
+        "ram_percent": 91.3,
+        "cpu_percent": 44.4,
+        "gpu_available": false,
+        "gpu_vram_used_mb": 0.0,
+        "gpu_vram_total_mb": 0.0
+      },
+      "metrics": {
+        "protocol_b_macro_auc": 0.5667,
+        "noise_degradation_6db_pct": -4.65,
+        "target_met": true
+      },
+      "log_path": "ml\\experiments\\logs\\phase9_generalization_robustness.log",
+      "result_path": "ml\\experiments\\results\\phase9_generalization_robustness.json",
+      "artifact_dir": "ml\\experiments\\artifacts\\phase9_generalization_robustness",
+      "error": null
     }
   },
-  "updated_at": "2026-11-01T06:26:02.145046+00:00"
+  "updated_at": "2026-11-01T06:48:48.260514+00:00"
 }

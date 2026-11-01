@@ -1,0 +1,91 @@
+{
+  "protocol_b_resnet": {
+    "macro_roc_auc": 0.5667,
+    "macro_pauc": 0.7281,
+    "folds": {
+      "heldout_id_00": {
+        "heldout_machine": "id_00",
+        "metrics": {
+          "roc_auc": 1.0,
+          "pauc": 1.0
+        }
+      },
+      "heldout_id_02": {
+        "heldout_machine": "id_02",
+        "metrics": {
+          "roc_auc": 0.2667,
+          "pauc": 0.5789
+        }
+      },
+      "heldout_id_04": {
+        "heldout_machine": "id_04",
+        "metrics": {
+          "roc_auc": 0.7333,
+          "pauc": 0.7895
+        }
+      },
+      "heldout_id_06": {
+        "heldout_machine": "id_06",
+        "metrics": {
+          "roc_auc": 0.2667,
+          "pauc": 0.5439
+        }
+      }
+    }
+  },
+  "protocol_c_resnet": {
+    "fan_to_pump": {
+      "zero_shot": {
+        "roc_auc": 0.3694,
+        "pauc": 0.5185
+      },
+      "few_shot_calibrated": {
+        "roc_auc": 0.3694,
+        "pauc": 0.5185
+      }
+    },
+    "fan_to_valve": {
+      "zero_shot": {
+        "roc_auc": 0.6986,
+        "pauc": 0.6543
+      },
+      "few_shot_calibrated": {
+        "roc_auc": 0.6986,
+        "pauc": 0.6543
+      }
+    }
+  },
+  "noise_robustness_id_00": {
+    "clean": {
+      "snr_db": "clean",
+      "roc_auc": 0.9556,
+      "pauc": 0.9649,
+      "f1": 0.6364,
+      "auc_degradation": 0.0
+    },
+    "snr_6.0dB": {
+      "snr_db": 6.0,
+      "roc_auc": 1.0,
+      "pauc": 1.0,
+      "f1": 1.0,
+      "auc_degradation": -0.0444,
+      "pct_degradation": -4.65
+    },
+    "snr_0.0dB": {
+      "snr_db": 0.0,
+      "roc_auc": 1.0,
+      "pauc": 1.0,
+      "f1": 0.9091,
+      "auc_degradation": -0.0444,
+      "pct_degradation": -4.65
+    },
+    "snr_-6.0dB": {
+      "snr_db": -6.0,
+      "roc_auc": 0.7556,
+      "pauc": 0.7895,
+      "f1": 0.9091,
+      "auc_degradation": 0.2,
+      "pct_degradation": 20.93
+    }
+  }
+}
