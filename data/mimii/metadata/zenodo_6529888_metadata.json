@@ -1,0 +1,191 @@
+{
+  "created": "2022-05-11T09:10:14.706676+00:00",
+  "modified": "2022-05-11T13:49:37.214088+00:00",
+  "id": 6529888,
+  "conceptrecid": "6529887",
+  "doi": "10.5281/zenodo.6529888",
+  "conceptdoi": "10.5281/zenodo.6529887",
+  "doi_url": "https://doi.org/10.5281/zenodo.6529888",
+  "metadata": {
+    "title": "MIMII DG: Sound Dataset for Malfunctioning Industrial Machine Investigation for Domain Generalization Task",
+    "doi": "10.5281/zenodo.6529888",
+    "publication_date": "2022-05-09",
+    "description": "<p><strong>Description</strong></p>\n\n<p>This dataset is a sound dataset for malfunctioning industrial machine investigation and inspection for domain generalization task (MIMII DG). The dataset consists of normal and abnormal operating sounds of five different types of industrial machines, i.e., fans, gearboxes, bearing, slide rails, and valves.&nbsp;The data for each machine type includes three&nbsp;subsets called &quot;sections&quot;, and each section roughly corresponds to a type of domain shift. <strong>This dataset is a subset of the dataset for&nbsp;<a href=\"https://dcase.community/challenge2022/task-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring\">DCASE 2022 Challenge Task 2</a>, so the dataset is entirely the same as data included in the&nbsp;<a href=\"https://zenodo.org/record/6355122#.Ynt7rtrP2Uk\">development dataset</a>.&nbsp;</strong>For more information, please see the pages of the&nbsp;<a href=\"https://zenodo.org/record/6355122#.Ynt7rtrP2Uk\">development dataset</a>&nbsp;and the&nbsp;<a href=\"https://dcase.community/challenge2022/task-unsupervised-anomalous-sound-detection-for-machine-condition-monitoring\">task description</a><strong>&nbsp;</strong>for DCASE 2022 Challenge Task 2.</p>\n\n<p>&nbsp;</p>\n\n<p><strong>Baseline system</strong></p>\n\n<p>Two simple baseline systems are available&nbsp;on the Github repositories&nbsp;<a href=\"https://github.com/Kota-Dohi/dcase2022_task2_baseline_ae\">autoencoder-based baseline</a>&nbsp;and&nbsp;<a href=\"https://github.com/Kota-Dohi/dcase2022_task2_baseline_mobile_net_v2\">MobileNetV2-based baseline</a>.&nbsp;The baseline systems provide&nbsp;a simple entry-level approach that gives a reasonable performance in the dataset. They are good starting points, especially for entry-level researchers who want to get familiar with the anomalous-sound-detection task.</p>\n\n<p>&nbsp;</p>\n\n<p><strong>Conditions of use</strong></p>\n\n<p>This dataset was made by&nbsp;<strong>Hitachi, Ltd.</strong>&nbsp;and is available&nbsp;under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.</p>\n\n<p>&nbsp;</p>\n\n<p><strong>Citation</strong></p>\n\n<p>We will publish a paper on the dataset and will announce the citation information for them, so please make sure to cite them if you use this dataset.</p>\n\n<p>&nbsp;</p>\n\n<p><strong>Feedback</strong></p>\n\n<p>If there is any problem, pease contact us</p>\n\n<ul>\n\t<li>Kota Dohi,&nbsp;<a href=\"mailto:kota.dohi.gr@hitachi.com\">kota.dohi.gr@hitachi.com</a></li>\n\t<li>Yohei Kawaguchi,&nbsp;<a href=\"mailto:yohei.kawaguchi.xk@hitachi.com\">yohei.kawaguchi.xk@hitachi.com</a></li>\n</ul>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Kota Dohi",
+        "affiliation": "Hitachi Ltd.",
+        "orcid": "0000-0002-0703-8293"
+      },
+      {
+        "name": "Tomoya Nishida",
+        "affiliation": "Hitachi Ltd."
+      },
+      {
+        "name": "Harsh Purohit",
+        "affiliation": "Hitachi Ltd."
+      },
+      {
+        "name": "Ryo Tanabe",
+        "affiliation": "Hitachi Ltd."
+      },
+      {
+        "name": "Takashi Endo",
+        "affiliation": "Hitachi Ltd."
+      },
+      {
+        "name": "Masaaki Yamamoto",
+        "affiliation": "Hitachi Ltd."
+      },
+      {
+        "name": "Yuki Nikaido",
+        "affiliation": "Hitachi Ltd."
+      },
+      {
+        "name": "Yohei Kawaguchi",
+        "affiliation": "Hitachi Ltd.",
+        "orcid": "0000-0002-2329-5441"
+      }
+    ],
+    "keywords": [
+      "anomaly detection",
+      "anomalous sound detection",
+      "acoustic condition monitoring",
+      "sound",
+      "machine fault diagnosis",
+      "machine learning",
+      "unsupervised learning",
+      "acoustic scene classification",
+      "acoustic event detection",
+      "acoustic signal processing",
+      "DCASE",
+      "computational auditory scene analysis",
+      "audio",
+      "domain shift",
+      "domain generalization"
+    ],
+    "version": "1.0",
+    "resource_type": {
+      "title": "Dataset",
+      "type": "dataset"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "6529887"
+          }
+        }
+      ]
+    }
+  },
+  "title": "MIMII DG: Sound Dataset for Malfunctioning Industrial Machine Investigation for Domain Generalization Task",
+  "links": {
+    "self": "https://zenodo.org/api/records/6529888",
+    "self_html": "https://zenodo.org/records/6529888",
+    "preview_html": "https://zenodo.org/records/6529888?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.6529888",
+    "self_doi": "https://doi.org/10.5281/zenodo.6529888",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.6529888",
+    "reserve_doi": "https://zenodo.org/api/records/6529888/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/6529887",
+    "parent_html": "https://zenodo.org/records/6529887",
+    "parent_doi": "https://doi.org/10.5281/zenodo.6529887",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.6529887",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:6529888/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:6529888/sequence/default",
+    "files": "https://zenodo.org/api/records/6529888/files",
+    "media_files": "https://zenodo.org/api/records/6529888/media-files",
+    "latest": "https://zenodo.org/api/records/6529888/versions/latest",
+    "latest_html": "https://zenodo.org/records/6529888/latest",
+    "versions": "https://zenodo.org/api/records/6529888/versions",
+    "draft": "https://zenodo.org/api/records/6529888/draft",
+    "access_links": "https://zenodo.org/api/records/6529888/access/links",
+    "access_grants": "https://zenodo.org/api/records/6529888/access/grants",
+    "access_users": "https://zenodo.org/api/records/6529888/access/users",
+    "access_request": "https://zenodo.org/api/records/6529888/access/request",
+    "access": "https://zenodo.org/api/records/6529888/access",
+    "communities": "https://zenodo.org/api/records/6529888/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/6529888/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/6529888/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/6529888/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/6529888/quota-increase",
+    "requests": "https://zenodo.org/api/records/6529888/requests"
+  },
+  "updated": "2022-05-11T13:49:37.214088+00:00",
+  "recid": "6529888",
+  "revision": 2,
+  "files": [
+    {
+      "id": "ad6f81a9-7bcc-4230-8bc3-6c983b804768",
+      "key": "bearing.zip",
+      "size": 772253369,
+      "checksum": "md5:6381a00f9efc0ced779c8ad847e4ff59",
+      "links": {
+        "self": "https://zenodo.org/api/records/6529888/files/bearing.zip/content"
+      }
+    },
+    {
+      "id": "42891cd5-b315-415b-9fc6-5f7ead589303",
+      "key": "fan.zip",
+      "size": 928511244,
+      "checksum": "md5:a1a9b488934a82426bacc933d87aacde",
+      "links": {
+        "self": "https://zenodo.org/api/records/6529888/files/fan.zip/content"
+      }
+    },
+    {
+      "id": "ef05284d-27db-47e2-b532-ba3260023f06",
+      "key": "gearbox.zip",
+      "size": 946394433,
+      "checksum": "md5:c165dfef8c404256bd719c6fe1f7036f",
+      "links": {
+        "self": "https://zenodo.org/api/records/6529888/files/gearbox.zip/content"
+      }
+    },
+    {
+      "id": "c4b85dc2-8754-435a-845f-7908b1da0f76",
+      "key": "valve.zip",
+      "size": 825381222,
+      "checksum": "md5:1da37b2e82942dfba720984541e2ef60",
+      "links": {
+        "self": "https://zenodo.org/api/records/6529888/files/valve.zip/content"
+      }
+    },
+    {
+      "id": "11cbc10a-0f49-4800-93a9-a67669133ac1",
+      "key": "slider.zip",
+      "size": 913701334,
+      "checksum": "md5:8c3a5466cf53e54872fd94998a67bfac",
+      "links": {
+        "self": "https://zenodo.org/api/records/6529888/files/slider.zip/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "318895"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 9253,
+    "unique_downloads": 4708,
+    "views": 7741,
+    "unique_views": 6950,
+    "version_downloads": 9249,
+    "version_unique_downloads": 4704,
+    "version_unique_views": 6937,
+    "version_views": 7724
+  },
+  "state": "done",
+  "submitted": true
+}
