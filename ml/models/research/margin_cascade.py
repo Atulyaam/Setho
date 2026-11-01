@@ -137,3 +137,4 @@ class MarginGatedCascade(BaseAnomalyDetector):
         cas.student_threshold = meta["student_threshold"]
         cas.teacher_threshold = meta["teacher_threshold"]
         return cas
+

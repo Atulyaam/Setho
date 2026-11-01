@@ -102,3 +102,4 @@ def test_margin_cascade_routing():
     assert info_conf["escalated"] is False
     assert info_conf["stage"] == 1
     assert score_conf == 0.20
+

@@ -349,7 +349,11 @@ class ResearchNeuralDetector(BaseAnomalyDetector):
 
     def score_waveform(self, waveform: np.ndarray, sample_rate: int = 16000) -> float:
         if waveform.ndim > 1:
-            waveform = waveform[0]
+            if waveform.shape[0] > waveform.shape[1]:
+                waveform = waveform[:, 0]
+            else:
+                waveform = waveform[0, :]
+        waveform = np.ascontiguousarray(waveform, dtype=np.float32)
         peak = np.max(np.abs(waveform))
         if peak > 0:
             waveform = waveform / peak

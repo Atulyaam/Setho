@@ -80,3 +80,4 @@ A critical objective of Phase 4 was identifying candidate architectures that mak
 - [x] **Hardware memory bounds satisfied:** All runs executed strictly on CPU / single RTX 3050 within 4GB VRAM and <530MB system RAM.
 - [x] **Registry updated:** All 4 candidate experiments tracked in `ml/experiments/experiment_registry.json`.
 - [x] **Zero production mutation:** `ml/artifacts/` remains strictly untouched.
+
