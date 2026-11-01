@@ -22,6 +22,7 @@ from stetho_api.inference import (
     get_model_registry,
 )
 from stetho_api.schemas.inference import (
+    InferenceHistoryListResponse,
     InferenceResponse,
     ModelInfoResponse,
     ModelListResponse,
@@ -110,6 +111,26 @@ async def execute_inference(
     )
 
     return InferenceResponse(**result.to_dict())
+
+
+@router.get(
+    "/inference/history/{asset_id}",
+    response_model=InferenceHistoryListResponse,
+    summary="Retrieve asset inspection history",
+    description="Returns chronological inspection results and anomaly trends for an asset.",
+)
+async def get_asset_inference_history(
+    asset_id: str,
+    limit: int = Query(50, ge=1, le=200),
+    current_user: User = Depends(get_current_user),
+    deps=Depends(get_dependencies),
+) -> InferenceHistoryListResponse:
+    repo: InferenceRepository = deps["inference_repo"]
+    records = repo.list_by_asset(asset_id, limit=limit)
+    return InferenceHistoryListResponse(
+        results=[InferenceResponse(**r.to_dict()) for r in records],
+        total_count=len(records),
+    )
 
 
 @router.get(

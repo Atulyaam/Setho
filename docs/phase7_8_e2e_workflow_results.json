@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "fan_id": "fan_e2e_1793529300",
+  "pump_id": "pump_e2e_1793529300",
+  "valve_id": "valve_e2e_1793529300",
+  "normal_decision": "NORMAL_LIKE",
+  "abnormal_decision": "UNUSUAL",
+  "normal_score": 8.204535,
+  "abnormal_score": 13.526875,
+  "operating_threshold": 12.65578,
+  "normal_latency_ms": 84.83,
+  "abnormal_latency_ms": 31.67,
+  "calibrated_version": "1.10.0",
+  "persisted_count": 2
+}

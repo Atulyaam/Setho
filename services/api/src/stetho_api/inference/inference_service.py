@@ -15,6 +15,7 @@ import numpy as np
 
 from stetho_api.audio.quality_gate import AudioQualityGate, QualityAssessment, QualityStatus
 from stetho_api.db.asset_repo import AssetRepository
+from stetho_api.db.calibration_repo import CalibrationProfile, CalibrationRepository
 from stetho_api.db.database import DatabaseManager, get_db, get_utc_now_iso
 from stetho_api.db.inference_repo import InferenceRecord, InferenceRepository
 from stetho_api.exceptions import StethoAPIException, ValidationException
@@ -99,6 +100,7 @@ class AcousticInferenceService:
         self.quality_gate = quality_gate or AudioQualityGate()
         self.db = db
         self.asset_repo = AssetRepository(db) if db else None
+        self.calibration_repo = CalibrationRepository(db) if db else None
         self.inference_repo = InferenceRepository(db) if db else None
 
         self.preprocessor = AudioPreprocessor(
@@ -224,10 +226,23 @@ class AcousticInferenceService:
         raw_score, diag = loaded_model.score_waveform(mono_processed, sample_rate=16000)
 
         # 7. Apply Three-Zone Decision Analysis
-        cal = loaded_model.calibration
-        theta_upper = float(cal.get("operating_threshold", getattr(loaded_model.detector, "threshold", 0.35208) or 0.35208))
-        theta_lower = float(cal.get("theta_lower", theta_upper * 0.85))
-        is_provisional = bool(cal.get("is_provisional", cal_status != "calibrated"))
+        active_cal = None
+        if self.calibration_repo:
+            try:
+                active_cal = self.calibration_repo.get_active_profile(asset_id)
+            except Exception as e:
+                logger.warning(f"Could not load active calibration profile for {asset_id}: {e}")
+
+        if active_cal:
+            theta_upper = float(active_cal.operating_threshold or active_cal.theta_upper)
+            theta_lower = float(active_cal.theta_lower)
+            is_provisional = bool(active_cal.enrolled_count < 5)
+            cal_status = "provisional" if is_provisional else "calibrated"
+        else:
+            cal = loaded_model.calibration
+            theta_upper = float(cal.get("operating_threshold", getattr(loaded_model.detector, "threshold", 0.35208) or 0.35208))
+            theta_lower = float(cal.get("theta_lower", theta_upper * 0.85))
+            is_provisional = bool(cal.get("is_provisional", cal_status != "calibrated"))
 
         reasons: List[str] = []
         if raw_score <= theta_lower:

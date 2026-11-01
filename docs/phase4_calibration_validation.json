@@ -1,0 +1,50 @@
+{
+  "ten_shot_commissioning": {
+    "status": "calibrated",
+    "version": "1.10.0",
+    "is_provisional": false,
+    "enrolled_count": 10,
+    "pass": true
+  },
+  "unconfirmed_normal_rejection": {
+    "blocked": true,
+    "pass": true
+  },
+  "corrupt_wav_rejection": {
+    "blocked": true,
+    "pass": true
+  },
+  "duplicate_deduplication": {
+    "blocked": true,
+    "pass": true
+  },
+  "sample_rate_resampling": {
+    "resampled": true,
+    "pass": true
+  },
+  "insufficient_recordings": {
+    "status": "provisional",
+    "is_provisional": true,
+    "pass": true
+  },
+  "machine_isolation": {
+    "pass": true
+  },
+  "recalibration": {
+    "version": "1.11.0",
+    "count": 11,
+    "threshold": 19.062952995300293,
+    "pass": true
+  },
+  "rollback": {
+    "restored_version": "1.10.0",
+    "restored_count": 10,
+    "pass": true
+  },
+  "restart_persistence": {
+    "pass": true
+  },
+  "preservation_invariant": {
+    "pass": true
+  }
+}

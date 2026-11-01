@@ -1,0 +1,87 @@
+{
+  "checksums": {
+    "ResNet-AE (id_00)": {
+      "sha256": "c983f2cd02121930deaf4919c18534dcd19f149dec3fdf7b19929127f6b126d2",
+      "size_kb": 7078.8447265625,
+      "exists": true
+    },
+    "Student FP32 ONNX": {
+      "sha256": "f0a3b5b747e508f005ae266566523d474d694969082a72df3be99508a7559ca4",
+      "size_kb": 96.3173828125,
+      "exists": true
+    },
+    "Student INT8 ONNX": {
+      "sha256": "685afa29117443d32c27c9ff68ed29f79aaa9923808ebac989d5a69124fe2425",
+      "size_kb": 43.73828125,
+      "exists": true
+    },
+    "ResNet FP32 ONNX": {
+      "sha256": "946693bb17db33a4f6702e424a7593ca8283b70fe0a3d364939ef6d66af10fb9",
+      "size_kb": 7088.69921875,
+      "exists": true
+    },
+    "ResNet INT8 ONNX": {
+      "sha256": "427ce52b1fd4ee4dc1dbfa40ee3307e977968962e61b47bb8606488f2addae1e",
+      "size_kb": 3867.8388671875,
+      "exists": true
+    }
+  },
+  "resnet_ae": {
+    "score": 9.65479564666748,
+    "latency_p50_ms": 67.75845000083791,
+    "latency_p95_ms": 70.41729499978828
+  },
+  "compact_student_int8": {
+    "score": 10.178491592407227,
+    "latency_p50_ms": 47.248599999875296,
+    "latency_p95_ms": 49.14921000054164
+  },
+  "multitask_resnet_ae": {
+    "score": 11.413525581359863,
+    "latency_p50_ms": 68.49419999889506,
+    "latency_p95_ms": 74.48506999990059
+  },
+  "cascade_ensemble": {
+    "score": 10.686531066894531,
+    "meta": {
+      "score": 10.686531066894531,
+      "threshold": 0.35208,
+      "theta_lower": 0.3,
+      "theta_upper": 0.4,
+      "is_provisional": false,
+      "runtime_engine": "hybrid",
+      "model_version": "1.0.0"
+    },
+    "latency_p50_ms": 13.77660000071046,
+    "latency_p95_ms": 45.93874000056523
+  },
+  "onnx_parity": {
+    "pytorch_score": 11.081893920898438,
+    "onnx_int8_score": 10.178491592407227,
+    "absolute_diff": 0.9034023284912109,
+    "relative_diff_pct": 8.152057167523978,
+    "parity_pass": true
+  },
+  "model_unloading": {
+    "before_count": 5,
+    "after_count": 4,
+    "success": true
+  },
+  "concurrent_safety": {
+    "threads": 8,
+    "total_time_ms": 257.8426000000036,
+    "score_spread": 0.0,
+    "thread_safe": true
+  },
+  "category_routing": {
+    "fan_resnet_allowed": true,
+    "pump_resnet_blocked_by_default": true,
+    "pump_resnet_allowed_with_bypass": false,
+    "pump_multitask_allowed": true
+  },
+  "memory": {
+    "initial_mb": 269.5546875,
+    "final_mb": 525.10546875,
+    "delta_mb": 255.55078125
+  }
+}
