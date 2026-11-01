@@ -1,0 +1,1049 @@
+{
+  "single_task_resnet": {
+    "seen_machines": {
+      "macro_roc_auc": 0.6056,
+      "macro_pauc": 0.7368,
+      "macro_f1": 0.4178,
+      "per_machine": {
+        "id_00": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.349043,
+          "roc_auc": 0.9333,
+          "pauc": 0.8947,
+          "precision": 1.0,
+          "recall": 0.0667,
+          "f1": 0.125,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 1,
+            "fp": 0,
+            "tn": 3,
+            "fn": 14
+          }
+        },
+        "id_02": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.282096,
+          "roc_auc": 0.2667,
+          "pauc": 0.5789,
+          "precision": 0.6667,
+          "recall": 0.4,
+          "f1": 0.5,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 6,
+            "fp": 3,
+            "tn": 0,
+            "fn": 9
+          }
+        },
+        "id_04": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.248744,
+          "roc_auc": 0.9556,
+          "pauc": 0.9649,
+          "precision": 1.0,
+          "recall": 0.8667,
+          "f1": 0.9286,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 13,
+            "fp": 0,
+            "tn": 3,
+            "fn": 2
+          }
+        },
+        "id_06": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.39585,
+          "roc_auc": 0.2667,
+          "pauc": 0.5088,
+          "precision": 0.5,
+          "recall": 0.0667,
+          "f1": 0.1176,
+          "fpr": 0.3333,
+          "confusion_matrix": {
+            "tp": 1,
+            "fp": 1,
+            "tn": 2,
+            "fn": 14
+          }
+        }
+      }
+    },
+    "unseen_machines_zero_shot": {
+      "macro_roc_auc": 0.6056,
+      "macro_pauc": 0.7368,
+      "macro_f1": 0.0294,
+      "per_machine": {
+        "id_00": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.39585,
+          "roc_auc": 0.9333,
+          "pauc": 0.8947,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 3,
+            "fn": 15
+          }
+        },
+        "id_02": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.39585,
+          "roc_auc": 0.2667,
+          "pauc": 0.5789,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 3,
+            "fn": 15
+          }
+        },
+        "id_04": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.39585,
+          "roc_auc": 0.9556,
+          "pauc": 0.9649,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 3,
+            "fn": 15
+          }
+        },
+        "id_06": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 0.39585,
+          "roc_auc": 0.2667,
+          "pauc": 0.5088,
+          "precision": 0.5,
+          "recall": 0.0667,
+          "f1": 0.1176,
+          "fpr": 0.3333,
+          "confusion_matrix": {
+            "tp": 1,
+            "fp": 1,
+            "tn": 2,
+            "fn": 14
+          }
+        }
+      }
+    },
+    "unseen_machines_few_shot_cal": {
+      "macro_roc_auc": 0.6889,
+      "macro_pauc": 0.7018,
+      "macro_f1": 0.9091,
+      "per_machine": {
+        "id_00": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 3.117135,
+          "roc_auc": 0.8889,
+          "pauc": 0.8246,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 3,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        "id_02": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 3.028082,
+          "roc_auc": 0.8222,
+          "pauc": 0.7193,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 3,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        "id_04": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 3.050049,
+          "roc_auc": 0.7111,
+          "pauc": 0.7193,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 3,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        "id_06": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 3.125756,
+          "roc_auc": 0.3333,
+          "pauc": 0.5439,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 3,
+            "tn": 0,
+            "fn": 0
+          }
+        }
+      }
+    },
+    "cross_category_zero_shot": {
+      "macro_roc_auc": 0.5505,
+      "macro_pauc": 0.5624,
+      "macro_f1": 0.4309,
+      "pairs": {
+        "fan_to_pump": {
+          "roc_auc": 0.3764,
+          "pauc": 0.4781,
+          "f1": 0.3855,
+          "precision": 0.6957,
+          "recall": 0.2667,
+          "fpr": 0.5833
+        },
+        "fan_to_valve": {
+          "roc_auc": 0.6792,
+          "pauc": 0.7091,
+          "f1": 0.875,
+          "precision": 0.8235,
+          "recall": 0.9333,
+          "fpr": 1.0
+        },
+        "pump_to_fan": {
+          "roc_auc": 0.5958,
+          "pauc": 0.5,
+          "f1": 0.0323,
+          "precision": 0.5,
+          "recall": 0.0167,
+          "fpr": 0.0833
+        },
+        "pump_to_valve": {
+          "roc_auc": 0.6792,
+          "pauc": 0.7091,
+          "f1": 0.875,
+          "precision": 0.8235,
+          "recall": 0.9333,
+          "fpr": 1.0
+        },
+        "valve_to_fan": {
+          "roc_auc": 0.5958,
+          "pauc": 0.5,
+          "f1": 0.0323,
+          "precision": 0.5,
+          "recall": 0.0167,
+          "fpr": 0.0833
+        },
+        "valve_to_pump": {
+          "roc_auc": 0.3764,
+          "pauc": 0.4781,
+          "f1": 0.3855,
+          "precision": 0.6957,
+          "recall": 0.2667,
+          "fpr": 0.5833
+        }
+      }
+    },
+    "cross_category_few_shot_cal": {
+      "macro_roc_auc": 0.6273,
+      "macro_pauc": 0.5926,
+      "macro_f1": 0.9091,
+      "pairs": {
+        "fan_to_pump": {
+          "roc_auc": 0.5653,
+          "pauc": 0.4751,
+          "f1": 0.9091,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "fpr": 1.0
+        },
+        "fan_to_valve": {
+          "roc_auc": 0.6389,
+          "pauc": 0.6067,
+          "f1": 0.9091,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "fpr": 1.0
+        },
+        "pump_to_fan": {
+          "roc_auc": 0.6778,
+          "pauc": 0.6959,
+          "f1": 0.9091,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "fpr": 1.0
+        },
+        "pump_to_valve": {
+          "roc_auc": 0.6389,
+          "pauc": 0.6067,
+          "f1": 0.9091,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "fpr": 1.0
+        },
+        "valve_to_fan": {
+          "roc_auc": 0.6778,
+          "pauc": 0.6959,
+          "f1": 0.9091,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "fpr": 1.0
+        },
+        "valve_to_pump": {
+          "roc_auc": 0.5653,
+          "pauc": 0.4751,
+          "f1": 0.9091,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "fpr": 1.0
+        }
+      }
+    }
+  },
+  "multitask_resnet": {
+    "seen_machines": {
+      "macro_roc_auc": 0.8611,
+      "macro_pauc": 0.8333,
+      "macro_f1": 0.6144,
+      "per_machine": {
+        "id_00": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 2.512139,
+          "roc_auc": 1.0,
+          "pauc": 1.0,
+          "precision": 1.0,
+          "recall": 0.1333,
+          "f1": 0.2353,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 2,
+            "fp": 0,
+            "tn": 3,
+            "fn": 13
+          }
+        },
+        "id_02": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 1.962605,
+          "roc_auc": 0.6889,
+          "pauc": 0.7193,
+          "precision": 0.8333,
+          "recall": 0.6667,
+          "f1": 0.7407,
+          "fpr": 0.6667,
+          "confusion_matrix": {
+            "tp": 10,
+            "fp": 2,
+            "tn": 1,
+            "fn": 5
+          }
+        },
+        "id_04": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 1.936996,
+          "roc_auc": 0.9111,
+          "pauc": 0.8596,
+          "precision": 0.9167,
+          "recall": 0.7333,
+          "f1": 0.8148,
+          "fpr": 0.3333,
+          "confusion_matrix": {
+            "tp": 11,
+            "fp": 1,
+            "tn": 2,
+            "fn": 4
+          }
+        },
+        "id_06": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 2.235482,
+          "roc_auc": 0.8444,
+          "pauc": 0.7544,
+          "precision": 0.8889,
+          "recall": 0.5333,
+          "f1": 0.6667,
+          "fpr": 0.3333,
+          "confusion_matrix": {
+            "tp": 8,
+            "fp": 1,
+            "tn": 2,
+            "fn": 7
+          }
+        }
+      }
+    },
+    "unseen_machines_zero_shot": {
+      "macro_roc_auc": 0.8611,
+      "macro_pauc": 0.8333,
+      "macro_f1": 0.6997,
+      "per_machine": {
+        "id_00": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 2.235482,
+          "roc_auc": 1.0,
+          "pauc": 1.0,
+          "precision": 1.0,
+          "recall": 0.5333,
+          "f1": 0.6957,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 8,
+            "fp": 0,
+            "tn": 3,
+            "fn": 7
+          }
+        },
+        "id_02": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 2.235482,
+          "roc_auc": 0.6889,
+          "pauc": 0.7193,
+          "precision": 1.0,
+          "recall": 0.4667,
+          "f1": 0.6364,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 7,
+            "fp": 0,
+            "tn": 3,
+            "fn": 8
+          }
+        },
+        "id_04": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 2.235482,
+          "roc_auc": 0.9111,
+          "pauc": 0.8596,
+          "precision": 1.0,
+          "recall": 0.6667,
+          "f1": 0.8,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 10,
+            "fp": 0,
+            "tn": 3,
+            "fn": 5
+          }
+        },
+        "id_06": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 2.235482,
+          "roc_auc": 0.8444,
+          "pauc": 0.7544,
+          "precision": 0.8889,
+          "recall": 0.5333,
+          "f1": 0.6667,
+          "fpr": 0.3333,
+          "confusion_matrix": {
+            "tp": 8,
+            "fp": 1,
+            "tn": 2,
+            "fn": 7
+          }
+        }
+      }
+    },
+    "unseen_machines_few_shot_cal": {
+      "macro_roc_auc": 0.8056,
+      "macro_pauc": 0.7807,
+      "macro_f1": 0.9091,
+      "per_machine": {
+        "id_00": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 4.095311,
+          "roc_auc": 0.9778,
+          "pauc": 0.9649,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 3,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        "id_02": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 4.209504,
+          "roc_auc": 0.9111,
+          "pauc": 0.8596,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 3,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        "id_04": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 4.107435,
+          "roc_auc": 0.7556,
+          "pauc": 0.614,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 3,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        "id_06": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 4.014621,
+          "roc_auc": 0.5778,
+          "pauc": 0.6842,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 3,
+            "tn": 0,
+            "fn": 0
+          }
+        }
+      }
+    },
+    "cross_category_zero_shot": {
+      "macro_roc_auc": 0.6231,
+      "macro_pauc": 0.5707,
+      "macro_f1": 0.8164,
+      "pairs": {
+        "fan_to_pump": {
+          "roc_auc": 0.6208,
+          "pauc": 0.5146,
+          "f1": 0.8547,
+          "precision": 0.8772,
+          "recall": 0.8333,
+          "fpr": 0.5833
+        },
+        "fan_to_valve": {
+          "roc_auc": 0.3861,
+          "pauc": 0.4737,
+          "f1": 0.8923,
+          "precision": 0.8286,
+          "recall": 0.9667,
+          "fpr": 1.0
+        },
+        "pump_to_fan": {
+          "roc_auc": 0.8625,
+          "pauc": 0.7237,
+          "f1": 0.7021,
+          "precision": 0.9706,
+          "recall": 0.55,
+          "fpr": 0.0833
+        },
+        "pump_to_valve": {
+          "roc_auc": 0.3861,
+          "pauc": 0.4737,
+          "f1": 0.8923,
+          "precision": 0.8286,
+          "recall": 0.9667,
+          "fpr": 1.0
+        },
+        "valve_to_fan": {
+          "roc_auc": 0.8625,
+          "pauc": 0.7237,
+          "f1": 0.7021,
+          "precision": 0.9706,
+          "recall": 0.55,
+          "fpr": 0.0833
+        },
+        "valve_to_pump": {
+          "roc_auc": 0.6208,
+          "pauc": 0.5146,
+          "f1": 0.8547,
+          "precision": 0.8772,
+          "recall": 0.8333,
+          "fpr": 0.5833
+        }
+      }
+    },
+    "cross_category_few_shot_cal": {
+      "macro_roc_auc": 0.631,
+      "macro_pauc": 0.5546,
+      "macro_f1": 0.9091,
+      "pairs": {
+        "fan_to_pump": {
+          "roc_auc": 0.5639,
+          "pauc": 0.5044,
+          "f1": 0.9091,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "fpr": 1.0
+        },
+        "fan_to_valve": {
+          "roc_auc": 0.5875,
+          "pauc": 0.5029,
+          "f1": 0.9091,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "fpr": 1.0
+        },
+        "pump_to_fan": {
+          "roc_auc": 0.7417,
+          "pauc": 0.6564,
+          "f1": 0.9091,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "fpr": 1.0
+        },
+        "pump_to_valve": {
+          "roc_auc": 0.5875,
+          "pauc": 0.5029,
+          "f1": 0.9091,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "fpr": 1.0
+        },
+        "valve_to_fan": {
+          "roc_auc": 0.7417,
+          "pauc": 0.6564,
+          "f1": 0.9091,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "fpr": 1.0
+        },
+        "valve_to_pump": {
+          "roc_auc": 0.5639,
+          "pauc": 0.5044,
+          "f1": 0.9091,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "fpr": 1.0
+        }
+      }
+    }
+  },
+  "variational_resnet": {
+    "seen_machines": {
+      "macro_roc_auc": 0.5722,
+      "macro_pauc": 0.7281,
+      "macro_f1": 0.5775,
+      "per_machine": {
+        "id_00": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 2.646086,
+          "roc_auc": 1.0,
+          "pauc": 1.0,
+          "precision": 1.0,
+          "recall": 0.7333,
+          "f1": 0.8462,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 11,
+            "fp": 0,
+            "tn": 3,
+            "fn": 4
+          }
+        },
+        "id_02": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 2.445869,
+          "roc_auc": 0.2222,
+          "pauc": 0.5439,
+          "precision": 0.6667,
+          "recall": 0.4,
+          "f1": 0.5,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 6,
+            "fp": 3,
+            "tn": 0,
+            "fn": 9
+          }
+        },
+        "id_04": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 2.418849,
+          "roc_auc": 0.8222,
+          "pauc": 0.8596,
+          "precision": 1.0,
+          "recall": 0.7333,
+          "f1": 0.8462,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 11,
+            "fp": 0,
+            "tn": 3,
+            "fn": 4
+          }
+        },
+        "id_06": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 3.806847,
+          "roc_auc": 0.2444,
+          "pauc": 0.5088,
+          "precision": 0.5,
+          "recall": 0.0667,
+          "f1": 0.1176,
+          "fpr": 0.3333,
+          "confusion_matrix": {
+            "tp": 1,
+            "fp": 1,
+            "tn": 2,
+            "fn": 14
+          }
+        }
+      }
+    },
+    "unseen_machines_zero_shot": {
+      "macro_roc_auc": 0.5722,
+      "macro_pauc": 0.7281,
+      "macro_f1": 0.0294,
+      "per_machine": {
+        "id_00": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 3.806847,
+          "roc_auc": 1.0,
+          "pauc": 1.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 3,
+            "fn": 15
+          }
+        },
+        "id_02": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 3.806847,
+          "roc_auc": 0.2222,
+          "pauc": 0.5439,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 3,
+            "fn": 15
+          }
+        },
+        "id_04": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 3.806847,
+          "roc_auc": 0.8222,
+          "pauc": 0.8596,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0,
+          "confusion_matrix": {
+            "tp": 0,
+            "fp": 0,
+            "tn": 3,
+            "fn": 15
+          }
+        },
+        "id_06": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 3.806847,
+          "roc_auc": 0.2444,
+          "pauc": 0.5088,
+          "precision": 0.5,
+          "recall": 0.0667,
+          "f1": 0.1176,
+          "fpr": 0.3333,
+          "confusion_matrix": {
+            "tp": 1,
+            "fp": 1,
+            "tn": 2,
+            "fn": 14
+          }
+        }
+      }
+    },
+    "unseen_machines_few_shot_cal": {
+      "macro_roc_auc": 0.75,
+      "macro_pauc": 0.7193,
+      "macro_f1": 0.9091,
+      "per_machine": {
+        "id_00": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 6.040795,
+          "roc_auc": 0.9111,
+          "pauc": 0.8596,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 3,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        "id_02": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 6.134075,
+          "roc_auc": 0.8,
+          "pauc": 0.6842,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 3,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        "id_04": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 5.818144,
+          "roc_auc": 0.8667,
+          "pauc": 0.7895,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 3,
+            "tn": 0,
+            "fn": 0
+          }
+        },
+        "id_06": {
+          "n_normal": 3,
+          "n_abnormal": 15,
+          "total_samples": 18,
+          "threshold": 5.954237,
+          "roc_auc": 0.4222,
+          "pauc": 0.5439,
+          "precision": 0.8333,
+          "recall": 1.0,
+          "f1": 0.9091,
+          "fpr": 1.0,
+          "confusion_matrix": {
+            "tp": 15,
+            "fp": 3,
+            "tn": 0,
+            "fn": 0
+          }
+        }
+      }
+    },
+    "cross_category_zero_shot": {
+      "macro_roc_auc": 0.5458,
+      "macro_pauc": 0.5892,
+      "macro_f1": 0.4383,
+      "pairs": {
+        "fan_to_pump": {
+          "roc_auc": 0.4306,
+          "pauc": 0.5424,
+          "f1": 0.3902,
+          "precision": 0.7273,
+          "recall": 0.2667,
+          "fpr": 0.5
+        },
+        "fan_to_valve": {
+          "roc_auc": 0.6625,
+          "pauc": 0.7368,
+          "f1": 0.8923,
+          "precision": 0.8286,
+          "recall": 0.9667,
+          "fpr": 1.0
+        },
+        "pump_to_fan": {
+          "roc_auc": 0.5444,
+          "pauc": 0.4883,
+          "f1": 0.0323,
+          "precision": 0.5,
+          "recall": 0.0167,
+          "fpr": 0.0833
+        },
+        "pump_to_valve": {
+          "roc_auc": 0.6625,
+          "pauc": 0.7368,
+          "f1": 0.8923,
+          "precision": 0.8286,
+          "recall": 0.9667,
+          "fpr": 1.0
+        },
+        "valve_to_fan": {
+          "roc_auc": 0.5444,
+          "pauc": 0.4883,
+          "f1": 0.0323,
+          "precision": 0.5,
+          "recall": 0.0167,
+          "fpr": 0.0833
+        },
+        "valve_to_pump": {
+          "roc_auc": 0.4306,
+          "pauc": 0.5424,
+          "f1": 0.3902,
+          "precision": 0.7273,
+          "recall": 0.2667,
+          "fpr": 0.5
+        }
+      }
+    },
+    "cross_category_few_shot_cal": {
+      "macro_roc_auc": 0.618,
+      "macro_pauc": 0.5132,
+      "macro_f1": 0.8712,
+      "pairs": {
+        "fan_to_pump": {
+          "roc_auc": 0.6194,
+          "pauc": 0.5088,
+          "f1": 0.8455,
+          "precision": 0.8254,
+          "recall": 0.8667,
+          "fpr": 0.9167
+        },
+        "fan_to_valve": {
+          "roc_auc": 0.5625,
+          "pauc": 0.4927,
+          "f1": 0.8992,
+          "precision": 0.8406,
+          "recall": 0.9667,
+          "fpr": 0.9167
+        },
+        "pump_to_fan": {
+          "roc_auc": 0.6722,
+          "pauc": 0.538,
+          "f1": 0.8689,
+          "precision": 0.8548,
+          "recall": 0.8833,
+          "fpr": 0.75
+        },
+        "pump_to_valve": {
+          "roc_auc": 0.5625,
+          "pauc": 0.4927,
+          "f1": 0.8992,
+          "precision": 0.8406,
+          "recall": 0.9667,
+          "fpr": 0.9167
+        },
+        "valve_to_fan": {
+          "roc_auc": 0.6722,
+          "pauc": 0.538,
+          "f1": 0.8689,
+          "precision": 0.8548,
+          "recall": 0.8833,
+          "fpr": 0.75
+        },
+        "valve_to_pump": {
+          "roc_auc": 0.6194,
+          "pauc": 0.5088,
+          "f1": 0.8455,
+          "precision": 0.8254,
+          "recall": 0.8667,
+          "fpr": 0.9167
+        }
+      }
+    }
+  }
+}
