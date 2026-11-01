@@ -1,0 +1,106 @@
+{
+  "resnet_ae": {
+    "parameters": 1808065,
+    "parity_passed": true,
+    "max_absolute_diff": 2.86102294921875e-06,
+    "pytorch_fp32": {
+      "roc_auc": 1.0,
+      "cold_start_ms": 98.12,
+      "warm_mean_ms": 94.92,
+      "warm_median_ms": 94.12,
+      "warm_p95_ms": 98.75,
+      "warm_min_ms": 93.03,
+      "warm_max_ms": 99.6,
+      "throughput_files_per_sec": 10.23,
+      "size_kb": 7088.69921875
+    },
+    "ort_fp32": {
+      "roc_auc": 1.0,
+      "cold_start_ms": 184.81,
+      "warm_mean_ms": 186.12,
+      "warm_median_ms": 186.24,
+      "warm_p95_ms": 191.54,
+      "warm_min_ms": 178.59,
+      "warm_max_ms": 191.77,
+      "throughput_files_per_sec": 5.31,
+      "size_kb": 7088.69921875
+    },
+    "ort_int8": {
+      "roc_auc": 1.0,
+      "cold_start_ms": 1096.95,
+      "warm_mean_ms": 1137.82,
+      "warm_median_ms": 1125.27,
+      "warm_p95_ms": 1178.46,
+      "warm_min_ms": 1120.78,
+      "warm_max_ms": 1194.48,
+      "throughput_files_per_sec": 0.9,
+      "size_kb": 3867.8388671875
+    },
+    "quantization_auc_degradation": 0.0,
+    "pipeline_breakdown": {
+      "audio_loading_ms": 41.73,
+      "mel_extraction_ms": 3.72,
+      "patch_slicing_ms": 0.41,
+      "model_inference_ms": 147.54,
+      "postprocessing_decision_ms": 0.04,
+      "total_e2e_latency_ms": 193.45
+    }
+  },
+  "distilled_student": {
+    "parameters": 22113,
+    "parity_passed": true,
+    "max_absolute_diff": 1.6689300537109375e-06,
+    "pytorch_fp32": {
+      "roc_auc": 1.0,
+      "cold_start_ms": 47.91,
+      "warm_mean_ms": 47.69,
+      "warm_median_ms": 47.61,
+      "warm_p95_ms": 48.35,
+      "warm_min_ms": 47.02,
+      "warm_max_ms": 48.39,
+      "throughput_files_per_sec": 20.94,
+      "size_kb": 96.3173828125
+    },
+    "ort_fp32": {
+      "roc_auc": 1.0,
+      "cold_start_ms": 48.14,
+      "warm_mean_ms": 47.91,
+      "warm_median_ms": 47.9,
+      "warm_p95_ms": 48.35,
+      "warm_min_ms": 47.52,
+      "warm_max_ms": 48.42,
+      "throughput_files_per_sec": 20.76,
+      "size_kb": 96.3173828125
+    },
+    "ort_int8": {
+      "roc_auc": 1.0,
+      "cold_start_ms": 81.35,
+      "warm_mean_ms": 80.74,
+      "warm_median_ms": 80.76,
+      "warm_p95_ms": 82.23,
+      "warm_min_ms": 78.65,
+      "warm_max_ms": 82.63,
+      "throughput_files_per_sec": 12.43,
+      "size_kb": 43.73828125
+    },
+    "quantization_auc_degradation": 0.0,
+    "pipeline_breakdown": {
+      "audio_loading_ms": 33.66,
+      "mel_extraction_ms": 3.82,
+      "patch_slicing_ms": 0.29,
+      "model_inference_ms": 10.16,
+      "postprocessing_decision_ms": 0.04,
+      "total_e2e_latency_ms": 47.98
+    }
+  },
+  "system_telemetry": {
+    "timestamp": "2026-11-01T06:26:02.056461+00:00",
+    "ram_used_mb": 13574.74,
+    "ram_total_mb": 16004.66,
+    "ram_percent": 84.8,
+    "cpu_percent": 41.2,
+    "gpu_available": false,
+    "gpu_vram_used_mb": 0.0,
+    "gpu_vram_total_mb": 0.0
+  }
+}

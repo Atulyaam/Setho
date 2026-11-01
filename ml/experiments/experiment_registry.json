@@ -2778,7 +2778,54 @@
       "result_path": "ml\\experiments\\results\\phase7_distillation_cascade.json",
       "artifact_dir": "ml\\experiments\\artifacts\\phase7_distillation_cascade",
       "error": null
+    },
+    "phase8_inference_optimization": {
+      "experiment_id": "phase8_inference_optimization",
+      "git_commit": "344db49852e80ef820faf1e212205ada3245807b",
+      "manifest_hash": "30228fe11ec868b836e6969040a27686e03785dcc8d2c36c045a0766e392b80f",
+      "name": "Phase 8 Inference & System Performance Optimization",
+      "description": "ONNX graph optimization, numerical parity verification, and INT8 quantization benchmarks",
+      "model_type": "onnx_quantized_benchmark",
+      "architecture": "onnx_quantized_benchmark",
+      "preprocessing": "standard_64mel",
+      "status": "COMPLETED",
+      "seed": 42,
+      "config": {
+        "benchmarked_models": [
+          "resnet_ae",
+          "distilled_student"
+        ],
+        "parity_tolerances": 0.0001
+      },
+      "pid": null,
+      "start_time": null,
+      "completion_time": "2026-11-01T06:26:02.145046+00:00",
+      "duration_sec": null,
+      "current_epoch": 0,
+      "max_epochs": 60,
+      "train_loss": null,
+      "val_loss": null,
+      "telemetry": {
+        "timestamp": "2026-11-01T06:26:02.144057+00:00",
+        "ram_used_mb": 13575.57,
+        "ram_total_mb": 16004.66,
+        "ram_percent": 84.8,
+        "cpu_percent": 34.6,
+        "gpu_available": false,
+        "gpu_vram_used_mb": 0.0,
+        "gpu_vram_total_mb": 0.0
+      },
+      "metrics": {
+        "resnet_ort_fp32_latency_ms": 186.24,
+        "resnet_ort_int8_latency_ms": 1125.27,
+        "student_ort_int8_latency_ms": 80.76,
+        "student_throughput_fps": 12.43
+      },
+      "log_path": "ml\\experiments\\logs\\phase8_inference_optimization.log",
+      "result_path": "ml\\experiments\\results\\phase8_inference_optimization.json",
+      "artifact_dir": "ml\\experiments\\artifacts\\phase8_inference_optimization",
+      "error": null
     }
   },
-  "updated_at": "2026-11-01T06:18:39.635331+00:00"
+  "updated_at": "2026-11-01T06:26:02.145046+00:00"
 }
