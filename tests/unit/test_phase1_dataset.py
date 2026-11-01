@@ -61,3 +61,4 @@ def test_balanced_machine_id_distribution():
             for label in ["normal", "abnormal"]:
                 count = machine_tallies.get((cat, m_id, label), 0)
                 assert count == 15, f"Expected 15 files for ({cat}, {m_id}, {label}), got {count}"
+
