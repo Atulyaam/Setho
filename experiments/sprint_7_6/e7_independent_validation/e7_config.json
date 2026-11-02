@@ -1,0 +1,46 @@
+{
+  "experiment_id": "sprint_7_6_e7_independent_validation",
+  "phase": "E7",
+  "title": "Independent Validation & Data Provenance Audit",
+  "author": "Independent Senior ML Validation Engineer & Audio ML Scientist",
+  "date": "2026-11-02",
+  "branch": "research/sprint-7-6-balanced-improvements",
+  "base_commit": "985093d",
+  "production_master_commit": "7d8f84183098d40dfa9e74cbaf2930b195652aed",
+  "protocol": {
+    "safety_rules": [
+      "Work only on research/sprint-7-6-balanced-improvements",
+      "Preserve production master 7d8f841 untouched (0-byte diff on ml/artifacts/)",
+      "Preserve all E0-E6 deliverables, reports, and manifests",
+      "Do not modify original WAV recordings",
+      "Preserve user edits in docs/validate_e2e_workflow.py",
+      "Do not merge, deploy, or promote models to production",
+      "Do not fabricate labels or use synthetic perturbations as a substitute for independent validation",
+      "Stop after E7"
+    ],
+    "provenance_scope": {
+      "physical_wav_inventory": 360,
+      "categories": ["fan", "pump", "valve"],
+      "machine_ids": ["id_00", "id_02", "id_04", "id_06"],
+      "zenodo_source_id": "3384388",
+      "license": "CC BY-SA 4.0"
+    },
+    "audit_questions": [
+      "clean_baseline_auc_variance",
+      "gain_normalization_mathematical_invariance",
+      "calibration_test_split_isolation",
+      "channel_4_recalibration_healthy_only",
+      "clean_baseline_63_environment_warnings",
+      "noise_detector_harmonics_discrimination",
+      "microphone_filtering_reporting_accuracy",
+      "rejected_recordings_auc_exclusion_transparency"
+    ],
+    "official_decision_options": [
+      "INDEPENDENT VALIDATION PASSED UNDER TESTED CONDITIONS",
+      "INDEPENDENT VALIDATION FAILED",
+      "INSUFFICIENT INDEPENDENT EVIDENCE",
+      "DATA PROVENANCE OR METHODOLOGY INVALID"
+    ],
+    "official_verdict": "INSUFFICIENT INDEPENDENT EVIDENCE"
+  }
+}
