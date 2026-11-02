@@ -1,0 +1,76 @@
+{
+  "experiment_name": "Sprint 7.6 / E6: Signal Normalization & Sensor Robustness Remediation",
+  "branch": "research/sprint-7-6-balanced-improvements",
+  "base_commit": "37dc1df",
+  "seeds": [42, 123, 777],
+  "machines": ["id_00", "id_02", "id_04", "id_06"],
+  "model_architecture": "ResidualCNNAE",
+  "loss_function": "Smooth L1 (beta=0.1)",
+  "weight_decay": 0.0001,
+  "calibration_shots": 10,
+  "calibration_target_quantile": 0.95,
+  "pipelines": {
+    "pipeline_a_baseline": {
+      "name": "Pipeline A: Original Baseline",
+      "gain_normalization": false,
+      "sensor_guard": false,
+      "quality_gate": false,
+      "description": "Unmodified E5 baseline system without preprocessing protections"
+    },
+    "pipeline_b_gain_normalized": {
+      "name": "Pipeline B: Gain-Normalized Pipeline",
+      "gain_normalization": true,
+      "target_rms_dbfs": -42.0,
+      "max_gain_boost_db": 24.0,
+      "max_gain_attenuation_db": 30.0,
+      "sensor_guard": false,
+      "quality_gate": false,
+      "description": "Controlled RMS standardization with unscaled amplitude telemetry"
+    },
+    "pipeline_c_sensor_guarded": {
+      "name": "Pipeline C: Gain-Normalized + Sensor Guard",
+      "gain_normalization": true,
+      "target_rms_dbfs": -42.0,
+      "sensor_guard": true,
+      "require_recalibration_on_mismatch": true,
+      "quality_gate": false,
+      "description": "Gain normalization with hardware sensor tracking and recalibration enforcement"
+    },
+    "pipeline_d_complete_production": {
+      "name": "Pipeline D: Complete Production Pipeline",
+      "gain_normalization": true,
+      "target_rms_dbfs": -42.0,
+      "sensor_guard": true,
+      "quality_gate": true,
+      "min_sample_rate": 16000,
+      "target_sample_rate": 16000,
+      "max_clipping_ratio": 0.001,
+      "min_rms_dbfs": -60.0,
+      "adverse_spectral_flatness_threshold": 0.12,
+      "adverse_hf_ratio_threshold_db": -14.0,
+      "description": "Full production pipeline integrating quality rejection, sensor lock, polyphase resampling, gain normalization, and whitened AE inference"
+    }
+  },
+  "conditions": [
+    "clean_baseline",
+    "gain_minus_12db",
+    "gain_minus_6db",
+    "gain_plus_6db",
+    "gain_plus_12db",
+    "noise_snr_30db",
+    "noise_snr_20db",
+    "noise_snr_10db",
+    "noise_snr_5db",
+    "resample_8000hz",
+    "resample_22050hz",
+    "resample_44100hz",
+    "resample_48000hz",
+    "mic_lowpass_4000hz",
+    "mic_highpass_300hz",
+    "mic_bandpass_300_4000hz",
+    "physical_mic_ch1",
+    "physical_mic_ch4",
+    "combined_factory_realistic",
+    "combined_harsh_stress"
+  ]
+}

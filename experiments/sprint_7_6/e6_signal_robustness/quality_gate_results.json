@@ -1,0 +1,36 @@
+{
+  "sub_nyquist_8khz": {
+    "pipeline_a_status": "PROCESSED_UNSAFELY",
+    "pipeline_a_auc": 0.5833,
+    "pipeline_a_fnr": 0.0,
+    "pipeline_d_status": "REJECTED_SAFELY",
+    "pipeline_d_rejection_rate": 1.0,
+    "rejection_reason": "SAMPLE_RATE_UNSUPPORTED (8000 Hz < 16000 Hz)"
+  },
+  "supported_resampling": {
+    "22050hz": {
+      "pipeline_a_auc": 0.7093,
+      "pipeline_d_auc": 0.7241
+    },
+    "44100hz": {
+      "pipeline_a_auc": 0.7093,
+      "pipeline_d_auc": 0.7241
+    },
+    "48000hz": {
+      "pipeline_a_auc": 0.7093,
+      "pipeline_d_auc": 0.7241
+    }
+  },
+  "acoustic_environment_monitoring": {
+    "noise_snr_5db": {
+      "adverse_env_warnings": 216,
+      "total_evaluations": 216,
+      "warning_rate": 1.0
+    },
+    "noise_snr_10db": {
+      "adverse_env_warnings": 216,
+      "total_evaluations": 216,
+      "warning_rate": 1.0
+    }
+  }
+}
