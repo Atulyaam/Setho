@@ -16,7 +16,7 @@ import numpy as np
 import pytest
 import soundfile as sf
 
-from stetho_api.db.database import get_db
+from stetho_api.db.database import DatabaseManager, get_db
 from stetho_api.db.field_data_repo import (
     DatasetRoleConflictException,
     DuplicateRecordingException,
@@ -32,7 +32,7 @@ def temp_pilot_repo(tmp_path: Path):
     db_path = tmp_path / "pilot_test.db"
     storage_dir = tmp_path / "pilot_storage"
     storage_dir.mkdir(parents=True, exist_ok=True)
-    db = get_db(db_path)
+    db = DatabaseManager(db_path)
     return FieldDataRepo(db=db, storage_base_dir=storage_dir)
 
 

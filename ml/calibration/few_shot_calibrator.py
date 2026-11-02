@@ -115,8 +115,12 @@ class FewShotMachineCalibrator:
 
         # Extract normal calibration patches
         patches = self._extract_patches_for_files(cal_paths)
-        t_mean = getattr(self.detector, "train_mean", -42.5) or -42.5
-        t_std = getattr(self.detector, "train_std", 18.2) or 18.2
+        t_mean = getattr(self.detector, "train_mean", None)
+        if t_mean is None:
+            t_mean = -42.5
+        t_std = getattr(self.detector, "train_std", None)
+        if t_std is None or t_std == 0.0:
+            t_std = 18.2
         norm_patches = (patches - t_mean) / t_std
         x_t = torch.from_numpy(norm_patches).float().to(self.device)
 
@@ -200,8 +204,12 @@ class FewShotMachineCalibrator:
             # Fallback to detector uncalibrated scoring
             return self.detector.score_patches(patches)
 
-        t_mean = getattr(self.detector, "train_mean", -42.5) or -42.5
-        t_std = getattr(self.detector, "train_std", 18.2) or 18.2
+        t_mean = getattr(self.detector, "train_mean", None)
+        if t_mean is None:
+            t_mean = -42.5
+        t_std = getattr(self.detector, "train_std", None)
+        if t_std is None or t_std == 0.0:
+            t_std = 18.2
         norm_patches = (patches - t_mean) / t_std
         x_t = torch.from_numpy(norm_patches).float().to(self.device)
 
