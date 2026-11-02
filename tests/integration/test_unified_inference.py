@@ -250,3 +250,63 @@ def test_production_artifacts_unmodified():
         text=True,
     )
     assert result.returncode == 0, f"Production artifacts modified! Git diff: {result.stdout}\n{result.stderr}"
+
+
+def test_two_sided_residual_whitening_deficit_anomalies(clean_sine_wav: Path):
+    """Verify that two-sided residual whitening captures deficit anomalies (quieter faults like valves) while one-sided fails."""
+    suite = UnifiedFeatureSuite(preset_name="standard_64mel")
+    patches, _ = suite.extract_patches(clean_sine_wav, patch_frames=64, hop_frames=32)
+
+    # Baseline normal residuals: mean 0.30, std 0.05
+    mu_r = np.full((1, 1, 64, 64), 0.30, dtype=np.float32)
+    std_r = np.full((1, 1, 64, 64), 0.05, dtype=np.float32)
+
+    whitener_two_sided = ResidualWhiteningAdapter(
+        baseline_mean=mu_r, baseline_std=std_r, calibrated_threshold=1.5, two_sided=True
+    )
+    whitener_one_sided = ResidualWhiteningAdapter(
+        baseline_mean=mu_r, baseline_std=std_r, calibrated_threshold=1.5, two_sided=False
+    )
+
+    # Deficit anomaly (reconstruction error is lower than normal baseline: 0.10 vs 0.30)
+    recon_deficit = patches + 0.10
+    _, score_one_sided = whitener_one_sided.whiten_reconstruction(patches, recon_deficit)
+    _, score_two_sided = whitener_two_sided.whiten_reconstruction(patches, recon_deficit)
+
+    # One-sided clips negative residual to 0.0
+    assert score_one_sided == 0.0, "One-sided whitening must truncate deficit anomaly residuals to 0.0"
+
+    # Two-sided correctly measures deviation: |0.10 - 0.30| / 0.05 = 4.0
+    assert np.isclose(score_two_sided, 4.0, atol=1e-2), f"Expected 4.0 deviation, got {score_two_sided}"
+    assert score_two_sided > whitener_two_sided.calibrated_threshold, "Two-sided whitening must detect deficit anomaly"
+
+
+def test_direct_calibrated_specialist_path(clean_sine_wav: Path):
+    """Verify that direct calibrated routing executes exactly 1 model (bypassing student) and achieves target latency."""
+    engine = UnifiedAdaptiveInferenceEngine.get_instance()
+
+    # Register calibration profile
+    mu_r = np.full((1, 1, 64, 64), 0.20, dtype=np.float32)
+    std_r = np.full((1, 1, 64, 64), 0.05, dtype=np.float32)
+    engine.register_calibration_profile(
+        machine_id="direct_calibrated_asset_01",
+        baseline_mean=mu_r,
+        baseline_std=std_r,
+        calibrated_threshold=1.5,
+        machine_category="fan",
+        two_sided=True,
+    )
+
+    resp = engine.inspect_audio(
+        clean_sine_wav,
+        machine_id="direct_calibrated_asset_01",
+        machine_category="fan",
+        direct_calibrated=True,
+    )
+
+    assert resp.execution_path == "RESIDUAL_WHITENED"
+    assert resp.models_executed == 1, f"Direct calibrated routing must execute exactly 1 model, got {resp.models_executed}"
+    assert resp.student_latency_ms is None, "Student model must not execute in direct calibrated path"
+    assert resp.specialist_latency_ms is not None, "Specialist model must execute"
+    assert resp.telemetry.get("direct_calibrated_path") is True
+    assert resp.telemetry.get("residual_whitening_applied") is True

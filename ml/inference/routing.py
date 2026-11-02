@@ -47,6 +47,7 @@ class RoutingPolicyConfig:
     student_threshold: float = 0.37356
     fan_specialist_threshold: float = 0.35208
     multitask_threshold: float = 0.35208
+    enable_direct_calibrated_routing: bool = False  # If True, calibrated assets bypass student
 
 
 @dataclass

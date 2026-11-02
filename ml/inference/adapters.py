@@ -247,18 +247,24 @@ class ResidualWhiteningAdapter:
         baseline_std: np.ndarray,   # (1, 1, 64, 64)
         calibrated_threshold: float,
         n_shots: int = 10,
+        two_sided: bool = True,
     ):
         self.baseline_mean = baseline_mean
         self.baseline_std = np.maximum(baseline_std, 1e-4)
         self.calibrated_threshold = calibrated_threshold
         self.n_shots = n_shots
+        self.two_sided = two_sided
 
     def whiten_reconstruction(
         self, input_patches: np.ndarray, reconstruction: np.ndarray
     ) -> Tuple[np.ndarray, float]:
-        """Compute spatial-spectral whitened residuals: max(0, (|x - x_hat| - mu) / sigma)."""
+        """Compute spatial-spectral whitened residuals."""
         residuals = np.abs(input_patches - reconstruction)  # (B, 1, 64, 64)
-        whitened = np.maximum(0.0, (residuals - self.baseline_mean) / self.baseline_std)
+        diff = residuals - self.baseline_mean
+        if self.two_sided:
+            whitened = np.abs(diff) / self.baseline_std
+        else:
+            whitened = np.maximum(0.0, diff / self.baseline_std)
         patch_scores = np.mean(whitened, axis=(1, 2, 3))
         # Top-10% mean aggregation
         k = max(1, int(len(patch_scores) * 0.10))

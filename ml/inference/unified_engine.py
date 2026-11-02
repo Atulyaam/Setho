@@ -169,6 +169,7 @@ class UnifiedAdaptiveInferenceEngine:
         calibrated_threshold: float,
         machine_category: str = "fan",
         n_shots: int = 10,
+        two_sided: bool = True,
     ) -> None:
         """Register machine-specific few-shot residual whitening profile."""
         key = f"{machine_category.lower()}_{machine_id}"
@@ -178,6 +179,7 @@ class UnifiedAdaptiveInferenceEngine:
                 baseline_std=baseline_std,
                 calibrated_threshold=calibrated_threshold,
                 n_shots=n_shots,
+                two_sided=two_sided,
             )
             self._calibration_profiles[key] = adapter
             self._calibration_profiles[machine_id] = adapter
@@ -191,6 +193,7 @@ class UnifiedAdaptiveInferenceEngine:
         machine_category: str = "fan",
         channel_index: int = 0,
         force_specialist: bool = False,
+        direct_calibrated: Optional[bool] = None,
     ) -> DiagnosticResponse:
         """Execute unified, adaptive inference on an incoming audio recording."""
         t_start = time.perf_counter()
@@ -279,15 +282,73 @@ class UnifiedAdaptiveInferenceEngine:
                 rejection_reasons=["No spectrogram patches could be extracted from waveform."],
             )
 
-        # Step 4: Fast Student INT8/FP32 First-Pass
+        # Step 4: Routing Check & Fast Calibration Bypass
+        cal_key = f"{machine_category.lower()}_{machine_id}"
+        has_calib = cal_key in self._calibration_profiles
+        whitening_adapter = self._calibration_profiles.get(cal_key)
+        
+        use_direct = (
+            self.routing_config.enable_direct_calibrated_routing
+            if direct_calibrated is None
+            else direct_calibrated
+        )
+
+        # Fast direct specialist path for commissioned/calibrated machines
+        if has_calib and whitening_adapter is not None and use_direct:
+            specialist_type = self.router.select_specialist_model_type(machine_category)
+            if specialist_type == "resnet_ae_specialist":
+                specialist = self._get_fan_specialist_adapter(machine_id)
+            else:
+                specialist = self._get_multitask_adapter()
+
+            specialist_out: ModelOutput = specialist.score_patches(patches)
+            spec_lat_ms = specialist_out.latency_ms
+
+            whitened_patch_scores, whitened_score = whitening_adapter.whiten_reconstruction(
+                input_patches=patches, reconstruction=specialist_out.reconstruction
+            )
+            route_path = RoutingPath.RESIDUAL_WHITENED
+            status, conf, unc_reason = self.router.determine_decision_and_confidence(
+                score=whitened_score,
+                threshold=whitening_adapter.calibrated_threshold,
+                patch_scores=whitened_patch_scores,
+                route_path=route_path,
+                quality_warnings=q_result.warnings,
+            )
+
+            total_duration_ms = (time.perf_counter() - t_start) * 1000.0
+            return DiagnosticResponse(
+                asset_id=machine_id,
+                machine_category=machine_category,
+                decision=status.value,
+                confidence=conf.value,
+                anomaly_score=whitened_score,
+                operating_threshold=whitening_adapter.calibrated_threshold,
+                execution_path=route_path.value,
+                models_executed=1,
+                models_used=[specialist.get_metadata()["model_name"]],
+                processing_duration_ms=total_duration_ms,
+                student_latency_ms=None,
+                specialist_latency_ms=spec_lat_ms,
+                quality_passed=True,
+                quality_status=q_result.status,
+                quality_telemetry=q_result.telemetry,
+                uncertainty_reason=unc_reason,
+                telemetry={
+                    "specialist_raw_score": round(specialist_out.mean_score, 5),
+                    "specialist_format": specialist.get_metadata()["model_format"],
+                    "residual_whitening_applied": True,
+                    "direct_calibrated_path": True,
+                    "num_patches": len(patches),
+                },
+            )
+
+        # Standard Cascade: Fast Student INT8/FP32 First-Pass
         student_adapter = self._get_student_adapter()
         student_out: ModelOutput = student_adapter.score_patches(patches)
         student_score = student_out.mean_score
         student_lat_ms = student_out.latency_ms
 
-        cal_key = f"{machine_category.lower()}_{machine_id}"
-        has_calib = cal_key in self._calibration_profiles
-        whitening_adapter = self._calibration_profiles.get(cal_key)
         can_exit, exit_reason = self.router.evaluate_student_stage(
             student_score=student_score, has_calibration_profile=has_calib
         )
