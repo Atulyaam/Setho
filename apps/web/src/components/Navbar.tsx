@@ -14,6 +14,7 @@ import {
   Mic,
   Activity,
   Settings as SettingsIcon,
+  Database,
   PlusCircle,
   LogOut,
   Sun,
@@ -98,6 +99,18 @@ export function Navbar() {
               >
                 <Activity className="w-4 h-4" />
                 <span>{t("monitoring")}</span>
+              </Link>
+
+              <Link
+                href="/field-data"
+                className={`px-3 py-2 rounded-lg flex items-center gap-1.5 transition ${
+                  isActive("/field-data")
+                    ? "bg-slate-800 text-cyan-400 font-semibold"
+                    : "text-slate-400 hover:text-slate-100 hover:bg-slate-800/50"
+                }`}
+              >
+                <Database className="w-4 h-4" />
+                <span>Field Data</span>
               </Link>
 
               <Link

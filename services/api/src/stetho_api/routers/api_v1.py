@@ -5,6 +5,7 @@ from fastapi import APIRouter
 from stetho_api.routers.analyses import router as analyses_router
 from stetho_api.routers.assets import router as assets_router
 from stetho_api.routers.auth import router as auth_router
+from stetho_api.routers.field_data import router as field_data_router
 from stetho_api.routers.inference import router as inference_router
 from stetho_api.routers.machines import router as machines_router
 
@@ -16,6 +17,7 @@ router.include_router(machines_router)
 router.include_router(analyses_router)
 router.include_router(assets_router)
 router.include_router(inference_router)
+router.include_router(field_data_router)
 
 
 @router.get("/info", tags=["API v1"])

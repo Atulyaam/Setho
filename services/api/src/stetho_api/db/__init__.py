@@ -15,6 +15,13 @@ from stetho_api.db.calibration_repo import (
     CalibrationRepository,
 )
 from stetho_api.db.database import DatabaseManager, get_db, get_utc_now_iso
+from stetho_api.db.field_data_repo import (
+    DatasetRoleConflictException,
+    DuplicateRecordingException,
+    FieldDataRepo,
+    InvalidAudioQualityException,
+    ManifestSealedException,
+)
 from stetho_api.db.inference_repo import InferenceRecord, InferenceRepository
 from stetho_api.db.machine_repo import MachineProfile, MachineRepository
 
@@ -27,14 +34,19 @@ __all__ = [
     "CalibrationProfile",
     "CalibrationRepository",
     "DatabaseManager",
+    "DatasetRoleConflictException",
+    "DuplicateRecordingException",
     "EnrollmentRecord",
     "EnrollmentRepository",
+    "FieldDataRepo",
     "InferenceRecord",
     "InferenceRepository",
+    "InvalidAudioQualityException",
     "JobRecord",
     "JobRepository",
     "MachineProfile",
     "MachineRepository",
+    "ManifestSealedException",
     "get_db",
     "get_utc_now_iso",
 ]

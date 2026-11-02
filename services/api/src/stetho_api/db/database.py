@@ -65,6 +65,16 @@ class DatabaseManager:
                 logger.error(f"Transaction rolled back due to error: {e}")
                 raise e
 
+    def close(self) -> None:
+        """Close the thread-local SQLite connection if open."""
+        with self._lock:
+            if hasattr(self._local, "conn") and self._local.conn is not None:
+                try:
+                    self._local.conn.close()
+                except Exception:
+                    pass
+                self._local.conn = None
+
     def initialize_schema(self) -> None:
         """Create tables and indices if they do not exist, and apply migrations."""
         from stetho_api.auth.password import hash_password
@@ -325,6 +335,89 @@ class DatabaseManager:
             );
             """)
 
+            # 14. Field Recordings Table (Sprint 7.7 / E8 Field Pilot Data)
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS field_recordings (
+                recording_id TEXT PRIMARY KEY,
+                asset_id TEXT DEFAULT NULL,
+                machine_category TEXT NOT NULL,
+                machine_id TEXT NOT NULL,
+                sensor_id TEXT NOT NULL,
+                channel_index INTEGER NOT NULL DEFAULT 0,
+                microphone_position TEXT NOT NULL DEFAULT 'primary_bearing',
+                sample_rate INTEGER NOT NULL,
+                channels INTEGER NOT NULL,
+                duration_sec REAL NOT NULL,
+                file_path TEXT NOT NULL,
+                original_filename TEXT NOT NULL,
+                sha256_hash TEXT UNIQUE NOT NULL,
+                captured_at TEXT NOT NULL,
+                operating_condition TEXT DEFAULT 'nominal',
+                load_level TEXT DEFAULT 'full_load',
+                operator_id TEXT NOT NULL,
+                provenance_source TEXT NOT NULL DEFAULT 'field_pilot',
+                consent_status TEXT NOT NULL DEFAULT 'authorized',
+                dataset_role TEXT NOT NULL DEFAULT 'unassigned',
+                current_label TEXT NOT NULL DEFAULT 'unlabelled',
+                verification_status TEXT NOT NULL DEFAULT 'PENDING',
+                quality_status TEXT NOT NULL DEFAULT 'PASSED',
+                quality_telemetry_json TEXT DEFAULT '{}',
+                metadata_json TEXT DEFAULT '{}',
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL
+            );
+            """)
+
+            # 15. Recording Annotations Table (Sprint 7.7 / E8 Ground-Truth History)
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS recording_annotations (
+                annotation_id TEXT PRIMARY KEY,
+                recording_id TEXT NOT NULL,
+                label TEXT NOT NULL,
+                annotator_id TEXT NOT NULL,
+                reason TEXT NOT NULL,
+                evidence_source TEXT NOT NULL,
+                verification_status TEXT NOT NULL DEFAULT 'VERIFIED',
+                inspection_notes TEXT DEFAULT '',
+                revision_number INTEGER NOT NULL DEFAULT 1,
+                created_at TEXT NOT NULL,
+                FOREIGN KEY (recording_id) REFERENCES field_recordings(recording_id) ON DELETE CASCADE
+            );
+            """)
+
+            # 16. Dataset Manifests Table (Sprint 7.7 / E8 Frozen Manifest Governance)
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS dataset_manifests (
+                manifest_id TEXT PRIMARY KEY,
+                name TEXT NOT NULL,
+                dataset_role TEXT NOT NULL,
+                machine_category TEXT NOT NULL,
+                is_sealed INTEGER NOT NULL DEFAULT 0,
+                sealed_at TEXT DEFAULT NULL,
+                sha256_checksum TEXT DEFAULT NULL,
+                recording_count INTEGER NOT NULL DEFAULT 0,
+                recordings_json TEXT NOT NULL DEFAULT '[]',
+                metadata_json TEXT DEFAULT '{}',
+                created_by TEXT NOT NULL,
+                created_at TEXT NOT NULL,
+                updated_at TEXT NOT NULL
+            );
+            """)
+
+            # 17. Field Import History Table (Sprint 7.7 / E8 Auditable Import Log)
+            cursor.execute("""
+            CREATE TABLE IF NOT EXISTS field_import_history (
+                import_id TEXT PRIMARY KEY,
+                original_filename TEXT NOT NULL,
+                sha256_hash TEXT NOT NULL,
+                status TEXT NOT NULL,
+                recording_id TEXT DEFAULT NULL,
+                rejection_reason TEXT DEFAULT NULL,
+                operator_id TEXT NOT NULL,
+                timestamp TEXT NOT NULL
+            );
+            """)
+
             # Automated Migrations for Sprint 6A
             mach_cols = [r[1] for r in cursor.execute("PRAGMA table_info(machines);").fetchall()]
             if "last_inspection_at" not in mach_cols:
@@ -356,6 +449,14 @@ class DatabaseManager:
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_cal_history_asset ON calibration_history(asset_id);")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_inf_results_asset ON inference_results(asset_id);")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_sys_events_comp ON system_events(component);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_fld_rec_hash ON field_recordings(sha256_hash);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_fld_rec_cat ON field_recordings(machine_category);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_fld_rec_mach ON field_recordings(machine_id);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_fld_rec_role ON field_recordings(dataset_role);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_fld_rec_lbl ON field_recordings(current_label);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_ann_rec ON recording_annotations(recording_id);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_mnf_role ON dataset_manifests(dataset_role);")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_imp_hash ON field_import_history(sha256_hash);")
 
             # Seed default admin and inspector accounts if users table is empty
             cursor.execute("SELECT COUNT(*) FROM users;")

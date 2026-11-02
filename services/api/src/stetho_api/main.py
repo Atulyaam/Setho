@@ -17,6 +17,7 @@ from stetho_api.exceptions import (
 from stetho_api.logging import RequestLoggingMiddleware, logger, setup_logging
 from stetho_api.routers.api_v1 import router as api_v1_router
 from stetho_api.routers.assets import router as assets_router
+from stetho_api.routers.field_data import router as field_data_router
 from stetho_api.routers.health import router as health_router
 from stetho_api.routers.inference import router as inference_router
 
@@ -77,6 +78,7 @@ def create_app() -> FastAPI:
     # Direct /api route aliases for Sprint 7 endpoints
     application.include_router(assets_router, prefix=settings.API_PREFIX)
     application.include_router(inference_router, prefix=settings.API_PREFIX)
+    application.include_router(field_data_router, prefix=settings.API_PREFIX)
 
     return application
 
