@@ -4,7 +4,7 @@ export async function POST() {
   const response = NextResponse.json({ success: true });
   response.cookies.set("stetho_token", "", {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: false,
     sameSite: "lax",
     path: "/",
     maxAge: 0,

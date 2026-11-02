@@ -9,12 +9,16 @@ export async function GET(req: NextRequest) {
   }
 
   try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
     const res = await fetch(`${API_BASE_URL}/api/v1/auth/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
+      signal: controller.signal,
       cache: "no-store",
     });
+    clearTimeout(timeoutId);
 
     if (!res.ok) {
       // Clear token if expired or invalid

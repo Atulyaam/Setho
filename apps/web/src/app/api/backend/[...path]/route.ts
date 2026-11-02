@@ -36,7 +36,7 @@ async function proxyRequest(req: NextRequest, params: { path: string[] }) {
   }
 
   const contentType = req.headers.get("content-type");
-  if (contentType && !contentType.includes("multipart/form-data")) {
+  if (contentType) {
     headers["Content-Type"] = contentType;
   }
 
@@ -44,7 +44,7 @@ async function proxyRequest(req: NextRequest, params: { path: string[] }) {
     let body: any = null;
     if (req.method !== "GET" && req.method !== "HEAD") {
       if (contentType && contentType.includes("multipart/form-data")) {
-        body = await req.formData();
+        body = Buffer.from(await req.arrayBuffer());
       } else {
         body = await req.text();
       }

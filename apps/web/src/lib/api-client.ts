@@ -228,8 +228,12 @@ async function handleResponse<T>(res: Response): Promise<T> {
   }
 
   if (!res.ok) {
-    const errorMsg = data.detail || data.error || `HTTP error ${res.status}`;
-    throw new APIError(errorMsg, res.status, data.code, data.details);
+    const errorMsg =
+      data.detail ||
+      (typeof data.error === "string" ? data.error : data.error?.message) ||
+      `HTTP error ${res.status}`;
+    const errorCode = data.code || data.error?.code;
+    throw new APIError(errorMsg, res.status, errorCode, data.details || data.error?.details);
   }
 
   return data as T;

@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
     // Set secure HttpOnly cookie for session token
     response.cookies.set("stetho_token", data.access_token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
+      secure: req.nextUrl.protocol === "https:",
       sameSite: "lax",
       path: "/",
       maxAge: data.expires_in_seconds || 86400,

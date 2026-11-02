@@ -4,6 +4,7 @@ import json
 import logging
 from typing import Any, Dict, List, Optional
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Query, Response, UploadFile, status
+from fastapi.responses import FileResponse
 
 from stetho_api.auth.dependencies import get_current_user
 from stetho_api.config import Settings, get_settings
@@ -58,6 +59,12 @@ async def import_field_recording(
     current_user: User = Depends(get_current_user),
     repo: FieldDataRepo = Depends(get_field_repo),
 ):
+    if current_user.role == "viewer":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Forbidden: Viewers are not permitted to import recordings.",
+        )
+
     # 1. Read file bytes with limit check
     file_bytes = await file.read()
     if len(file_bytes) == 0:
@@ -153,6 +160,24 @@ async def get_recording(
     return rec
 
 
+@router.get(
+    "/recordings/{recording_id}/audio",
+    summary="Stream or download field recording audio",
+    description="Streams raw WAV audio with authentication and path safety verification.",
+)
+async def get_recording_audio(
+    recording_id: str,
+    current_user: User = Depends(get_current_user),
+    repo: FieldDataRepo = Depends(get_field_repo),
+):
+    path = repo.get_recording_audio_path(recording_id)
+    return FileResponse(
+        path=str(path),
+        media_type="audio/wav",
+        filename=f"{recording_id}.wav",
+    )
+
+
 @router.post(
     "/recordings/{recording_id}/annotate",
     response_model=FieldAnnotationResponse,
@@ -166,6 +191,11 @@ async def annotate_recording(
     current_user: User = Depends(get_current_user),
     repo: FieldDataRepo = Depends(get_field_repo),
 ):
+    if current_user.role == "viewer":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Forbidden: Viewers are not permitted to annotate recordings.",
+        )
     return repo.add_annotation(
         recording_id=recording_id,
         label=payload.label,
@@ -202,6 +232,11 @@ async def update_dataset_role(
     current_user: User = Depends(get_current_user),
     repo: FieldDataRepo = Depends(get_field_repo),
 ):
+    if current_user.role != "admin":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Forbidden: Only administrators can modify dataset separation roles.",
+        )
     return repo.assign_dataset_role(
         recording_id=recording_id,
         new_role=payload.dataset_role,
@@ -221,6 +256,11 @@ async def create_manifest(
     current_user: User = Depends(get_current_user),
     repo: FieldDataRepo = Depends(get_field_repo),
 ):
+    if current_user.role != "admin":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Forbidden: Only administrators can create dataset manifests.",
+        )
     return repo.create_or_seal_manifest(
         name=payload.name,
         dataset_role=payload.dataset_role,
@@ -230,6 +270,38 @@ async def create_manifest(
         seal_now=payload.seal_now,
         metadata=payload.metadata,
     )
+
+
+@router.post(
+    "/manifests/{manifest_id}/seal",
+    response_model=ManifestResponse,
+    summary="Seal existing dataset manifest",
+    description="Freezes and checksums an existing open manifest.",
+)
+async def seal_manifest(
+    manifest_id: str,
+    current_user: User = Depends(get_current_user),
+    repo: FieldDataRepo = Depends(get_field_repo),
+):
+    if current_user.role != "admin":
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Forbidden: Only administrators can seal dataset manifests.",
+        )
+    return repo.seal_manifest(manifest_id=manifest_id, operator_id=current_user.username)
+
+
+@router.get(
+    "/manifests/{manifest_id}/verify",
+    summary="Cryptographically verify manifest integrity",
+    description="Verifies all member recordings against disk and recalculates manifest SHA-256.",
+)
+async def verify_manifest(
+    manifest_id: str,
+    current_user: User = Depends(get_current_user),
+    repo: FieldDataRepo = Depends(get_field_repo),
+):
+    return repo.verify_manifest(manifest_id)
 
 
 @router.get(

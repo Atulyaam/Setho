@@ -14,6 +14,7 @@ import json
 import logging
 import os
 from pathlib import Path
+import re
 from typing import Any, Dict, List, Optional, Tuple, Union
 import uuid
 
@@ -47,8 +48,9 @@ class DatasetRoleConflictException(StethoAPIException):
 
 class ManifestSealedException(StethoAPIException):
     """Raised when an attempt is made to modify an immutable sealed manifest."""
-    def __init__(self, message: str):
+    def __init__(self, message: str, manifest_id: Optional[str] = None):
         super().__init__(message=message, status_code=409, code="MANIFEST_ALREADY_SEALED")
+        self.manifest_id = manifest_id
 
 
 class FieldDataRepo:
@@ -103,6 +105,30 @@ class FieldDataRepo:
         now = get_utc_now_iso()
         captured_timestamp = captured_at or now
 
+        # Role check: Cannot import directly into calibration_enrollment
+        if dataset_role == "calibration_enrollment":
+            raise DatasetRoleConflictException(
+                "Cannot import directly into 'calibration_enrollment'. "
+                "Recordings must first be ingested and verified as normal by an authorized operator."
+            )
+
+        # Path traversal guard on machine_category
+        clean_category = re.sub(r"[^a-zA-Z0-9_\-]", "", machine_category).strip()
+        if not clean_category or clean_category != machine_category:
+            raise StethoAPIException(
+                f"Invalid machine_category '{machine_category}'. Must contain only alphanumeric, underscore, or hyphen characters.",
+                status_code=400,
+                code="INVALID_CATEGORY_NAME",
+            )
+        dest_dir = (self.storage_base_dir / clean_category).resolve()
+        if not str(dest_dir).startswith(str(self.storage_base_dir.resolve())):
+            raise StethoAPIException(
+                "Path traversal detected in destination directory.",
+                status_code=400,
+                code="PATH_TRAVERSAL_DETECTED",
+            )
+        clean_filename = re.sub(r"[\x00-\x1f\x7f]", "", Path(original_filename).name)[:255] or "recording.wav"
+
         # 1. Compute SHA-256 hash immediately
         sha256_hash = hashlib.sha256(file_bytes).hexdigest()
 
@@ -120,7 +146,7 @@ class FieldDataRepo:
                     recording_id, rejection_reason, operator_id, timestamp
                 ) VALUES (?, ?, ?, 'DUPLICATE_REJECTED', ?, ?, ?, ?);
                 """, (
-                    import_id, original_filename, sha256_hash,
+                    import_id, clean_filename, sha256_hash,
                     existing_id, f"Duplicate file with identical hash already imported as {existing_id}",
                     operator_id, now
                 ))
@@ -147,7 +173,7 @@ class FieldDataRepo:
                     rejection_reason, operator_id, timestamp
                 ) VALUES (?, ?, ?, 'VALIDATION_FAILED', ?, ?, ?);
                 """, (
-                    f"imp_{uuid.uuid4().hex[:12]}", original_filename, sha256_hash,
+                    f"imp_{uuid.uuid4().hex[:12]}", clean_filename, sha256_hash,
                     f"Corrupt or unreadable audio format: {str(e)}", operator_id, now
                 ))
             raise InvalidAudioQualityException(f"Unsupported or corrupt audio file: {str(e)}")
@@ -158,9 +184,17 @@ class FieldDataRepo:
             rejection_reasons.append(
                 f"SAMPLE_RATE_UNSUPPORTED: Sample rate {sample_rate} Hz is below minimum requirement of 16000 Hz."
             )
+        if sample_rate > 96000:
+            rejection_reasons.append(
+                f"SAMPLE_RATE_EXCESSIVE: Sample rate {sample_rate} Hz exceeds maximum limit of 96000 Hz."
+            )
         if duration_sec < 1.0:
             rejection_reasons.append(
                 f"DURATION_TOO_SHORT: Duration {duration_sec:.2f}s is less than minimum 1.0s."
+            )
+        if duration_sec > 60.0:
+            rejection_reasons.append(
+                f"DURATION_TOO_LONG: Duration {duration_sec:.2f}s exceeds maximum allowed limit of 60.0s."
             )
         if channel_index >= channels:
             rejection_reasons.append(
@@ -192,7 +226,7 @@ class FieldDataRepo:
                     rejection_reason, operator_id, timestamp
                 ) VALUES (?, ?, ?, 'VALIDATION_FAILED', ?, ?, ?);
                 """, (
-                    f"imp_{uuid.uuid4().hex[:12]}", original_filename, sha256_hash,
+                    f"imp_{uuid.uuid4().hex[:12]}", clean_filename, sha256_hash,
                     combined_reason, operator_id, now
                 ))
             raise InvalidAudioQualityException(combined_reason)
@@ -209,7 +243,6 @@ class FieldDataRepo:
 
         # 6. Save original audio file to disk
         recording_id = f"fld_rec_{uuid.uuid4().hex[:12]}"
-        dest_dir = self.storage_base_dir / machine_category
         dest_dir.mkdir(parents=True, exist_ok=True)
         file_path = dest_dir / f"{recording_id}.wav"
 
@@ -232,9 +265,9 @@ class FieldDataRepo:
                 metadata_json, created_at, updated_at
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
             """, (
-                recording_id, asset_id, machine_category, machine_id, sensor_id,
+                recording_id, asset_id, clean_category, machine_id, sensor_id,
                 channel_index, microphone_position, sample_rate, channels,
-                duration_sec, str(file_path).replace("\\", "/"), original_filename, sha256_hash,
+                duration_sec, str(file_path).replace("\\", "/"), clean_filename, sha256_hash,
                 captured_timestamp, operating_condition, load_level, operator_id,
                 provenance_source, consent_status, dataset_role, "unlabelled",
                 "PENDING", "PASSED", json.dumps(quality_telemetry),
@@ -247,7 +280,7 @@ class FieldDataRepo:
                 recording_id, rejection_reason, operator_id, timestamp
             ) VALUES (?, ?, ?, 'SUCCESS', ?, NULL, ?, ?);
             """, (
-                import_id, original_filename, sha256_hash,
+                import_id, clean_filename, sha256_hash,
                 recording_id, operator_id, now
             ))
 
@@ -378,6 +411,21 @@ class FieldDataRepo:
                     "Calibration data must represent confirmed healthy baseline operation."
                 )
 
+            # 2b. If recording belongs to a sealed evaluation manifest, prevent modifying ground-truth label!
+            if rec["dataset_role"] == "sealed_evaluation":
+                cur.execute("""
+                SELECT manifest_id, name, recordings_json FROM dataset_manifests
+                WHERE dataset_role = 'sealed_evaluation' AND is_sealed = 1;
+                """)
+                for manifest in cur.fetchall():
+                    member_ids = json.loads(manifest["recordings_json"] or "[]")
+                    if recording_id in member_ids:
+                        raise ManifestSealedException(
+                            f"Recording '{recording_id}' belongs to sealed evaluation manifest '{manifest['name']}' "
+                            f"({manifest['manifest_id']}) and cannot have its ground-truth modified.",
+                            manifest_id=manifest["manifest_id"],
+                        )
+
             # 3. Supersede previous annotations
             cur.execute("""
             UPDATE recording_annotations
@@ -458,26 +506,27 @@ class FieldDataRepo:
             current_role = rec["dataset_role"]
             current_label = rec["current_label"]
 
-            # Role restriction 1: Calibration enrollment recordings MUST NOT be abnormal
-            if new_role == "calibration_enrollment" and current_label == "abnormal":
+            # Role restriction 1: Calibration enrollment recordings MUST be confirmed healthy normal
+            if new_role == "calibration_enrollment" and (current_label != "normal" or rec["verification_status"] != "VERIFIED"):
                 raise DatasetRoleConflictException(
-                    "Cannot assign role 'calibration_enrollment' to an abnormal recording. "
-                    "Enrollment audio must represent healthy normal baseline operation."
+                    "Cannot assign role 'calibration_enrollment' to an abnormal recording or unverified recording. "
+                    "Enrollment audio must represent confirmed healthy normal baseline operation."
                 )
 
             # Role restriction 2: If recording is in a sealed manifest, prevent role change
             if current_role == "sealed_evaluation" and new_role != "sealed_evaluation":
                 cur.execute("""
-                SELECT manifest_id, name FROM dataset_manifests
-                WHERE dataset_role = 'sealed_evaluation' AND is_sealed = 1
-                AND recordings_json LIKE ?;
-                """, (f"%{recording_id}%",))
-                sealed_manifest = cur.fetchone()
-                if sealed_manifest:
-                    raise ManifestSealedException(
-                        f"Recording '{recording_id}' belongs to sealed evaluation manifest '{sealed_manifest['name']}' "
-                        f"({sealed_manifest['manifest_id']}) and cannot be reassigned."
-                    )
+                SELECT manifest_id, name, recordings_json FROM dataset_manifests
+                WHERE dataset_role = 'sealed_evaluation' AND is_sealed = 1;
+                """)
+                for manifest in cur.fetchall():
+                    member_ids = json.loads(manifest["recordings_json"] or "[]")
+                    if recording_id in member_ids:
+                        raise ManifestSealedException(
+                            f"Recording '{recording_id}' belongs to sealed evaluation manifest '{manifest['name']}' "
+                            f"({manifest['manifest_id']}) and cannot be reassigned.",
+                            manifest_id=manifest["manifest_id"],
+                        )
 
             cur.execute("""
             UPDATE field_recordings
@@ -594,6 +643,137 @@ class FieldDataRepo:
             m["metadata"] = json.loads(m.get("metadata_json") or "{}")
             results.append(m)
         return results
+
+    def get_manifest(self, manifest_id: str) -> Optional[Dict[str, Any]]:
+        """Fetch a single manifest by ID."""
+        conn = self.db.get_connection()
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM dataset_manifests WHERE manifest_id = ?;", (manifest_id,))
+        row = cur.fetchone()
+        if not row:
+            return None
+        m = dict(row)
+        m["recordings"] = json.loads(m.get("recordings_json") or "[]")
+        m["metadata"] = json.loads(m.get("metadata_json") or "{}")
+        return m
+
+    def seal_manifest(self, manifest_id: str, operator_id: str) -> Dict[str, Any]:
+        """Seal an existing manifest and freeze its checksum."""
+        now = get_utc_now_iso()
+        manifest = self.get_manifest(manifest_id)
+        if not manifest:
+            raise StethoAPIException(f"Manifest '{manifest_id}' not found.", status_code=404)
+        if manifest["is_sealed"]:
+            raise ManifestSealedException(f"Manifest '{manifest_id}' is already sealed.", manifest_id=manifest_id)
+
+        recording_ids = manifest["recordings"]
+        if not recording_ids:
+            raise StethoAPIException("Cannot seal an empty manifest.", status_code=400)
+
+        with self.db.transaction() as cur:
+            placeholders = ",".join("?" for _ in recording_ids)
+            cur.execute(f"SELECT recording_id, sha256_hash FROM field_recordings WHERE recording_id IN ({placeholders});", recording_ids)
+            recs = cur.fetchall()
+
+            sorted_entries = sorted([(r["recording_id"], r["sha256_hash"]) for r in recs])
+            hasher = hashlib.sha256()
+            for r_id, r_hash in sorted_entries:
+                hasher.update(f"{r_id}:{r_hash}\n".encode("utf-8"))
+            checksum = hasher.hexdigest()
+
+            cur.execute("""
+            UPDATE dataset_manifests
+            SET is_sealed = 1, sealed_at = ?, sha256_checksum = ?, updated_at = ?
+            WHERE manifest_id = ?;
+            """, (now, checksum, now, manifest_id))
+
+        return self.get_manifest(manifest_id)
+
+    def verify_manifest(self, manifest_id: str) -> Dict[str, Any]:
+        """Cryptographically verify all member files and overall manifest checksum against tampering."""
+        manifest = self.get_manifest(manifest_id)
+        if not manifest:
+            raise StethoAPIException(f"Manifest '{manifest_id}' not found.", status_code=404)
+
+        now = get_utc_now_iso()
+        recording_ids = manifest["recordings"]
+        if not recording_ids:
+            return {
+                "manifest_id": manifest_id,
+                "is_valid": False,
+                "tamper_detected": True,
+                "reason": "Manifest has zero member recordings.",
+                "verified_at": now,
+            }
+
+        conn = self.db.get_connection()
+        cur = conn.cursor()
+        placeholders = ",".join("?" for _ in recording_ids)
+        cur.execute(f"SELECT recording_id, sha256_hash, file_path FROM field_recordings WHERE recording_id IN ({placeholders});", recording_ids)
+        rows = {r["recording_id"]: dict(r) for r in cur.fetchall()}
+
+        missing_db = [rid for rid in recording_ids if rid not in rows]
+        if missing_db:
+            return {
+                "manifest_id": manifest_id,
+                "is_valid": False,
+                "tamper_detected": True,
+                "reason": f"Recordings missing from database: {missing_db}",
+                "verified_at": now,
+            }
+
+        tampered_files = []
+        for rid, rec in rows.items():
+            f_path = Path(rec["file_path"])
+            if not f_path.exists():
+                tampered_files.append(f"{rid} (missing on disk)")
+                continue
+            with open(f_path, "rb") as f_in:
+                disk_hash = hashlib.sha256(f_in.read()).hexdigest()
+            if disk_hash != rec["sha256_hash"]:
+                tampered_files.append(f"{rid} (hash mismatch: expected {rec['sha256_hash'][:8]}, disk has {disk_hash[:8]})")
+
+        if tampered_files:
+            return {
+                "manifest_id": manifest_id,
+                "is_valid": False,
+                "tamper_detected": True,
+                "reason": f"File tamper detected: {tampered_files}",
+                "verified_at": now,
+            }
+
+        sorted_entries = sorted([(r["recording_id"], r["sha256_hash"]) for r in rows.values()])
+        hasher = hashlib.sha256()
+        for r_id, r_hash in sorted_entries:
+            hasher.update(f"{r_id}:{r_hash}\n".encode("utf-8"))
+        recomputed = hasher.hexdigest()
+
+        checksum_matches = (recomputed == manifest["sha256_checksum"])
+        return {
+            "manifest_id": manifest_id,
+            "name": manifest["name"],
+            "dataset_role": manifest["dataset_role"],
+            "is_sealed": bool(manifest["is_sealed"]),
+            "is_valid": checksum_matches,
+            "tamper_detected": not checksum_matches,
+            "stored_checksum": manifest["sha256_checksum"],
+            "recomputed_checksum": recomputed,
+            "total_recordings": len(recording_ids),
+            "verified_at": now,
+        }
+
+    def get_recording_audio_path(self, recording_id: str) -> Path:
+        """Fetch and validate audio file path for secure audio delivery."""
+        rec = self.get_recording(recording_id)
+        if not rec:
+            raise StethoAPIException(f"Recording '{recording_id}' not found.", status_code=404)
+        file_path = Path(rec["file_path"]).resolve()
+        base_dir = self.storage_base_dir.resolve()
+        if not str(file_path).startswith(str(base_dir)):
+            raise StethoAPIException("Access denied: File outside storage root.", status_code=403)
+        if not file_path.exists():
+            raise StethoAPIException(f"Audio file for recording '{recording_id}' not found on disk.", status_code=404)
+        return file_path
 
     def get_dashboard_stats(self) -> Dict[str, Any]:
         """Aggregate live field data metrics and evaluate independent pilot readiness."""
